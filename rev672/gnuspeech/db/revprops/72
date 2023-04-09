@@ -1,0 +1,14 @@
+K 10
+svn:author
+V 6
+nygard
+K 8
+svn:date
+V 27
+2004-12-01T08:26:41.000000Z
+K 7
+svn:log
+V 247
+Importing a snapshot of my local repository from 2004-08-24.  This includes an almost fully functional version of Monet that runs on Mac OS X, and a couple other parts.  I have more local changes that I need to finish before adding those changes.
+
+END

@@ -1,0 +1,13 @@
+K 10
+svn:author
+V 9
+dbrisinda
+K 8
+svn:date
+V 27
+2009-05-05T22:08:29.775876Z
+K 7
+svn:log
+V 77
+Use <Foundation/Foundation.h> instead of <Cocoa/Cocoa.h> in NXStream headers.
+END

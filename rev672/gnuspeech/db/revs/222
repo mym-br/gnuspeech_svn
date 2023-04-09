@@ -1,0 +1,95 @@
+id: 3b4.0.r222/0
+type: dir
+count: 0
+cpath: /osx/trunk/Build
+copyroot: 0 /
+
+PLAIN
+K 12
+Applications
+V 17
+dir 5.0.r219/1026
+K 5
+Build
+V 16
+dir 3b4.0.r222/0
+K 10
+Frameworks
+V 18
+dir ci.0.r221/1336
+K 7
+Scripts
+V 19
+dir 8s.0.r2/1785465
+K 5
+Tools
+V 16
+dir 8w.0.r5/4226
+END
+ENDREP
+id: 2.0.r222/274
+type: dir
+pred: 2.0.r221/1661
+count: 77
+text: 222 75 186 186 edb377887af344468ab07d184b7390b8
+cpath: /osx/trunk
+copyroot: 0 /
+
+PLAIN
+K 8
+branches
+V 13
+dir 3.0.r1/65
+K 4
+tags
+V 14
+dir 4.0.r1/134
+K 5
+trunk
+V 16
+dir 2.0.r222/274
+END
+ENDREP
+id: 1.0.r222/528
+type: dir
+pred: 1.0.r221/1919
+count: 77
+text: 222 418 97 97 58aa4435e1d5544c1fbc36300ca92e70
+cpath: /osx
+copyroot: 0 /
+
+PLAIN
+K 4
+docs
+V 18
+dir 2w8.0.r159/538
+K 7
+gnustep
+V 18
+dir kb.0.r214/1947
+K 4
+misc
+V 18
+dir 38v.0.r160/333
+K 8
+nextstep
+V 19
+dir 14l.0.r155/8758
+K 3
+osx
+V 16
+dir 1.0.r222/528
+END
+ENDREP
+id: 0.0.r222/852
+type: dir
+pred: 0.0.r221/2246
+count: 222
+text: 222 665 174 174 00703400583e016b681259e61b434288
+cpath: /
+copyroot: 0 /
+
+_0.0.t221-1 add false false /osx/trunk/Build
+
+
+852 989

@@ -1,0 +1,13 @@
+K 10
+svn:author
+V 9
+dbrisinda
+K 8
+svn:date
+V 27
+2009-05-06T02:51:21.440783Z
+K 7
+svn:log
+V 117
+Added letter to sound original C source files to the Parsers/LetterToSound directory. These have not yet been ported.
+END

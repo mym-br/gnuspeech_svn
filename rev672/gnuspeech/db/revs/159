@@ -1,0 +1,93 @@
+PLAIN
+K 5
+Fonts
+V 22
+dir 2wc.0.r157/4272608
+K 7
+avios95
+V 22
+dir 305.0.r157/4212706
+K 4
+conc
+V 22
+dir 30t.0.r157/4230571
+K 9
+index.htm
+V 23
+file 2wf.0.r157/4273304
+K 12
+monet-manual
+V 22
+dir 32g.0.r158/4075187
+K 12
+pronguid.htm
+V 23
+file 2wg.0.r157/4273447
+END
+ENDREP
+id: 2w9.0.r159/268
+type: dir
+pred: 2w9.0.r158/4075744
+count: 3
+text: 159 0 255 255 1375e579bca4efc42a85c6f421cf3145
+cpath: /docs/trunk
+copyroot: 0 /
+
+PLAIN
+K 8
+branches
+V 17
+dir 2wa.0.r156/70
+K 4
+tags
+V 18
+dir 2wb.0.r156/144
+K 5
+trunk
+V 18
+dir 2w9.0.r159/268
+END
+ENDREP
+id: 2w8.0.r159/538
+type: dir
+pred: 2w8.0.r158/4076028
+count: 3
+text: 159 418 107 107 ccf53d56a9ef05f86054a163b7fac6e9
+cpath: /docs
+copyroot: 0 /
+
+PLAIN
+K 4
+docs
+V 18
+dir 2w8.0.r159/538
+K 7
+gnustep
+V 18
+dir kb.0.r140/1708
+K 8
+nextstep
+V 19
+dir 14l.0.r155/8758
+K 3
+osx
+V 16
+dir 1.0.r70/1651
+END
+ENDREP
+id: 0.0.r159/838
+type: dir
+pred: 0.0.r158/4076340
+count: 159
+text: 159 684 141 141 24f8153f5553086d7911212fd6357424
+cpath: /
+copyroot: 0 /
+
+2wi.0.r157/4272815 delete false false /docs/trunk/monman093.pdf
+
+2wj.0.r157/4273093 delete false false /docs/trunk/smmd2000.pdf
+
+2wh.0.r157/4212915 delete false false /docs/trunk/maratea.pdf
+
+
+838 978

@@ -1,0 +1,132 @@
+id: 3gx.1h.r565/0
+type: file
+pred: 3gx.c.r540/20409
+count: 8
+text: 540 4705 488 5043 53ed2528a3485721a3c0134478324b73
+cpath: /osx/tags/GnuSpeech-0.6/README
+copyfrom: 564 /osx/trunk/README
+
+PLAIN
+K 12
+Applications
+V 17
+dir 4e0.1a.r558/0
+K 6
+Builds
+V 17
+dir 3hc.1b.r559/0
+K 7
+Daemons
+V 17
+dir 3h1.1c.r560/0
+K 10
+Frameworks
+V 16
+dir ci.1d.r561/0
+K 10
+Installers
+V 17
+dir 3he.1e.r562/0
+K 7
+LICENSE
+V 18
+file 4ii.1f.r563/0
+K 5
+Other
+V 17
+dir 3h4.1g.r564/0
+K 6
+README
+V 18
+file 3gx.1h.r565/0
+END
+ENDREP
+id: 4ip.0.r565/497
+type: dir
+pred: 4ip.0.r564/453
+count: 8
+text: 565 189 295 295 a7eeccc9e97e1b2f6cd563df7ebd2728
+cpath: /osx/tags/GnuSpeech-0.6
+copyroot: 0 /
+
+PLAIN
+K 13
+GnuSpeech-0.5
+V 14
+dir 2.f.r301/0
+K 15
+GnuSpeech-0.5.1
+V 19
+dir 3ib.0.r499/1462
+K 13
+GnuSpeech-0.6
+V 18
+dir 4ip.0.r565/497
+END
+ENDREP
+id: 4.0.r565/802
+type: dir
+pred: 4.0.r564/758
+count: 36
+text: 565 657 132 132 fa1414c458ff3ba841b15a21d82f56ef
+cpath: /osx/tags
+copyroot: 0 /
+
+PLAIN
+K 8
+branches
+V 15
+dir 3.0.r510/17
+K 4
+tags
+V 16
+dir 4.0.r565/802
+K 5
+trunk
+V 17
+dir 2.0.r544/3750
+END
+ENDREP
+id: 1.0.r565/1060
+type: dir
+pred: 1.0.r564/1016
+count: 225
+text: 565 945 102 102 ab71bf44641adb45fbd5501d3789a335
+cpath: /osx
+copyroot: 0 /
+
+PLAIN
+K 4
+docs
+V 18
+dir 2w8.0.r509/284
+K 7
+gnustep
+V 19
+dir kb.0.r502/17884
+K 4
+misc
+V 18
+dir 38v.0.r160/333
+K 8
+nextstep
+V 19
+dir 14l.0.r155/8758
+K 3
+osx
+V 17
+dir 1.0.r565/1060
+END
+ENDREP
+id: 0.0.r565/1390
+type: dir
+pred: 0.0.r564/1345
+count: 565
+text: 565 1201 176 176 75dd00c4a7b49c7abbc41a8d896a1a8c
+cpath: /
+copyroot: 0 /
+
+3gx._0.t564-1 add false false /osx/tags/GnuSpeech-0.6/README
+564 /osx/trunk/README
+
+1390 1529

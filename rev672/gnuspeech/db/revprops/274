@@ -1,0 +1,13 @@
+K 10
+svn:author
+V 8
+mymatuda
+K 8
+svn:date
+V 27
+2009-01-13T13:07:59.680041Z
+K 7
+svn:log
+V 160
+Synchronize with the OSX version: Monet now supports regular English text entry instead of the phoneme string / Quick fix for punctuation problems in TTSParser.
+END

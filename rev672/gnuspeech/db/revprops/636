@@ -1,0 +1,13 @@
+K 10
+svn:author
+V 9
+dbrisinda
+K 8
+svn:date
+V 27
+2009-05-14T00:27:12.505231Z
+K 7
+svn:log
+V 142
+Changed default intonation settings to more natural sounding notional pitch = -1, and pre-tonic range = 2 for both Monet and the GnuTTSServer.
+END

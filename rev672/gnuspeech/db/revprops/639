@@ -1,0 +1,13 @@
+K 10
+svn:author
+V 9
+dbrisinda
+K 8
+svn:date
+V 27
+2009-05-15T01:21:42.822276Z
+K 7
+svn:log
+V 210
+Fixed bug in GnuSpeech service for systems running 10.4 that caused speech to fail. Added [[ttsServerProxy connectionForProxy] enableMultipleThreads] since 10.4 systems don't enable multiple threads by default.
+END

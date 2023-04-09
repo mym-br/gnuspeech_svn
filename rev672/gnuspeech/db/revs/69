@@ -1,0 +1,196 @@
+PLAIN
+K 11
+Credits.rtf
+V 20
+file br.0.r7/1685877
+K 17
+InfoPlist.strings
+V 20
+file bs.0.r7/1684785
+END
+ENDREP
+id: bq.0.r69/109
+type: dir
+pred: bq.0.r7/1687167
+count: 1
+text: 69 0 96 96 252015a824c639056b5103c32ba279e7
+cpath: /osx/trunk/Applications/PrEditor/Japanese.lproj
+copyroot: 0 /
+
+PLAIN
+K 9
+APPL.icns
+V 20
+file ae.0.r7/1676134
+K 11
+Delete.tiff
+V 20
+file af.0.r7/1676337
+K 10
+DoulosSIL4
+V 19
+dir aq.0.r7/1679685
+K 13
+English.lproj
+V 17
+dir ax.0.r66/1251
+K 24
+IPA-SIL keyboard 0.6.dmg
+V 20
+file ag.0.r7/1684371
+K 10
+Info.plist
+V 20
+file ah.0.r7/1675971
+K 14
+Japanese.lproj
+V 16
+dir bq.0.r69/109
+K 18
+PrEditor.xcodeproj
+V 18
+dir c5.0.r56/99764
+K 18
+PrEditorDocument.h
+V 20
+file bh.0.r7/1687333
+K 18
+PrEditorDocument.m
+V 20
+file ai.0.r7/1674655
+K 19
+PrEditor_Prefix.pch
+V 20
+file aj.0.r7/1690084
+K 26
+ResponderNotifyingWindow.h
+V 20
+file ak.0.r7/1683869
+K 26
+ResponderNotifyingWindow.m
+V 19
+file al.0.r23/17368
+K 10
+Speak.tiff
+V 20
+file am.0.r7/1676597
+K 10
+Store.tiff
+V 20
+file an.0.r7/1674871
+K 8
+app.tiff
+V 20
+file ao.0.r7/1684090
+K 6
+main.m
+V 20
+file ap.0.r7/1673650
+K 12
+preditorDict
+V 17
+dir cd.0.r39/1844
+END
+ENDREP
+id: ad.0.r69/1125
+type: dir
+pred: ad.0.r68/841
+count: 21
+text: 69 287 825 825 484970a2611683a8b6b70a15543cb173
+cpath: /osx/trunk/Applications/PrEditor
+copyroot: 0 /
+
+PLAIN
+K 5
+Monet
+V 17
+dir 17.0.r65/3261
+K 8
+PrEditor
+V 17
+dir ad.0.r69/1125
+K 5
+PreMo
+V 16
+dir hm.0.r66/883
+END
+ENDREP
+id: 5.0.r69/1409
+type: dir
+pred: 5.0.r68/1122
+count: 54
+text: 69 1291 105 105 4b9ea31c3ab7455ffb6bb8c54329574b
+cpath: /osx/trunk/Applications
+copyroot: 0 /
+
+PLAIN
+K 12
+Applications
+V 16
+dir 5.0.r69/1409
+K 10
+Frameworks
+V 16
+dir ci.0.r67/782
+K 7
+Scripts
+V 19
+dir 8s.0.r2/1785465
+K 5
+Tools
+V 16
+dir 8w.0.r5/4226
+END
+ENDREP
+id: 2.0.r69/1730
+type: dir
+pred: 2.0.r68/1443
+count: 68
+text: 69 1566 151 151 5f78f0c61c11a8e311ef7cb746f93787
+cpath: /osx/trunk
+copyroot: 0 /
+
+PLAIN
+K 8
+branches
+V 13
+dir 3.0.r1/65
+K 4
+tags
+V 14
+dir 4.0.r1/134
+K 5
+trunk
+V 16
+dir 2.0.r69/1730
+END
+ENDREP
+id: 1.0.r69/1984
+type: dir
+pred: 1.0.r68/1697
+count: 68
+text: 69 1874 97 97 8a6de07f17b97534cba29ab8c7a82892
+cpath: /osx
+copyroot: 0 /
+
+PLAIN
+K 3
+osx
+V 16
+dir 1.0.r69/1984
+END
+ENDREP
+id: 0.0.r69/2167
+type: dir
+pred: 0.0.r68/1880
+count: 69
+text: 69 2120 34 34 19335e81a712056ed4123764680d8a6e
+cpath: /
+copyroot: 0 /
+
+bx.0.t68-1 delete false false /osx/trunk/Applications/PrEditor/Japanese.lproj/MyDocument.nib
+
+bt.0.t68-1 delete false false /osx/trunk/Applications/PrEditor/Japanese.lproj/MainMenu.nib
+
+
+2167 2300

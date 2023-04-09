@@ -1,0 +1,739 @@
+PLAIN
+K 16
+MessageStructs.h
+V 24
+file 2fu.0.r142/30544316
+K 8
+PrDict.h
+V 24
+file 2fv.0.r142/30546500
+K 20
+RealTimeController.h
+V 24
+file 2fw.0.r142/30535363
+K 16
+SpeechMessages.h
+V 24
+file 2fx.0.r142/30533806
+K 15
+abbreviations.h
+V 24
+file 2fy.0.r142/30547110
+K 8
+andMap.h
+V 24
+file 2fz.0.r142/30541867
+K 14
+apply_stress.h
+V 24
+file 2g0.0.r142/30547423
+K 18
+augmented_search.h
+V 24
+file 2g1.0.r142/30541554
+K 8
+buffer.h
+V 24
+file 2g2.0.r142/30543698
+K 12
+categories.h
+V 24
+file 2g3.0.r142/30539386
+K 17
+check_word_list.h
+V 24
+file 2g4.0.r142/30534432
+K 10
+clusters.h
+V 24
+file 2g5.0.r142/30535056
+K 12
+conversion.h
+V 24
+file 2g6.0.r142/30539692
+K 16
+diphone_module.h
+V 24
+file 2g7.0.r142/30531921
+K 11
+ends_with.h
+V 24
+file 2g8.0.r142/30538767
+K 10
+evaluate.h
+V 24
+file 2g9.0.r142/30535680
+K 9
+final_s.h
+V 24
+file 2ga.0.r142/30537530
+K 9
+ie_to_y.h
+V 24
+file 2gg.0.r142/30546806
+K 13
+insert_mark.h
+V 24
+file 2gh.0.r142/30545561
+K 11
+isp_trans.h
+V 24
+file 2gi.0.r142/30542482
+K 17
+letter_to_sound.h
+V 24
+file 2gj.0.r142/30537218
+K 20
+long_medial_vowels.h
+V 24
+file 2gk.0.r142/30536903
+K 10
+mainDict.h
+V 24
+file 2gl.0.r142/30540000
+K 15
+mappingBuffer.h
+V 24
+file 2gm.0.r142/30539073
+K 14
+mark_final_e.h
+V 24
+file 2gn.0.r142/30535984
+K 10
+medial_s.h
+V 24
+file 2go.0.r142/30544941
+K 17
+medial_silent_e.h
+V 24
+file 2gp.0.r142/30544629
+K 8
+member.h
+V 24
+file 2gq.0.r142/30543395
+K 15
+number_parser.h
+V 24
+file 2gr.0.r142/30534744
+K 23
+number_pronunciations.h
+V 24
+file 2gs.0.r142/30546178
+K 31
+number_pronunciations_english.h
+V 24
+file 2gt.0.r142/30532233
+K 15
+parser_module.h
+V 24
+file 2gu.0.r142/30542171
+K 18
+phoneDescription.h
+V 24
+file 2gv.0.r142/30545246
+K 18
+phone_conversion.h
+V 24
+file 2gw.0.r142/30538140
+K 14
+preditorDict.h
+V 24
+file 2gx.0.r142/30532563
+K 6
+rule.h
+V 24
+file 2gy.0.r142/30536293
+K 8
+search.h
+V 24
+file 2gz.0.r142/30543091
+K 16
+serverDefaults.h
+V 24
+file 2h0.0.r142/30533188
+K 16
+server_structs.h
+V 24
+file 2h1.0.r142/30541241
+K 18
+special_acronyms.h
+V 24
+file 2h2.0.r142/30540608
+K 14
+stresstables.h
+V 24
+file 2h3.0.r142/30538455
+K 9
+structs.h
+V 24
+file 2h4.0.r142/30536597
+K 8
+suffix.h
+V 24
+file 2h5.0.r142/30542788
+K 13
+suffix_list.h
+V 24
+file 2h6.0.r142/30534120
+K 11
+syllabify.h
+V 24
+file 2h7.0.r142/30533500
+K 20
+synthesizer_module.h
+V 24
+file 2h8.0.r142/30540922
+K 6
+tail.h
+V 24
+file 2h9.0.r142/30540306
+K 10
+template.h
+V 24
+file 2ha.0.r142/30537834
+K 14
+vowel_before.h
+V 24
+file 2hb.0.r142/30545869
+K 18
+word_to_patphone.h
+V 24
+file 2hc.0.r142/30544003
+END
+ENDREP
+id: 2ft.0.r155/2491
+type: dir
+pred: 2ft.0.r142/30550229
+count: 1
+text: 155 0 2478 2478 755d1db2d8e9ed6e1e5a40e73ceee625
+cpath: /nextstep/trunk/src/SpeechObject/postMonet/server.monet/headerFiles
+copyroot: 0 /
+
+PLAIN
+K 8
+DemoUtts
+V 24
+file 2eu.0.r142/30507787
+K 8
+Makefile
+V 24
+file 2ev.0.r142/30550467
+K 12
+Makefile.old
+V 24
+file 2ew.0.r142/30500936
+K 10
+Messages.c
+V 24
+file 2ex.0.r142/30493108
+K 6
+Serial
+V 23
+dir 2fd.0.r142/30491693
+K 14
+ServerVersions
+V 24
+file 2ey.0.r142/30505160
+K 20
+SpeechMessages.h.old
+V 24
+file 2ez.0.r142/30507481
+K 12
+SpeechPasswd
+V 23
+dir 2ff.0.r142/30500699
+K 12
+delta_calc.c
+V 24
+file 2f0.0.r142/30501831
+K 4
+docs
+V 23
+dir 2fp.0.r142/30494431
+K 4
+file
+V 24
+file 2f1.0.r142/30491080
+K 11
+headerFiles
+V 19
+dir 2ft.0.r155/2491
+K 15
+letter_to_sound
+V 23
+dir 2he.0.r142/30517492
+K 6
+main.c
+V 24
+file 2f2.0.r142/30509730
+K 8
+mainDict
+V 23
+dir 2hy.0.r142/30497097
+K 8
+newenv.c
+V 24
+file 2f3.0.r142/30491922
+K 13
+normal_dist.c
+V 24
+file 2f4.0.r142/30501534
+K 13
+number_parser
+V 23
+dir 2i6.0.r142/30509492
+K 3
+obj
+V 23
+dir 2ib.0.r142/30531691
+K 3
+out
+V 24
+file 2f5.0.r142/30510315
+K 13
+parser_module
+V 23
+dir 2jb.0.r142/30507243
+K 12
+preditorDict
+V 23
+dir 2jh.0.r142/30504617
+K 8
+server.c
+V 24
+file 2f6.0.r142/30492519
+K 16
+server_handler.c
+V 24
+file 2f7.0.r142/30492216
+K 9
+structs.c
+V 24
+file 2f8.0.r142/30492814
+K 20
+structs.c.ThreadTest
+V 24
+file 2f9.0.r142/30504854
+K 7
+swiss.c
+V 24
+file 2fa.0.r142/30497330
+K 4
+util
+V 23
+dir 2jp.0.r142/30553123
+K 9
+version.c
+V 24
+file 2fb.0.r142/30510022
+K 16
+vowelTransitions
+V 24
+file 2fc.0.r142/30501234
+END
+ENDREP
+id: 2et.0.r155/4072
+type: dir
+pred: 2et.0.r142/30554684
+count: 1
+text: 155 2701 1358 1358 47bb1fd40279d0450165a428c83dc1de
+cpath: /nextstep/trunk/src/SpeechObject/postMonet/server.monet
+copyroot: 0 /
+
+PLAIN
+K 10
+objC.monet
+V 23
+dir 2cl.0.r142/30571212
+K 12
+server.monet
+V 19
+dir 2et.0.r155/4072
+END
+ENDREP
+id: 2ck.0.r155/4378
+type: dir
+pred: 2ck.0.r142/30571502
+count: 1
+text: 155 4273 92 92 68eb40f71b6f7204a611673a8047f598
+cpath: /nextstep/trunk/src/SpeechObject/postMonet
+copyroot: 0 /
+
+PLAIN
+K 13
+addPassword.c
+V 24
+file 2nl.0.r142/30579353
+K 7
+addpass
+V 24
+file 2nn.0.r142/30576675
+K 7
+compile
+V 24
+file 2np.0.r142/30578171
+K 7
+genpass
+V 24
+file 2nr.0.r142/30576976
+K 9
+genpass.c
+V 24
+file 2ns.0.r142/30577571
+K 14
+memLayout.draw
+V 23
+dir 2o3.0.r142/30578811
+K 7
+munge.c
+V 24
+file 2nu.0.r142/30579657
+K 6
+test.c
+V 24
+file 2nw.0.r142/30577275
+K 8
+testpass
+V 24
+file 2nx.0.r142/30577871
+K 12
+testpass.new
+V 24
+file 2nz.0.r142/30579955
+END
+ENDREP
+id: 2nk.0.r155/5021
+type: dir
+pred: 2nk.0.r142/30580718
+count: 1
+text: 155 4562 446 446 fe8968af00c56f4f42243bce8a63cc36
+cpath: /nextstep/trunk/src/SpeechObject/preMonet/server/SpeechPasswd
+copyroot: 0 /
+
+PLAIN
+K 8
+Makefile
+V 24
+file 2mz.0.r142/30622331
+K 12
+Makefile.old
+V 24
+file 2n0.0.r142/30580948
+K 10
+Messages.c
+V 24
+file 2n2.0.r142/30574097
+K 14
+ServerVersions
+V 24
+file 2n3.0.r142/30594139
+K 12
+SpeechPasswd
+V 19
+dir 2nk.0.r155/5021
+K 12
+delta_calc.c
+V 24
+file 2n5.0.r142/30587384
+K 23
+delta_calc.c.ThreadTest
+V 24
+file 2n6.0.r142/30596042
+K 14
+diphone_module
+V 23
+dir 2o6.0.r142/30586862
+K 4
+docs
+V 23
+dir 2p5.0.r142/30573587
+K 11
+headerFiles
+V 23
+dir 2pe.0.r142/30622100
+K 15
+letter_to_sound
+V 23
+dir 2sa.0.r142/30604996
+K 6
+main.c
+V 24
+file 2n8.0.r142/30597961
+K 8
+mainDict
+V 23
+dir 2te.0.r142/30576449
+K 8
+newenv.c
+V 24
+file 2na.0.r142/30571711
+K 13
+normal_dist.c
+V 24
+file 2nc.0.r142/30587094
+K 13
+number_parser
+V 23
+dir 2tr.0.r142/30597730
+K 13
+parser_module
+V 23
+dir 2u0.0.r142/30595811
+K 12
+preditorDict
+V 23
+dir 2u7.0.r142/30590114
+K 8
+server.c
+V 24
+file 2ne.0.r142/30572294
+K 16
+server_handler.c
+V 24
+file 2nf.0.r142/30571998
+K 9
+structs.c
+V 24
+file 2nh.0.r142/30573809
+K 20
+structs.c.ThreadTest
+V 24
+file 2ni.0.r142/30593840
+K 18
+synthesizer_module
+V 23
+dir 2uf.0.r142/30593604
+K 4
+util
+V 23
+dir 2up.0.r142/30624931
+END
+ENDREP
+id: 2my.0.r155/6367
+type: dir
+pred: 2my.0.r142/30626255
+count: 1
+text: 155 5226 1128 1128 8d75d9343e44a024d5092f4b1ef4babf
+cpath: /nextstep/trunk/src/SpeechObject/preMonet/server
+copyroot: 0 /
+
+PLAIN
+K 6
+client
+V 23
+dir 2d4.0.r142/30662931
+K 8
+objc.old
+V 23
+dir 2dj.0.r142/30642632
+K 6
+server
+V 19
+dir 2my.0.r155/6367
+END
+ENDREP
+id: 2d3.0.r155/6696
+type: dir
+pred: 2d3.0.r142/30663242
+count: 1
+text: 155 6561 122 122 ddcffeacbfa210e4a01378bd7247a471
+cpath: /nextstep/trunk/src/SpeechObject/preMonet
+copyroot: 0 /
+
+PLAIN
+K 10
+Dictionary
+V 23
+dir 2c2.0.r142/30490868
+K 6
+README
+V 24
+file 2c0.0.r142/30663452
+K 11
+dspLod2Core
+V 23
+dir 2ch.0.r142/30485853
+K 9
+postMonet
+V 19
+dir 2ck.0.r155/4378
+K 8
+preMonet
+V 19
+dir 2d3.0.r155/6696
+END
+ENDREP
+id: 2bz.0.r155/7107
+type: dir
+pred: 2bz.0.r142/30663910
+count: 1
+text: 155 6881 213 213 c86e40de3c6734b10560ff2d98ec8122
+cpath: /nextstep/trunk/src/SpeechObject
+copyroot: 0 /
+
+PLAIN
+K 11
+AreaPalette
+V 23
+dir 24s.0.r142/30410459
+K 9
+DEGAS-2.0
+V 23
+dir 25x.0.r142/30376261
+K 14
+DriftGenerator
+V 23
+dir 27z.0.r142/30353588
+K 14
+ForbesPrEditor
+V 23
+dir 284.0.r142/30474946
+K 8
+PrEditor
+V 23
+dir 286.0.r142/30474430
+K 12
+SpeechObject
+V 19
+dir 2bz.0.r155/7107
+K 11
+Synthesizer
+V 19
+dir 2l6.0.r146/4340
+K 7
+TRMData
+V 23
+dir 2ou.0.r142/30475744
+K 13
+ToneGenerator
+V 23
+dir 2oz.0.r142/30483298
+K 13
+TurtleBeachMS
+V 23
+dir 2qc.0.r142/30388176
+K 11
+dspLod2Core
+V 23
+dir 2s3.0.r142/30377070
+K 11
+softwareTRM
+V 23
+dir 2s8.0.r142/30485019
+K 11
+tube_module
+V 23
+dir 2sk.0.r142/30397125
+END
+ENDREP
+id: 24r.0.r155/7889
+type: dir
+pred: 24r.0.r146/5123
+count: 3
+text: 155 7283 593 593 ecb4841549b2e31ab4884dc51328c6df
+cpath: /nextstep/trunk/src
+copyroot: 0 /
+
+PLAIN
+K 4
+Apps
+V 18
+dir 172.0.r150/277
+K 8
+CONTENTS
+V 20
+file 2w7.0.r152/2728
+K 30
+Copyright_Notice_and_Agreement
+V 20
+file 2w4.0.r148/1119
+K 10
+Dictionary
+V 23
+dir 19q.0.r142/30341442
+K 10
+ObjectiveC
+V 20
+dir 14p.0.r153/13830
+K 15
+TextToSpeechKit
+V 23
+dir 1zv.0.r142/30352125
+K 3
+bin
+V 23
+dir 228.0.r142/30674942
+K 4
+priv
+V 19
+dir 233.0.r154/1392
+K 3
+src
+V 19
+dir 24r.0.r155/7889
+K 10
+tubeparams
+V 19
+file 2w5.0.r149/860
+END
+ENDREP
+id: 14m.0.r155/8481
+type: dir
+pred: 14m.0.r154/1989
+count: 14
+text: 155 8048 420 420 1947f454ba63d8d5b29bca6b634d2dc3
+cpath: /nextstep/trunk
+copyroot: 0 /
+
+PLAIN
+K 8
+branches
+V 17
+dir 14n.0.r141/74
+K 4
+tags
+V 18
+dir 14o.0.r141/152
+K 5
+trunk
+V 19
+dir 14m.0.r155/8481
+END
+ENDREP
+id: 14l.0.r155/8758
+type: dir
+pred: 14l.0.r154/2267
+count: 14
+text: 155 8637 108 108 480eeef30b51f2156f0208a4e1ba1a62
+cpath: /nextstep
+copyroot: 0 /
+
+PLAIN
+K 7
+gnustep
+V 18
+dir kb.0.r140/1708
+K 8
+nextstep
+V 19
+dir 14l.0.r155/8758
+K 3
+osx
+V 16
+dir 1.0.r70/1651
+END
+ENDREP
+id: 0.0.r155/9029
+type: dir
+pred: 0.0.r154/2539
+count: 155
+text: 155 8908 108 108 23129032738d3f7d26cb830672e6cd84
+cpath: /
+copyroot: 0 /
+
+2o1.0.r142/30579054 delete false false /nextstep/trunk/src/SpeechObject/preMonet/server/SpeechPasswd/munge.c~
+
+2hd.0.r142/30532875 delete false false /nextstep/trunk/src/SpeechObject/postMonet/server.monet/headerFiles/suffix_list.h~
+
+
+9029 9168

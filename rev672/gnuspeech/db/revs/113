@@ -1,0 +1,119 @@
+PLAIN
+K 19
+GnuSpeech.xcodeproj
+V 18
+dir 119.0.r111/773
+K 6
+README
+V 19
+file 13t.0.r111/966
+END
+ENDREP
+id: kg.0.r113/102
+type: dir
+pred: kg.0.r112/435
+count: 11
+text: 113 0 89 89 3d5d47c461b5b960b622786981447343
+cpath: /gnustep/trunk/Applications/GnuSpeech
+copyroot: 0 /
+
+PLAIN
+K 9
+GnuSpeech
+V 17
+dir kg.0.r113/102
+K 5
+Monet
+V 20
+dir lh.0.r101/617643
+K 8
+PrEditor
+V 18
+dir un.0.r110/2053
+K 5
+PreMo
+V 19
+dir 11w.0.r103/4736
+END
+ENDREP
+id: kf.0.r113/433
+type: dir
+pred: kf.0.r112/771
+count: 33
+text: 113 271 149 149 06e9b240bdc60e21878f0ea1d0462e6c
+cpath: /gnustep/trunk/Applications
+copyroot: 0 /
+
+PLAIN
+K 12
+Applications
+V 17
+dir kf.0.r113/433
+K 10
+Frameworks
+V 18
+dir ws.0.r103/2935
+K 7
+Scripts
+V 20
+dir t2.0.r72/1787921
+K 5
+Tools
+V 17
+dir t6.0.r75/4296
+END
+ENDREP
+id: kc.0.r113/765
+type: dir
+pred: kc.0.r112/1104
+count: 42
+text: 113 596 156 156 b010f52791bb77735e0f2156cc9f4253
+cpath: /gnustep/trunk
+copyroot: 0 /
+
+PLAIN
+K 8
+branches
+V 15
+dir kd.0.r71/71
+K 4
+tags
+V 16
+dir ke.0.r71/146
+K 5
+trunk
+V 17
+dir kc.0.r113/765
+END
+ENDREP
+id: kb.0.r113/1031
+type: dir
+pred: kb.0.r112/1372
+count: 42
+text: 113 916 102 102 71d35cdb0aeb20ec12ed3a739461d596
+cpath: /gnustep
+copyroot: 0 /
+
+PLAIN
+K 7
+gnustep
+V 18
+dir kb.0.r113/1031
+K 3
+osx
+V 16
+dir 1.0.r70/1651
+END
+ENDREP
+id: 0.0.r113/1260
+type: dir
+pred: 0.0.r112/1602
+count: 113
+text: 113 1177 70 70 df23ba192662b3486bdfc426287bdfb1
+cpath: /
+copyroot: 0 /
+
+l9.0.t112-1 delete false false /gnustep/trunk/Applications/GnuSpeech/English.lproj
+
+
+1260 1397

@@ -1,0 +1,13 @@
+K 10
+svn:author
+V 9
+dbrisinda
+K 8
+svn:date
+V 27
+2009-04-12T07:05:24.762555Z
+K 7
+svn:log
+V 146
+Updated version number to 0.9.4 for all Monet source files. Added simple text coloring of English text string when phone/posture string is edited.
+END

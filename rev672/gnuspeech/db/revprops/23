@@ -1,0 +1,14 @@
+K 10
+svn:author
+V 9
+dbrisinda
+K 8
+svn:date
+V 27
+2008-10-14T04:41:11.000000Z
+K 7
+svn:log
+V 384
+Ported all existing applications (Monet, PrEditor, PreMo) and frameworks (GnuSpech.framework, Tube.framework) to run and compile on OS X 10.5 using Xcode 3.1.1. PrEditor requires the 10.4 SDK due to libraries that have become deprecated in 10.5. Also, the pre-monet text-to-phone application has been changed from the name GnuSpeech to PreMo which more aptly describes it's function.
+
+END

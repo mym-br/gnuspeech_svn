@@ -1,0 +1,300 @@
+PLAIN
+K 17
+InfoPlist.strings
+V 21
+file in.0.r25/2800770
+K 13
+MainMenu.gorm
+V 20
+dir iq.0.r25/2801859
+K 12
+MainMenu.xib
+V 19
+file ip.0.r56/97105
+K 16
+locversion.plist
+V 21
+file io.0.r25/2802037
+END
+ENDREP
+id: im.0.r66/204
+type: dir
+pred: im.0.r56/97552
+count: 3
+text: 66 0 191 191 f19387e5950222ca2c3ba084e222db98
+cpath: /osx/trunk/Applications/PreMo/English.lproj
+copyroot: 0 /
+
+PLAIN
+K 9
+.DS_Store
+V 21
+file hn.0.r25/2799788
+K 21
+ApplicationDelegate.h
+V 21
+file ho.0.r25/2799944
+K 21
+ApplicationDelegate.m
+V 21
+file hp.0.r25/2800599
+K 13
+English.lproj
+V 16
+dir im.0.r66/204
+K 11
+GNUmakefile
+V 21
+file hq.0.r25/2800272
+K 10
+Info.plist
+V 21
+file hr.0.r25/2800113
+K 15
+PreMo.xcodeproj
+V 18
+dir iu.0.r58/10247
+K 16
+PreMo_Prefix.pch
+V 21
+file hs.0.r25/2800434
+K 5
+build
+V 16
+dir hv.0.r54/287
+K 6
+main.m
+V 21
+file ht.0.r25/2792475
+K 13
+version.plist
+V 21
+file hu.0.r25/2792630
+END
+ENDREP
+id: hm.0.r66/883
+type: dir
+pred: hm.0.r58/10935
+count: 12
+text: 66 379 491 491 d27b3088a993512c6ffce858338c7f5f
+cpath: /osx/trunk/Applications/PreMo
+copyroot: 0 /
+
+PLAIN
+K 11
+Credits.rtf
+V 20
+file ay.0.r7/1687690
+K 17
+InfoPlist.strings
+V 20
+file az.0.r7/1687506
+K 12
+MainMenu.xib
+V 20
+file j9.0.r56/100164
+K 20
+PrEditorDocument.xib
+V 19
+file ja.0.r56/99954
+END
+ENDREP
+id: ax.0.r66/1251
+type: dir
+pred: ax.0.r56/100758
+count: 5
+text: 66 1047 191 191 e1aaa434180377a32a7f93ff5a322044
+cpath: /osx/trunk/Applications/PrEditor/English.lproj
+copyroot: 0 /
+
+PLAIN
+K 9
+APPL.icns
+V 20
+file ae.0.r7/1676134
+K 11
+Delete.tiff
+V 20
+file af.0.r7/1676337
+K 10
+DoulosSIL4
+V 19
+dir aq.0.r7/1679685
+K 13
+English.lproj
+V 17
+dir ax.0.r66/1251
+K 24
+IPA-SIL keyboard 0.6.dmg
+V 20
+file ag.0.r7/1684371
+K 10
+Info.plist
+V 20
+file ah.0.r7/1675971
+K 14
+Japanese.lproj
+V 19
+dir bq.0.r7/1687167
+K 12
+MainMenu.nib
+V 19
+dir c1.0.r7/1674491
+K 18
+PrEditor.xcodeproj
+V 18
+dir c5.0.r56/99764
+K 18
+PrEditorDocument.h
+V 20
+file bh.0.r7/1687333
+K 18
+PrEditorDocument.m
+V 20
+file ai.0.r7/1674655
+K 20
+PrEditorDocument.nib
+V 19
+dir c9.0.r7/1678131
+K 19
+PrEditor_Prefix.pch
+V 20
+file aj.0.r7/1690084
+K 26
+ResponderNotifyingWindow.h
+V 20
+file ak.0.r7/1683869
+K 26
+ResponderNotifyingWindow.m
+V 19
+file al.0.r23/17368
+K 10
+Speak.tiff
+V 20
+file am.0.r7/1676597
+K 10
+Store.tiff
+V 20
+file an.0.r7/1674871
+K 8
+app.tiff
+V 20
+file ao.0.r7/1684090
+K 6
+main.m
+V 20
+file ap.0.r7/1673650
+K 12
+preditorDict
+V 17
+dir cd.0.r39/1844
+END
+ENDREP
+id: ad.0.r66/2369
+type: dir
+pred: ad.0.r56/101880
+count: 19
+text: 66 1434 922 922 56d3c5077e3cda89bb3a945b9a1bfae1
+cpath: /osx/trunk/Applications/PrEditor
+copyroot: 0 /
+
+PLAIN
+K 5
+Monet
+V 17
+dir 17.0.r65/3261
+K 8
+PrEditor
+V 17
+dir ad.0.r66/2369
+K 5
+PreMo
+V 16
+dir hm.0.r66/883
+END
+ENDREP
+id: 5.0.r66/2657
+type: dir
+pred: 5.0.r65/3547
+count: 52
+text: 66 2539 105 105 3986c67c0c7b6b07361f2459eb01c48a
+cpath: /osx/trunk/Applications
+copyroot: 0 /
+
+PLAIN
+K 12
+Applications
+V 16
+dir 5.0.r66/2657
+K 10
+Frameworks
+V 17
+dir ci.0.r61/5937
+K 7
+Scripts
+V 19
+dir 8s.0.r2/1785465
+K 5
+Tools
+V 16
+dir 8w.0.r5/4226
+END
+ENDREP
+id: 2.0.r66/2979
+type: dir
+pred: 2.0.r65/3869
+count: 65
+text: 66 2814 152 152 9297eef2494787ea914da04efd40b71d
+cpath: /osx/trunk
+copyroot: 0 /
+
+PLAIN
+K 8
+branches
+V 13
+dir 3.0.r1/65
+K 4
+tags
+V 14
+dir 4.0.r1/134
+K 5
+trunk
+V 16
+dir 2.0.r66/2979
+END
+ENDREP
+id: 1.0.r66/3233
+type: dir
+pred: 1.0.r65/4123
+count: 65
+text: 66 3123 97 97 640f4c29c4acd89469ae82b843fbc444
+cpath: /osx
+copyroot: 0 /
+
+PLAIN
+K 3
+osx
+V 16
+dir 1.0.r66/3233
+END
+ENDREP
+id: 0.0.r66/3416
+type: dir
+pred: 0.0.r65/4306
+count: 66
+text: 66 3369 34 34 d20207f7f665d33569f5a1bac54b5ab7
+cpath: /
+copyroot: 0 /
+
+k4.0.t65-1 delete false false /osx/trunk/Applications/PreMo/English.lproj/MainMenu.nib
+
+b4.0.t65-1 delete false false /osx/trunk/Applications/PrEditor/English.lproj/PrEditorDocument~.nib
+
+b0.0.t65-1 delete false false /osx/trunk/Applications/PrEditor/English.lproj/MainMenu~.nib
+
+k0.0.t65-1 delete false false /osx/trunk/Applications/PrEditor/English.lproj/PrEditorDocument.nib
+
+jw.0.t65-1 delete false false /osx/trunk/Applications/PrEditor/English.lproj/MainMenu.nib
+
+
+3416 3549

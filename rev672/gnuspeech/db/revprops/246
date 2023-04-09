@@ -1,0 +1,13 @@
+K 10
+svn:author
+V 8
+mymatuda
+K 8
+svn:date
+V 27
+2009-01-07T16:42:32.536126Z
+K 7
+svn:log
+V 94
+Renamed TRMData to TRMInputData because there is an ObjC class with the same name - TRMData.h.
+END

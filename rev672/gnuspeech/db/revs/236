@@ -1,0 +1,120 @@
+PLAIN
+K 12
+GnuTTSClient
+V 16
+dir 3d5.6.r234/0
+K 12
+GnuTTSServer
+V 18
+dir 3cn.0.r234/955
+K 5
+Monet
+V 17
+dir 17.0.r65/3261
+K 8
+PrEditor
+V 18
+dir ad.0.r216/1039
+K 5
+PreMo
+V 17
+dir hm.0.r219/741
+END
+ENDREP
+id: 5.0.r236/202
+type: dir
+pred: 5.0.r235/47861
+count: 73
+text: 236 0 189 189 3f4fdcad0739b9e0bcb7fb4d3d08c88a
+cpath: /osx/trunk/Applications
+copyroot: 0 /
+
+PLAIN
+K 12
+Applications
+V 16
+dir 5.0.r236/202
+K 5
+Build
+V 16
+dir 3b4.0.r222/0
+K 10
+Frameworks
+V 18
+dir ci.0.r221/1336
+K 7
+Scripts
+V 19
+dir 8s.0.r2/1785465
+K 5
+Tools
+V 16
+dir 8w.0.r5/4226
+END
+ENDREP
+id: 2.0.r236/557
+type: dir
+pred: 2.0.r235/48223
+count: 90
+text: 236 359 185 185 72054f381cad85a2e95f87dd86177d07
+cpath: /osx/trunk
+copyroot: 0 /
+
+PLAIN
+K 8
+branches
+V 13
+dir 3.0.r1/65
+K 4
+tags
+V 14
+dir 4.0.r1/134
+K 5
+trunk
+V 16
+dir 2.0.r236/557
+END
+ENDREP
+id: 1.0.r236/813
+type: dir
+pred: 1.0.r235/48484
+count: 90
+text: 236 703 97 97 1c525dcba51a17893bbefff0fbbbb572
+cpath: /osx
+copyroot: 0 /
+
+PLAIN
+K 4
+docs
+V 18
+dir 2w8.0.r159/538
+K 7
+gnustep
+V 17
+dir kb.0.r223/547
+K 4
+misc
+V 18
+dir 38v.0.r160/333
+K 8
+nextstep
+V 19
+dir 14l.0.r155/8758
+K 3
+osx
+V 16
+dir 1.0.r236/813
+END
+ENDREP
+id: 0.0.r236/1137
+type: dir
+pred: 0.0.r235/48813
+count: 236
+text: 236 951 173 173 289f419f7ae93f404dc5d8f16e1e0d4d
+cpath: /
+copyroot: 0 /
+
+3di.0.r235/47451 delete false false /osx/trunk/Applications/GnuSpeechService
+
+
+1137 1276

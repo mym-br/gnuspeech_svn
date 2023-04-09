@@ -1,0 +1,13 @@
+K 10
+svn:author
+V 9
+dbrisinda
+K 8
+svn:date
+V 27
+2009-05-19T17:30:50.663831Z
+K 7
+svn:log
+V 148
+Fixed bug that crashed the GnuSpeech framework when parsing strings containing non-ascii-convertible characters. Updated framework to version 0.9.1.
+END

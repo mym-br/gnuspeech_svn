@@ -1,0 +1,153 @@
+id: 3hc.12.r548/0
+type: dir
+pred: 3hc.0.r543/887
+count: 5
+text: 543 668 206 206 6a11c5d20d73e32ac3e07238666f5c4b
+cpath: /osx/tags/GnuSpeech-0.6/Builds
+copyfrom: 547 /osx/tags/GnuSpeech-0.6/trunk/Builds
+
+PLAIN
+K 7
+Daemons
+V 20
+dir 3h1.0.r540/20249
+K 10
+Frameworks
+V 18
+dir ci.0.r537/9046
+K 10
+Installers
+V 19
+dir 3he.0.r544/3223
+K 7
+LICENSE
+V 21
+file 4ii.0.r540/14838
+K 5
+Other
+V 18
+dir 3h4.0.r282/261
+K 6
+README
+V 21
+file 3gx.c.r540/20409
+K 8
+Services
+V 20
+dir 3h2.0.r540/16478
+END
+ENDREP
+id: 2.10.r548/489
+type: dir
+pred: 2.10.r547/321
+count: 190
+text: 548 203 273 273 7cec0b75b16761a119582470c3cbd747
+cpath: /osx/tags/GnuSpeech-0.6/trunk
+copyroot: 546 /osx/tags/GnuSpeech-0.6/trunk
+
+PLAIN
+K 12
+Applications
+V 19
+dir 4e0.11.r547/513
+K 6
+Builds
+V 17
+dir 3hc.12.r548/0
+K 5
+trunk
+V 17
+dir 2.10.r548/489
+END
+ENDREP
+id: 4io.0.r548/812
+type: dir
+pred: 4io.0.r547/828
+count: 3
+text: 548 685 114 114 b777dc21ec168fc2f8009a8a1642d008
+cpath: /osx/tags/GnuSpeech-0.6
+copyroot: 0 /
+
+PLAIN
+K 13
+GnuSpeech-0.5
+V 14
+dir 2.f.r301/0
+K 15
+GnuSpeech-0.5.1
+V 19
+dir 3ib.0.r499/1462
+K 13
+GnuSpeech-0.6
+V 18
+dir 4io.0.r548/812
+END
+ENDREP
+id: 4.0.r548/1117
+type: dir
+pred: 4.0.r547/1131
+count: 19
+text: 548 972 132 132 120f742e1b3686adb48f2c2133484917
+cpath: /osx/tags
+copyroot: 0 /
+
+PLAIN
+K 8
+branches
+V 15
+dir 3.0.r510/17
+K 4
+tags
+V 17
+dir 4.0.r548/1117
+K 5
+trunk
+V 17
+dir 2.0.r544/3750
+END
+ENDREP
+id: 1.0.r548/1378
+type: dir
+pred: 1.0.r547/1391
+count: 208
+text: 548 1262 103 103 6e6ae90420bad69a16f10ab8da25b830
+cpath: /osx
+copyroot: 0 /
+
+PLAIN
+K 4
+docs
+V 18
+dir 2w8.0.r509/284
+K 7
+gnustep
+V 19
+dir kb.0.r502/17884
+K 4
+misc
+V 18
+dir 38v.0.r160/333
+K 8
+nextstep
+V 19
+dir 14l.0.r155/8758
+K 3
+osx
+V 17
+dir 1.0.r548/1378
+END
+ENDREP
+id: 0.0.r548/1709
+type: dir
+pred: 0.0.r547/1721
+count: 548
+text: 548 1520 176 176 ec6839a5ee10cf64daff206dfcaaa528
+cpath: /
+copyroot: 0 /
+
+3hc._0.t547-1 add false false /osx/tags/GnuSpeech-0.6/Builds
+547 /osx/tags/GnuSpeech-0.6/trunk/Builds
+3hc.0.r543/887 delete false false /osx/tags/GnuSpeech-0.6/trunk/Builds
+
+
+1709 1848

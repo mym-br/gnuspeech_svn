@@ -1,0 +1,14 @@
+K 10
+svn:author
+V 6
+nygard
+K 8
+svn:date
+V 27
+2007-02-12T02:11:09.000000Z
+K 7
+svn:log
+V 77
+Added dictionary and text processing classes from the GnuSpeech application.
+
+END

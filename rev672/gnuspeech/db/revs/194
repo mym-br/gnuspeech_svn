@@ -1,0 +1,178 @@
+PLAIN
+K 15
+project.pbxproj
+V 21
+file 138.0.r188/20644
+END
+ENDREP
+id: 134.0.r194/65
+type: dir
+pred: 134.0.r193/119
+count: 17
+text: 194 0 52 52 02d92b73d9846a000e95c0dc420e06c6
+cpath: /gnustep/trunk/Applications/PreMo/PreMo.xcodeproj
+copyroot: 0 /
+
+PLAIN
+K 9
+.DS_Store
+V 22
+file 11x.0.r95/2799959
+K 21
+ApplicationDelegate.h
+V 22
+file 11y.0.r95/2800120
+K 21
+ApplicationDelegate.m
+V 22
+file 11z.0.r95/2800795
+K 13
+English.lproj
+V 20
+dir 12w.0.r188/20242
+K 11
+GNUmakefile
+V 22
+file 120.0.r95/2800458
+K 10
+Info.plist
+V 22
+file 121.0.r95/2800294
+K 15
+PreMo.xcodeproj
+V 17
+dir 134.0.r194/65
+K 16
+PreMo_Prefix.pch
+V 22
+file 122.0.r95/2800625
+K 5
+build
+V 18
+dir 125.0.r124/299
+K 6
+main.m
+V 22
+file 123.0.r95/2792475
+K 13
+version.plist
+V 22
+file 124.0.r95/2792635
+END
+ENDREP
+id: 11w.0.r194/764
+type: dir
+pred: 11w.0.r193/822
+count: 20
+text: 194 247 504 504 3e68d8cebac2e991047625c6eeefe8d1
+cpath: /gnustep/trunk/Applications/PreMo
+copyroot: 0 /
+
+PLAIN
+K 5
+Monet
+V 18
+dir lh.0.r190/6081
+K 8
+PrEditor
+V 18
+dir un.0.r191/1150
+K 5
+PreMo
+V 18
+dir 11w.0.r194/764
+END
+ENDREP
+id: kf.0.r194/1057
+type: dir
+pred: kf.0.r193/1115
+count: 89
+text: 194 935 109 109 b1c7ef3f91e1d71ffc9038053e836616
+cpath: /gnustep/trunk/Applications
+copyroot: 0 /
+
+PLAIN
+K 12
+Applications
+V 18
+dir kf.0.r194/1057
+K 10
+Frameworks
+V 18
+dir ws.0.r189/3625
+K 7
+Scripts
+V 20
+dir t2.0.r72/1787921
+K 5
+Tools
+V 17
+dir t6.0.r75/4296
+END
+ENDREP
+id: kc.0.r194/1392
+type: dir
+pred: kc.0.r193/1450
+count: 103
+text: 194 1222 157 157 385f10e69c77f5386d2734b586a3bc7e
+cpath: /gnustep/trunk
+copyroot: 0 /
+
+PLAIN
+K 8
+branches
+V 15
+dir kd.0.r71/71
+K 4
+tags
+V 16
+dir ke.0.r71/146
+K 5
+trunk
+V 18
+dir kc.0.r194/1392
+END
+ENDREP
+id: kb.0.r194/1662
+type: dir
+pred: kb.0.r193/1720
+count: 103
+text: 194 1546 103 103 f60306d31fb757df9906b455dfe57555
+cpath: /gnustep
+copyroot: 0 /
+
+PLAIN
+K 4
+docs
+V 18
+dir 2w8.0.r159/538
+K 7
+gnustep
+V 18
+dir kb.0.r194/1662
+K 4
+misc
+V 18
+dir 38v.0.r160/333
+K 8
+nextstep
+V 19
+dir 14l.0.r155/8758
+K 3
+osx
+V 16
+dir 1.0.r70/1651
+END
+ENDREP
+id: 0.0.r194/1997
+type: dir
+pred: 0.0.r193/2055
+count: 194
+text: 194 1810 174 174 f74389bbf8ed8d5071c5e92da6beea20
+cpath: /
+copyroot: 0 /
+
+137.0.r190/6255 delete false false /gnustep/trunk/Applications/PreMo/PreMo.xcodeproj/dalmazio.perspectivev3
+
+
+1997 2136

@@ -1,0 +1,153 @@
+PLAIN
+END
+ENDREP
+id: 2.10.r555/17
+type: dir
+pred: 2.10.r554/263
+count: 197
+text: 555 0 4 4 2d2977d1c96f487abe4a1e202dd03b4e
+cpath: /osx/tags/GnuSpeech-0.6/trunk
+copyroot: 546 /osx/tags/GnuSpeech-0.6/trunk
+
+id: 3gx.19.r555/206
+type: file
+pred: 3gx.c.r540/20409
+count: 8
+text: 540 4705 488 5043 53ed2528a3485721a3c0134478324b73
+cpath: /osx/tags/GnuSpeech-0.6/README
+copyfrom: 554 /osx/tags/GnuSpeech-0.6/trunk/README
+
+PLAIN
+K 12
+Applications
+V 19
+dir 4e0.11.r547/513
+K 6
+Builds
+V 17
+dir 3hc.12.r548/0
+K 7
+Daemons
+V 19
+dir 3h1.13.r549/442
+K 10
+Frameworks
+V 16
+dir ci.14.r550/0
+K 10
+Installers
+V 17
+dir 3he.15.r551/0
+K 7
+LICENSE
+V 18
+file 4ii.18.r554/0
+K 5
+Other
+V 17
+dir 3h4.16.r552/0
+K 6
+README
+V 20
+file 3gx.19.r555/206
+K 8
+Services
+V 19
+dir 3h2.17.r553/285
+K 5
+trunk
+V 16
+dir 2.10.r555/17
+END
+ENDREP
+id: 4io.0.r555/800
+type: dir
+pred: 4io.0.r554/804
+count: 10
+text: 555 416 371 371 85e2896225a709c3ae12ccae6043138f
+cpath: /osx/tags/GnuSpeech-0.6
+copyroot: 0 /
+
+PLAIN
+K 13
+GnuSpeech-0.5
+V 14
+dir 2.f.r301/0
+K 15
+GnuSpeech-0.5.1
+V 19
+dir 3ib.0.r499/1462
+K 13
+GnuSpeech-0.6
+V 18
+dir 4io.0.r555/800
+END
+ENDREP
+id: 4.0.r555/1106
+type: dir
+pred: 4.0.r554/1109
+count: 26
+text: 555 961 132 132 03429c56114ff40a96bb20225a522cc4
+cpath: /osx/tags
+copyroot: 0 /
+
+PLAIN
+K 8
+branches
+V 15
+dir 3.0.r510/17
+K 4
+tags
+V 17
+dir 4.0.r555/1106
+K 5
+trunk
+V 17
+dir 2.0.r544/3750
+END
+ENDREP
+id: 1.0.r555/1367
+type: dir
+pred: 1.0.r554/1370
+count: 215
+text: 555 1251 103 103 6a9f8f956310aab86cb6be186a29e438
+cpath: /osx
+copyroot: 0 /
+
+PLAIN
+K 4
+docs
+V 18
+dir 2w8.0.r509/284
+K 7
+gnustep
+V 19
+dir kb.0.r502/17884
+K 4
+misc
+V 18
+dir 38v.0.r160/333
+K 8
+nextstep
+V 19
+dir 14l.0.r155/8758
+K 3
+osx
+V 17
+dir 1.0.r555/1367
+END
+ENDREP
+id: 0.0.r555/1698
+type: dir
+pred: 0.0.r554/1701
+count: 555
+text: 555 1509 176 176 3f6605691e26145f7eedd1140ad4eb92
+cpath: /
+copyroot: 0 /
+
+3gx._0.t554-1 add false false /osx/tags/GnuSpeech-0.6/README
+554 /osx/tags/GnuSpeech-0.6/trunk/README
+3gx.c.r540/20409 delete false false /osx/tags/GnuSpeech-0.6/trunk/README
+
+
+1698 1837

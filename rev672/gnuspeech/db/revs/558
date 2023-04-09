@@ -1,0 +1,104 @@
+id: 4e0.1a.r558/0
+type: dir
+pred: 4e0.0.r540/18322
+count: 12
+text: 540 18109 200 200 d46026f0b9d79db83367efd789e13304
+cpath: /osx/tags/GnuSpeech-0.6/Applications
+copyfrom: 557 /osx/trunk/Applications
+
+PLAIN
+K 12
+Applications
+V 17
+dir 4e0.1a.r558/0
+END
+ENDREP
+id: 4ip.0.r558/259
+type: dir
+pred: 4ip.0.r557/0
+count: 1
+text: 558 201 45 45 4c793b72c42970416630f857ccb5fa4a
+cpath: /osx/tags/GnuSpeech-0.6
+copyroot: 0 /
+
+PLAIN
+K 13
+GnuSpeech-0.5
+V 14
+dir 2.f.r301/0
+K 15
+GnuSpeech-0.5.1
+V 19
+dir 3ib.0.r499/1462
+K 13
+GnuSpeech-0.6
+V 18
+dir 4ip.0.r558/259
+END
+ENDREP
+id: 4.0.r558/560
+type: dir
+pred: 4.0.r557/225
+count: 29
+text: 558 415 132 132 e4aedbafca880bbf3b298e85ac1ed080
+cpath: /osx/tags
+copyroot: 0 /
+
+PLAIN
+K 8
+branches
+V 15
+dir 3.0.r510/17
+K 4
+tags
+V 16
+dir 4.0.r558/560
+K 5
+trunk
+V 17
+dir 2.0.r544/3750
+END
+ENDREP
+id: 1.0.r558/818
+type: dir
+pred: 1.0.r557/482
+count: 218
+text: 558 703 102 102 14f0bce1b262a706da5c3227ba0327a2
+cpath: /osx
+copyroot: 0 /
+
+PLAIN
+K 4
+docs
+V 18
+dir 2w8.0.r509/284
+K 7
+gnustep
+V 19
+dir kb.0.r502/17884
+K 4
+misc
+V 18
+dir 38v.0.r160/333
+K 8
+nextstep
+V 19
+dir 14l.0.r155/8758
+K 3
+osx
+V 16
+dir 1.0.r558/818
+END
+ENDREP
+id: 0.0.r558/1145
+type: dir
+pred: 0.0.r557/809
+count: 558
+text: 558 957 175 175 28d370f51e5d12a1002985d8e57644ee
+cpath: /
+copyroot: 0 /
+
+4e0._0.t557-1 add false false /osx/tags/GnuSpeech-0.6/Applications
+557 /osx/trunk/Applications
+
+1145 1282

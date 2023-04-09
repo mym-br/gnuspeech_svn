@@ -1,0 +1,153 @@
+PLAIN
+K 6
+Builds
+V 18
+dir 3hc.0.r543/887
+K 7
+Daemons
+V 20
+dir 3h1.0.r540/20249
+K 10
+Frameworks
+V 18
+dir ci.0.r537/9046
+K 10
+Installers
+V 19
+dir 3he.0.r544/3223
+K 7
+LICENSE
+V 21
+file 4ii.0.r540/14838
+K 5
+Other
+V 18
+dir 3h4.0.r282/261
+K 6
+README
+V 21
+file 3gx.c.r540/20409
+K 8
+Services
+V 20
+dir 3h2.0.r540/16478
+END
+ENDREP
+id: 2.10.r547/321
+type: dir
+pred: 2.10.r546/0
+count: 189
+text: 547 0 308 308 a3c9b91d918d950535906ae7c2870347
+cpath: /osx/tags/GnuSpeech-0.6/trunk
+copyroot: 546 /osx/tags/GnuSpeech-0.6/trunk
+
+id: 4e0.11.r547/513
+type: dir
+pred: 4e0.0.r540/18322
+count: 12
+text: 540 18109 200 200 d46026f0b9d79db83367efd789e13304
+cpath: /osx/tags/GnuSpeech-0.6/Applications
+copyfrom: 546 /osx/tags/GnuSpeech-0.6/trunk/Applications
+
+PLAIN
+K 12
+Applications
+V 19
+dir 4e0.11.r547/513
+K 5
+trunk
+V 17
+dir 2.10.r547/321
+END
+ENDREP
+id: 4io.0.r547/828
+type: dir
+pred: 4io.0.r546/224
+count: 2
+text: 547 735 80 80 4b9e1661d251960b52ef9a90da44b9b3
+cpath: /osx/tags/GnuSpeech-0.6
+copyroot: 0 /
+
+PLAIN
+K 13
+GnuSpeech-0.5
+V 14
+dir 2.f.r301/0
+K 15
+GnuSpeech-0.5.1
+V 19
+dir 3ib.0.r499/1462
+K 13
+GnuSpeech-0.6
+V 18
+dir 4io.0.r547/828
+END
+ENDREP
+id: 4.0.r547/1131
+type: dir
+pred: 4.0.r546/525
+count: 18
+text: 547 986 132 132 dff4beadfcd8d8c7e6b0b054bfbc875d
+cpath: /osx/tags
+copyroot: 0 /
+
+PLAIN
+K 8
+branches
+V 15
+dir 3.0.r510/17
+K 4
+tags
+V 17
+dir 4.0.r547/1131
+K 5
+trunk
+V 17
+dir 2.0.r544/3750
+END
+ENDREP
+id: 1.0.r547/1391
+type: dir
+pred: 1.0.r546/783
+count: 207
+text: 547 1275 103 103 913fc64fbd71c113b21db1e5ef3c3dde
+cpath: /osx
+copyroot: 0 /
+
+PLAIN
+K 4
+docs
+V 18
+dir 2w8.0.r509/284
+K 7
+gnustep
+V 19
+dir kb.0.r502/17884
+K 4
+misc
+V 18
+dir 38v.0.r160/333
+K 8
+nextstep
+V 19
+dir 14l.0.r155/8758
+K 3
+osx
+V 17
+dir 1.0.r547/1391
+END
+ENDREP
+id: 0.0.r547/1721
+type: dir
+pred: 0.0.r546/1110
+count: 547
+text: 547 1532 176 176 3238463c8e93704a46abfe0c157fbf74
+cpath: /
+copyroot: 0 /
+
+4e0.0.r540/18322 delete false false /osx/tags/GnuSpeech-0.6/trunk/Applications
+
+4e0._0.t546-1 add false false /osx/tags/GnuSpeech-0.6/Applications
+546 /osx/tags/GnuSpeech-0.6/trunk/Applications
+
+1721 1860

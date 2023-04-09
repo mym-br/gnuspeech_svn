@@ -1,0 +1,13 @@
+K 10
+svn:author
+V 8
+mymatuda
+K 8
+svn:date
+V 27
+2009-01-11T18:29:14.193349Z
+K 7
+svn:log
+V 64
+Implemented audio output in the GNUstep version using PortAudio.
+END

@@ -1,0 +1,153 @@
+id: 4ii.18.r554/0
+type: file
+pred: 4ii.0.r540/14838
+count: 1
+text: 540 307 597 877 01471b93b3c83cefb53c71be8bacb17b
+cpath: /osx/tags/GnuSpeech-0.6/LICENSE
+copyfrom: 553 /osx/tags/GnuSpeech-0.6/trunk/LICENSE
+
+PLAIN
+K 6
+README
+V 21
+file 3gx.c.r540/20409
+END
+ENDREP
+id: 2.10.r554/263
+type: dir
+pred: 2.10.r553/94
+count: 196
+text: 554 208 42 42 d1f1c3cf9b2f17965bf5d072f0cafe0e
+cpath: /osx/tags/GnuSpeech-0.6/trunk
+copyroot: 546 /osx/tags/GnuSpeech-0.6/trunk
+
+PLAIN
+K 12
+Applications
+V 19
+dir 4e0.11.r547/513
+K 6
+Builds
+V 17
+dir 3hc.12.r548/0
+K 7
+Daemons
+V 19
+dir 3h1.13.r549/442
+K 10
+Frameworks
+V 16
+dir ci.14.r550/0
+K 10
+Installers
+V 17
+dir 3he.15.r551/0
+K 7
+LICENSE
+V 18
+file 4ii.18.r554/0
+K 5
+Other
+V 17
+dir 3h4.16.r552/0
+K 8
+Services
+V 19
+dir 3h2.17.r553/285
+K 5
+trunk
+V 17
+dir 2.10.r554/263
+END
+ENDREP
+id: 4io.0.r554/804
+type: dir
+pred: 4io.0.r553/808
+count: 9
+text: 554 456 335 335 33d68173c08140882a91a3b52c843550
+cpath: /osx/tags/GnuSpeech-0.6
+copyroot: 0 /
+
+PLAIN
+K 13
+GnuSpeech-0.5
+V 14
+dir 2.f.r301/0
+K 15
+GnuSpeech-0.5.1
+V 19
+dir 3ib.0.r499/1462
+K 13
+GnuSpeech-0.6
+V 18
+dir 4io.0.r554/804
+END
+ENDREP
+id: 4.0.r554/1109
+type: dir
+pred: 4.0.r553/1113
+count: 25
+text: 554 964 132 132 36ed9cb159c0c5ac05297c00367c0e27
+cpath: /osx/tags
+copyroot: 0 /
+
+PLAIN
+K 8
+branches
+V 15
+dir 3.0.r510/17
+K 4
+tags
+V 17
+dir 4.0.r554/1109
+K 5
+trunk
+V 17
+dir 2.0.r544/3750
+END
+ENDREP
+id: 1.0.r554/1370
+type: dir
+pred: 1.0.r553/1374
+count: 214
+text: 554 1254 103 103 c21f0b7cfa79df62094f01b494cf2bdc
+cpath: /osx
+copyroot: 0 /
+
+PLAIN
+K 4
+docs
+V 18
+dir 2w8.0.r509/284
+K 7
+gnustep
+V 19
+dir kb.0.r502/17884
+K 4
+misc
+V 18
+dir 38v.0.r160/333
+K 8
+nextstep
+V 19
+dir 14l.0.r155/8758
+K 3
+osx
+V 17
+dir 1.0.r554/1370
+END
+ENDREP
+id: 0.0.r554/1701
+type: dir
+pred: 0.0.r553/1705
+count: 554
+text: 554 1512 176 176 0787c10ab07fe9e6686e6d918307979e
+cpath: /
+copyroot: 0 /
+
+4ii._0.t553-1 add false false /osx/tags/GnuSpeech-0.6/LICENSE
+553 /osx/tags/GnuSpeech-0.6/trunk/LICENSE
+4ii.0.r540/14838 delete false false /osx/tags/GnuSpeech-0.6/trunk/LICENSE
+
+
+1701 1840

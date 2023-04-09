@@ -1,0 +1,13 @@
+K 10
+svn:author
+V 9
+dbrisinda
+K 8
+svn:date
+V 27
+2008-12-30T04:46:03.032934Z
+K 7
+svn:log
+V 43
+Removing .xib files in favor of .nib files.
+END

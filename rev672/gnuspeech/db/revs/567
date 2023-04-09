@@ -1,0 +1,77 @@
+PLAIN
+K 13
+GnuSpeech-0.5
+V 14
+dir 2.f.r301/0
+K 15
+GnuSpeech-0.5.1
+V 19
+dir 3ib.0.r499/1462
+END
+ENDREP
+id: 4.0.r567/102
+type: dir
+pred: 4.0.r566/840
+count: 38
+text: 567 0 89 89 bbd9aa2394c3881e1d97dd7c949b433a
+cpath: /osx/tags
+copyroot: 0 /
+
+PLAIN
+K 8
+branches
+V 15
+dir 3.0.r510/17
+K 4
+tags
+V 16
+dir 4.0.r567/102
+K 5
+trunk
+V 17
+dir 2.0.r544/3750
+END
+ENDREP
+id: 1.0.r567/356
+type: dir
+pred: 1.0.r566/1098
+count: 227
+text: 567 241 102 102 46cc3ad84297913ba7e4e8e3fe02c5d0
+cpath: /osx
+copyroot: 0 /
+
+PLAIN
+K 4
+docs
+V 18
+dir 2w8.0.r509/284
+K 7
+gnustep
+V 19
+dir kb.0.r502/17884
+K 4
+misc
+V 18
+dir 38v.0.r160/333
+K 8
+nextstep
+V 19
+dir 14l.0.r155/8758
+K 3
+osx
+V 16
+dir 1.0.r567/356
+END
+ENDREP
+id: 0.0.r567/684
+type: dir
+pred: 0.0.r566/1428
+count: 567
+text: 567 496 175 175 e141ca036598b5b5e1a277bfca6b6eee
+cpath: /
+copyroot: 0 /
+
+4ip.0.r566/535 delete false false /osx/tags/GnuSpeech-0.6
+
+
+684 821

@@ -1,0 +1,149 @@
+PLAIN
+K 12
+GnuTTSClient
+V 20
+dir 3eb.0.r260/30883
+K 5
+Monet
+V 18
+dir 17.0.r273/5701
+K 8
+PrEditor
+V 18
+dir ad.0.r216/1039
+K 5
+PreMo
+V 17
+dir hm.0.r219/741
+K 6
+README
+V 20
+file 3gx.0.r265/1411
+END
+ENDREP
+id: 5.0.r284/202
+type: dir
+pred: 5.0.r283/675
+count: 89
+text: 284 0 189 189 b4ddf9666027f40aacb4ad69b873d32d
+cpath: /osx/trunk/Applications
+copyroot: 0 /
+
+id: 3dt.b.r284/357
+type: dir
+pred: 3dt.0.r260/32444
+count: 3
+text: 260 31717 714 714 e174c9e03853b94cc8b3943badca14bc
+cpath: /osx/trunk/Daemons/GnuTTSServer
+copyfrom: 283 /osx/trunk/Applications/GnuTTSServer
+
+PLAIN
+K 12
+GnuTTSServer
+V 18
+dir 3dt.b.r284/357
+END
+ENDREP
+id: 3h1.0.r284/625
+type: dir
+pred: 3h1.0.r276/0
+count: 1
+text: 284 566 46 46 5a528cbbdb88232842d756d7982808bf
+cpath: /osx/trunk/Daemons
+copyroot: 0 /
+
+PLAIN
+K 12
+Applications
+V 16
+dir 5.0.r284/202
+K 6
+Builds
+V 16
+dir 3h3.0.r278/0
+K 7
+Daemons
+V 18
+dir 3h1.0.r284/625
+K 10
+Frameworks
+V 18
+dir ci.0.r261/3204
+K 5
+Other
+V 18
+dir 3h4.0.r282/261
+K 8
+Services
+V 18
+dir 3h2.0.r283/277
+END
+ENDREP
+id: 2.0.r284/1013
+type: dir
+pred: 2.0.r283/1068
+count: 115
+text: 284 776 224 224 80484d6da27737a6599d9ec6daa4ea85
+cpath: /osx/trunk
+copyroot: 0 /
+
+PLAIN
+K 8
+branches
+V 13
+dir 3.0.r1/65
+K 4
+tags
+V 14
+dir 4.0.r1/134
+K 5
+trunk
+V 17
+dir 2.0.r284/1013
+END
+ENDREP
+id: 1.0.r284/1271
+type: dir
+pred: 1.0.r283/1325
+count: 115
+text: 284 1160 98 98 aa38705148c3f5a9025813c70db6d6e2
+cpath: /osx
+copyroot: 0 /
+
+PLAIN
+K 4
+docs
+V 18
+dir 2w8.0.r159/538
+K 7
+gnustep
+V 18
+dir kb.0.r275/5794
+K 4
+misc
+V 18
+dir 38v.0.r160/333
+K 8
+nextstep
+V 19
+dir 14l.0.r155/8758
+K 3
+osx
+V 17
+dir 1.0.r284/1271
+END
+ENDREP
+id: 0.0.r284/1599
+type: dir
+pred: 0.0.r283/1652
+count: 284
+text: 284 1411 175 175 b7c3b515d5693301c5c58e30a402c956
+cpath: /
+copyroot: 0 /
+
+3dt.0.r260/32444 delete false false /osx/trunk/Applications/GnuTTSServer
+
+3dt._0.t283-1 add false false /osx/trunk/Daemons/GnuTTSServer
+283 /osx/trunk/Applications/GnuTTSServer
+
+1599 1738

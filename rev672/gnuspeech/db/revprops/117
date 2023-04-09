@@ -1,0 +1,14 @@
+K 10
+svn:author
+V 9
+dbrisinda
+K 8
+svn:date
+V 27
+2008-11-24T22:16:44.000000Z
+K 7
+svn:log
+V 77
+Updated PrEditor nib files to version 2.x so they can be used with GNU gorm.
+
+END

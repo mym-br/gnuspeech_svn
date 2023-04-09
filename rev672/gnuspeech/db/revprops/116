@@ -1,0 +1,14 @@
+K 10
+svn:author
+V 9
+dbrisinda
+K 8
+svn:date
+V 27
+2008-11-24T22:05:43.000000Z
+K 7
+svn:log
+V 79
+Updated big-endian / little-endian detection in setting up Core Audio on OS X.
+
+END

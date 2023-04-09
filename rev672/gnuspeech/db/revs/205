@@ -1,0 +1,206 @@
+PLAIN
+K 16
+dalmazio.pbxuser
+V 17
+file 3b1.4.r204/0
+K 15
+project.pbxproj
+V 20
+file wi.0.r187/26226
+END
+ENDREP
+id: wf.0.r205/109
+type: dir
+pred: wf.0.r204/706
+count: 24
+text: 205 0 96 96 13464f592af896be4679dacb5d050f0c
+cpath: /gnustep/trunk/Applications/PrEditor/PrEditor.xcodeproj
+copyroot: 0 /
+
+PLAIN
+K 9
+APPL.icns
+V 21
+file uo.0.r77/1676213
+K 11
+Delete.tiff
+V 21
+file up.0.r77/1676422
+K 10
+DoulosSIL4
+V 20
+dir v0.0.r77/1679873
+K 13
+English.lproj
+V 19
+dir v7.0.r187/29166
+K 24
+IPA-SIL keyboard 0.6.dmg
+V 21
+file uq.0.r77/1684696
+K 10
+Info.plist
+V 21
+file ur.0.r77/1676044
+K 18
+PrEditor.xcodeproj
+V 17
+dir wf.0.r205/109
+K 18
+PrEditorDocument.h
+V 21
+file vr.0.r77/1687747
+K 18
+PrEditorDocument.m
+V 21
+file us.0.r77/1674688
+K 19
+PrEditor_Prefix.pch
+V 21
+file ut.0.r77/1690580
+K 26
+ResponderNotifyingWindow.h
+V 21
+file uu.0.r77/1684181
+K 26
+ResponderNotifyingWindow.m
+V 19
+file uv.0.r93/17539
+K 10
+Speak.tiff
+V 21
+file uw.0.r77/1676689
+K 10
+Store.tiff
+V 21
+file ux.0.r77/1674910
+K 8
+app.tiff
+V 21
+file uy.0.r77/1684408
+K 6
+main.m
+V 21
+file uz.0.r77/1673650
+K 12
+preditorDict
+V 18
+dir wn.0.r109/1879
+END
+ENDREP
+id: un.0.r205/1107
+type: dir
+pred: un.0.r204/1709
+count: 44
+text: 205 296 798 798 87ac254b7f902cbffa9f7707e2c926a6
+cpath: /gnustep/trunk/Applications/PrEditor
+copyroot: 0 /
+
+PLAIN
+K 5
+Monet
+V 18
+dir lh.0.r202/3552
+K 8
+PrEditor
+V 18
+dir un.0.r205/1107
+K 5
+PreMo
+V 18
+dir 11w.0.r194/764
+END
+ENDREP
+id: kf.0.r205/1403
+type: dir
+pred: kf.0.r204/2005
+count: 100
+text: 205 1281 109 109 398dfdf85ecfd057a56da34cb1c824c1
+cpath: /gnustep/trunk/Applications
+copyroot: 0 /
+
+PLAIN
+K 12
+Applications
+V 18
+dir kf.0.r205/1403
+K 10
+Frameworks
+V 18
+dir ws.0.r198/1979
+K 7
+Scripts
+V 20
+dir t2.0.r72/1787921
+K 5
+Tools
+V 17
+dir t6.0.r75/4296
+END
+ENDREP
+id: kc.0.r205/1740
+type: dir
+pred: kc.0.r204/2341
+count: 114
+text: 205 1570 157 157 fab4fe2dbc9829de4f127ca7863b552b
+cpath: /gnustep/trunk
+copyroot: 0 /
+
+PLAIN
+K 8
+branches
+V 15
+dir kd.0.r71/71
+K 4
+tags
+V 16
+dir ke.0.r71/146
+K 5
+trunk
+V 18
+dir kc.0.r205/1740
+END
+ENDREP
+id: kb.0.r205/2010
+type: dir
+pred: kb.0.r204/2611
+count: 114
+text: 205 1894 103 103 6f6b7faf69007d3d432ac17f655e8d16
+cpath: /gnustep
+copyroot: 0 /
+
+PLAIN
+K 4
+docs
+V 18
+dir 2w8.0.r159/538
+K 7
+gnustep
+V 18
+dir kb.0.r205/2010
+K 4
+misc
+V 18
+dir 38v.0.r160/333
+K 8
+nextstep
+V 19
+dir 14l.0.r155/8758
+K 3
+osx
+V 16
+dir 1.0.r70/1651
+END
+ENDREP
+id: 0.0.r205/2345
+type: dir
+pred: 0.0.r204/2946
+count: 205
+text: 205 2158 174 174 6b6683bbbbfd9d260d77074daa79ad6b
+cpath: /
+copyroot: 0 /
+
+3b0.0.r204/362 delete false false /gnustep/trunk/Applications/PrEditor/PrEditor.xcodeproj/PrEditor
+
+
+2345 2484

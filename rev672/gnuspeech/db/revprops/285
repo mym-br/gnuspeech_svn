@@ -1,0 +1,13 @@
+K 10
+svn:author
+V 9
+dbrisinda
+K 8
+svn:date
+V 27
+2009-01-20T17:48:14.609455Z
+K 7
+svn:log
+V 113
+Move 'README' file describing the various aplications, daemons, frameworks, and services to the top-level folder.
+END

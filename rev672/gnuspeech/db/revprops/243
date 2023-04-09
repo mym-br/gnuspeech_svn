@@ -1,0 +1,13 @@
+K 10
+svn:author
+V 9
+dbrisinda
+K 8
+svn:date
+V 27
+2009-01-06T11:33:11.099097Z
+K 7
+svn:log
+V 148
+Made a temporary fix to the TTSParser class of the GnuSpeech framework for arbitrary handling of punctuation until a more correct solution is found.
+END

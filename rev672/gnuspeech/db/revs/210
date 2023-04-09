@@ -1,0 +1,406 @@
+PLAIN
+K 15
+project.pbxproj
+V 19
+file wr.0.r189/4050
+END
+ENDREP
+id: wq.0.r210/63
+type: dir
+pred: wq.0.r208/110
+count: 20
+text: 210 0 50 50 47919f3ca1efa4209d065eeab39d374e
+cpath: /gnustep/trunk/Applications/Monet/Monet.xcodeproj
+copyroot: 0 /
+
+PLAIN
+K 15
+AppController.h
+V 19
+file li.0.r76/45380
+K 15
+AppController.m
+V 19
+file lj.0.r97/12274
+K 16
+CommentIcon.tiff
+V 21
+file lk.0.r72/1749708
+K 12
+Default.mxml
+V 21
+file lp.0.r72/1747037
+K 13
+English.lproj
+V 20
+dir qm.0.r175/213658
+K 15
+EventListView.h
+V 19
+file ly.0.r76/43664
+K 15
+EventListView.m
+V 18
+file lz.0.r87/6832
+K 10
+Extensions
+V 18
+dir ry.0.r97/12094
+K 11
+GNUmakefile
+V 19
+file u4.0.r76/36786
+K 21
+GNUmakefile.postamble
+V 19
+file u5.0.r76/35459
+K 10
+Info.plist
+V 21
+file m0.0.r72/1741848
+K 23
+MAIntonationScaleView.h
+V 19
+file m1.0.r76/34487
+K 23
+MAIntonationScaleView.m
+V 21
+file m2.0.r72/1725275
+K 24
+MAIntonationScrollView.h
+V 21
+file m3.0.r72/1769490
+K 24
+MAIntonationScrollView.m
+V 21
+file m4.0.r72/1773178
+K 18
+MAIntonationView.h
+V 19
+file m5.0.r76/35632
+K 18
+MAIntonationView.m
+V 18
+file me.0.r87/4715
+K 14
+MCommentCell.h
+V 21
+file mf.0.r72/1737704
+K 14
+MCommentCell.m
+V 21
+file mg.0.r72/1738571
+K 22
+MDataEntryController.h
+V 19
+file mh.0.r76/41126
+K 22
+MDataEntryController.m
+V 18
+file mi.0.r87/5673
+K 20
+MExtendedTableView.h
+V 18
+file mj.0.r81/2818
+K 20
+MExtendedTableView.m
+V 21
+file mk.0.r72/1727215
+K 20
+MMDisplayParameter.h
+V 21
+file ms.0.r72/1739263
+K 20
+MMDisplayParameter.m
+V 18
+file mt.0.r87/5290
+K 14
+MOutlineView.h
+V 21
+file o6.0.r72/1777816
+K 14
+MOutlineView.m
+V 21
+file o7.0.r72/1723899
+K 28
+MPostureCategoryController.h
+V 19
+file o8.0.r76/39399
+K 28
+MPostureCategoryController.m
+V 18
+file o9.0.r87/5091
+K 16
+MPostureEditor.h
+V 19
+file oa.0.r76/40371
+K 16
+MPostureEditor.m
+V 18
+file ok.0.r87/5482
+K 19
+MPrototypeManager.h
+V 19
+file ol.0.r76/44236
+K 19
+MPrototypeManager.m
+V 18
+file om.0.r87/7214
+K 25
+MReleaseNotesController.h
+V 19
+file on.0.r76/34684
+K 25
+MReleaseNotesController.m
+V 19
+file oo.0.r76/34883
+K 14
+MRuleManager.h
+V 19
+file op.0.r76/41519
+K 14
+MRuleManager.m
+V 18
+file oq.0.r87/6061
+K 13
+MRuleTester.h
+V 19
+file or.0.r76/38835
+K 13
+MRuleTester.m
+V 18
+file os.0.r87/4905
+K 26
+MSpecialTransitionEditor.h
+V 21
+file ot.0.r72/1726146
+K 26
+MSpecialTransitionEditor.m
+V 18
+file ou.0.r87/4140
+K 22
+MSynthesisController.h
+V 18
+file ov.0.r87/6638
+K 22
+MSynthesisController.m
+V 18
+file ow.0.r87/7019
+K 27
+MSynthesisParameterEditor.h
+V 19
+file ox.0.r76/43085
+K 27
+MSynthesisParameterEditor.m
+V 18
+file oy.0.r87/6437
+K 19
+MTransitionEditor.h
+V 19
+file oz.0.r76/41324
+K 19
+MTransitionEditor.m
+V 18
+file pb.0.r87/5869
+K 19
+MWindowController.h
+V 21
+file pc.0.r72/1777986
+K 19
+MWindowController.m
+V 21
+file pe.0.r72/1724236
+K 10
+Monet.icns
+V 21
+file ob.0.r72/1755097
+K 9
+Monet.png
+V 21
+file oc.0.r72/1737194
+K 10
+Monet.tiff
+V 21
+file od.0.r72/1744281
+K 15
+Monet.xcodeproj
+V 16
+dir wq.0.r210/63
+K 16
+Monet_Prefix.pch
+V 21
+file oe.0.r72/1744109
+K 13
+SpecialView.h
+V 21
+file pv.0.r72/1747206
+K 13
+SpecialView.m
+V 18
+file pw.0.r87/6250
+K 8
+TODO.txt
+V 21
+file q1.0.r72/1751143
+K 16
+TransitionView.h
+V 18
+file q2.0.r87/4338
+K 16
+TransitionView.m
+V 18
+file q3.0.r87/4524
+K 14
+diphones.monet
+V 21
+file lq.0.r72/1729993
+K 13
+diphones.mxml
+V 19
+file lu.0.r97/10842
+K 17
+dotInspector.tiff
+V 21
+file lv.0.r72/1753363
+K 6
+main.m
+V 19
+file md.0.r76/42101
+K 9
+monet.jpg
+V 21
+file oj.0.r72/1725979
+K 7
+samples
+V 20
+dir sn.0.r72/1773018
+K 20
+squareInspector.tiff
+V 21
+file px.0.r72/1745309
+K 22
+triangleInspector.tiff
+V 21
+file q4.0.r72/1768550
+K 3
+xml
+V 20
+dir sp.0.r72/1772274
+END
+ENDREP
+id: lh.0.r210/3551
+type: dir
+pred: lh.0.r208/3600
+count: 45
+text: 210 243 3295 3295 0355c58e78ae2e73a7fff1deb3ff0138
+cpath: /gnustep/trunk/Applications/Monet
+copyroot: 0 /
+
+PLAIN
+K 5
+Monet
+V 18
+dir lh.0.r210/3551
+K 8
+PrEditor
+V 18
+dir un.0.r209/1952
+K 5
+PreMo
+V 18
+dir 11w.0.r194/764
+END
+ENDREP
+id: kf.0.r210/3846
+type: dir
+pred: kf.0.r209/2249
+count: 105
+text: 210 3724 109 109 4df1a260f0629c9b51f7a257f82b9780
+cpath: /gnustep/trunk/Applications
+copyroot: 0 /
+
+PLAIN
+K 12
+Applications
+V 18
+dir kf.0.r210/3846
+K 10
+Frameworks
+V 18
+dir ws.0.r198/1979
+K 7
+Scripts
+V 20
+dir t2.0.r72/1787921
+K 5
+Tools
+V 17
+dir t6.0.r75/4296
+END
+ENDREP
+id: kc.0.r210/4183
+type: dir
+pred: kc.0.r209/2586
+count: 119
+text: 210 4013 157 157 bcb6c269ae137efaabd6f4d851e7e11b
+cpath: /gnustep/trunk
+copyroot: 0 /
+
+PLAIN
+K 8
+branches
+V 15
+dir kd.0.r71/71
+K 4
+tags
+V 16
+dir ke.0.r71/146
+K 5
+trunk
+V 18
+dir kc.0.r210/4183
+END
+ENDREP
+id: kb.0.r210/4453
+type: dir
+pred: kb.0.r209/2856
+count: 119
+text: 210 4337 103 103 c43269b40b33d326e7ac97a126b3e252
+cpath: /gnustep
+copyroot: 0 /
+
+PLAIN
+K 4
+docs
+V 18
+dir 2w8.0.r159/538
+K 7
+gnustep
+V 18
+dir kb.0.r210/4453
+K 4
+misc
+V 18
+dir 38v.0.r160/333
+K 8
+nextstep
+V 19
+dir 14l.0.r155/8758
+K 3
+osx
+V 16
+dir 1.0.r70/1651
+END
+ENDREP
+id: 0.0.r210/4788
+type: dir
+pred: 0.0.r209/3191
+count: 210
+text: 210 4601 174 174 fc971246235e75c521a73ec078dc629e
+cpath: /
+copyroot: 0 /
+
+3b3.5.r207/203 delete false false /gnustep/trunk/Applications/Monet/Monet.xcodeproj/dalmazio.pbxuser
+
+
+4788 4927

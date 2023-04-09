@@ -1,0 +1,13 @@
+K 10
+svn:author
+V 9
+dbrisinda
+K 8
+svn:date
+V 27
+2009-05-05T20:05:53.352162Z
+K 7
+svn:log
+V 88
+Adding modified TTSParser to prepare for full text, number, and letter-to-sound support.
+END

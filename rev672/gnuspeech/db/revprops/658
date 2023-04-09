@@ -1,0 +1,18 @@
+K 10
+svn:author
+V 8
+mymatuda
+K 8
+svn:date
+V 27
+2009-07-05T04:47:37.986865Z
+K 7
+svn:log
+V 522
+[GnuSpeechCLI] Changed intonation settings to more natural-sounding defaults (dbrisinda).
+Simplified PreMo to use the MMTextToPhone class (dbrisinda).
+[Monet] Replaced MTextToPhone class with MMTextToPhone class from the GnuSpeech Framework (dbrisinda).
+Added full support for English text parsing from the original parser module (dbrisinda).
+Added full support for number parsing from the original number parser (dbrisinda).
+Added full support for letter-to-sound rules from the orignal letter-to-sound rules (dbrisinda).
+END

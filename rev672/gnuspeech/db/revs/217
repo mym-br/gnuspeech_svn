@@ -1,0 +1,186 @@
+PLAIN
+K 16
+dalmazio.pbxuser
+V 18
+file iw.0.r58/9837
+K 22
+dalmazio.perspectivev3
+V 18
+file ix.0.r58/9633
+K 15
+project.pbxproj
+V 19
+file iy.0.r56/98143
+END
+ENDREP
+id: iu.0.r217/161
+type: dir
+pred: iu.0.r58/10247
+count: 10
+text: 217 0 148 148 a1be86bc1452b6b5da33c9a84bebdb8d
+cpath: /osx/trunk/Applications/PreMo/PreMo.xcodeproj
+copyroot: 0 /
+
+PLAIN
+K 9
+.DS_Store
+V 21
+file hn.0.r25/2799788
+K 21
+ApplicationDelegate.h
+V 21
+file ho.0.r25/2799944
+K 21
+ApplicationDelegate.m
+V 21
+file hp.0.r25/2800599
+K 13
+English.lproj
+V 16
+dir im.0.r66/204
+K 11
+GNUmakefile
+V 21
+file hq.0.r25/2800272
+K 10
+Info.plist
+V 21
+file hr.0.r25/2800113
+K 15
+PreMo.xcodeproj
+V 17
+dir iu.0.r217/161
+K 16
+PreMo_Prefix.pch
+V 21
+file hs.0.r25/2800434
+K 5
+build
+V 16
+dir hv.0.r54/287
+K 6
+main.m
+V 21
+file ht.0.r25/2792475
+K 13
+version.plist
+V 21
+file hu.0.r25/2792630
+END
+ENDREP
+id: hm.0.r217/844
+type: dir
+pred: hm.0.r66/883
+count: 13
+text: 217 341 490 490 b47587a2e9de8b077adffbde45a5f856
+cpath: /osx/trunk/Applications/PreMo
+copyroot: 0 /
+
+PLAIN
+K 5
+Monet
+V 17
+dir 17.0.r65/3261
+K 8
+PrEditor
+V 18
+dir ad.0.r216/1039
+K 5
+PreMo
+V 17
+dir hm.0.r217/844
+END
+ENDREP
+id: 5.0.r217/1128
+type: dir
+pred: 5.0.r216/1328
+count: 58
+text: 217 1008 107 107 1e3487e1a6f63e9985ee42151d36f56a
+cpath: /osx/trunk/Applications
+copyroot: 0 /
+
+PLAIN
+K 12
+Applications
+V 17
+dir 5.0.r217/1128
+K 10
+Frameworks
+V 16
+dir ci.0.r67/782
+K 7
+Scripts
+V 19
+dir 8s.0.r2/1785465
+K 5
+Tools
+V 16
+dir 8w.0.r5/4226
+END
+ENDREP
+id: 2.0.r217/1453
+type: dir
+pred: 2.0.r216/1653
+count: 72
+text: 217 1288 152 152 985d24e7138cd20fbd4b2c2edef2e841
+cpath: /osx/trunk
+copyroot: 0 /
+
+PLAIN
+K 8
+branches
+V 13
+dir 3.0.r1/65
+K 4
+tags
+V 14
+dir 4.0.r1/134
+K 5
+trunk
+V 17
+dir 2.0.r217/1453
+END
+ENDREP
+id: 1.0.r217/1711
+type: dir
+pred: 1.0.r216/1911
+count: 72
+text: 217 1600 98 98 8c07ee8679e8b644b2e2cee1bc8f1c91
+cpath: /osx
+copyroot: 0 /
+
+PLAIN
+K 4
+docs
+V 18
+dir 2w8.0.r159/538
+K 7
+gnustep
+V 18
+dir kb.0.r214/1947
+K 4
+misc
+V 18
+dir 38v.0.r160/333
+K 8
+nextstep
+V 19
+dir 14l.0.r155/8758
+K 3
+osx
+V 17
+dir 1.0.r217/1711
+END
+ENDREP
+id: 0.0.r217/2038
+type: dir
+pred: 0.0.r216/2238
+count: 217
+text: 217 1850 175 175 498e7268eba3a6c9c66fa2e9f1e06afc
+cpath: /
+copyroot: 0 /
+
+iv.0.r25/2803155 delete false false /osx/trunk/Applications/PreMo/PreMo.xcodeproj/dalmazio.mode1v3
+
+
+2038 2177

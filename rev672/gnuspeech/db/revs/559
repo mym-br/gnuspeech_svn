@@ -1,0 +1,108 @@
+id: 3hc.1b.r559/0
+type: dir
+pred: 3hc.0.r543/887
+count: 5
+text: 543 668 206 206 6a11c5d20d73e32ac3e07238666f5c4b
+cpath: /osx/tags/GnuSpeech-0.6/Builds
+copyfrom: 558 /osx/trunk/Builds
+
+PLAIN
+K 12
+Applications
+V 17
+dir 4e0.1a.r558/0
+K 6
+Builds
+V 17
+dir 3hc.1b.r559/0
+END
+ENDREP
+id: 4ip.0.r559/276
+type: dir
+pred: 4ip.0.r558/259
+count: 2
+text: 559 184 79 79 7448f3d3d6f2cf496961ed58b67ebe58
+cpath: /osx/tags/GnuSpeech-0.6
+copyroot: 0 /
+
+PLAIN
+K 13
+GnuSpeech-0.5
+V 14
+dir 2.f.r301/0
+K 15
+GnuSpeech-0.5.1
+V 19
+dir 3ib.0.r499/1462
+K 13
+GnuSpeech-0.6
+V 18
+dir 4ip.0.r559/276
+END
+ENDREP
+id: 4.0.r559/579
+type: dir
+pred: 4.0.r558/560
+count: 30
+text: 559 434 132 132 58f9852b95343a84d32c14b9160a5795
+cpath: /osx/tags
+copyroot: 0 /
+
+PLAIN
+K 8
+branches
+V 15
+dir 3.0.r510/17
+K 4
+tags
+V 16
+dir 4.0.r559/579
+K 5
+trunk
+V 17
+dir 2.0.r544/3750
+END
+ENDREP
+id: 1.0.r559/837
+type: dir
+pred: 1.0.r558/818
+count: 219
+text: 559 722 102 102 2032063116b97affb198b062412fcfe6
+cpath: /osx
+copyroot: 0 /
+
+PLAIN
+K 4
+docs
+V 18
+dir 2w8.0.r509/284
+K 7
+gnustep
+V 19
+dir kb.0.r502/17884
+K 4
+misc
+V 18
+dir 38v.0.r160/333
+K 8
+nextstep
+V 19
+dir 14l.0.r155/8758
+K 3
+osx
+V 16
+dir 1.0.r559/837
+END
+ENDREP
+id: 0.0.r559/1164
+type: dir
+pred: 0.0.r558/1145
+count: 559
+text: 559 976 175 175 f7945032d6badbe769069fc079db1489
+cpath: /
+copyroot: 0 /
+
+3hc._0.t558-1 add false false /osx/tags/GnuSpeech-0.6/Builds
+558 /osx/trunk/Builds
+
+1164 1302

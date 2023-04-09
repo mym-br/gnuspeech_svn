@@ -1,0 +1,15 @@
+K 10
+svn:author
+V 6
+nygard
+K 8
+svn:date
+V 27
+2007-02-12T01:13:21.000000Z
+K 7
+svn:log
+V 128
+Upgraded project to Xcode 2.4.1.  Fixed GSPronunciationDictionary so that it
+compiles if you don't have a prefix header set up.
+
+END

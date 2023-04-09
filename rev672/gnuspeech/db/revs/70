@@ -1,0 +1,171 @@
+PLAIN
+K 9
+APPL.icns
+V 20
+file ae.0.r7/1676134
+K 11
+Delete.tiff
+V 20
+file af.0.r7/1676337
+K 10
+DoulosSIL4
+V 19
+dir aq.0.r7/1679685
+K 13
+English.lproj
+V 17
+dir ax.0.r66/1251
+K 24
+IPA-SIL keyboard 0.6.dmg
+V 20
+file ag.0.r7/1684371
+K 10
+Info.plist
+V 20
+file ah.0.r7/1675971
+K 18
+PrEditor.xcodeproj
+V 18
+dir c5.0.r56/99764
+K 18
+PrEditorDocument.h
+V 20
+file bh.0.r7/1687333
+K 18
+PrEditorDocument.m
+V 20
+file ai.0.r7/1674655
+K 19
+PrEditor_Prefix.pch
+V 20
+file aj.0.r7/1690084
+K 26
+ResponderNotifyingWindow.h
+V 20
+file ak.0.r7/1683869
+K 26
+ResponderNotifyingWindow.m
+V 19
+file al.0.r23/17368
+K 10
+Speak.tiff
+V 20
+file am.0.r7/1676597
+K 10
+Store.tiff
+V 20
+file an.0.r7/1674871
+K 8
+app.tiff
+V 20
+file ao.0.r7/1684090
+K 6
+main.m
+V 20
+file ap.0.r7/1673650
+K 12
+preditorDict
+V 17
+dir cd.0.r39/1844
+END
+ENDREP
+id: ad.0.r70/796
+type: dir
+pred: ad.0.r69/1125
+count: 22
+text: 70 0 783 783 6868fbf707ff8656c77741f8be20592c
+cpath: /osx/trunk/Applications/PrEditor
+copyroot: 0 /
+
+PLAIN
+K 5
+Monet
+V 17
+dir 17.0.r65/3261
+K 8
+PrEditor
+V 16
+dir ad.0.r70/796
+K 5
+PreMo
+V 16
+dir hm.0.r66/883
+END
+ENDREP
+id: 5.0.r70/1077
+type: dir
+pred: 5.0.r69/1409
+count: 55
+text: 70 960 104 104 d924a1212449a49cedfd53e7649129c1
+cpath: /osx/trunk/Applications
+copyroot: 0 /
+
+PLAIN
+K 12
+Applications
+V 16
+dir 5.0.r70/1077
+K 10
+Frameworks
+V 16
+dir ci.0.r67/782
+K 7
+Scripts
+V 19
+dir 8s.0.r2/1785465
+K 5
+Tools
+V 16
+dir 8w.0.r5/4226
+END
+ENDREP
+id: 2.0.r70/1397
+type: dir
+pred: 2.0.r69/1730
+count: 69
+text: 70 1233 151 151 a9312fcbd50f641696a61efec63218bf
+cpath: /osx/trunk
+copyroot: 0 /
+
+PLAIN
+K 8
+branches
+V 13
+dir 3.0.r1/65
+K 4
+tags
+V 14
+dir 4.0.r1/134
+K 5
+trunk
+V 16
+dir 2.0.r70/1397
+END
+ENDREP
+id: 1.0.r70/1651
+type: dir
+pred: 1.0.r69/1984
+count: 69
+text: 70 1541 97 97 1ff2e43efd7e70cbff9299b45c3041b6
+cpath: /osx
+copyroot: 0 /
+
+PLAIN
+K 3
+osx
+V 16
+dir 1.0.r70/1651
+END
+ENDREP
+id: 0.0.r70/1834
+type: dir
+pred: 0.0.r69/2167
+count: 70
+text: 70 1787 34 34 e1bd5d3c475893958846175e8cb4b3e7
+cpath: /
+copyroot: 0 /
+
+bq.0.t69-1 delete false false /osx/trunk/Applications/PrEditor/Japanese.lproj
+
+
+1834 1967

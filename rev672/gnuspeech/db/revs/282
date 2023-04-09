@@ -1,0 +1,122 @@
+id: 8s.9.r282/0
+type: dir
+pred: 8s.0.r2/1785465
+count: 1
+text: 2 1785328 124 124 f7312ca70931061a898c83ca41458154
+cpath: /osx/trunk/Other/Scripts
+copyfrom: 281 /osx/trunk/Scripts
+
+PLAIN
+K 7
+Scripts
+V 15
+dir 8s.9.r282/0
+K 5
+Tools
+V 15
+dir 8w.8.r281/0
+END
+ENDREP
+id: 3h4.0.r282/261
+type: dir
+pred: 3h4.0.r281/216
+count: 2
+text: 282 180 68 68 0fc0bd2b296a7b0de8c24c45077a439d
+cpath: /osx/trunk/Other
+copyroot: 0 /
+
+PLAIN
+K 12
+Applications
+V 17
+dir 5.0.r273/6165
+K 6
+Builds
+V 16
+dir 3h3.0.r278/0
+K 7
+Daemons
+V 16
+dir 3h1.0.r276/0
+K 10
+Frameworks
+V 18
+dir ci.0.r261/3204
+K 5
+Other
+V 18
+dir 3h4.0.r282/261
+K 8
+Services
+V 16
+dir 3h2.0.r277/0
+END
+ENDREP
+id: 2.0.r282/646
+type: dir
+pred: 2.0.r281/636
+count: 113
+text: 282 412 221 221 423381ca5d2f5052b6d39a45d3805b84
+cpath: /osx/trunk
+copyroot: 0 /
+
+PLAIN
+K 8
+branches
+V 13
+dir 3.0.r1/65
+K 4
+tags
+V 14
+dir 4.0.r1/134
+K 5
+trunk
+V 16
+dir 2.0.r282/646
+END
+ENDREP
+id: 1.0.r282/901
+type: dir
+pred: 1.0.r281/891
+count: 113
+text: 282 791 97 97 1d8f1b189db9803c1eaf684901c622e9
+cpath: /osx
+copyroot: 0 /
+
+PLAIN
+K 4
+docs
+V 18
+dir 2w8.0.r159/538
+K 7
+gnustep
+V 18
+dir kb.0.r275/5794
+K 4
+misc
+V 18
+dir 38v.0.r160/333
+K 8
+nextstep
+V 19
+dir 14l.0.r155/8758
+K 3
+osx
+V 16
+dir 1.0.r282/901
+END
+ENDREP
+id: 0.0.r282/1225
+type: dir
+pred: 0.0.r281/1215
+count: 282
+text: 282 1038 174 174 e05a7d582ec8d7204e826af147d5a0f0
+cpath: /
+copyroot: 0 /
+
+8s.0.r2/1785465 delete false false /osx/trunk/Scripts
+
+8s._0.t281-1 add false false /osx/trunk/Other/Scripts
+281 /osx/trunk/Scripts
+
+1225 1364

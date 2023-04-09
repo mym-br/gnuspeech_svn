@@ -1,0 +1,142 @@
+PLAIN
+K 13
+MainMenu.gorm
+V 17
+dir ty.0.r74/8746
+K 16
+locversion.plist
+V 21
+file lb.0.r72/1721631
+END
+ENDREP
+id: l9.0.r112/108
+type: dir
+pred: l9.0.r100/1603
+count: 3
+text: 112 0 95 95 db386d65c7f503744f4b66089a8ba6d7
+cpath: /gnustep/trunk/Applications/GnuSpeech/English.lproj
+copyroot: 0 /
+
+PLAIN
+K 13
+English.lproj
+V 17
+dir l9.0.r112/108
+K 19
+GnuSpeech.xcodeproj
+V 18
+dir 119.0.r111/773
+K 6
+README
+V 19
+file 13t.0.r111/966
+END
+ENDREP
+id: kg.0.r112/435
+type: dir
+pred: kg.0.r111/1268
+count: 10
+text: 112 291 131 131 4db1d62300b1304c5888720d51c43c27
+cpath: /gnustep/trunk/Applications/GnuSpeech
+copyroot: 0 /
+
+PLAIN
+K 9
+GnuSpeech
+V 17
+dir kg.0.r112/435
+K 5
+Monet
+V 20
+dir lh.0.r101/617643
+K 8
+PrEditor
+V 18
+dir un.0.r110/2053
+K 5
+PreMo
+V 19
+dir 11w.0.r103/4736
+END
+ENDREP
+id: kf.0.r112/771
+type: dir
+pred: kf.0.r111/1606
+count: 32
+text: 112 609 149 149 50a4526d7abdaa634323f5b5d911211e
+cpath: /gnustep/trunk/Applications
+copyroot: 0 /
+
+PLAIN
+K 12
+Applications
+V 17
+dir kf.0.r112/771
+K 10
+Frameworks
+V 18
+dir ws.0.r103/2935
+K 7
+Scripts
+V 20
+dir t2.0.r72/1787921
+K 5
+Tools
+V 17
+dir t6.0.r75/4296
+END
+ENDREP
+id: kc.0.r112/1104
+type: dir
+pred: kc.0.r111/1942
+count: 41
+text: 112 935 156 156 5dcbb7d5a0211883b7f30a51b85dc221
+cpath: /gnustep/trunk
+copyroot: 0 /
+
+PLAIN
+K 8
+branches
+V 15
+dir kd.0.r71/71
+K 4
+tags
+V 16
+dir ke.0.r71/146
+K 5
+trunk
+V 18
+dir kc.0.r112/1104
+END
+ENDREP
+id: kb.0.r112/1372
+type: dir
+pred: kb.0.r111/2211
+count: 41
+text: 112 1256 103 103 b123c8a41efe3aec7b22c0b5cd3345f3
+cpath: /gnustep
+copyroot: 0 /
+
+PLAIN
+K 7
+gnustep
+V 18
+dir kb.0.r112/1372
+K 3
+osx
+V 16
+dir 1.0.r70/1651
+END
+ENDREP
+id: 0.0.r112/1602
+type: dir
+pred: 0.0.r111/2441
+count: 112
+text: 112 1519 70 70 0c97c455e81af396fa55679154e4b391
+cpath: /
+copyroot: 0 /
+
+lc.0.t111-1 delete false false /gnustep/trunk/Applications/GnuSpeech/English.lproj/MainMenu.nib
+
+
+1602 1739

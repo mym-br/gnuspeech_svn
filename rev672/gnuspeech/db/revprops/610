@@ -1,0 +1,13 @@
+K 10
+svn:author
+V 9
+dbrisinda
+K 8
+svn:date
+V 27
+2009-05-06T03:18:53.121561Z
+K 7
+svn:log
+V 212
+Completed port of the letter to sound rules from the original source c. 1995. There is some odd British pronunciation of abbreviations like "Dr." as pronounced with the British uh_uu instead of the American uh_r.
+END

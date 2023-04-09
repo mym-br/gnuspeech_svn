@@ -1,0 +1,153 @@
+PLAIN
+K 9
+Archiving
+V 19
+dir xl.0.r84/186402
+K 25
+Compatibility-TypedStream
+V 19
+dir y6.0.r84/181411
+K 13
+English.lproj
+V 19
+dir yl.0.r84/187249
+K 10
+Extensions
+V 19
+dir yn.0.r91/970135
+K 11
+GnuSpeech.h
+V 20
+file xi.0.r91/974566
+K 19
+GnuSpeech.xcodeproj
+V 18
+dir z0.0.r131/4955
+K 20
+GnuSpeech_Prefix.pch
+V 20
+file xj.0.r84/177824
+K 10
+Info.plist
+V 20
+file xk.0.r84/177498
+K 10
+MonetModel
+V 18
+dir z7.0.r93/10189
+K 7
+Parsers
+V 18
+dir 10n.0.r85/1482
+K 14
+TextProcessing
+V 20
+dir 11d.0.r91/974396
+K 4
+Tube
+V 18
+dir z2.0.r131/4503
+END
+ENDREP
+id: xh.0.r137/538
+type: dir
+pred: xh.0.r131/5762
+count: 14
+text: 137 0 525 525 26999af94afc9046f1bc9f1d585372a1
+cpath: /gnustep/trunk/Frameworks/GnuSpeech
+copyroot: 0 /
+
+PLAIN
+K 9
+GnuSpeech
+V 17
+dir xh.0.r137/538
+K 4
+Tube
+V 18
+dir wt.0.r131/3785
+END
+ENDREP
+id: ws.0.r137/795
+type: dir
+pred: ws.0.r131/6023
+count: 17
+text: 137 708 74 74 1c0188b05616f6ee93a7cc0c23c55622
+cpath: /gnustep/trunk/Frameworks
+copyroot: 0 /
+
+PLAIN
+K 12
+Applications
+V 18
+dir kf.0.r136/2739
+K 10
+Frameworks
+V 17
+dir ws.0.r137/795
+K 7
+Scripts
+V 20
+dir t2.0.r72/1787921
+K 5
+Tools
+V 17
+dir t6.0.r75/4296
+END
+ENDREP
+id: kc.0.r137/1124
+type: dir
+pred: kc.0.r136/3075
+count: 66
+text: 137 955 156 156 426fb30677d3b39b2a3aa3394926ac4a
+cpath: /gnustep/trunk
+copyroot: 0 /
+
+PLAIN
+K 8
+branches
+V 15
+dir kd.0.r71/71
+K 4
+tags
+V 16
+dir ke.0.r71/146
+K 5
+trunk
+V 18
+dir kc.0.r137/1124
+END
+ENDREP
+id: kb.0.r137/1392
+type: dir
+pred: kb.0.r136/3344
+count: 66
+text: 137 1276 103 103 babe752348a088097fec2761bfdf81a1
+cpath: /gnustep
+copyroot: 0 /
+
+PLAIN
+K 7
+gnustep
+V 18
+dir kb.0.r137/1392
+K 3
+osx
+V 16
+dir 1.0.r70/1651
+END
+ENDREP
+id: 0.0.r137/1622
+type: dir
+pred: 0.0.r136/3574
+count: 137
+text: 137 1539 70 70 d3cef8c66b3592d4c3b15a366a604a3a
+cpath: /
+copyroot: 0 /
+
+14j.0.r129/5979 delete false false /gnustep/trunk/Frameworks/GnuSpeech/TRMData.m
+
+14i.0.r130/74 delete false false /gnustep/trunk/Frameworks/GnuSpeech/TRMData.h
+
+
+1622 1759

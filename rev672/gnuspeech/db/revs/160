@@ -1,0 +1,81 @@
+id: 38w.0.r160/0
+type: dir
+count: 0
+cpath: /misc/trunk
+copyroot: 0 /
+
+id: 38x.0.r160/70
+type: dir
+count: 0
+cpath: /misc/branches
+copyroot: 0 /
+
+id: 38y.0.r160/144
+type: dir
+count: 0
+cpath: /misc/tags
+copyroot: 0 /
+
+PLAIN
+K 8
+branches
+V 17
+dir 38x.0.r160/70
+K 4
+tags
+V 18
+dir 38y.0.r160/144
+K 5
+trunk
+V 16
+dir 38w.0.r160/0
+END
+ENDREP
+id: 38v.0.r160/333
+type: dir
+count: 0
+text: 160 215 105 105 2002bb07f4391d36cdf13123975130d7
+cpath: /misc
+copyroot: 0 /
+
+PLAIN
+K 4
+docs
+V 18
+dir 2w8.0.r159/538
+K 7
+gnustep
+V 18
+dir kb.0.r140/1708
+K 4
+misc
+V 18
+dir 38v.0.r160/333
+K 8
+nextstep
+V 19
+dir 14l.0.r155/8758
+K 3
+osx
+V 16
+dir 1.0.r70/1651
+END
+ENDREP
+id: 0.0.r160/641
+type: dir
+pred: 0.0.r159/838
+count: 160
+text: 160 454 174 174 882ae275740cb40e6ce3ee85093283a1
+cpath: /
+copyroot: 0 /
+
+_2.0.t159-1 add false false /misc/branches
+
+_3.0.t159-1 add false false /misc/tags
+
+_0.0.t159-1 add false false /misc
+
+_1.0.t159-1 add false false /misc/trunk
+
+
+641 777

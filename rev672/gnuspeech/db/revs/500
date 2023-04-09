@@ -1,0 +1,183 @@
+PLAIN
+K 21
+ApplicationDelegate.h
+V 21
+file ho.0.r478/166860
+K 21
+ApplicationDelegate.m
+V 21
+file hp.0.r478/167055
+K 13
+ChangeLog.txt
+V 20
+file 3i5.0.r479/4483
+K 13
+English.lproj
+V 16
+dir im.0.r66/204
+K 11
+GNUmakefile
+V 21
+file hq.0.r25/2800272
+K 10
+Info.plist
+V 19
+file hr.0.r306/8822
+K 10
+PreMo.icns
+V 22
+file 3ha.0.r293/202400
+K 15
+PreMo.xcodeproj
+V 19
+dir iu.0.r477/68551
+K 16
+PreMo_Prefix.pch
+V 20
+file hs.0.r477/67896
+K 6
+main.m
+V 21
+file ht.0.r478/166681
+K 13
+version.plist
+V 21
+file hu.0.r25/2792630
+END
+ENDREP
+id: hm.0.r500/518
+type: dir
+pred: hm.0.r498/559
+count: 26
+text: 500 0 505 505 195f9a38ee709b1f3a411a6c82fffc8b
+cpath: /osx/trunk/Applications/PreMo
+copyroot: 0 /
+
+PLAIN
+K 12
+GnuTTSClient
+V 20
+dir 3eb.0.r484/17561
+K 5
+Monet
+V 19
+dir 17.0.r484/14151
+K 8
+PrEditor
+V 18
+dir ad.0.r479/7410
+K 5
+PreMo
+V 17
+dir hm.0.r500/518
+END
+ENDREP
+id: 5.0.r500/847
+type: dir
+pred: 5.0.r498/890
+count: 108
+text: 500 681 153 153 e04bf4970dabe2d90fba5e5592c7481f
+cpath: /osx/trunk/Applications
+copyroot: 0 /
+
+PLAIN
+K 12
+Applications
+V 16
+dir 5.0.r500/847
+K 6
+Builds
+V 22
+dir 3hc.0.r485/1943354
+K 7
+Daemons
+V 20
+dir 3h1.0.r484/19830
+K 10
+Frameworks
+V 18
+dir ci.0.r484/5095
+K 10
+Installers
+V 19
+dir 3he.0.r487/1584
+K 5
+Other
+V 18
+dir 3h4.0.r282/261
+K 6
+README
+V 20
+file 3gx.c.r303/2388
+K 8
+Services
+V 20
+dir 3h2.0.r484/10244
+END
+ENDREP
+id: 2.0.r500/1330
+type: dir
+pred: 2.0.r498/1375
+count: 148
+text: 500 1005 312 312 839ce402b216cfd7d993ee192c17407c
+cpath: /osx/trunk
+copyroot: 0 /
+
+PLAIN
+K 8
+branches
+V 13
+dir 3.0.r1/65
+K 4
+tags
+V 17
+dir 4.0.r499/1729
+K 5
+trunk
+V 17
+dir 2.0.r500/1330
+END
+ENDREP
+id: 1.0.r500/1592
+type: dir
+pred: 1.0.r499/1986
+count: 163
+text: 500 1478 101 101 b936868742ed0fbc391c0fd7e483820c
+cpath: /osx
+copyroot: 0 /
+
+PLAIN
+K 4
+docs
+V 18
+dir 2w8.0.r159/538
+K 7
+gnustep
+V 18
+dir kb.0.r473/1245
+K 4
+misc
+V 18
+dir 38v.0.r160/333
+K 8
+nextstep
+V 19
+dir 14l.0.r155/8758
+K 3
+osx
+V 17
+dir 1.0.r500/1592
+END
+ENDREP
+id: 0.0.r500/1922
+type: dir
+pred: 0.0.r499/2316
+count: 500
+text: 500 1734 175 175 253050b12c8da7486a86c5288c29c21b
+cpath: /
+copyroot: 0 /
+
+hn.0.r25/2799788 delete false false /osx/trunk/Applications/PreMo/.DS_Store
+
+
+1922 2061

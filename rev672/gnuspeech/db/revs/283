@@ -1,0 +1,153 @@
+id: 3ep.a.r283/0
+type: dir
+pred: 3ep.0.r260/23585
+count: 2
+text: 260 23147 425 425 1e87d250ec9deb2aca8d9122e66b1079
+cpath: /osx/trunk/Services/GnuSpeechService
+copyfrom: 282 /osx/trunk/Applications/GnuSpeechService
+
+PLAIN
+K 16
+GnuSpeechService
+V 16
+dir 3ep.a.r283/0
+END
+ENDREP
+id: 3h2.0.r283/277
+type: dir
+pred: 3h2.0.r277/0
+count: 1
+text: 283 216 48 48 3bb45a8a6d7237528c40fc287acd953b
+cpath: /osx/trunk/Services
+copyroot: 0 /
+
+PLAIN
+K 12
+GnuTTSClient
+V 20
+dir 3eb.0.r260/30883
+K 12
+GnuTTSServer
+V 20
+dir 3dt.0.r260/32444
+K 5
+Monet
+V 18
+dir 17.0.r273/5701
+K 8
+PrEditor
+V 18
+dir ad.0.r216/1039
+K 5
+PreMo
+V 17
+dir hm.0.r219/741
+K 6
+README
+V 20
+file 3gx.0.r265/1411
+END
+ENDREP
+id: 5.0.r283/675
+type: dir
+pred: 5.0.r273/6165
+count: 88
+text: 283 429 233 233 47dc068379cd391be8109e422dc86fd6
+cpath: /osx/trunk/Applications
+copyroot: 0 /
+
+PLAIN
+K 12
+Applications
+V 16
+dir 5.0.r283/675
+K 6
+Builds
+V 16
+dir 3h3.0.r278/0
+K 7
+Daemons
+V 16
+dir 3h1.0.r276/0
+K 10
+Frameworks
+V 18
+dir ci.0.r261/3204
+K 5
+Other
+V 18
+dir 3h4.0.r282/261
+K 8
+Services
+V 18
+dir 3h2.0.r283/277
+END
+ENDREP
+id: 2.0.r283/1068
+type: dir
+pred: 2.0.r282/646
+count: 114
+text: 283 833 222 222 e585971e8f8de26a1743e15a0b1c2997
+cpath: /osx/trunk
+copyroot: 0 /
+
+PLAIN
+K 8
+branches
+V 13
+dir 3.0.r1/65
+K 4
+tags
+V 14
+dir 4.0.r1/134
+K 5
+trunk
+V 17
+dir 2.0.r283/1068
+END
+ENDREP
+id: 1.0.r283/1325
+type: dir
+pred: 1.0.r282/901
+count: 114
+text: 283 1214 98 98 a5434a15003b593e954cf91b6215955f
+cpath: /osx
+copyroot: 0 /
+
+PLAIN
+K 4
+docs
+V 18
+dir 2w8.0.r159/538
+K 7
+gnustep
+V 18
+dir kb.0.r275/5794
+K 4
+misc
+V 18
+dir 38v.0.r160/333
+K 8
+nextstep
+V 19
+dir 14l.0.r155/8758
+K 3
+osx
+V 17
+dir 1.0.r283/1325
+END
+ENDREP
+id: 0.0.r283/1652
+type: dir
+pred: 0.0.r282/1225
+count: 283
+text: 283 1464 175 175 6481e0e963e3fd9604fb4f5a15164e1a
+cpath: /
+copyroot: 0 /
+
+3ep._0.t282-1 add false false /osx/trunk/Services/GnuSpeechService
+282 /osx/trunk/Applications/GnuSpeechService
+3ep.0.r260/23585 delete false false /osx/trunk/Applications/GnuSpeechService
+
+
+1652 1791

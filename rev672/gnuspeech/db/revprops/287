@@ -1,0 +1,13 @@
+K 10
+svn:author
+V 9
+dbrisinda
+K 8
+svn:date
+V 27
+2009-01-20T18:20:54.432225Z
+K 7
+svn:log
+V 132
+Updated README file and slight restructuring of folders to include Daemons, Services, and Builds, plus README end-of-line insertion.
+END

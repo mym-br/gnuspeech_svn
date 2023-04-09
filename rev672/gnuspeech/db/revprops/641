@@ -1,0 +1,13 @@
+K 10
+svn:author
+V 9
+dbrisinda
+K 8
+svn:date
+V 27
+2009-05-15T01:53:00.748817Z
+K 7
+svn:log
+V 99
+Updated all change logs with new bug fixes and updated GnuTTSClient with same fix for 10.4 systems.
+END

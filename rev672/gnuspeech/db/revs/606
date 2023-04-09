@@ -1,0 +1,219 @@
+PLAIN
+K 8
+Makefile
+V 19
+file t8.0.r604/1156
+K 6
+README
+V 21
+file ti.0.r72/1710927
+K 5
+fir.c
+V 18
+file t9.0.r357/568
+K 5
+fir.h
+V 18
+file ta.0.r358/559
+K 5
+input
+V 18
+file tb.0.r604/979
+K 7
+input.c
+V 18
+file tc.0.r359/560
+K 7
+input.h
+V 18
+file td.0.r360/559
+K 6
+main.c
+V 18
+file te.0.r361/568
+K 6
+main.h
+V 18
+file tf.0.r362/555
+K 8
+output.c
+V 18
+file tg.0.r363/571
+K 8
+output.h
+V 18
+file th.0.r364/559
+K 13
+ring_buffer.c
+V 18
+file tl.0.r365/560
+K 13
+ring_buffer.h
+V 18
+file tm.0.r366/559
+K 9
+structs.h
+V 18
+file tn.0.r367/560
+K 6
+tube.c
+V 18
+file to.0.r370/573
+K 6
+tube.h
+V 18
+file tp.0.r371/559
+K 6
+util.c
+V 18
+file tr.0.r373/568
+K 6
+util.h
+V 18
+file ts.0.r374/559
+K 11
+wavetable.c
+V 18
+file tt.0.r375/647
+K 11
+wavetable.h
+V 18
+file tu.0.r376/559
+END
+ENDREP
+id: t7.0.r606/757
+type: dir
+pred: t7.0.r605/806
+count: 24
+text: 606 0 744 744 08b51fd4981c2e7e3b4461eb940079e1
+cpath: /gnustep/trunk/Tools/softwareTRM
+copyroot: 0 /
+
+PLAIN
+K 12
+GnuSpeechCLI
+V 19
+dir 3gd.0.r574/2740
+K 11
+softwareTRM
+V 17
+dir t7.0.r606/757
+END
+ENDREP
+id: t6.0.r606/1023
+type: dir
+pred: t6.0.r605/1073
+count: 36
+text: 606 923 87 87 b51334f2eaa2cca8d14ccf0c77434b5b
+cpath: /gnustep/trunk/Tools
+copyroot: 0 /
+
+PLAIN
+K 12
+Applications
+V 18
+dir kf.0.r578/7548
+K 5
+Build
+V 16
+dir 3b5.0.r223/0
+K 7
+COPYING
+V 21
+file 3gc.0.r253/14851
+K 9
+ChangeLog
+V 20
+file 3gb.0.r604/2795
+K 10
+Frameworks
+V 18
+dir ws.0.r574/1735
+K 15
+INSTALL.GNUstep
+V 20
+file 3g9.0.r575/1722
+K 14
+README.GNUstep
+V 20
+file 3ga.0.r576/4438
+K 7
+Scripts
+V 20
+dir t2.0.r72/1787921
+K 5
+Tools
+V 18
+dir t6.0.r606/1023
+K 10
+install.sh
+V 20
+file 3g8.0.r575/1334
+END
+ENDREP
+id: kc.0.r606/1596
+type: dir
+pred: kc.0.r605/1646
+count: 326
+text: 606 1179 404 404 4be37943ed04dd52e55b9637dc7cc280
+cpath: /gnustep/trunk
+copyroot: 0 /
+
+PLAIN
+K 8
+branches
+V 15
+dir kd.0.r71/71
+K 4
+tags
+V 16
+dir ke.0.r71/146
+K 5
+trunk
+V 18
+dir kc.0.r606/1596
+END
+ENDREP
+id: kb.0.r606/1866
+type: dir
+pred: kb.0.r605/1916
+count: 326
+text: 606 1750 103 103 b558687180607ae8e49c4b4c6065d8ea
+cpath: /gnustep
+copyroot: 0 /
+
+PLAIN
+K 4
+docs
+V 18
+dir 2w8.0.r509/284
+K 7
+gnustep
+V 18
+dir kb.0.r606/1866
+K 4
+misc
+V 18
+dir 38v.0.r160/333
+K 8
+nextstep
+V 19
+dir 14l.0.r155/8758
+K 3
+osx
+V 17
+dir 1.0.r603/3037
+END
+ENDREP
+id: 0.0.r606/2202
+type: dir
+pred: 0.0.r605/2252
+count: 606
+text: 606 2014 175 175 0c44d32b949c0b33aa496018e41b447f
+cpath: /
+copyroot: 0 /
+
+tv.0.r72/1713657 delete false false /gnustep/trunk/Tools/softwareTRM/softwareTRM.xcode
+
+
+2202 2341

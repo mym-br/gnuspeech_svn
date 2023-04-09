@@ -1,0 +1,120 @@
+PLAIN
+K 12
+Applications
+V 16
+dir 5.h.r489/479
+K 6
+Builds
+V 16
+dir 3hc.i.r490/0
+K 7
+Daemons
+V 18
+dir 3h1.j.r491/404
+K 10
+Frameworks
+V 15
+dir ci.k.r492/0
+K 10
+Installers
+V 16
+dir 3he.l.r493/0
+K 5
+Other
+V 16
+dir 3h4.m.r494/0
+K 6
+README
+V 19
+file 3gx.o.r496/207
+K 8
+Services
+V 18
+dir 3h2.n.r495/247
+END
+ENDREP
+id: 3ib.0.r497/306
+type: dir
+pred: 3ib.0.r496/755
+count: 10
+text: 497 0 293 293 cdfd4a50da219d49f168d9a41b1963c1
+cpath: /osx/tags/GnuSpeech-0.5.1
+copyroot: 0 /
+
+PLAIN
+K 13
+GnuSpeech-0.5
+V 14
+dir 2.f.r301/0
+K 15
+GnuSpeech-0.5.1
+V 18
+dir 3ib.0.r497/306
+END
+ENDREP
+id: 4.0.r497/568
+type: dir
+pred: 4.0.r496/1018
+count: 14
+text: 497 467 88 88 e1d9f5449b5d197661cde1ab0919b8cf
+cpath: /osx/tags
+copyroot: 0 /
+
+PLAIN
+K 8
+branches
+V 13
+dir 3.0.r1/65
+K 4
+tags
+V 16
+dir 4.0.r497/568
+K 5
+trunk
+V 17
+dir 2.0.r487/2070
+END
+ENDREP
+id: 1.0.r497/823
+type: dir
+pred: 1.0.r496/1275
+count: 160
+text: 497 710 100 100 38a726e927959e339fac88af036e6bb6
+cpath: /osx
+copyroot: 0 /
+
+PLAIN
+K 4
+docs
+V 18
+dir 2w8.0.r159/538
+K 7
+gnustep
+V 18
+dir kb.0.r473/1245
+K 4
+misc
+V 18
+dir 38v.0.r160/333
+K 8
+nextstep
+V 19
+dir 14l.0.r155/8758
+K 3
+osx
+V 16
+dir 1.0.r497/823
+END
+ENDREP
+id: 0.0.r497/1150
+type: dir
+pred: 0.0.r496/1605
+count: 497
+text: 497 963 174 174 834c8b5786907737388d824d1360e1c8
+cpath: /
+copyroot: 0 /
+
+2.g.r496/17 delete false false /osx/tags/GnuSpeech-0.5.1/trunk
+
+
+1150 1288

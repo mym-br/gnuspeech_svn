@@ -1,0 +1,142 @@
+id: 3vx.p.r511/0
+type: dir
+pred: 3vx.0.r508/807809
+count: 1
+text: 508 800796 7000 7000 f46b05351ebfb8a1ce838253d90996bb
+cpath: /osx/trunk/Applications/Synthesizer
+copyfrom: 510 /osx/trunk/Synthesizer
+
+PLAIN
+K 12
+GnuTTSClient
+V 20
+dir 3eb.0.r501/44392
+K 5
+Monet
+V 19
+dir 17.0.r501/43040
+K 8
+PrEditor
+V 18
+dir ad.0.r479/7410
+K 5
+PreMo
+V 17
+dir hm.0.r500/518
+K 11
+Synthesizer
+V 16
+dir 3vx.p.r511/0
+END
+ENDREP
+id: 5.0.r511/406
+type: dir
+pred: 5.0.r505/166
+count: 113
+text: 511 201 192 192 d225a64670ae93bca9da2b87db241b65
+cpath: /osx/trunk/Applications
+copyroot: 0 /
+
+PLAIN
+K 12
+Applications
+V 16
+dir 5.0.r511/406
+K 6
+Builds
+V 22
+dir 3hc.0.r485/1943354
+K 7
+Daemons
+V 20
+dir 3h1.0.r501/46659
+K 10
+Frameworks
+V 18
+dir ci.0.r484/5095
+K 10
+Installers
+V 19
+dir 3he.0.r487/1584
+K 5
+Other
+V 18
+dir 3h4.0.r282/261
+K 6
+README
+V 20
+file 3gx.c.r303/2388
+K 8
+Services
+V 20
+dir 3h2.0.r501/26208
+END
+ENDREP
+id: 2.0.r511/889
+type: dir
+pred: 2.0.r508/808324
+count: 154
+text: 511 564 312 312 932e66fed62376c30312c98830b8ce58
+cpath: /osx/trunk
+copyroot: 0 /
+
+PLAIN
+K 8
+branches
+V 15
+dir 3.0.r510/17
+K 4
+tags
+V 17
+dir 4.0.r499/1729
+K 5
+trunk
+V 16
+dir 2.0.r511/889
+END
+ENDREP
+id: 1.0.r511/1152
+type: dir
+pred: 1.0.r510/277
+count: 171
+text: 511 1037 102 102 b3405e355a8dfb00596985cf01a1fe00
+cpath: /osx
+copyroot: 0 /
+
+PLAIN
+K 4
+docs
+V 18
+dir 2w8.0.r509/284
+K 7
+gnustep
+V 19
+dir kb.0.r502/17884
+K 4
+misc
+V 18
+dir 38v.0.r160/333
+K 8
+nextstep
+V 19
+dir 14l.0.r155/8758
+K 3
+osx
+V 17
+dir 1.0.r511/1152
+END
+ENDREP
+id: 0.0.r511/1482
+type: dir
+pred: 0.0.r510/607
+count: 511
+text: 511 1293 176 176 7b58bb4a4560d122a625a6b9dd0fb352
+cpath: /
+copyroot: 0 /
+
+3vx.0.r508/807809 delete false false /osx/trunk/Synthesizer
+
+3vx._0.t510-1 add false false /osx/trunk/Applications/Synthesizer
+510 /osx/trunk/Synthesizer
+
+1482 1620

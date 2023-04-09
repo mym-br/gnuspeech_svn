@@ -1,0 +1,13 @@
+K 10
+svn:author
+V 8
+mymatuda
+K 8
+svn:date
+V 27
+2009-01-13T02:36:44.595454Z
+K 7
+svn:log
+V 78
+Use the file 2.0eMainDictionary.dict from Frameworks/GnuSpeech/TextProcessing.
+END

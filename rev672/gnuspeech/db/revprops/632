@@ -1,0 +1,13 @@
+K 10
+svn:author
+V 9
+dbrisinda
+K 8
+svn:date
+V 27
+2009-05-11T21:48:56.678908Z
+K 7
+svn:log
+V 124
+Remove the TouchNTalk application since this is the old 1992 version, in preparation for reimport of the newer 1994 version.
+END

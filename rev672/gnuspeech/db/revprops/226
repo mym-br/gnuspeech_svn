@@ -1,0 +1,13 @@
+K 10
+svn:author
+V 9
+dbrisinda
+K 8
+svn:date
+V 27
+2009-01-06T04:35:15.782831Z
+K 7
+svn:log
+V 100
+The initial import of the GNU text-to-speech service that requires installation of the GnuTTSServer.
+END

@@ -1,0 +1,15 @@
+K 10
+svn:author
+V 6
+nygard
+K 8
+svn:date
+V 27
+2007-02-09T01:12:52.000000Z
+K 7
+svn:log
+V 151
+Moved all of the model parts from Monet into a separate framework.  There are still a few
+references to AppKit hanging around that need to be removed.
+
+END

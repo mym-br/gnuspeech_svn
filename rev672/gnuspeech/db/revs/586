@@ -1,0 +1,307 @@
+id: gl.1s.r586/0
+type: file
+pred: gl.0.r15/215
+count: 2
+text: 15 167 20 14872 0ed7374b80237cd8cf923cbd70d2e0ab
+cpath: /osx/trunk/Frameworks/GnuSpeech/Parsers/BooleanExpressionParser/MMBooleanParser.m
+copyfrom: 585 /osx/trunk/Frameworks/GnuSpeech/Parsers/MMBooleanParser.m
+
+PLAIN
+K 21
+MMBooleanExpression.h
+V 17
+file gg.1n.r581/0
+K 21
+MMBooleanExpression.m
+V 17
+file gh.1o.r582/0
+K 15
+MMBooleanNode.h
+V 17
+file gi.1p.r583/0
+K 15
+MMBooleanNode.m
+V 17
+file gj.1q.r584/0
+K 17
+MMBooleanParser.h
+V 17
+file gk.1r.r585/0
+K 17
+MMBooleanParser.m
+V 17
+file gl.1s.r586/0
+END
+ENDREP
+id: 4nc.0.r586/570
+type: dir
+pred: 4nc.0.r585/531
+count: 6
+text: 586 273 284 284 388bcd6166cae9c977f0f3979e98e392
+cpath: /osx/trunk/Frameworks/GnuSpeech/Parsers/BooleanExpressionParser
+copyroot: 0 /
+
+PLAIN
+K 23
+BooleanExpressionParser
+V 18
+dir 4nc.0.r586/570
+K 10
+GSParser.h
+V 21
+file ge.0.r478/119524
+K 10
+GSParser.m
+V 21
+file gf.0.r478/119330
+K 18
+MMBooleanSymbols.h
+V 20
+file gm.0.r14/163525
+K 19
+MMBooleanTerminal.h
+V 20
+file gn.0.r14/161923
+K 19
+MMBooleanTerminal.m
+V 20
+file go.0.r14/162456
+K 16
+MMFRuleSymbols.h
+V 20
+file gp.0.r14/163170
+K 21
+MMFormulaExpression.h
+V 20
+file gq.0.r14/162814
+K 21
+MMFormulaExpression.m
+V 20
+file gr.0.r14/163703
+K 15
+MMFormulaNode.h
+V 20
+file gs.0.r14/161748
+K 15
+MMFormulaNode.m
+V 20
+file gt.0.r14/162281
+K 17
+MMFormulaParser.h
+V 20
+file gu.0.r14/162637
+K 17
+MMFormulaParser.m
+V 20
+file gv.0.r14/163346
+K 18
+MMFormulaSymbols.h
+V 20
+file gw.0.r14/162103
+K 19
+MMFormulaTerminal.h
+V 20
+file gx.0.r14/161204
+K 19
+MMFormulaTerminal.m
+V 20
+file gy.0.r14/161567
+END
+ENDREP
+id: gd.0.r586/1576
+type: dir
+pred: gd.0.r585/1583
+count: 9
+text: 586 770 793 793 66d676fea7e279f1ea3699f02b2c7a67
+cpath: /osx/trunk/Frameworks/GnuSpeech/Parsers
+copyroot: 0 /
+
+PLAIN
+K 9
+Archiving
+V 20
+dir db.0.r478/147717
+K 13
+ChangeLog.txt
+V 20
+file 3i7.0.r484/4060
+K 25
+Compatibility-TypedStream
+V 20
+dir dw.0.r478/142261
+K 13
+English.lproj
+V 20
+dir eb.0.r293/193160
+K 10
+Extensions
+V 20
+dir ed.0.r478/119145
+K 11
+GnuSpeech.h
+V 20
+file d8.0.r579/10515
+K 19
+GnuSpeech.xcodeproj
+V 19
+dir eq.0.r579/10975
+K 20
+GnuSpeech_Prefix.pch
+V 21
+file d9.0.r478/138348
+K 10
+Info.plist
+V 19
+file da.0.r306/3928
+K 10
+MonetModel
+V 20
+dir ex.0.r478/137975
+K 7
+Parsers
+V 18
+dir gd.0.r586/1576
+K 14
+TextProcessing
+V 19
+dir h3.0.r579/10330
+K 4
+Tube
+V 18
+dir es.0.r579/8291
+END
+ENDREP
+id: d7.0.r586/2341
+type: dir
+pred: d7.0.r585/2348
+count: 33
+text: 586 1752 576 576 73fa96c7dd13a4caed4b1f1b2cc95449
+cpath: /osx/trunk/Frameworks/GnuSpeech
+copyroot: 0 /
+
+PLAIN
+K 9
+GnuSpeech
+V 18
+dir d7.0.r586/2341
+K 4
+Tube
+V 18
+dir cj.0.r579/7736
+END
+ENDREP
+id: ci.0.r586/2599
+type: dir
+pred: ci.0.r585/2606
+count: 38
+text: 586 2511 75 75 b6e51efa8de76766c06c6d77d9943c82
+cpath: /osx/trunk/Frameworks
+copyroot: 0 /
+
+PLAIN
+K 12
+Applications
+V 20
+dir 4e0.0.r579/16835
+K 6
+Builds
+V 18
+dir 3hc.0.r543/887
+K 7
+Daemons
+V 20
+dir 3h1.0.r540/20249
+K 10
+Frameworks
+V 18
+dir ci.0.r586/2599
+K 10
+Installers
+V 19
+dir 3he.0.r544/3223
+K 7
+LICENSE
+V 21
+file 4ii.0.r540/14838
+K 5
+Other
+V 18
+dir 3h4.0.r282/261
+K 6
+README
+V 21
+file 3gx.c.r540/20409
+K 8
+Services
+V 20
+dir 3h2.0.r540/16478
+END
+ENDREP
+id: 2.0.r586/3122
+type: dir
+pred: 2.0.r585/3129
+count: 197
+text: 586 2757 352 352 bc08fb44c84619008498e3f589b7f927
+cpath: /osx/trunk
+copyroot: 0 /
+
+PLAIN
+K 8
+branches
+V 15
+dir 3.0.r510/17
+K 4
+tags
+V 16
+dir 4.0.r569/525
+K 5
+trunk
+V 17
+dir 2.0.r586/3122
+END
+ENDREP
+id: 1.0.r586/3385
+type: dir
+pred: 1.0.r585/3392
+count: 239
+text: 586 3270 102 102 2893c07223f9b4382a32be449bb0979b
+cpath: /osx
+copyroot: 0 /
+
+PLAIN
+K 4
+docs
+V 18
+dir 2w8.0.r509/284
+K 7
+gnustep
+V 18
+dir kb.0.r578/8572
+K 4
+misc
+V 18
+dir 38v.0.r160/333
+K 8
+nextstep
+V 19
+dir 14l.0.r155/8758
+K 3
+osx
+V 17
+dir 1.0.r586/3385
+END
+ENDREP
+id: 0.0.r586/3715
+type: dir
+pred: 0.0.r585/3722
+count: 586
+text: 586 3527 175 175 d80d83a4bf6c291a3c81929661f9ba8d
+cpath: /
+copyroot: 0 /
+
+gl._0.t585-1 add false false /osx/trunk/Frameworks/GnuSpeech/Parsers/BooleanExpressionParser/MMBooleanParser.m
+585 /osx/trunk/Frameworks/GnuSpeech/Parsers/MMBooleanParser.m
+gl.0.r15/215 delete false false /osx/trunk/Frameworks/GnuSpeech/Parsers/MMBooleanParser.m
+
+
+3715 3854

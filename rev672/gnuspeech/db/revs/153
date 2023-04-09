@@ -1,0 +1,1232 @@
+PLAIN
+K 11
+.dir3_0.wmd
+V 24
+file 1l8.0.r142/30815489
+K 11
+Info.gmodel
+V 22
+file 2vv.0.r143/173202
+K 8
+Info.nib
+V 21
+dir 1lb.0.r143/173766
+K 16
+Inspector.gmodel
+V 22
+file 2vw.0.r143/174739
+K 13
+Inspector.nib
+V 21
+dir 1lf.0.r143/175317
+K 12
+MONET.gmodel
+V 22
+file 2vx.0.r143/173967
+K 9
+MONET.nib
+V 21
+dir 1lo.0.r143/174537
+END
+ENDREP
+id: 1l7.0.r153/332
+type: dir
+pred: 1l7.0.r143/175949
+count: 2
+text: 153 0 319 319 e00c08f95f3f37699600717540427883
+cpath: /nextstep/trunk/ObjectiveC/Monet/English.lproj
+copyroot: 0 /
+
+PLAIN
+K 9
+.dir.tiff
+V 24
+file 1ix.0.r142/30770868
+K 11
+.dir3_0.wmd
+V 24
+file 1j0.0.r142/30786985
+K 19
+BooleanExpression.h
+V 22
+file 1j4.0.r143/159995
+K 19
+BooleanExpression.m
+V 21
+file 1j9.0.r147/65773
+K 15
+BooleanParser.h
+V 22
+file 1je.0.r143/164384
+K 15
+BooleanParser.m
+V 22
+file 1ji.0.r143/164891
+K 16
+BooleanSymbols.h
+V 22
+file 1jl.0.r143/176143
+K 17
+BooleanTerminal.h
+V 22
+file 1jo.0.r143/161022
+K 17
+BooleanTerminal.m
+V 21
+file 1jq.0.r147/66972
+K 16
+BrowserManager.h
+V 22
+file 1js.0.r143/161534
+K 16
+BrowserManager.m
+V 22
+file 1ju.0.r143/162711
+K 19
+CategoryInspector.h
+V 22
+file 1jw.0.r143/154412
+K 19
+CategoryInspector.m
+V 21
+file 1jy.0.r147/63283
+K 14
+CategoryList.h
+V 22
+file 1k0.0.r143/170415
+K 14
+CategoryList.m
+V 21
+file 1k3.0.r147/69691
+K 14
+CategoryNode.h
+V 21
+file 1k5.0.r147/67226
+K 14
+CategoryNode.m
+V 21
+file 1k7.0.r147/67911
+K 9
+ChangeLog
+V 21
+file 2vy.0.r147/60569
+K 12
+DefaultMgr.h
+V 22
+file 1ka.0.r143/152347
+K 12
+DefaultMgr.m
+V 22
+file 1kc.0.r143/153116
+K 17
+DefaultPrototypes
+V 24
+file 1kd.0.r142/30736707
+K 19
+DelegateResponder.h
+V 22
+file 1kg.0.r143/156707
+K 19
+DelegateResponder.m
+V 22
+file 1kj.0.r143/157220
+K 13
+English.lproj
+V 18
+dir 1l7.0.r153/332
+K 7
+Event.h
+V 22
+file 1km.0.r143/162465
+K 7
+Event.m
+V 22
+file 1kp.0.r143/163635
+K 11
+EventList.h
+V 22
+file 1ks.0.r143/155703
+K 11
+EventList.m
+V 21
+file 1kw.0.r147/63784
+K 15
+EventList.m.old
+V 24
+file 1ky.0.r142/30808239
+K 15
+EventListView.h
+V 22
+file 1l0.0.r143/170160
+K 15
+EventListView.m
+V 21
+file 1l4.0.r147/69437
+K 19
+FormulaExpression.h
+V 21
+file 1l9.0.r147/70185
+K 19
+FormulaExpression.m
+V 21
+file 1la.0.r147/70684
+K 15
+FormulaParser.h
+V 22
+file 1ld.0.r143/178935
+K 15
+FormulaParser.m
+V 21
+file 1lh.0.r147/72688
+K 16
+FormulaSymbols.h
+V 22
+file 1lj.0.r143/178179
+K 17
+FormulaTerminal.h
+V 22
+file 1lm.0.r143/157478
+K 17
+FormulaTerminal.m
+V 21
+file 1lq.0.r147/64536
+K 11
+GNUmakefile
+V 21
+file 2vu.0.r147/60753
+K 11
+Inspector.h
+V 22
+file 1lu.0.r143/169394
+K 11
+Inspector.m
+V 22
+file 1lx.0.r143/170924
+K 17
+IntonationPoint.h
+V 22
+file 1m0.0.r143/139173
+K 17
+IntonationPoint.m
+V 21
+file 1m4.0.r147/58293
+K 26
+IntonationPointInspector.h
+V 22
+file 1m7.0.r143/142230
+K 26
+IntonationPointInspector.m
+V 22
+file 1ma.0.r143/142753
+K 22
+IntonationScrollView.h
+V 22
+file 1mc.0.r143/152599
+K 22
+IntonationScrollView.m
+V 22
+file 1mg.0.r143/153893
+K 16
+IntonationView.h
+V 21
+file 1c0.0.r147/71439
+K 16
+IntonationView.m
+V 21
+file 1c6.0.r147/71941
+K 9
+MONET.app
+V 21
+dir 1c1.0.r143/150635
+K 16
+MONET.iconheader
+V 24
+file 1c7.0.r142/30841777
+K 12
+MONET_main.m
+V 22
+file 1ca.0.r143/159498
+K 8
+Makefile
+V 21
+file 1cc.0.r147/67665
+K 18
+Makefile.postamble
+V 21
+file 1f4.0.r147/59304
+K 17
+Makefile.preamble
+V 24
+file 1ce.0.r142/30811268
+K 10
+Monet.tiff
+V 24
+file 1cf.0.r142/30778429
+K 16
+MonetBlank.monet
+V 24
+file 1f6.0.r142/30739482
+K 15
+MonetDefaults.h
+V 21
+file 1ci.0.r147/65033
+K 11
+MonetList.h
+V 21
+file 2vs.0.r147/66531
+K 11
+MonetList.m
+V 21
+file 2vt.0.r147/67476
+K 14
+MyController.h
+V 21
+file 1cn.0.r147/64034
+K 14
+MyController.m
+V 21
+file 1f7.0.r147/64284
+K 11
+NamedList.h
+V 22
+file 1cp.0.r143/178433
+K 11
+NamedList.m
+V 21
+file 1cs.0.r147/72192
+K 14
+NewMonet.monet
+V 24
+file 1ct.0.r142/30813785
+K 13
+NiftyMatrix.h
+V 22
+file 1cv.0.r143/150825
+K 13
+NiftyMatrix.m
+V 21
+file 1cy.0.r147/61245
+K 16
+NiftyMatrixCat.h
+V 22
+file 1d0.0.r143/169645
+K 16
+NiftyMatrixCat.m
+V 22
+file 1d2.0.r143/170668
+K 17
+NiftyMatrixCell.h
+V 22
+file 1d4.0.r143/141467
+K 17
+NiftyMatrixCell.m
+V 22
+file 1d6.0.r143/141973
+K 10
+PB.gdbinit
+V 24
+file 1d7.0.r142/30786170
+K 10
+PB.project
+V 21
+file 1da.0.r147/59559
+K 11
+Parameter.h
+V 22
+file 1dc.0.r143/151334
+K 11
+Parameter.m
+V 21
+file 1de.0.r147/61496
+K 20
+ParameterInspector.h
+V 22
+file 1dg.0.r143/169900
+K 20
+ParameterInspector.m
+V 21
+file 1dj.0.r147/69180
+K 15
+ParameterList.h
+V 22
+file 1dl.0.r143/158742
+K 15
+ParameterList.m
+V 22
+file 1dn.0.r143/158996
+K 7
+Phone.h
+V 22
+file 1dp.0.r143/155197
+K 7
+Phone.m
+V 21
+file 1dr.0.r147/63539
+K 16
+PhoneInspector.h
+V 22
+file 1dt.0.r143/139430
+K 16
+PhoneInspector.m
+V 21
+file 1dw.0.r147/58797
+K 11
+PhoneList.h
+V 22
+file 1dz.0.r143/140449
+K 11
+PhoneList.m
+V 22
+file 1e3.0.r143/141214
+K 10
+Play.monet
+V 24
+file 1e5.0.r142/30780712
+K 11
+Play2.monet
+V 24
+file 1e8.0.r142/30845503
+K 11
+Play3.monet
+V 24
+file 1ea.0.r142/30807119
+K 11
+Play7.monet
+V 24
+file 1ed.0.r142/30807678
+K 7
+Point.h
+V 22
+file 1eh.0.r143/159251
+K 7
+Point.m
+V 21
+file 1em.0.r147/65529
+K 16
+PointInspector.h
+V 22
+file 1es.0.r143/151078
+K 16
+PointInspector.m
+V 22
+file 1ex.0.r143/151840
+K 15
+ProtoEquation.h
+V 22
+file 1f2.0.r143/160513
+K 15
+ProtoEquation.m
+V 21
+file 1fd.0.r147/66279
+K 24
+ProtoEquationInspector.h
+V 21
+file 1fi.0.r147/62250
+K 24
+ProtoEquationInspector.m
+V 21
+file 1fo.0.r147/63021
+K 15
+ProtoTemplate.h
+V 21
+file 1ft.0.r147/61744
+K 15
+ProtoTemplate.m
+V 21
+file 1g0.0.r147/62511
+K 24
+ProtoTemplateInspector.h
+V 21
+file 1g5.0.r147/68658
+K 24
+ProtoTemplateInspector.m
+V 21
+file 1gb.0.r147/68919
+K 18
+PrototypeManager.h
+V 21
+file 1gj.0.r147/61995
+K 18
+PrototypeManager.m
+V 21
+file 1gq.0.r147/62764
+K 6
+Rule.h
+V 21
+file 1gw.0.r147/64790
+K 6
+Rule.m
+V 21
+file 1h4.0.r147/65284
+K 15
+RuleInspector.h
+V 22
+file 1ha.0.r143/176912
+K 15
+RuleInspector.m
+V 21
+file 1hh.0.r147/70940
+K 10
+RuleList.h
+V 22
+file 1hl.0.r143/147334
+K 10
+RuleList.m
+V 21
+file 1hs.0.r147/60998
+K 13
+RuleManager.h
+V 21
+file 1i0.0.r147/58547
+K 13
+RuleManager.m
+V 21
+file 1i7.0.r147/59052
+K 7
+Slope.h
+V 21
+file 1id.0.r147/69942
+K 7
+Slope.m
+V 21
+file 1ik.0.r147/70441
+K 12
+SlopeRatio.h
+V 21
+file 1is.0.r147/71692
+K 12
+SlopeRatio.m
+V 21
+file 1iy.0.r147/72439
+K 13
+SpecialView.h
+V 21
+file 1j5.0.r147/66029
+K 13
+SpecialView.m
+V 21
+file 1ja.0.r147/66720
+K 14
+StringParser.h
+V 21
+file 1jg.0.r147/68407
+K 15
+StringParser2.m
+V 20
+file 2w6.0.r151/2536
+K 8
+Symbol.h
+V 22
+file 1jm.0.r143/177426
+K 8
+Symbol.m
+V 21
+file 1jp.0.r147/71194
+K 17
+SymbolInspector.h
+V 22
+file 1jr.0.r143/146552
+K 17
+SymbolInspector.m
+V 21
+file 1jt.0.r147/60315
+K 12
+SymbolList.h
+V 22
+file 1jv.0.r143/164639
+K 12
+SymbolList.m
+V 22
+file 1jx.0.r143/165148
+K 9
+TRMData.h
+V 22
+file 1jz.0.r143/138923
+K 9
+TRMData.m
+V 22
+file 1k1.0.r143/139686
+K 8
+Target.h
+V 22
+file 1k2.0.r143/163387
+K 8
+Target.m
+V 21
+file 1k4.0.r147/68162
+K 12
+TargetList.h
+V 22
+file 1k6.0.r143/171946
+K 12
+TargetList.m
+V 22
+file 1k8.0.r143/172704
+K 9
+Tmp.monet
+V 24
+file 1k9.0.r142/30841505
+K 16
+TransitionView.h
+V 21
+file 1kb.0.r147/59807
+K 16
+TransitionView.m
+V 21
+file 1ke.0.r147/60060
+K 11
+callf.order
+V 24
+file 1kf.0.r142/30808785
+K 11
+callo.order
+V 24
+file 1kh.0.r142/30782627
+K 17
+dotInspector.tiff
+V 24
+file 1ki.0.r142/30811874
+K 14
+dotMarker.tiff
+V 24
+file 1kk.0.r142/30779348
+K 16
+driftGenerator.c
+V 24
+file 1kl.0.r142/30760748
+K 16
+driftGenerator.h
+V 24
+file 1kn.0.r142/30768663
+K 4
+file
+V 24
+file 1ko.0.r142/30785908
+K 10
+gmon.order
+V 24
+file 1kq.0.r142/30738933
+K 5
+input
+V 24
+file 1kr.0.r142/30781532
+K 9
+input.old
+V 24
+file 1kt.0.r142/30778701
+K 5
+play3
+V 24
+file 1ku.0.r142/30808517
+K 17
+selectionBox.tiff
+V 24
+file 1kv.0.r142/30842707
+K 20
+squareInspector.tiff
+V 24
+file 1kx.0.r142/30779019
+K 17
+squareMarker.tiff
+V 24
+file 1kz.0.r142/30776460
+K 14
+stringParser.m
+V 22
+file 1l1.0.r143/176397
+K 9
+testthing
+V 24
+file 1l2.0.r142/30846053
+K 22
+triangleInspector.tiff
+V 24
+file 1l3.0.r142/30842100
+K 19
+triangleMarker.tiff
+V 24
+file 1l5.0.r142/30843579
+K 11
+tube_module
+V 21
+dir 1gc.0.r143/168415
+K 15
+tube_module.old
+V 21
+dir 1rs.0.r143/146354
+K 6
+uu.trm
+V 24
+file 1l6.0.r142/30781266
+END
+ENDREP
+id: 1bz.0.r153/7915
+type: dir
+pred: 1bz.0.r151/10105
+count: 5
+text: 153 516 7386 7386 75ce1a3dde27baed2424122f534852ca
+cpath: /nextstep/trunk/ObjectiveC/Monet
+copyroot: 0 /
+
+PLAIN
+K 11
+.dir3_0.wmd
+V 24
+file 1p0.0.r142/30985803
+K 17
+SpeechManager.nib
+V 23
+dir 1p1.0.r142/30989384
+END
+ENDREP
+id: 1oz.0.r153/8205
+type: dir
+pred: 1oz.0.r142/30989751
+count: 1
+text: 153 8089 103 103 342e7f11e9c952597ae84844eb7bad8e
+cpath: /nextstep/trunk/ObjectiveC/SpeechManager/English.lproj
+copyroot: 0 /
+
+PLAIN
+K 13
+English.lproj
+V 19
+dir 1oz.0.r153/8205
+K 8
+Makefile
+V 24
+file 1om.0.r142/30985527
+K 18
+Makefile.postamble
+V 24
+file 1on.0.r142/30984093
+K 17
+Makefile.preamble
+V 24
+file 1oo.0.r142/30984381
+K 14
+MyController.h
+V 24
+file 1op.0.r142/30977968
+K 14
+MyController.m
+V 24
+file 1oq.0.r142/30981595
+K 10
+PB.gdbinit
+V 24
+file 1or.0.r142/30978250
+K 10
+PB.project
+V 24
+file 1os.0.r142/30984959
+K 17
+SpeechManager.app
+V 23
+dir 1pe.0.r142/30981368
+K 24
+SpeechManager.iconheader
+V 24
+file 1ot.0.r142/30983803
+K 18
+SpeechManager.tiff
+V 24
+file 1ou.0.r142/30982937
+K 21
+SpeechManagerHelp.rtf
+V 24
+file 1ov.0.r142/30984668
+K 20
+SpeechManagerHelp.wn
+V 24
+file 1ow.0.r142/30983224
+K 20
+SpeechManager_main.m
+V 24
+file 1ox.0.r142/30983515
+K 22
+TextToSpeechPriority.h
+V 24
+file 1oy.0.r142/30985237
+K 13
+i386_m68k_obj
+V 23
+dir 1pn.0.r142/30982665
+END
+ENDREP
+id: 1ol.0.r153/9247
+type: dir
+pred: 1ol.0.r142/30990779
+count: 1
+text: 153 8403 831 831 9c434bf85864a66b57ad84ba5027e2d1
+cpath: /nextstep/trunk/ObjectiveC/SpeechManager
+copyroot: 0 /
+
+PLAIN
+K 14
+.lastBuildTime
+V 24
+file 1rn.0.r142/30991269
+K 13
+English.lproj
+V 23
+dir 1rx.0.r142/30993532
+K 13
+InstallScript
+V 24
+file 1rp.0.r142/30992191
+K 16
+TTS_Install_Demo
+V 24
+file 1rr.0.r142/30991573
+END
+ENDREP
+id: 1rm.0.r153/9647
+type: dir
+pred: 1rm.0.r142/30994000
+count: 1
+text: 153 9431 203 203 5e0b63e034ea72ff7bbb1a34c212bb47
+cpath: /nextstep/trunk/ObjectiveC/TTS_Install_Demo/TTS_Install_Demo.app
+copyroot: 0 /
+
+PLAIN
+K 20
+TTS_Install_Demo.nib
+V 23
+dir 1rf.0.r142/31001608
+END
+ENDREP
+id: 1re.0.r153/9927
+type: dir
+pred: 1re.0.r142/31001938
+count: 1
+text: 153 9855 59 59 251988b1b3f1bcdb1fad6cb6cf9ba9a0
+cpath: /nextstep/trunk/ObjectiveC/TTS_Install_Demo/English.lproj
+copyroot: 0 /
+
+PLAIN
+K 9
+ChangeLog
+V 24
+file 1qy.0.r142/30994514
+K 12
+Controller.h
+V 24
+file 1qz.0.r142/30998829
+K 12
+Controller.m
+V 24
+file 1r0.0.r142/30999677
+K 10
+DirPanel.h
+V 24
+file 1r1.0.r142/30994233
+K 10
+DirPanel.m
+V 24
+file 1r2.0.r142/30996207
+K 13
+English.lproj
+V 19
+dir 1re.0.r153/9927
+K 7
+IB.proj
+V 24
+file 1r3.0.r142/30997357
+K 13
+InstallScript
+V 24
+file 1r4.0.r142/30996490
+K 8
+Makefile
+V 24
+file 1r5.0.r142/30999398
+K 18
+Makefile.postamble
+V 24
+file 1r6.0.r142/30996774
+K 10
+PB.gdbinit
+V 24
+file 1r7.0.r142/30990988
+K 10
+PB.project
+V 24
+file 1r8.0.r142/30997931
+K 15
+TTS_Install.nib
+V 24
+file 1r9.0.r142/30998541
+K 20
+TTS_Install_Demo.app
+V 19
+dir 1rm.0.r153/9647
+K 27
+TTS_Install_Demo.iconheader
+V 24
+file 1ra.0.r142/30997635
+K 23
+TTS_Install_Demo_main.m
+V 24
+file 1rb.0.r142/30997063
+K 8
+app.tiff
+V 24
+file 1rc.0.r142/30998261
+K 13
+i386_m68k_obj
+V 23
+dir 1s3.0.r142/30995981
+END
+ENDREP
+id: 1qx.0.r153/11014
+type: dir
+pred: 1qx.0.r142/31003066
+count: 1
+text: 153 10126 875 875 f3ed06cc25126aa6e9e91095b91b718e
+cpath: /nextstep/trunk/ObjectiveC/TTS_Install_Demo
+copyroot: 0 /
+
+PLAIN
+K 9
+DebugCode
+V 23
+dir 20g.0.r142/31013358
+K 10
+Document.h
+V 24
+file 1sa.0.r142/31016085
+K 10
+Document.m
+V 24
+file 1sc.0.r142/31016922
+K 8
+Expert.h
+V 24
+file 1se.0.r142/31020524
+K 8
+Expert.m
+V 24
+file 1sg.0.r142/31021364
+K 15
+ExpertHandler.h
+V 24
+file 1si.0.r142/31020244
+K 15
+ExpertHandler.m
+V 24
+file 1sk.0.r142/31020798
+K 8
+Global.h
+V 24
+file 1sm.0.r142/31014135
+K 7
+IB.proj
+V 24
+file 1so.0.r142/31015530
+K 13
+Initializer.h
+V 24
+file 1sq.0.r142/31022252
+K 13
+Initializer.m
+V 24
+file 1ss.0.r142/31023096
+K 8
+Makefile
+V 24
+file 1su.0.r142/31018029
+K 7
+Queue.h
+V 24
+file 1sv.0.r142/31017198
+K 7
+Queue.m
+V 24
+file 1sx.0.r142/31018858
+K 5
+SIL.h
+V 24
+file 1sz.0.r142/31018303
+K 5
+SIL.m
+V 24
+file 1t1.0.r142/31019408
+K 15
+SILController.h
+V 24
+file 1t3.0.r142/31012753
+K 15
+SILController.m
+V 24
+file 1t5.0.r142/31013854
+K 16
+SoftController.h
+V 24
+file 1t7.0.r142/31021971
+K 16
+SoftController.m
+V 24
+file 1t9.0.r142/31022530
+K 15
+TNT.calibration
+V 24
+file 1tb.0.r142/31014410
+K 15
+TabletHandler.h
+V 24
+file 1td.0.r142/31014690
+K 15
+TabletHandler.m
+V 24
+file 1tf.0.r142/31015802
+K 19
+TactileController.h
+V 24
+file 1th.0.r142/31018573
+K 19
+TactileController.m
+V 24
+file 206.0.r142/31019680
+K 16
+TactileDisplay.h
+V 24
+file 207.0.r142/31014970
+K 16
+TactileDisplay.m
+V 24
+file 208.0.r142/31016360
+K 12
+TouchNTalk.h
+V 24
+file 209.0.r142/31015252
+K 21
+TouchNTalk.iconheader
+V 24
+file 20a.0.r142/31017744
+K 12
+TouchNTalk.m
+V 24
+file 20b.0.r142/31016644
+K 14
+TouchNTalk.nib
+V 24
+file 20c.0.r142/31013572
+K 15
+TouchNTalk.tiff
+V 24
+file 20d.0.r142/31021689
+K 17
+TouchNTalk_main.m
+V 24
+file 20e.0.r142/31022813
+K 7
+csh.tnt
+V 24
+file 20f.0.r142/31019131
+END
+ENDREP
+id: 1s9.0.r153/12855
+type: dir
+pred: 1s9.0.r142/31025126
+count: 1
+text: 153 11203 1639 1639 a29436483ca65cf6caa15e98f42a6a04
+cpath: /nextstep/trunk/ObjectiveC/TouchNTalk
+copyroot: 0 /
+
+PLAIN
+K 5
+DEGAS
+V 23
+dir 14q.0.r142/30920717
+K 3
+FFT
+V 23
+dir 163.0.r142/30678566
+K 12
+FFTInspector
+V 23
+dir 16f.0.r142/31012545
+K 9
+FFTViewer
+V 23
+dir 16u.0.r142/30977763
+K 16
+HostToSoundout-2
+V 23
+dir 1f0.0.r142/30683744
+K 8
+LoopBack
+V 23
+dir 1fy.0.r142/30964512
+K 5
+Monet
+V 19
+dir 1bz.0.r153/7915
+K 14
+Monet.realtime
+V 23
+dir 1mk.0.r142/30891158
+K 13
+SpeechManager
+V 19
+dir 1ol.0.r153/9247
+K 15
+SpeechRegistrar
+V 23
+dir 1pq.0.r142/30946459
+K 11
+TTS_Install
+V 23
+dir 1qj.0.r142/30968991
+K 16
+TTS_Install_Demo
+V 20
+dir 1qx.0.r153/11014
+K 10
+TouchNTalk
+V 20
+dir 1s9.0.r153/12855
+K 19
+TrilliumSoundEditor
+V 23
+dir 1v6.0.r142/30734288
+K 17
+TrilliumSoundView
+V 23
+dir 1we.0.r142/31007915
+K 11
+WhosOnFirst
+V 23
+dir 1wt.0.r142/30936938
+K 13
+newServerTest
+V 23
+dir 1ya.0.r142/30703006
+END
+ENDREP
+id: 14p.0.r153/13830
+type: dir
+pred: 14p.0.r151/11082
+count: 5
+text: 153 13040 777 777 ed71d3def4c42f4ec997ff90feb238ce
+cpath: /nextstep/trunk/ObjectiveC
+copyroot: 0 /
+
+PLAIN
+K 4
+Apps
+V 18
+dir 172.0.r150/277
+K 8
+CONTENTS
+V 20
+file 2w7.0.r152/2728
+K 30
+Copyright_Notice_and_Agreement
+V 20
+file 2w4.0.r148/1119
+K 10
+Dictionary
+V 23
+dir 19q.0.r142/30341442
+K 10
+ObjectiveC
+V 20
+dir 14p.0.r153/13830
+K 15
+TextToSpeechKit
+V 23
+dir 1zv.0.r142/30352125
+K 3
+bin
+V 23
+dir 228.0.r142/30674942
+K 4
+priv
+V 23
+dir 233.0.r142/30298802
+K 3
+src
+V 19
+dir 24r.0.r146/5123
+K 10
+tubeparams
+V 19
+file 2w5.0.r149/860
+END
+ENDREP
+id: 14m.0.r153/14436
+type: dir
+pred: 14m.0.r152/3307
+count: 12
+text: 153 13999 424 424 481bdd5aa2a20b7e93414e769d99e243
+cpath: /nextstep/trunk
+copyroot: 0 /
+
+PLAIN
+K 8
+branches
+V 17
+dir 14n.0.r141/74
+K 4
+tags
+V 18
+dir 14o.0.r141/152
+K 5
+trunk
+V 20
+dir 14m.0.r153/14436
+END
+ENDREP
+id: 14l.0.r153/14716
+type: dir
+pred: 14l.0.r152/3585
+count: 12
+text: 153 14594 109 109 4c20354c6f69edb128541e38a8232a94
+cpath: /nextstep
+copyroot: 0 /
+
+PLAIN
+K 7
+gnustep
+V 18
+dir kb.0.r140/1708
+K 8
+nextstep
+V 20
+dir 14l.0.r153/14716
+K 3
+osx
+V 16
+dir 1.0.r70/1651
+END
+ENDREP
+id: 0.0.r153/14990
+type: dir
+pred: 0.0.r152/3857
+count: 153
+text: 153 14868 109 109 364df0a107716db85ce4dca3907d2338
+cpath: /
+copyroot: 0 /
+
+1ls.0.t152-1 delete false false /nextstep/trunk/ObjectiveC/Monet/English.lproj/MONET.nib~
+
+1p9.0.t152-1 delete false false /nextstep/trunk/ObjectiveC/SpeechManager/English.lproj/SpeechManager.nib~
+
+1tw.0.r142/31017470 delete false false /nextstep/trunk/ObjectiveC/TouchNTalk/Makefile~
+
+1lk.0.t152-1 delete false false /nextstep/trunk/ObjectiveC/Monet/English.lproj/Inspector.nib~
+
+1ri.0.t152-1 delete false false /nextstep/trunk/ObjectiveC/TTS_Install_Demo/English.lproj/TTS_Install_Demo.nib~
+
+1tz.0.r142/31021080 delete false false /nextstep/trunk/ObjectiveC/TouchNTalk/TabletHandler.m~
+
+1rd.0.r142/30999112 delete false false /nextstep/trunk/ObjectiveC/TTS_Install_Demo/Controller.m~
+
+1rv.0.r142/30991885 delete false false /nextstep/trunk/ObjectiveC/TTS_Install_Demo/TTS_Install_Demo.app/InstallScript~
+
+1ts.0.r142/31019968 delete false false /nextstep/trunk/ObjectiveC/TouchNTalk/Global.h~
+
+
+14990 15131

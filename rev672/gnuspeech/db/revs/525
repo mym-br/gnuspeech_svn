@@ -1,0 +1,773 @@
+id: 17.t.r525/0
+type: dir
+pred: 17.0.r501/43040
+count: 35
+text: 501 39518 3509 3509 7de66f598d8fc420e84ced4125673bd0
+cpath: /osx/trunk/Temp/Monet
+copyfrom: 524 /osx/trunk/Applications/Monet
+
+PLAIN
+K 12
+GnuTTSClient
+V 16
+dir 3eb.r.r523/0
+K 5
+Monet
+V 15
+dir 17.t.r525/0
+K 5
+PreMo
+V 15
+dir hm.q.r522/0
+K 11
+Synthesizer
+V 16
+dir 4dy.s.r524/0
+END
+ENDREP
+id: 4dz.0.r525/349
+type: dir
+pred: 4dz.0.r524/268
+count: 4
+text: 525 191 145 145 de43ba2901b0e9bfca47a5558a8802e1
+cpath: /osx/trunk/Temp
+copyroot: 0 /
+
+PLAIN
+K 11
+00-gray.tif
+V 22
+file 4cv.0.r519/784730
+K 11
+01-gray.tif
+V 22
+file 4dk.0.r519/790667
+K 11
+02-gray.tif
+V 22
+file 49m.0.r519/755855
+K 11
+03-gray.tif
+V 22
+file 4a5.0.r519/760693
+K 11
+04-gray.tif
+V 22
+file 4ar.0.r519/765881
+K 11
+05-gray.tif
+V 22
+file 4bc.0.r519/770872
+K 11
+06-gray.tif
+V 22
+file 4bw.0.r519/775928
+K 11
+07-gray.tif
+V 22
+file 4cd.0.r519/780127
+K 11
+08-gray.tif
+V 22
+file 4d2.0.r519/786581
+K 11
+09-gray.tif
+V 22
+file 4ds.0.r519/792687
+K 11
+10-gray.tif
+V 22
+file 49l.0.r519/755573
+K 12
+100-gray.tif
+V 22
+file 4b4.0.r519/769198
+K 11
+11-gray.tif
+V 22
+file 4a4.0.r519/760410
+K 11
+12-gray.tif
+V 22
+file 4aq.0.r519/765598
+K 11
+13-gray.tif
+V 22
+file 4bb.0.r519/770589
+K 11
+14-gray.tif
+V 22
+file 4bu.0.r519/775484
+K 11
+15-gray.tif
+V 22
+file 4cc.0.r519/779844
+K 11
+16-gray.tif
+V 22
+file 4d0.0.r519/786015
+K 11
+17-gray.tif
+V 22
+file 4dp.0.r519/791959
+K 11
+18-gray.tif
+V 22
+file 49s.0.r519/757547
+K 11
+19-gray.tif
+V 22
+file 4ac.0.r519/762202
+K 11
+20-gray.tif
+V 22
+file 4ap.0.r519/765315
+K 11
+21-gray.tif
+V 22
+file 4ba.0.r519/770306
+K 11
+22-gray.tif
+V 22
+file 4bt.0.r519/775201
+K 11
+23-gray.tif
+V 22
+file 4cb.0.r519/779561
+K 11
+24-gray.tif
+V 22
+file 4cz.0.r519/785732
+K 11
+25-gray.tif
+V 22
+file 4do.0.r519/791676
+K 11
+26-gray.tif
+V 22
+file 49q.0.r519/756983
+K 11
+27-gray.tif
+V 22
+file 4aa.0.r519/761919
+K 11
+28-gray.tif
+V 22
+file 4ay.0.r519/767621
+K 11
+29-gray.tif
+V 22
+file 4bi.0.r519/772449
+K 11
+30-gray.tif
+V 22
+file 4bs.0.r519/774918
+K 11
+31-gray.tif
+V 22
+file 4ca.0.r519/779278
+K 11
+32-gray.tif
+V 22
+file 4cy.0.r519/785449
+K 11
+33-gray.tif
+V 22
+file 4dn.0.r519/791393
+K 11
+34-gray.tif
+V 22
+file 49p.0.r519/756701
+K 11
+35-gray.tif
+V 22
+file 4a9.0.r519/761636
+K 11
+36-gray.tif
+V 22
+file 4ax.0.r519/767338
+K 11
+37-gray.tif
+V 22
+file 4bg.0.r519/772004
+K 11
+38-gray.tif
+V 22
+file 4c3.0.r519/777665
+K 11
+39-gray.tif
+V 22
+file 4co.0.r519/783127
+K 11
+40-gray.tif
+V 22
+file 4cw.0.r519/785013
+K 11
+41-gray.tif
+V 22
+file 4dm.0.r519/791110
+K 11
+42-gray.tif
+V 22
+file 49o.0.r519/756419
+K 11
+43-gray.tif
+V 22
+file 4a8.0.r519/761353
+K 11
+44-gray.tif
+V 22
+file 4aw.0.r519/767055
+K 11
+45-gray.tif
+V 22
+file 4bf.0.r519/771721
+K 11
+46-gray.tif
+V 22
+file 4c1.0.r519/777221
+K 11
+47-gray.tif
+V 22
+file 4ch.0.r519/781259
+K 11
+48-gray.tif
+V 22
+file 4d8.0.r519/788031
+K 11
+49-gray.tif
+V 22
+file 4dw.0.r519/793819
+K 11
+50-gray.tif
+V 22
+file 49n.0.r519/756137
+K 11
+51-gray.tif
+V 22
+file 4a7.0.r519/761070
+K 11
+52-gray.tif
+V 22
+file 4av.0.r519/766772
+K 11
+53-gray.tif
+V 22
+file 4be.0.r519/771438
+K 11
+54-gray.tif
+V 22
+file 4c0.0.r519/776938
+K 11
+55-gray.tif
+V 22
+file 4cg.0.r519/780976
+K 11
+56-gray.tif
+V 22
+file 4d7.0.r519/787748
+K 11
+57-gray.tif
+V 22
+file 4dv.0.r519/793536
+K 11
+58-gray.tif
+V 22
+file 49x.0.r519/758838
+K 11
+59-gray.tif
+V 22
+file 4ah.0.r519/763787
+K 11
+60-gray.tif
+V 22
+file 4au.0.r519/766489
+K 11
+61-gray.tif
+V 22
+file 4bd.0.r519/771155
+K 11
+62-gray.tif
+V 22
+file 4bz.0.r519/776655
+K 11
+63-gray.tif
+V 22
+file 4cf.0.r519/780693
+K 11
+64-gray.tif
+V 22
+file 4d6.0.r519/787465
+K 11
+65-gray.tif
+V 22
+file 4du.0.r519/793253
+K 11
+66-gray.tif
+V 22
+file 49v.0.r519/758393
+K 11
+67-gray.tif
+V 22
+file 4af.0.r519/763334
+K 11
+68-gray.tif
+V 22
+file 4b3.0.r519/768915
+K 11
+69-gray.tif
+V 22
+file 4bm.0.r519/773581
+K 11
+70-gray.tif
+V 22
+file 4bx.0.r519/776211
+K 11
+71-gray.tif
+V 22
+file 4ce.0.r519/780410
+K 11
+72-gray.tif
+V 22
+file 4d5.0.r519/787182
+K 11
+73-gray.tif
+V 22
+file 4dt.0.r519/792970
+K 11
+74-gray.tif
+V 22
+file 49u.0.r519/758111
+K 11
+75-gray.tif
+V 22
+file 4ae.0.r519/763051
+K 11
+76-gray.tif
+V 22
+file 4b2.0.r519/768632
+K 11
+77-gray.tif
+V 22
+file 4bl.0.r519/773298
+K 11
+78-gray.tif
+V 22
+file 4c7.0.r519/778677
+K 11
+79-gray.tif
+V 22
+file 4cs.0.r519/784134
+K 11
+80-gray.tif
+V 22
+file 4d1.0.r519/786298
+K 11
+81-gray.tif
+V 22
+file 4dr.0.r519/792404
+K 11
+82-gray.tif
+V 22
+file 49t.0.r519/757829
+K 11
+83-gray.tif
+V 22
+file 4ad.0.r519/762768
+K 11
+84-gray.tif
+V 22
+file 4b1.0.r519/768349
+K 11
+85-gray.tif
+V 22
+file 4bk.0.r519/773015
+K 11
+86-gray.tif
+V 22
+file 4c6.0.r519/778394
+K 11
+87-gray.tif
+V 22
+file 4cr.0.r519/783851
+K 11
+88-gray.tif
+V 22
+file 4df.0.r519/789607
+K 11
+89-gray.tif
+V 22
+file 49k.0.r519/755291
+K 11
+90-gray.tif
+V 22
+file 49r.0.r519/757265
+K 11
+91-gray.tif
+V 22
+file 4ab.0.r519/762485
+K 11
+92-gray.tif
+V 22
+file 4b0.0.r519/768066
+K 11
+93-gray.tif
+V 22
+file 4bj.0.r519/772732
+K 11
+94-gray.tif
+V 22
+file 4c5.0.r519/778111
+K 11
+95-gray.tif
+V 22
+file 4cq.0.r519/783568
+K 11
+96-gray.tif
+V 22
+file 4de.0.r519/789324
+K 11
+97-gray.tif
+V 22
+file 49i.0.r519/754856
+K 11
+98-gray.tif
+V 22
+file 49y.0.r519/759120
+K 11
+99-gray.tif
+V 22
+file 4aj.0.r519/764230
+K 20
+AboutSynthesizer.pdf
+V 22
+file 4bp.0.r519/774180
+K 11
+AboutView.h
+V 22
+file 4c8.0.r519/778894
+K 11
+AboutView.m
+V 22
+file 4c9.0.r519/779053
+K 10
+Analysis.h
+V 22
+file 4d4.0.r519/786957
+K 10
+Analysis.m
+V 22
+file 4dd.0.r519/789098
+K 16
+AnalysisWindow.h
+V 22
+file 4ao.0.r519/765084
+K 16
+AnalysisWindow.m
+V 22
+file 4at.0.r519/766258
+K 13
+ChangeLog.txt
+V 22
+file 4dl.0.r519/790884
+K 11
+ChartView.h
+V 22
+file 4ai.0.r519/764004
+K 11
+ChartView.m
+V 22
+file 4ak.0.r519/764447
+K 12
+Controller.h
+V 22
+file 4dq.0.r519/792176
+K 12
+Controller.m
+V 22
+file 4dx.0.r519/794036
+K 10
+Crossmix.h
+V 22
+file 4a2.0.r519/760027
+K 10
+Crossmix.m
+V 22
+file 4a3.0.r519/760185
+K 13
+English.lproj
+V 21
+dir 4db.0.r519/788941
+K 16
+FricativeArrow.h
+V 22
+file 49w.0.r519/758609
+K 16
+FricativeArrow.m
+V 22
+file 49z.0.r519/759336
+K 13
+GPParamView.h
+V 22
+file 4by.0.r519/776428
+K 13
+GPParamView.m
+V 22
+file 4c4.0.r519/777882
+K 15
+GlottalSource.h
+V 22
+file 4d9.0.r519/788248
+K 15
+GlottalSource.m
+V 22
+file 4dh.0.r519/789985
+K 11
+Harmonics.h
+V 22
+file 4d3.0.r519/786798
+K 11
+Harmonics.m
+V 22
+file 4da.0.r519/788412
+K 6
+Images
+V 21
+dir 4a6.0.r519/760910
+K 10
+Info.plist
+V 22
+file 4b5.0.r519/769416
+K 14
+Japanese.lproj
+V 21
+dir 4ci.0.r519/782901
+K 12
+MainMenu.xib
+V 22
+file 4bq.0.r519/774407
+K 12
+PitchScale.h
+V 22
+file 4as.0.r519/766098
+K 12
+PitchScale.m
+V 22
+file 4az.0.r519/767838
+K 8
+PrEditor
+V 18
+dir ad.0.r479/7410
+K 14
+Spectrograph.h
+V 22
+file 4b6.0.r519/769574
+K 14
+Spectrograph.m
+V 22
+file 4b8.0.r519/769906
+K 10
+Spectrum.h
+V 22
+file 4al.0.r519/764607
+K 10
+Spectrum.m
+V 22
+file 4am.0.r519/764766
+K 16
+Synthesizer.icns
+V 22
+file 4di.0.r519/790216
+K 21
+Synthesizer.xcodeproj
+V 21
+dir 4a0.0.r519/759862
+K 22
+Synthesizer_Prefix.pch
+V 22
+file 4ag.0.r519/763551
+K 13
+TubeSection.h
+V 22
+file 4bh.0.r519/772221
+K 13
+TubeSection.m
+V 22
+file 4bo.0.r519/773952
+K 21
+VelarNasalConnector.h
+V 22
+file 4b7.0.r519/769737
+K 21
+VelarNasalConnector.m
+V 22
+file 4b9.0.r519/770070
+K 13
+VelumSlider.h
+V 22
+file 4dg.0.r519/789824
+K 13
+VelumSlider.m
+V 22
+file 4dj.0.r519/790439
+K 10
+Waveform.h
+V 22
+file 4cp.0.r519/783344
+K 10
+Waveform.m
+V 22
+file 4ct.0.r519/784351
+K 12
+conversion.c
+V 22
+file 4bv.0.r519/775701
+K 12
+conversion.h
+V 22
+file 4c2.0.r519/777438
+K 5
+fft.c
+V 22
+file 4cu.0.r519/784510
+K 5
+fft.h
+V 22
+file 4cx.0.r519/785230
+K 6
+main.m
+V 22
+file 4bn.0.r519/773798
+K 9
+structs.h
+V 22
+file 4an.0.r519/764926
+K 10
+structs2.h
+V 22
+file 49h.0.r519/754637
+K 10
+synth.icns
+V 22
+file 4br.0.r519/774637
+K 6
+tube.c
+V 22
+file 49j.0.r519/755070
+END
+ENDREP
+id: 5.0.r525/7551
+type: dir
+pred: 5.0.r524/7505
+count: 126
+text: 525 501 7037 7037 2144975027efd419d6b7dd290807afff
+cpath: /osx/trunk/Applications
+copyroot: 0 /
+
+PLAIN
+K 12
+Applications
+V 17
+dir 5.0.r525/7551
+K 6
+Builds
+V 22
+dir 3hc.0.r485/1943354
+K 7
+Daemons
+V 20
+dir 3h1.0.r501/46659
+K 10
+Frameworks
+V 18
+dir ci.0.r484/5095
+K 10
+Installers
+V 19
+dir 3he.0.r487/1584
+K 5
+Other
+V 18
+dir 3h4.0.r282/261
+K 6
+README
+V 20
+file 3gx.c.r303/2388
+K 8
+Services
+V 20
+dir 3h2.0.r501/26208
+K 4
+Temp
+V 18
+dir 4dz.0.r525/349
+END
+ENDREP
+id: 2.0.r525/8072
+type: dir
+pred: 2.0.r524/8026
+count: 168
+text: 525 7713 346 346 24dd8b34fbaf8ef68a32ff5ef478b9eb
+cpath: /osx/trunk
+copyroot: 0 /
+
+PLAIN
+K 8
+branches
+V 15
+dir 3.0.r510/17
+K 4
+tags
+V 17
+dir 4.0.r499/1729
+K 5
+trunk
+V 17
+dir 2.0.r525/8072
+END
+ENDREP
+id: 1.0.r525/8336
+type: dir
+pred: 1.0.r524/8290
+count: 185
+text: 525 8220 103 103 1d26a77725058e5a765f04874071ae5a
+cpath: /osx
+copyroot: 0 /
+
+PLAIN
+K 4
+docs
+V 18
+dir 2w8.0.r509/284
+K 7
+gnustep
+V 19
+dir kb.0.r502/17884
+K 4
+misc
+V 18
+dir 38v.0.r160/333
+K 8
+nextstep
+V 19
+dir 14l.0.r155/8758
+K 3
+osx
+V 17
+dir 1.0.r525/8336
+END
+ENDREP
+id: 0.0.r525/8667
+type: dir
+pred: 0.0.r524/8621
+count: 525
+text: 525 8478 176 176 7bac24b312a7ec5f25a6e650532fd127
+cpath: /
+copyroot: 0 /
+
+17._0.t524-1 add false false /osx/trunk/Temp/Monet
+524 /osx/trunk/Applications/Monet
+17.0.r501/43040 delete false false /osx/trunk/Applications/Monet
+
+
+8667 8806

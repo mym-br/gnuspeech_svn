@@ -1,0 +1,219 @@
+PLAIN
+K 11
+.dir3_0.wmd
+V 24
+file 2bm.0.r142/30281314
+K 13
+English.lproj
+V 23
+dir 2cc.0.r142/30289299
+K 7
+IB.proj
+V 24
+file 2bo.0.r142/30285469
+K 8
+Makefile
+V 24
+file 2bq.0.r142/30288665
+K 10
+PB.gdbinit
+V 24
+file 2bs.0.r142/30280737
+K 10
+PB.project
+V 24
+file 2bu.0.r142/30287765
+K 25
+TTS_Developer_Upgrade.app
+V 23
+dir 23n.0.r142/30287524
+K 32
+TTS_Developer_Upgrade.iconheader
+V 24
+file 2bw.0.r142/30282477
+K 28
+TTS_Developer_Upgrade_main.m
+V 24
+file 2by.0.r142/30281891
+K 16
+TextToSpeech.Dev
+V 24
+file 2c1.0.r142/30285172
+K 8
+andMap.h
+V 24
+file 2c4.0.r142/30282194
+K 8
+app.tiff
+V 24
+file 2c5.0.r142/30288099
+K 8
+buffer.c
+V 24
+file 2c6.0.r142/30284606
+K 13
+i386_m68k_obj
+V 23
+dir 23s.0.r142/30284377
+K 8
+m68k_obj
+V 23
+dir 23x.0.r142/30280513
+K 7
+munge.c
+V 24
+file 2c7.0.r142/30284889
+K 14
+myController.h
+V 24
+file 2c8.0.r142/30278651
+K 14
+myController.m
+V 24
+file 2c9.0.r142/30281600
+K 9
+rPrimes.h
+V 24
+file 2ca.0.r142/30288383
+END
+ENDREP
+id: 23m.0.r154/938
+type: dir
+pred: 23m.0.r142/30290472
+count: 1
+text: 154 0 925 925 dcc1e02b85755e9c0aecef6d4a275835
+cpath: /nextstep/trunk/priv/TTS_Developer_Upgrade_2.0
+copyroot: 0 /
+
+PLAIN
+K 13
+SerialNumbers
+V 23
+dir 234.0.r142/30293799
+K 22
+TTSDev_Install_2.0.old
+V 23
+dir 23f.0.r142/30298360
+K 10
+TTSEncrypt
+V 23
+dir 2au.0.r142/30269470
+K 25
+TTS_Developer_Upgrade_2.0
+V 18
+dir 23m.0.r154/938
+K 11
+TTS_Install
+V 23
+dir 241.0.r142/30278450
+END
+ENDREP
+id: 233.0.r154/1392
+type: dir
+pred: 233.0.r142/30298802
+count: 1
+text: 154 1124 255 255 17efedd52ac9eaac8617dff741375fc0
+cpath: /nextstep/trunk/priv
+copyroot: 0 /
+
+PLAIN
+K 4
+Apps
+V 18
+dir 172.0.r150/277
+K 8
+CONTENTS
+V 20
+file 2w7.0.r152/2728
+K 30
+Copyright_Notice_and_Agreement
+V 20
+file 2w4.0.r148/1119
+K 10
+Dictionary
+V 23
+dir 19q.0.r142/30341442
+K 10
+ObjectiveC
+V 20
+dir 14p.0.r153/13830
+K 15
+TextToSpeechKit
+V 23
+dir 1zv.0.r142/30352125
+K 3
+bin
+V 23
+dir 228.0.r142/30674942
+K 4
+priv
+V 19
+dir 233.0.r154/1392
+K 3
+src
+V 19
+dir 24r.0.r146/5123
+K 10
+tubeparams
+V 19
+file 2w5.0.r149/860
+END
+ENDREP
+id: 14m.0.r154/1989
+type: dir
+pred: 14m.0.r153/14436
+count: 13
+text: 154 1556 420 420 b06fa48477f2d2540d297bbde33a756f
+cpath: /nextstep/trunk
+copyroot: 0 /
+
+PLAIN
+K 8
+branches
+V 17
+dir 14n.0.r141/74
+K 4
+tags
+V 18
+dir 14o.0.r141/152
+K 5
+trunk
+V 19
+dir 14m.0.r154/1989
+END
+ENDREP
+id: 14l.0.r154/2267
+type: dir
+pred: 14l.0.r153/14716
+count: 13
+text: 154 2146 108 108 ead37df4cd2cab012d05e56200870af6
+cpath: /nextstep
+copyroot: 0 /
+
+PLAIN
+K 7
+gnustep
+V 18
+dir kb.0.r140/1708
+K 8
+nextstep
+V 19
+dir 14l.0.r154/2267
+K 3
+osx
+V 16
+dir 1.0.r70/1651
+END
+ENDREP
+id: 0.0.r154/2539
+type: dir
+pred: 0.0.r153/14990
+count: 154
+text: 154 2418 108 108 46a306677002893adcca601517ed9bec
+cpath: /
+copyroot: 0 /
+
+2cb.0.r142/30281022 delete false false /nextstep/trunk/priv/TTS_Developer_Upgrade_2.0/myController.m~
+
+
+2539 2679

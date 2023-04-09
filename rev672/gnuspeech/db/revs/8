@@ -1,0 +1,179 @@
+PLAIN
+K 9
+APPL.icns
+V 20
+file ae.0.r7/1676134
+K 11
+Delete.tiff
+V 20
+file af.0.r7/1676337
+K 10
+DoulosSIL4
+V 19
+dir aq.0.r7/1679685
+K 13
+English.lproj
+V 19
+dir ax.0.r7/1689919
+K 24
+IPA-SIL keyboard 0.6.dmg
+V 20
+file ag.0.r7/1684371
+K 10
+Info.plist
+V 20
+file ah.0.r7/1675971
+K 14
+Japanese.lproj
+V 19
+dir bq.0.r7/1687167
+K 12
+MainMenu.nib
+V 19
+dir c1.0.r7/1674491
+K 18
+PrEditor.xcodeproj
+V 19
+dir c5.0.r7/1675801
+K 18
+PrEditorDocument.h
+V 20
+file bh.0.r7/1687333
+K 18
+PrEditorDocument.m
+V 20
+file ai.0.r7/1674655
+K 20
+PrEditorDocument.nib
+V 19
+dir c9.0.r7/1678131
+K 19
+PrEditor_Prefix.pch
+V 20
+file aj.0.r7/1690084
+K 26
+ResponderNotifyingWindow.h
+V 20
+file ak.0.r7/1683869
+K 26
+ResponderNotifyingWindow.m
+V 20
+file al.0.r7/1684607
+K 10
+Speak.tiff
+V 20
+file am.0.r7/1676597
+K 10
+Store.tiff
+V 20
+file an.0.r7/1674871
+K 8
+app.tiff
+V 20
+file ao.0.r7/1684090
+K 6
+main.m
+V 20
+file ap.0.r7/1673650
+K 12
+preditorDict
+V 19
+dir cd.0.r7/1677262
+END
+ENDREP
+id: ad.0.r8/941
+type: dir
+pred: ad.0.r7/1691238
+count: 1
+text: 8 0 928 928 b78df46f6857c4a710868de390138cec
+cpath: /osx/trunk/Applications/PrEditor
+copyroot: 0 /
+
+PLAIN
+K 9
+GnuSpeech
+V 16
+dir 6.0.r4/10827
+K 5
+Monet
+V 17
+dir 17.0.r6/60723
+K 8
+PrEditor
+V 15
+dir ad.0.r8/941
+END
+ENDREP
+id: 5.0.r8/1224
+type: dir
+pred: 5.0.r7/1691513
+count: 5
+text: 8 1104 107 107 dd306109c3c49cff990a1a15aad0dfa8
+cpath: /osx/trunk/Applications
+copyroot: 0 /
+
+PLAIN
+K 12
+Applications
+V 15
+dir 5.0.r8/1224
+K 7
+Scripts
+V 19
+dir 8s.0.r2/1785465
+K 5
+Tools
+V 16
+dir 8w.0.r5/4226
+END
+ENDREP
+id: 2.0.r8/1505
+type: dir
+pred: 2.0.r7/1691801
+count: 7
+text: 8 1380 112 112 84b997b89c7d67aebb0a413baf80a83e
+cpath: /osx/trunk
+copyroot: 0 /
+
+PLAIN
+K 8
+branches
+V 13
+dir 3.0.r1/65
+K 4
+tags
+V 14
+dir 4.0.r1/134
+K 5
+trunk
+V 15
+dir 2.0.r8/1505
+END
+ENDREP
+id: 1.0.r8/1757
+type: dir
+pred: 1.0.r7/1692060
+count: 7
+text: 8 1648 96 96 2c6ec9c8c496c0c5a8b5688568bc3e6c
+cpath: /osx
+copyroot: 0 /
+
+PLAIN
+K 3
+osx
+V 15
+dir 1.0.r8/1757
+END
+ENDREP
+id: 0.0.r8/1938
+type: dir
+pred: 0.0.r7/1692248
+count: 8
+text: 8 1892 33 33 b9f46d2f50dd874d786c3f21bc19dfc5
+cpath: /
+copyroot: 0 /
+
+b8.0.t7-1 delete false false /osx/trunk/Applications/PrEditor/Irish.lproj
+
+
+1938 2070

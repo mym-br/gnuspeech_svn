@@ -1,0 +1,95 @@
+id: 3b5.0.r223/0
+type: dir
+count: 0
+cpath: /gnustep/trunk/Build
+copyroot: 0 /
+
+PLAIN
+K 12
+Applications
+V 18
+dir kf.0.r211/1356
+K 5
+Build
+V 16
+dir 3b5.0.r223/0
+K 10
+Frameworks
+V 18
+dir ws.0.r214/1345
+K 7
+Scripts
+V 20
+dir t2.0.r72/1787921
+K 5
+Tools
+V 17
+dir t6.0.r75/4296
+END
+ENDREP
+id: kc.0.r223/281
+type: dir
+pred: kc.0.r214/1677
+count: 124
+text: 223 79 189 189 c538a1e4e0839b611bca78e477f7be2d
+cpath: /gnustep/trunk
+copyroot: 0 /
+
+PLAIN
+K 8
+branches
+V 15
+dir kd.0.r71/71
+K 4
+tags
+V 16
+dir ke.0.r71/146
+K 5
+trunk
+V 17
+dir kc.0.r223/281
+END
+ENDREP
+id: kb.0.r223/547
+type: dir
+pred: kb.0.r214/1947
+count: 124
+text: 223 432 102 102 0eeb7a235fde92fc36dc8c6a2ed9d137
+cpath: /gnustep
+copyroot: 0 /
+
+PLAIN
+K 4
+docs
+V 18
+dir 2w8.0.r159/538
+K 7
+gnustep
+V 17
+dir kb.0.r223/547
+K 4
+misc
+V 18
+dir 38v.0.r160/333
+K 8
+nextstep
+V 19
+dir 14l.0.r155/8758
+K 3
+osx
+V 16
+dir 1.0.r222/528
+END
+ENDREP
+id: 0.0.r223/879
+type: dir
+pred: 0.0.r222/852
+count: 223
+text: 223 693 173 173 fb277d4ff8444a6418e495f0091bcc10
+cpath: /
+copyroot: 0 /
+
+_0.0.t222-1 add false false /gnustep/trunk/Build
+
+
+879 1015

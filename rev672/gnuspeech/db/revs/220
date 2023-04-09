@@ -1,0 +1,218 @@
+PLAIN
+K 16
+dalmazio.pbxuser
+V 18
+file hl.0.r61/2384
+K 15
+project.pbxproj
+V 18
+file d4.0.r27/7113
+END
+ENDREP
+id: d3.0.r220/108
+type: dir
+pred: d3.0.r61/2734
+count: 10
+text: 220 0 95 95 c86725332c4ac9525baf8d39581c09d8
+cpath: /osx/trunk/Frameworks/Tube/Tube.xcodeproj
+copyroot: 0 /
+
+PLAIN
+K 13
+English.lproj
+V 18
+dir d1.0.r13/38618
+K 10
+Info.plist
+V 19
+file d5.0.r13/36284
+K 15
+Tube-Info.plist
+V 19
+file ck.0.r13/35668
+K 14
+Tube.xcodeproj
+V 17
+dir d3.0.r220/108
+K 11
+TubeModel.h
+V 19
+file cl.0.r13/38063
+K 15
+Tube_Prefix.pch
+V 19
+file cm.0.r13/36126
+K 5
+fir.c
+V 19
+file cn.0.r13/37612
+K 5
+fir.h
+V 19
+file co.0.r13/37914
+K 7
+input.c
+V 19
+file cp.0.r13/35359
+K 7
+input.h
+V 19
+file cq.0.r13/35975
+K 8
+output.c
+V 19
+file cr.0.r24/10422
+K 8
+output.h
+V 19
+file cs.0.r24/10597
+K 13
+ring_buffer.c
+V 19
+file ct.0.r13/38217
+K 13
+ring_buffer.h
+V 19
+file d6.0.r13/38773
+K 9
+structs.h
+V 19
+file cu.0.r13/37147
+K 6
+tube.c
+V 19
+file cv.0.r13/35204
+K 6
+tube.h
+V 19
+file cw.0.r13/35824
+K 6
+util.c
+V 19
+file cx.0.r13/37303
+K 6
+util.h
+V 19
+file cy.0.r13/37763
+K 11
+wavetable.c
+V 19
+file cz.0.r13/36592
+K 11
+wavetable.h
+V 19
+file d0.0.r13/37456
+END
+ENDREP
+id: cj.0.r220/1134
+type: dir
+pred: cj.0.r61/3763
+count: 10
+text: 220 281 840 840 a54f9b4ba25c9d91345aed5f21e31c5c
+cpath: /osx/trunk/Frameworks/Tube
+copyroot: 0 /
+
+PLAIN
+K 9
+GnuSpeech
+V 16
+dir d7.0.r67/534
+K 4
+Tube
+V 18
+dir cj.0.r220/1134
+END
+ENDREP
+id: ci.0.r220/1383
+type: dir
+pred: ci.0.r67/782
+count: 18
+text: 220 1297 73 73 206a24b28ccfd965fe9ccc5601b814ec
+cpath: /osx/trunk/Frameworks
+copyroot: 0 /
+
+PLAIN
+K 12
+Applications
+V 17
+dir 5.0.r219/1026
+K 10
+Frameworks
+V 18
+dir ci.0.r220/1383
+K 7
+Scripts
+V 19
+dir 8s.0.r2/1785465
+K 5
+Tools
+V 16
+dir 8w.0.r5/4226
+END
+ENDREP
+id: 2.0.r220/1706
+type: dir
+pred: 2.0.r219/1350
+count: 75
+text: 220 1539 154 154 0a83221b4a9ee6a8730331541b806b36
+cpath: /osx/trunk
+copyroot: 0 /
+
+PLAIN
+K 8
+branches
+V 13
+dir 3.0.r1/65
+K 4
+tags
+V 14
+dir 4.0.r1/134
+K 5
+trunk
+V 17
+dir 2.0.r220/1706
+END
+ENDREP
+id: 1.0.r220/1964
+type: dir
+pred: 1.0.r219/1608
+count: 75
+text: 220 1853 98 98 a2b6cd9bfd772120bc86ce9cde4ab52d
+cpath: /osx
+copyroot: 0 /
+
+PLAIN
+K 4
+docs
+V 18
+dir 2w8.0.r159/538
+K 7
+gnustep
+V 18
+dir kb.0.r214/1947
+K 4
+misc
+V 18
+dir 38v.0.r160/333
+K 8
+nextstep
+V 19
+dir 14l.0.r155/8758
+K 3
+osx
+V 17
+dir 1.0.r220/1964
+END
+ENDREP
+id: 0.0.r220/2291
+type: dir
+pred: 0.0.r219/1935
+count: 220
+text: 220 2103 175 175 e3902d67b01c3924bbab5ef40b5319e8
+cpath: /
+copyroot: 0 /
+
+hk.0.r24/10948 delete false false /osx/trunk/Frameworks/Tube/Tube.xcodeproj/dalmazio.mode1v3
+
+
+2291 2430

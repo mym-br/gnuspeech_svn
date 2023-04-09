@@ -1,0 +1,14 @@
+K 10
+svn:author
+V 9
+dbrisinda
+K 8
+svn:date
+V 27
+2008-10-20T06:17:03.000000Z
+K 7
+svn:log
+V 202
+Wrapped the recent modifications to the -synthesize method in TRMSynthesizer in #ifndef GNUSTEP to ensure it still works on GNUSTEP if it's still being used. These modifications only apply to Mac OS X.
+
+END

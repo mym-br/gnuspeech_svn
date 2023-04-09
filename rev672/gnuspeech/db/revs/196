@@ -1,0 +1,240 @@
+id: 3az.3.r196/0
+type: file
+pred: 3az.0.r195/1714
+count: 1
+text: 195 0 1647 8077 249f256b6afa016cfada6c9615af3ce4
+props: 195 1660 41 0 ce99d9775e72bdd233f747817f25fadc
+cpath: /gnustep/trunk/Applications/PrEditor/PrEditor.xcodeproj/dalmazio.pbxuser
+copyfrom: 195 /gnustep/trunk/Applications/PrEditor/PrEditor.xcodeproj/PrEditor/dalmazio.pbxuser
+
+PLAIN
+END
+ENDREP
+id: 3ay.0.r196/362
+type: dir
+pred: 3ay.0.r195/2032
+count: 1
+text: 196 345 4 4 2d2977d1c96f487abe4a1e202dd03b4e
+cpath: /gnustep/trunk/Applications/PrEditor/PrEditor.xcodeproj/PrEditor
+copyroot: 0 /
+
+PLAIN
+K 8
+PrEditor
+V 18
+dir 3ay.0.r196/362
+K 16
+dalmazio.pbxuser
+V 17
+file 3az.3.r196/0
+K 10
+earc.mode1
+V 21
+file wg.0.r77/1675524
+K 12
+earc.pbxuser
+V 18
+file wh.0.r79/2180
+K 15
+project.pbxproj
+V 20
+file wi.0.r187/26226
+END
+ENDREP
+id: wf.0.r196/791
+type: dir
+pred: wf.0.r195/2399
+count: 17
+text: 196 560 218 218 c3b43068abc003c06fcb3906f5ed147d
+cpath: /gnustep/trunk/Applications/PrEditor/PrEditor.xcodeproj
+copyroot: 0 /
+
+PLAIN
+K 9
+APPL.icns
+V 21
+file uo.0.r77/1676213
+K 11
+Delete.tiff
+V 21
+file up.0.r77/1676422
+K 10
+DoulosSIL4
+V 20
+dir v0.0.r77/1679873
+K 13
+English.lproj
+V 19
+dir v7.0.r187/29166
+K 24
+IPA-SIL keyboard 0.6.dmg
+V 21
+file uq.0.r77/1684696
+K 10
+Info.plist
+V 21
+file ur.0.r77/1676044
+K 18
+PrEditor.xcodeproj
+V 17
+dir wf.0.r196/791
+K 18
+PrEditorDocument.h
+V 21
+file vr.0.r77/1687747
+K 18
+PrEditorDocument.m
+V 21
+file us.0.r77/1674688
+K 19
+PrEditor_Prefix.pch
+V 21
+file ut.0.r77/1690580
+K 26
+ResponderNotifyingWindow.h
+V 21
+file uu.0.r77/1684181
+K 26
+ResponderNotifyingWindow.m
+V 19
+file uv.0.r93/17539
+K 10
+Speak.tiff
+V 21
+file uw.0.r77/1676689
+K 10
+Store.tiff
+V 21
+file ux.0.r77/1674910
+K 8
+app.tiff
+V 21
+file uy.0.r77/1684408
+K 6
+main.m
+V 21
+file uz.0.r77/1673650
+K 12
+preditorDict
+V 18
+dir wn.0.r109/1879
+END
+ENDREP
+id: un.0.r196/1794
+type: dir
+pred: un.0.r195/3404
+count: 37
+text: 196 983 798 798 2e160712f13817a8df4c9aea3420d5d1
+cpath: /gnustep/trunk/Applications/PrEditor
+copyroot: 0 /
+
+PLAIN
+K 5
+Monet
+V 18
+dir lh.0.r190/6081
+K 8
+PrEditor
+V 18
+dir un.0.r196/1794
+K 5
+PreMo
+V 18
+dir 11w.0.r194/764
+END
+ENDREP
+id: kf.0.r196/2090
+type: dir
+pred: kf.0.r195/3701
+count: 91
+text: 196 1968 109 109 45e22a27cb3a62bdfad0d10080541c42
+cpath: /gnustep/trunk/Applications
+copyroot: 0 /
+
+PLAIN
+K 12
+Applications
+V 18
+dir kf.0.r196/2090
+K 10
+Frameworks
+V 18
+dir ws.0.r189/3625
+K 7
+Scripts
+V 20
+dir t2.0.r72/1787921
+K 5
+Tools
+V 17
+dir t6.0.r75/4296
+END
+ENDREP
+id: kc.0.r196/2426
+type: dir
+pred: kc.0.r195/4037
+count: 105
+text: 196 2256 157 157 a591a5ad28a0b64b0688ff64dea2b25c
+cpath: /gnustep/trunk
+copyroot: 0 /
+
+PLAIN
+K 8
+branches
+V 15
+dir kd.0.r71/71
+K 4
+tags
+V 16
+dir ke.0.r71/146
+K 5
+trunk
+V 18
+dir kc.0.r196/2426
+END
+ENDREP
+id: kb.0.r196/2696
+type: dir
+pred: kb.0.r195/4307
+count: 105
+text: 196 2580 103 103 3f8492ae0f58a708872491d9b1719197
+cpath: /gnustep
+copyroot: 0 /
+
+PLAIN
+K 4
+docs
+V 18
+dir 2w8.0.r159/538
+K 7
+gnustep
+V 18
+dir kb.0.r196/2696
+K 4
+misc
+V 18
+dir 38v.0.r160/333
+K 8
+nextstep
+V 19
+dir 14l.0.r155/8758
+K 3
+osx
+V 16
+dir 1.0.r70/1651
+END
+ENDREP
+id: 0.0.r196/3031
+type: dir
+pred: 0.0.r195/4642
+count: 196
+text: 196 2844 174 174 e94fd522642f5238973836a7c6c4f8b5
+cpath: /
+copyroot: 0 /
+
+3az._0.t195-1 add false false /gnustep/trunk/Applications/PrEditor/PrEditor.xcodeproj/dalmazio.pbxuser
+195 /gnustep/trunk/Applications/PrEditor/PrEditor.xcodeproj/PrEditor/dalmazio.pbxuser
+3az.0.r195/1714 delete false false /gnustep/trunk/Applications/PrEditor/PrEditor.xcodeproj/PrEditor/dalmazio.pbxuser
+
+
+3031 3170

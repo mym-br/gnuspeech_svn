@@ -1,0 +1,13 @@
+K 10
+svn:author
+V 9
+dbrisinda
+K 8
+svn:date
+V 27
+2009-01-06T07:00:50.350127Z
+K 7
+svn:log
+V 80
+Original import of client application for testing the GNU text-to-speech server.
+END

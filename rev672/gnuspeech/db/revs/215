@@ -1,0 +1,206 @@
+PLAIN
+K 12
+earc.pbxuser
+V 17
+file c7.0.r9/2179
+K 15
+project.pbxproj
+V 19
+file c8.0.r56/99410
+END
+ENDREP
+id: c5.0.r215/104
+type: dir
+pred: c5.0.r56/99764
+count: 11
+text: 215 0 91 91 55a29cd4cd7d1e2ce3e1c657d1fdc431
+cpath: /osx/trunk/Applications/PrEditor/PrEditor.xcodeproj
+copyroot: 0 /
+
+PLAIN
+K 9
+APPL.icns
+V 20
+file ae.0.r7/1676134
+K 11
+Delete.tiff
+V 20
+file af.0.r7/1676337
+K 10
+DoulosSIL4
+V 19
+dir aq.0.r7/1679685
+K 13
+English.lproj
+V 17
+dir ax.0.r66/1251
+K 24
+IPA-SIL keyboard 0.6.dmg
+V 20
+file ag.0.r7/1684371
+K 10
+Info.plist
+V 20
+file ah.0.r7/1675971
+K 18
+PrEditor.xcodeproj
+V 17
+dir c5.0.r215/104
+K 18
+PrEditorDocument.h
+V 20
+file bh.0.r7/1687333
+K 18
+PrEditorDocument.m
+V 20
+file ai.0.r7/1674655
+K 19
+PrEditor_Prefix.pch
+V 20
+file aj.0.r7/1690084
+K 26
+ResponderNotifyingWindow.h
+V 20
+file ak.0.r7/1683869
+K 26
+ResponderNotifyingWindow.m
+V 19
+file al.0.r23/17368
+K 10
+Speak.tiff
+V 20
+file am.0.r7/1676597
+K 10
+Store.tiff
+V 20
+file an.0.r7/1674871
+K 8
+app.tiff
+V 20
+file ao.0.r7/1684090
+K 6
+main.m
+V 20
+file ap.0.r7/1673650
+K 12
+preditorDict
+V 17
+dir cd.0.r39/1844
+END
+ENDREP
+id: ad.0.r215/1083
+type: dir
+pred: ad.0.r70/796
+count: 23
+text: 215 288 782 782 d243e6606c8c8b39cdbc8a01ec6843ec
+cpath: /osx/trunk/Applications/PrEditor
+copyroot: 0 /
+
+PLAIN
+K 5
+Monet
+V 17
+dir 17.0.r65/3261
+K 8
+PrEditor
+V 18
+dir ad.0.r215/1083
+K 5
+PreMo
+V 16
+dir hm.0.r66/883
+END
+ENDREP
+id: 5.0.r215/1370
+type: dir
+pred: 5.0.r70/1077
+count: 56
+text: 215 1251 106 106 9767dd87d3ba789537370626f1da5f3e
+cpath: /osx/trunk/Applications
+copyroot: 0 /
+
+PLAIN
+K 12
+Applications
+V 17
+dir 5.0.r215/1370
+K 10
+Frameworks
+V 16
+dir ci.0.r67/782
+K 7
+Scripts
+V 19
+dir 8s.0.r2/1785465
+K 5
+Tools
+V 16
+dir 8w.0.r5/4226
+END
+ENDREP
+id: 2.0.r215/1694
+type: dir
+pred: 2.0.r70/1397
+count: 70
+text: 215 1529 152 152 983bfe2803eebf511e1e1593425b7429
+cpath: /osx/trunk
+copyroot: 0 /
+
+PLAIN
+K 8
+branches
+V 13
+dir 3.0.r1/65
+K 4
+tags
+V 14
+dir 4.0.r1/134
+K 5
+trunk
+V 17
+dir 2.0.r215/1694
+END
+ENDREP
+id: 1.0.r215/1951
+type: dir
+pred: 1.0.r70/1651
+count: 70
+text: 215 1840 98 98 52686f9c63b7c70d95654ffef707489a
+cpath: /osx
+copyroot: 0 /
+
+PLAIN
+K 4
+docs
+V 18
+dir 2w8.0.r159/538
+K 7
+gnustep
+V 18
+dir kb.0.r214/1947
+K 4
+misc
+V 18
+dir 38v.0.r160/333
+K 8
+nextstep
+V 19
+dir 14l.0.r155/8758
+K 3
+osx
+V 17
+dir 1.0.r215/1951
+END
+ENDREP
+id: 0.0.r215/2277
+type: dir
+pred: 0.0.r214/2282
+count: 215
+text: 215 2089 175 175 78b681310f1c2d2f50cf4b63eb3e4157
+cpath: /
+copyroot: 0 /
+
+c6.0.r7/1675466 delete false false /osx/trunk/Applications/PrEditor/PrEditor.xcodeproj/earc.mode1
+
+
+2277 2416

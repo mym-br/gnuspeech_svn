@@ -1,0 +1,187 @@
+PLAIN
+K 9
+APPL.icns
+V 20
+file ae.0.r7/1676134
+K 11
+Delete.tiff
+V 20
+file af.0.r7/1676337
+K 10
+DoulosSIL4
+V 19
+dir aq.0.r7/1679685
+K 13
+English.lproj
+V 19
+dir ax.0.r29/155920
+K 24
+IPA-SIL keyboard 0.6.dmg
+V 20
+file ag.0.r7/1684371
+K 10
+Info.plist
+V 20
+file ah.0.r7/1675971
+K 14
+Japanese.lproj
+V 19
+dir bq.0.r7/1687167
+K 12
+MainMenu.nib
+V 19
+dir c1.0.r7/1674491
+K 18
+PrEditor.xcodeproj
+V 17
+dir c5.0.r28/1620
+K 18
+PrEditorDocument.h
+V 20
+file bh.0.r7/1687333
+K 18
+PrEditorDocument.m
+V 20
+file ai.0.r7/1674655
+K 20
+PrEditorDocument.nib
+V 19
+dir c9.0.r7/1678131
+K 19
+PrEditor_Prefix.pch
+V 20
+file aj.0.r7/1690084
+K 26
+ResponderNotifyingWindow.h
+V 20
+file ak.0.r7/1683869
+K 26
+ResponderNotifyingWindow.m
+V 19
+file al.0.r23/17368
+K 10
+Speak.tiff
+V 20
+file am.0.r7/1676597
+K 10
+Store.tiff
+V 20
+file an.0.r7/1674871
+K 8
+app.tiff
+V 20
+file ao.0.r7/1684090
+K 6
+main.m
+V 20
+file ap.0.r7/1673650
+K 12
+preditorDict
+V 18
+dir cd.0.r23/17186
+END
+ENDREP
+id: ad.0.r35/937
+type: dir
+pred: ad.0.r34/6927
+count: 9
+text: 35 0 924 924 188bc90682a3fce0e6f489bd35c132be
+cpath: /osx/trunk/Applications/PrEditor
+copyroot: 0 /
+
+PLAIN
+K 9
+GnuSpeech
+V 16
+dir 6.0.r33/3168
+K 5
+Monet
+V 19
+dir 17.0.r31/617502
+K 8
+PrEditor
+V 16
+dir ad.0.r35/937
+K 5
+PreMo
+V 17
+dir hm.0.r33/4639
+END
+ENDREP
+id: 5.0.r35/1256
+type: dir
+pred: 5.0.r34/7253
+count: 25
+text: 35 1100 143 143 922fc6df4b251d0b3de63151b3d8be81
+cpath: /osx/trunk/Applications
+copyroot: 0 /
+
+PLAIN
+K 12
+Applications
+V 16
+dir 5.0.r35/1256
+K 10
+Frameworks
+V 17
+dir ci.0.r33/2905
+K 7
+Scripts
+V 19
+dir 8s.0.r2/1785465
+K 5
+Tools
+V 16
+dir 8w.0.r5/4226
+END
+ENDREP
+id: 2.0.r35/1578
+type: dir
+pred: 2.0.r34/7575
+count: 34
+text: 35 1413 152 152 d2f9f2bcc873f3b61f3c249f6662a2c1
+cpath: /osx/trunk
+copyroot: 0 /
+
+PLAIN
+K 8
+branches
+V 13
+dir 3.0.r1/65
+K 4
+tags
+V 14
+dir 4.0.r1/134
+K 5
+trunk
+V 16
+dir 2.0.r35/1578
+END
+ENDREP
+id: 1.0.r35/1832
+type: dir
+pred: 1.0.r34/7829
+count: 34
+text: 35 1722 97 97 cac0474ab0005bc3b76322c879254c5d
+cpath: /osx
+copyroot: 0 /
+
+PLAIN
+K 3
+osx
+V 16
+dir 1.0.r35/1832
+END
+ENDREP
+id: 0.0.r35/2015
+type: dir
+pred: 0.0.r34/8012
+count: 35
+text: 35 1968 34 34 e57c2f7dc01973929f1c8445ed0e9167
+cpath: /
+copyroot: 0 /
+
+jd.0.r34/5787 delete false false /osx/trunk/Applications/PrEditor/MainMenu.xib
+
+
+2015 2148

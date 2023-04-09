@@ -1,0 +1,130 @@
+PLAIN
+K 18
+HostToSoundout.app
+V 23
+dir 173.0.r142/30304183
+K 9
+MONET.app
+V 23
+dir 17l.0.r142/30316475
+K 17
+SpeechManager.app
+V 23
+dir 18u.0.r142/30319348
+K 19
+SpeechRegistrar.app
+V 23
+dir 193.0.r142/30321423
+K 23
+TrilliumSoundEditor.app
+V 23
+dir 19a.0.r142/30309379
+END
+ENDREP
+id: 172.0.r150/277
+type: dir
+pred: 172.0.r142/30329172
+count: 1
+text: 150 0 264 264 b3126a72049e7efcb9e3022621ac3969
+cpath: /nextstep/trunk/Apps
+copyroot: 0 /
+
+PLAIN
+K 4
+Apps
+V 18
+dir 172.0.r150/277
+K 30
+Copyright_Notice_and_Agreement
+V 20
+file 2w4.0.r148/1119
+K 10
+Dictionary
+V 23
+dir 19q.0.r142/30341442
+K 10
+ObjectiveC
+V 20
+dir 14p.0.r147/81273
+K 15
+TextToSpeechKit
+V 23
+dir 1zv.0.r142/30352125
+K 3
+bin
+V 23
+dir 228.0.r142/30674942
+K 4
+priv
+V 23
+dir 233.0.r142/30298802
+K 3
+src
+V 19
+dir 24r.0.r146/5123
+K 10
+tubeparams
+V 19
+file 2w5.0.r149/860
+END
+ENDREP
+id: 14m.0.r150/835
+type: dir
+pred: 14m.0.r149/1405
+count: 9
+text: 150 437 385 385 e2a3ed6fd898c024010867c2f3545d11
+cpath: /nextstep/trunk
+copyroot: 0 /
+
+PLAIN
+K 8
+branches
+V 17
+dir 14n.0.r141/74
+K 4
+tags
+V 18
+dir 14o.0.r141/152
+K 5
+trunk
+V 18
+dir 14m.0.r150/835
+END
+ENDREP
+id: 14l.0.r150/1108
+type: dir
+pred: 14l.0.r149/1681
+count: 9
+text: 150 988 107 107 ab5ea63b2b3ddd55e6e2ad923e573dea
+cpath: /nextstep
+copyroot: 0 /
+
+PLAIN
+K 7
+gnustep
+V 18
+dir kb.0.r140/1708
+K 8
+nextstep
+V 19
+dir 14l.0.r150/1108
+K 3
+osx
+V 16
+dir 1.0.r70/1651
+END
+ENDREP
+id: 0.0.r150/1377
+type: dir
+pred: 0.0.r149/1951
+count: 150
+text: 150 1256 108 108 39eeea8d0a68a934457c09668494ff82
+cpath: /
+copyroot: 0 /
+
+187.0.t149-1 delete false false /nextstep/trunk/Apps/Mines.app
+
+18i.0.t149-1 delete false false /nextstep/trunk/Apps/Sonogram_0.90
+
+
+1377 1516

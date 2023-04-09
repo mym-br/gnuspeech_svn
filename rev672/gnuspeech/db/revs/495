@@ -1,0 +1,145 @@
+PLAIN
+K 6
+README
+V 20
+file 3gx.c.r303/2388
+END
+ENDREP
+id: 2.g.r495/54
+type: dir
+pred: 2.g.r494/295
+count: 154
+text: 495 0 41 41 95f149b196d5fbd7b97277944b8b97c2
+cpath: /osx/tags/GnuSpeech-0.5.1/trunk
+copyroot: 488 /osx/tags/GnuSpeech-0.5.1/trunk
+
+id: 3h2.n.r495/247
+type: dir
+pred: 3h2.0.r484/10244
+count: 10
+text: 484 10180 51 51 e4e73aa41b37a4d1ae3382613e36b157
+cpath: /osx/tags/GnuSpeech-0.5.1/Services
+copyfrom: 494 /osx/tags/GnuSpeech-0.5.1/trunk/Services
+
+PLAIN
+K 12
+Applications
+V 16
+dir 5.h.r489/479
+K 6
+Builds
+V 16
+dir 3hc.i.r490/0
+K 7
+Daemons
+V 18
+dir 3h1.j.r491/404
+K 10
+Frameworks
+V 15
+dir ci.k.r492/0
+K 10
+Installers
+V 16
+dir 3he.l.r493/0
+K 5
+Other
+V 16
+dir 3h4.m.r494/0
+K 8
+Services
+V 18
+dir 3h2.n.r495/247
+K 5
+trunk
+V 15
+dir 2.g.r495/54
+END
+ENDREP
+id: 3ib.0.r495/763
+type: dir
+pred: 3ib.0.r494/756
+count: 8
+text: 495 462 288 288 32f8d5e45b78c126d6135ac4a81d03a4
+cpath: /osx/tags/GnuSpeech-0.5.1
+copyroot: 0 /
+
+PLAIN
+K 13
+GnuSpeech-0.5
+V 14
+dir 2.f.r301/0
+K 15
+GnuSpeech-0.5.1
+V 18
+dir 3ib.0.r495/763
+END
+ENDREP
+id: 4.0.r495/1026
+type: dir
+pred: 4.0.r494/1019
+count: 12
+text: 495 925 88 88 a1c9c00a2ec539b1cc10075d68bf0a3a
+cpath: /osx/tags
+copyroot: 0 /
+
+PLAIN
+K 8
+branches
+V 13
+dir 3.0.r1/65
+K 4
+tags
+V 17
+dir 4.0.r495/1026
+K 5
+trunk
+V 17
+dir 2.0.r487/2070
+END
+ENDREP
+id: 1.0.r495/1283
+type: dir
+pred: 1.0.r494/1276
+count: 158
+text: 495 1169 101 101 d556300021d1a694cc2029008f24a58c
+cpath: /osx
+copyroot: 0 /
+
+PLAIN
+K 4
+docs
+V 18
+dir 2w8.0.r159/538
+K 7
+gnustep
+V 18
+dir kb.0.r473/1245
+K 4
+misc
+V 18
+dir 38v.0.r160/333
+K 8
+nextstep
+V 19
+dir 14l.0.r155/8758
+K 3
+osx
+V 17
+dir 1.0.r495/1283
+END
+ENDREP
+id: 0.0.r495/1613
+type: dir
+pred: 0.0.r494/1606
+count: 495
+text: 495 1425 175 175 8602493025494ff835fc9cfaf1e33f8e
+cpath: /
+copyroot: 0 /
+
+3h2._0.t494-1 add false false /osx/tags/GnuSpeech-0.5.1/Services
+494 /osx/tags/GnuSpeech-0.5.1/trunk/Services
+3h2.0.r484/10244 delete false false /osx/tags/GnuSpeech-0.5.1/trunk/Services
+
+
+1613 1752

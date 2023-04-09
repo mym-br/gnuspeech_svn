@@ -1,0 +1,206 @@
+PLAIN
+K 9
+.DS_Store
+V 21
+file hn.0.r25/2799788
+K 21
+ApplicationDelegate.h
+V 21
+file ho.0.r478/166860
+K 21
+ApplicationDelegate.m
+V 21
+file hp.0.r478/167055
+K 13
+ChangeLog.txt
+V 20
+file 3i5.0.r479/4483
+K 13
+English.lproj
+V 16
+dir im.0.r66/204
+K 11
+GNUmakefile
+V 21
+file hq.0.r25/2800272
+K 10
+Info.plist
+V 19
+file hr.0.r306/8822
+K 10
+PreMo.icns
+V 22
+file 3ha.0.r293/202400
+K 15
+PreMo.xcodeproj
+V 19
+dir iu.0.r477/68551
+K 16
+PreMo_Prefix.pch
+V 20
+file hs.0.r477/67896
+K 6
+main.m
+V 21
+file ht.0.r478/166681
+K 13
+version.plist
+V 21
+file hu.0.r25/2792630
+END
+ENDREP
+id: hm.h.r499/559
+type: dir
+pred: hm.0.r484/16212
+count: 25
+text: 499 0 546 546 86b63a139a677df9aa1d39a430af86bb
+cpath: /osx/tags/GnuSpeech-0.5.1/Applications/PreMo
+copyroot: 489 /osx/tags/GnuSpeech-0.5.1/Applications
+
+PLAIN
+K 12
+GnuTTSClient
+V 20
+dir 3eb.0.r484/17561
+K 5
+Monet
+V 19
+dir 17.0.r484/14151
+K 8
+PrEditor
+V 18
+dir ad.0.r479/7410
+K 5
+PreMo
+V 17
+dir hm.h.r499/559
+END
+ENDREP
+id: 5.h.r499/944
+type: dir
+pred: 5.h.r489/479
+count: 108
+text: 499 778 153 153 4678b5cfd3bbae4e08cdb84c470f85f0
+cpath: /osx/tags/GnuSpeech-0.5.1/Applications
+copyroot: 489 /osx/tags/GnuSpeech-0.5.1/Applications
+
+PLAIN
+K 12
+Applications
+V 16
+dir 5.h.r499/944
+K 6
+Builds
+V 16
+dir 3hc.i.r490/0
+K 7
+Daemons
+V 18
+dir 3h1.j.r491/404
+K 10
+Frameworks
+V 15
+dir ci.k.r492/0
+K 10
+Installers
+V 16
+dir 3he.l.r493/0
+K 5
+Other
+V 16
+dir 3h4.m.r494/0
+K 6
+README
+V 19
+file 3gx.o.r496/207
+K 8
+Services
+V 18
+dir 3h2.n.r495/247
+END
+ENDREP
+id: 3ib.0.r499/1462
+type: dir
+pred: 3ib.0.r497/306
+count: 11
+text: 499 1156 293 293 34a93af852e867a8e4e2c3888d06938b
+cpath: /osx/tags/GnuSpeech-0.5.1
+copyroot: 0 /
+
+PLAIN
+K 13
+GnuSpeech-0.5
+V 14
+dir 2.f.r301/0
+K 15
+GnuSpeech-0.5.1
+V 19
+dir 3ib.0.r499/1462
+END
+ENDREP
+id: 4.0.r499/1729
+type: dir
+pred: 4.0.r497/568
+count: 15
+text: 499 1627 89 89 bbd9aa2394c3881e1d97dd7c949b433a
+cpath: /osx/tags
+copyroot: 0 /
+
+PLAIN
+K 8
+branches
+V 13
+dir 3.0.r1/65
+K 4
+tags
+V 17
+dir 4.0.r499/1729
+K 5
+trunk
+V 17
+dir 2.0.r498/1375
+END
+ENDREP
+id: 1.0.r499/1986
+type: dir
+pred: 1.0.r498/1636
+count: 162
+text: 499 1872 101 101 36a0d4fa5b0b653000efc1b7cb019edc
+cpath: /osx
+copyroot: 0 /
+
+PLAIN
+K 4
+docs
+V 18
+dir 2w8.0.r159/538
+K 7
+gnustep
+V 18
+dir kb.0.r473/1245
+K 4
+misc
+V 18
+dir 38v.0.r160/333
+K 8
+nextstep
+V 19
+dir 14l.0.r155/8758
+K 3
+osx
+V 17
+dir 1.0.r499/1986
+END
+ENDREP
+id: 0.0.r499/2316
+type: dir
+pred: 0.0.r498/1965
+count: 499
+text: 499 2128 175 175 cc92df8f1fabf90272bfdbb899da1a59
+cpath: /
+copyroot: 0 /
+
+hv.0.r484/15444 delete false false /osx/tags/GnuSpeech-0.5.1/Applications/PreMo/build
+
+
+2316 2455

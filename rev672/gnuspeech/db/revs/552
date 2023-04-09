@@ -1,0 +1,153 @@
+id: 3h4.16.r552/0
+type: dir
+pred: 3h4.0.r282/261
+count: 3
+text: 282 180 68 68 0fc0bd2b296a7b0de8c24c45077a439d
+cpath: /osx/tags/GnuSpeech-0.6/Other
+copyfrom: 551 /osx/tags/GnuSpeech-0.6/trunk/Other
+
+PLAIN
+K 7
+LICENSE
+V 21
+file 4ii.0.r540/14838
+K 6
+README
+V 21
+file 3gx.c.r540/20409
+K 8
+Services
+V 20
+dir 3h2.0.r540/16478
+END
+ENDREP
+id: 2.10.r552/332
+type: dir
+pred: 2.10.r551/380
+count: 194
+text: 552 199 120 120 c4ba7e9fa826c6f3722eac82383b1193
+cpath: /osx/tags/GnuSpeech-0.6/trunk
+copyroot: 546 /osx/tags/GnuSpeech-0.6/trunk
+
+PLAIN
+K 12
+Applications
+V 19
+dir 4e0.11.r547/513
+K 6
+Builds
+V 17
+dir 3hc.12.r548/0
+K 7
+Daemons
+V 19
+dir 3h1.13.r549/442
+K 10
+Frameworks
+V 16
+dir ci.14.r550/0
+K 10
+Installers
+V 17
+dir 3he.15.r551/0
+K 5
+Other
+V 17
+dir 3h4.16.r552/0
+K 5
+trunk
+V 17
+dir 2.10.r552/332
+END
+ENDREP
+id: 4io.0.r552/802
+type: dir
+pred: 4io.0.r551/817
+count: 7
+text: 552 528 261 261 1905a58b4df90211c2710c06cd41a80c
+cpath: /osx/tags/GnuSpeech-0.6
+copyroot: 0 /
+
+PLAIN
+K 13
+GnuSpeech-0.5
+V 14
+dir 2.f.r301/0
+K 15
+GnuSpeech-0.5.1
+V 19
+dir 3ib.0.r499/1462
+K 13
+GnuSpeech-0.6
+V 18
+dir 4io.0.r552/802
+END
+ENDREP
+id: 4.0.r552/1107
+type: dir
+pred: 4.0.r551/1122
+count: 23
+text: 552 962 132 132 0ecc557dca63779166984b7f4e77ca6c
+cpath: /osx/tags
+copyroot: 0 /
+
+PLAIN
+K 8
+branches
+V 15
+dir 3.0.r510/17
+K 4
+tags
+V 17
+dir 4.0.r552/1107
+K 5
+trunk
+V 17
+dir 2.0.r544/3750
+END
+ENDREP
+id: 1.0.r552/1368
+type: dir
+pred: 1.0.r551/1383
+count: 212
+text: 552 1252 103 103 ba8f86ffa00fe2f37faaeff33f6247aa
+cpath: /osx
+copyroot: 0 /
+
+PLAIN
+K 4
+docs
+V 18
+dir 2w8.0.r509/284
+K 7
+gnustep
+V 19
+dir kb.0.r502/17884
+K 4
+misc
+V 18
+dir 38v.0.r160/333
+K 8
+nextstep
+V 19
+dir 14l.0.r155/8758
+K 3
+osx
+V 17
+dir 1.0.r552/1368
+END
+ENDREP
+id: 0.0.r552/1699
+type: dir
+pred: 0.0.r551/1714
+count: 552
+text: 552 1510 176 176 207ce90ca10f3f565cffded286517416
+cpath: /
+copyroot: 0 /
+
+3h4._0.t551-1 add false false /osx/tags/GnuSpeech-0.6/Other
+551 /osx/tags/GnuSpeech-0.6/trunk/Other
+3h4.0.r282/261 delete false false /osx/tags/GnuSpeech-0.6/trunk/Other
+
+
+1699 1838

@@ -1,0 +1,197 @@
+id: 3d5.6.r234/0
+type: dir
+pred: 3d5.0.r233/60684
+count: 1
+text: 233 60319 352 352 8870e25b85a294fa4536fdd295b96dc3
+cpath: /osx/trunk/Applications/GnuTTSClient
+copyfrom: 233 /osx/trunk/Applications/GnuTTSServer/GnuTTSClient
+
+PLAIN
+K 17
+GnuSpeechServer.h
+V 21
+file 3d4.0.r232/55806
+K 17
+GnuSpeechServer.m
+V 21
+file 3cr.0.r232/52938
+K 25
+GnuSpeechServerProtocol.h
+V 21
+file 3cp.0.r232/52575
+K 14
+GnuTTSServer.1
+V 21
+file 3d0.0.r232/55114
+K 14
+GnuTTSServer.m
+V 21
+file 3cu.0.r232/53478
+K 22
+GnuTTSServer.xcodeproj
+V 20
+dir 3cv.0.r232/54764
+K 23
+GnuTTSServer_Prefix.pch
+V 21
+file 3cq.0.r232/52758
+K 15
+PhoneToSpeech.h
+V 21
+file 3d1.0.r232/55288
+K 15
+PhoneToSpeech.m
+V 21
+file 3co.0.r232/52404
+K 13
+TextToPhone.h
+V 21
+file 3cz.0.r232/54943
+K 13
+TextToPhone.m
+V 21
+file 3d3.0.r232/55633
+K 14
+TextToSpeech.h
+V 21
+file 3ct.0.r232/53307
+K 14
+TextToSpeech.m
+V 21
+file 3d2.0.r232/55461
+K 36
+org.gnu.GnuSpeech.GnuTTSServer.plist
+V 21
+file 3cs.0.r232/53114
+END
+ENDREP
+id: 3cn.0.r234/955
+type: dir
+pred: 3cn.0.r233/61627
+count: 2
+text: 234 225 717 717 f3de265e43ed1393d501528229960341
+cpath: /osx/trunk/Applications/GnuTTSServer
+copyroot: 0 /
+
+PLAIN
+K 12
+GnuTTSClient
+V 16
+dir 3d5.6.r234/0
+K 12
+GnuTTSServer
+V 18
+dir 3cn.0.r234/955
+K 5
+Monet
+V 17
+dir 17.0.r65/3261
+K 8
+PrEditor
+V 18
+dir ad.0.r216/1039
+K 5
+PreMo
+V 17
+dir hm.0.r219/741
+END
+ENDREP
+id: 5.0.r234/1332
+type: dir
+pred: 5.0.r233/61970
+count: 71
+text: 234 1130 189 189 3f4fdcad0739b9e0bcb7fb4d3d08c88a
+cpath: /osx/trunk/Applications
+copyroot: 0 /
+
+PLAIN
+K 12
+Applications
+V 17
+dir 5.0.r234/1332
+K 5
+Build
+V 16
+dir 3b4.0.r222/0
+K 10
+Frameworks
+V 18
+dir ci.0.r221/1336
+K 7
+Scripts
+V 19
+dir 8s.0.r2/1785465
+K 5
+Tools
+V 16
+dir 8w.0.r5/4226
+END
+ENDREP
+id: 2.0.r234/1692
+type: dir
+pred: 2.0.r233/62333
+count: 88
+text: 234 1493 186 186 342fc16a10919a257c5a745fa668f98f
+cpath: /osx/trunk
+copyroot: 0 /
+
+PLAIN
+K 8
+branches
+V 13
+dir 3.0.r1/65
+K 4
+tags
+V 14
+dir 4.0.r1/134
+K 5
+trunk
+V 17
+dir 2.0.r234/1692
+END
+ENDREP
+id: 1.0.r234/1951
+type: dir
+pred: 1.0.r233/62595
+count: 88
+text: 234 1840 98 98 960843593b1d903fca2cd7284f8c0529
+cpath: /osx
+copyroot: 0 /
+
+PLAIN
+K 4
+docs
+V 18
+dir 2w8.0.r159/538
+K 7
+gnustep
+V 17
+dir kb.0.r223/547
+K 4
+misc
+V 18
+dir 38v.0.r160/333
+K 8
+nextstep
+V 19
+dir 14l.0.r155/8758
+K 3
+osx
+V 17
+dir 1.0.r234/1951
+END
+ENDREP
+id: 0.0.r234/2278
+type: dir
+pred: 0.0.r233/62925
+count: 234
+text: 234 2091 174 174 a7b5aae6c0484493c63e4da40de0b799
+cpath: /
+copyroot: 0 /
+
+3d5.0.r233/60684 delete false false /osx/trunk/Applications/GnuTTSServer/GnuTTSClient
+
+3d5._0.t233-1 add false false /osx/trunk/Applications/GnuTTSClient
+233 /osx/trunk/Applications/GnuTTSServer/GnuTTSClient
+
+2278 2418

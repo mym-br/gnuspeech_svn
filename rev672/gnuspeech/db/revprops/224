@@ -1,0 +1,13 @@
+K 10
+svn:author
+V 9
+dbrisinda
+K 8
+svn:date
+V 27
+2009-01-06T04:29:34.848276Z
+K 7
+svn:log
+V 62
+The initial import of a bare but working text-to-spech server.
+END

@@ -1,0 +1,191 @@
+PLAIN
+K 9
+APPL.icns
+V 21
+file uo.0.r77/1676213
+K 11
+Delete.tiff
+V 21
+file up.0.r77/1676422
+K 10
+DoulosSIL4
+V 20
+dir v0.0.r77/1679873
+K 13
+English.lproj
+V 19
+dir v7.0.r99/156099
+K 24
+IPA-SIL keyboard 0.6.dmg
+V 21
+file uq.0.r77/1684696
+K 10
+Info.plist
+V 21
+file ur.0.r77/1676044
+K 14
+Japanese.lproj
+V 20
+dir w0.0.r77/1687575
+K 12
+MainMenu.nib
+V 20
+dir wb.0.r77/1674518
+K 18
+PrEditor.xcodeproj
+V 17
+dir wf.0.r98/1627
+K 18
+PrEditorDocument.h
+V 21
+file vr.0.r77/1687747
+K 18
+PrEditorDocument.m
+V 21
+file us.0.r77/1674688
+K 20
+PrEditorDocument.nib
+V 20
+dir wj.0.r77/1678271
+K 19
+PrEditor_Prefix.pch
+V 21
+file ut.0.r77/1690580
+K 26
+ResponderNotifyingWindow.h
+V 21
+file uu.0.r77/1684181
+K 26
+ResponderNotifyingWindow.m
+V 19
+file uv.0.r93/17539
+K 10
+Speak.tiff
+V 21
+file uw.0.r77/1676689
+K 10
+Store.tiff
+V 21
+file ux.0.r77/1674910
+K 8
+app.tiff
+V 21
+file uy.0.r77/1684408
+K 6
+main.m
+V 21
+file uz.0.r77/1673650
+K 12
+preditorDict
+V 18
+dir wn.0.r93/17352
+END
+ENDREP
+id: un.0.r105/953
+type: dir
+pred: un.0.r104/6952
+count: 9
+text: 105 0 940 940 8ce6deb252480d5ec8485c613de4e577
+cpath: /gnustep/trunk/Applications/PrEditor
+copyroot: 0 /
+
+PLAIN
+K 9
+GnuSpeech
+V 18
+dir kg.0.r103/3209
+K 5
+Monet
+V 20
+dir lh.0.r101/617643
+K 8
+PrEditor
+V 17
+dir un.0.r105/953
+K 5
+PreMo
+V 19
+dir 11w.0.r103/4736
+END
+ENDREP
+id: kf.0.r105/1285
+type: dir
+pred: kf.0.r104/7290
+count: 25
+text: 105 1123 149 149 96aaab81fe6bbe215d9e9823867814fd
+cpath: /gnustep/trunk/Applications
+copyroot: 0 /
+
+PLAIN
+K 12
+Applications
+V 18
+dir kf.0.r105/1285
+K 10
+Frameworks
+V 18
+dir ws.0.r103/2935
+K 7
+Scripts
+V 20
+dir t2.0.r72/1787921
+K 5
+Tools
+V 17
+dir t6.0.r75/4296
+END
+ENDREP
+id: kc.0.r105/1621
+type: dir
+pred: kc.0.r104/7626
+count: 34
+text: 105 1451 157 157 5d090618b10044a38342a07a61ef8f35
+cpath: /gnustep/trunk
+copyroot: 0 /
+
+PLAIN
+K 8
+branches
+V 15
+dir kd.0.r71/71
+K 4
+tags
+V 16
+dir ke.0.r71/146
+K 5
+trunk
+V 18
+dir kc.0.r105/1621
+END
+ENDREP
+id: kb.0.r105/1890
+type: dir
+pred: kb.0.r104/7895
+count: 34
+text: 105 1774 103 103 583ddef7eb19e993f7155485c6a97d1a
+cpath: /gnustep
+copyroot: 0 /
+
+PLAIN
+K 7
+gnustep
+V 18
+dir kb.0.r105/1890
+K 3
+osx
+V 16
+dir 1.0.r70/1651
+END
+ENDREP
+id: 0.0.r105/2120
+type: dir
+pred: 0.0.r104/8125
+count: 105
+text: 105 2037 70 70 dbae28cb03d1c36a05bd05a529943449
+cpath: /
+copyroot: 0 /
+
+13n.0.r104/5787 delete false false /gnustep/trunk/Applications/PrEditor/MainMenu.xib
+
+
+2120 2257

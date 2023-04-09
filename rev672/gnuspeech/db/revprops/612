@@ -1,0 +1,13 @@
+K 10
+svn:author
+V 9
+dbrisinda
+K 8
+svn:date
+V 27
+2009-05-06T05:31:46.923333Z
+K 7
+svn:log
+V 226
+Fixed bug in NXStream implementation for NXPrintf() that resulted in uncasted comparisons between stream positions and buffer ranges that resulted in small negative values being treated as large positive values (unsigned int).
+END

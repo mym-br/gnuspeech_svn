@@ -1,0 +1,97 @@
+PLAIN
+K 12
+Applications
+V 17
+dir 5.0.r273/6165
+K 6
+Builds
+V 16
+dir 3h3.0.r278/0
+K 7
+Daemons
+V 16
+dir 3h1.0.r276/0
+K 10
+Frameworks
+V 18
+dir ci.0.r261/3204
+K 7
+Scripts
+V 19
+dir 8s.0.r2/1785465
+K 8
+Services
+V 16
+dir 3h2.0.r277/0
+K 5
+Tools
+V 16
+dir 8w.0.r5/4226
+END
+ENDREP
+id: 2.0.r279/269
+type: dir
+pred: 2.0.r278/377
+count: 110
+text: 279 0 256 256 af151c9507de9dc0270f5d977f5b73e7
+cpath: /osx/trunk
+copyroot: 0 /
+
+PLAIN
+K 8
+branches
+V 13
+dir 3.0.r1/65
+K 4
+tags
+V 14
+dir 4.0.r1/134
+K 5
+trunk
+V 16
+dir 2.0.r279/269
+END
+ENDREP
+id: 1.0.r279/522
+type: dir
+pred: 1.0.r278/631
+count: 110
+text: 279 412 97 97 3bf02de968fff775bcbb11e60cddc077
+cpath: /osx
+copyroot: 0 /
+
+PLAIN
+K 4
+docs
+V 18
+dir 2w8.0.r159/538
+K 7
+gnustep
+V 18
+dir kb.0.r275/5794
+K 4
+misc
+V 18
+dir 38v.0.r160/333
+K 8
+nextstep
+V 19
+dir 14l.0.r155/8758
+K 3
+osx
+V 16
+dir 1.0.r279/522
+END
+ENDREP
+id: 0.0.r279/846
+type: dir
+pred: 0.0.r278/955
+count: 279
+text: 279 659 174 174 39794a0fccc1b399c1326ec290351941
+cpath: /
+copyroot: 0 /
+
+3b4.0.r222/0 delete false false /osx/trunk/Build
+
+
+846 982

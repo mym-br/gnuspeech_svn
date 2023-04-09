@@ -1,0 +1,14 @@
+K 10
+svn:author
+V 9
+dbrisinda
+K 8
+svn:date
+V 27
+2008-11-26T06:05:50.000000Z
+K 7
+svn:log
+V 213
+Standardized Xcode project settings to use 10.5 base SDK, but deploy for 10.4 (i.e., support 10.4 or higher). PrEditor is the exception, where a 10.4 base SDK is necessary since it uses some deprecated libraries.
+
+END

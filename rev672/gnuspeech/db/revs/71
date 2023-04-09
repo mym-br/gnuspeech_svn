@@ -1,0 +1,69 @@
+id: kc.0.r71/0
+type: dir
+count: 0
+cpath: /gnustep/trunk
+copyroot: 0 /
+
+id: kd.0.r71/71
+type: dir
+count: 0
+cpath: /gnustep/branches
+copyroot: 0 /
+
+id: ke.0.r71/146
+type: dir
+count: 0
+cpath: /gnustep/tags
+copyroot: 0 /
+
+PLAIN
+K 8
+branches
+V 15
+dir kd.0.r71/71
+K 4
+tags
+V 16
+dir ke.0.r71/146
+K 5
+trunk
+V 14
+dir kc.0.r71/0
+END
+ENDREP
+id: kb.0.r71/330
+type: dir
+count: 0
+text: 71 218 99 99 02d2cd79f4d3865c547b6773318b0c02
+cpath: /gnustep
+copyroot: 0 /
+
+PLAIN
+K 7
+gnustep
+V 16
+dir kb.0.r71/330
+K 3
+osx
+V 16
+dir 1.0.r70/1651
+END
+ENDREP
+id: 0.0.r71/530
+type: dir
+pred: 0.0.r70/1834
+count: 71
+text: 71 449 68 68 2ddafe1365ab6a333ecd042e0dd7a490
+cpath: /
+copyroot: 0 /
+
+_3.0.t70-1 add false false /gnustep/tags
+
+_0.0.t70-1 add false false /gnustep
+
+_1.0.t70-1 add false false /gnustep/trunk
+
+_2.0.t70-1 add false false /gnustep/branches
+
+
+530 661

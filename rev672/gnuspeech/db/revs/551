@@ -1,0 +1,153 @@
+id: 3he.15.r551/0
+type: dir
+pred: 3he.0.r544/3223
+count: 7
+text: 544 3058 152 152 00ec66f163a55fe07691997d32fad40d
+cpath: /osx/tags/GnuSpeech-0.6/Installers
+copyfrom: 550 /osx/tags/GnuSpeech-0.6/trunk/Installers
+
+PLAIN
+K 7
+LICENSE
+V 21
+file 4ii.0.r540/14838
+K 5
+Other
+V 18
+dir 3h4.0.r282/261
+K 6
+README
+V 21
+file 3gx.c.r540/20409
+K 8
+Services
+V 20
+dir 3h2.0.r540/16478
+END
+ENDREP
+id: 2.10.r551/380
+type: dir
+pred: 2.10.r550/418
+count: 193
+text: 551 213 154 154 2a65f72107eac0827db2dcd54dfd3b6c
+cpath: /osx/tags/GnuSpeech-0.6/trunk
+copyroot: 546 /osx/tags/GnuSpeech-0.6/trunk
+
+PLAIN
+K 12
+Applications
+V 19
+dir 4e0.11.r547/513
+K 6
+Builds
+V 17
+dir 3hc.12.r548/0
+K 7
+Daemons
+V 19
+dir 3h1.13.r549/442
+K 10
+Frameworks
+V 16
+dir ci.14.r550/0
+K 10
+Installers
+V 17
+dir 3he.15.r551/0
+K 5
+trunk
+V 17
+dir 2.10.r551/380
+END
+ENDREP
+id: 4io.0.r551/817
+type: dir
+pred: 4io.0.r550/816
+count: 6
+text: 551 576 228 228 52c0aef9250f9df2c8b7721049a05bdb
+cpath: /osx/tags/GnuSpeech-0.6
+copyroot: 0 /
+
+PLAIN
+K 13
+GnuSpeech-0.5
+V 14
+dir 2.f.r301/0
+K 15
+GnuSpeech-0.5.1
+V 19
+dir 3ib.0.r499/1462
+K 13
+GnuSpeech-0.6
+V 18
+dir 4io.0.r551/817
+END
+ENDREP
+id: 4.0.r551/1122
+type: dir
+pred: 4.0.r550/1121
+count: 22
+text: 551 977 132 132 9f28ea123bf40cb799b55d5e19696ad7
+cpath: /osx/tags
+copyroot: 0 /
+
+PLAIN
+K 8
+branches
+V 15
+dir 3.0.r510/17
+K 4
+tags
+V 17
+dir 4.0.r551/1122
+K 5
+trunk
+V 17
+dir 2.0.r544/3750
+END
+ENDREP
+id: 1.0.r551/1383
+type: dir
+pred: 1.0.r550/1382
+count: 211
+text: 551 1267 103 103 adcc615074c41e5e66eab90c0c161f34
+cpath: /osx
+copyroot: 0 /
+
+PLAIN
+K 4
+docs
+V 18
+dir 2w8.0.r509/284
+K 7
+gnustep
+V 19
+dir kb.0.r502/17884
+K 4
+misc
+V 18
+dir 38v.0.r160/333
+K 8
+nextstep
+V 19
+dir 14l.0.r155/8758
+K 3
+osx
+V 17
+dir 1.0.r551/1383
+END
+ENDREP
+id: 0.0.r551/1714
+type: dir
+pred: 0.0.r550/1713
+count: 551
+text: 551 1525 176 176 e7a6ec98eae8c1905488abe847ac2485
+cpath: /
+copyroot: 0 /
+
+3he._0.t550-1 add false false /osx/tags/GnuSpeech-0.6/Installers
+550 /osx/tags/GnuSpeech-0.6/trunk/Installers
+3he.0.r544/3223 delete false false /osx/tags/GnuSpeech-0.6/trunk/Installers
+
+
+1714 1853

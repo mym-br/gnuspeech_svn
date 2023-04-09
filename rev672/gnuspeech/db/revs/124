@@ -1,0 +1,181 @@
+PLAIN
+K 7
+Release
+V 21
+dir 12l.0.r95/2795698
+END
+ENDREP
+id: 126.0.r124/56
+type: dir
+pred: 126.0.r101/621038
+count: 2
+text: 124 0 43 43 dc0b567098afa9206fdd7f1a4580b3dc
+cpath: /gnustep/trunk/Applications/PreMo/build/PreMo.build
+copyroot: 0 /
+
+PLAIN
+K 11
+PreMo.build
+V 17
+dir 126.0.r124/56
+END
+ENDREP
+id: 125.0.r124/299
+type: dir
+pred: 125.0.r101/621294
+count: 2
+text: 124 242 44 44 497e859118aa233b90aba74fbfa1a91c
+cpath: /gnustep/trunk/Applications/PreMo/build
+copyroot: 0 /
+
+PLAIN
+K 9
+.DS_Store
+V 22
+file 11x.0.r95/2799959
+K 21
+ApplicationDelegate.h
+V 22
+file 11y.0.r95/2800120
+K 21
+ApplicationDelegate.m
+V 22
+file 11z.0.r95/2800795
+K 13
+English.lproj
+V 20
+dir 12w.0.r118/19216
+K 11
+GNUmakefile
+V 22
+file 120.0.r95/2800458
+K 10
+Info.plist
+V 22
+file 121.0.r95/2800294
+K 15
+PreMo.xcodeproj
+V 18
+dir 134.0.r121/868
+K 16
+PreMo_Prefix.pch
+V 22
+file 122.0.r95/2800625
+K 5
+build
+V 18
+dir 125.0.r124/299
+K 6
+main.m
+V 22
+file 123.0.r95/2792475
+K 13
+version.plist
+V 22
+file 124.0.r95/2792635
+END
+ENDREP
+id: 11w.0.r124/994
+type: dir
+pred: 11w.0.r121/1576
+count: 7
+text: 124 476 505 505 03e10a382d1271393dbdf0afd43b7a0f
+cpath: /gnustep/trunk/Applications/PreMo
+copyroot: 0 /
+
+PLAIN
+K 5
+Monet
+V 20
+dir lh.0.r122/183004
+K 8
+PrEditor
+V 18
+dir un.0.r123/8486
+K 5
+PreMo
+V 18
+dir 11w.0.r124/994
+END
+ENDREP
+id: kf.0.r124/1289
+type: dir
+pred: kf.0.r123/8787
+count: 43
+text: 124 1165 111 111 561a53fea1d175d7f325212add9f335e
+cpath: /gnustep/trunk/Applications
+copyroot: 0 /
+
+PLAIN
+K 12
+Applications
+V 18
+dir kf.0.r124/1289
+K 10
+Frameworks
+V 18
+dir ws.0.r116/1448
+K 7
+Scripts
+V 20
+dir t2.0.r72/1787921
+K 5
+Tools
+V 17
+dir t6.0.r75/4296
+END
+ENDREP
+id: kc.0.r124/1625
+type: dir
+pred: kc.0.r123/9125
+count: 53
+text: 124 1455 157 157 4fc244724a20099c70b032e7596f3e15
+cpath: /gnustep/trunk
+copyroot: 0 /
+
+PLAIN
+K 8
+branches
+V 15
+dir kd.0.r71/71
+K 4
+tags
+V 16
+dir ke.0.r71/146
+K 5
+trunk
+V 18
+dir kc.0.r124/1625
+END
+ENDREP
+id: kb.0.r124/1894
+type: dir
+pred: kb.0.r123/9396
+count: 53
+text: 124 1778 103 103 961fff5836b95c3715bcd2c4d1c2fda2
+cpath: /gnustep
+copyroot: 0 /
+
+PLAIN
+K 7
+gnustep
+V 18
+dir kb.0.r124/1894
+K 3
+osx
+V 16
+dir 1.0.r70/1651
+END
+ENDREP
+id: 0.0.r124/2124
+type: dir
+pred: 0.0.r123/9628
+count: 124
+text: 124 2041 70 70 2286504949ce3b4d42ff9d6dbec73fae
+cpath: /
+copyroot: 0 /
+
+127.0.t123-1 delete false false /gnustep/trunk/Applications/PreMo/build/PreMo.build/PreMo.pbxindex
+
+
+2124 2261

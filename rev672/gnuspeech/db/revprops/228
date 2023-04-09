@@ -1,0 +1,13 @@
+K 10
+svn:author
+V 9
+dbrisinda
+K 8
+svn:date
+V 27
+2009-01-06T06:47:37.358107Z
+K 7
+svn:log
+V 76
+Initial import of OS X service for text-to-speech synthesis using GnuSpeech.
+END

@@ -1,0 +1,420 @@
+id: 4nu.29.r598/0
+type: file
+pred: 4nu.0.r597/2726
+count: 1
+text: 597 0 775 1436 50d6755d1dbea94e89e5e00fe49a9910
+cpath: /osx/trunk/Frameworks/GnuSpeech/MonetModel/MMTextToPhone.h
+copyfrom: 597 /osx/trunk/Frameworks/GnuSpeech/MMTextToPhone.h
+
+PLAIN
+K 14
+CategoryList.h
+V 21
+file ey.0.r478/126296
+K 14
+CategoryList.m
+V 21
+file ez.0.r478/127492
+K 7
+Event.h
+V 21
+file f0.0.r478/128493
+K 7
+Event.m
+V 21
+file f1.0.r478/129684
+K 11
+EventList.h
+V 21
+file f2.0.r478/127293
+K 11
+EventList.m
+V 21
+file f3.0.r478/128687
+K 11
+MDocument.h
+V 21
+file f4.0.r478/130080
+K 11
+MDocument.m
+V 21
+file f5.0.r478/130671
+K 12
+MMCategory.h
+V 21
+file f6.0.r478/126097
+K 12
+MMCategory.m
+V 21
+file f7.0.r478/127093
+K 12
+MMEquation.h
+V 21
+file f8.0.r478/133666
+K 12
+MMEquation.m
+V 21
+file f9.0.r478/134855
+K 19
+MMIntonationPoint.h
+V 21
+file fa.0.r478/135252
+K 19
+MMIntonationPoint.m
+V 21
+file fb.0.r478/125491
+K 15
+MMNamedObject.h
+V 21
+file fc.0.r478/125697
+K 15
+MMNamedObject.m
+V 21
+file fd.0.r478/126497
+K 10
+MMObject.h
+V 21
+file fe.0.r478/130867
+K 10
+MMObject.m
+V 21
+file ff.0.r478/131655
+K 13
+MMParameter.h
+V 21
+file fg.0.r478/132257
+K 13
+MMParameter.m
+V 21
+file fh.0.r478/133466
+K 9
+MMPoint.h
+V 21
+file fi.0.r478/134659
+K 9
+MMPoint.m
+V 21
+file fj.0.r478/135458
+K 11
+MMPosture.h
+V 21
+file fk.0.r478/130276
+K 11
+MMPosture.m
+V 21
+file fl.0.r478/131064
+K 19
+MMPostureRewriter.h
+V 21
+file fm.0.r478/127892
+K 19
+MMPostureRewriter.m
+V 21
+file fn.0.r478/129284
+K 8
+MMRule.h
+V 21
+file fo.0.r478/131263
+K 8
+MMRule.m
+V 21
+file fp.0.r478/131852
+K 9
+MMSlope.h
+V 21
+file fq.0.r478/126897
+K 9
+MMSlope.m
+V 21
+file fr.0.r478/128297
+K 14
+MMSlopeRatio.h
+V 21
+file fs.0.r478/132861
+K 14
+MMSlopeRatio.m
+V 21
+file ft.0.r478/134068
+K 10
+MMSymbol.h
+V 21
+file fu.0.r478/130474
+K 10
+MMSymbol.m
+V 21
+file fv.0.r478/131458
+K 23
+MMSynthesisParameters.h
+V 21
+file fw.0.r478/132048
+K 23
+MMSynthesisParameters.m
+V 21
+file fx.0.r478/133062
+K 10
+MMTarget.h
+V 21
+file fy.0.r478/128099
+K 10
+MMTarget.m
+V 21
+file fz.0.r478/129491
+K 15
+MMTextToPhone.h
+V 18
+file 4nu.29.r598/0
+K 14
+MMTransition.h
+V 21
+file g0.0.r478/129083
+K 14
+MMTransition.m
+V 21
+file g1.0.r478/129878
+K 8
+MModel.h
+V 21
+file g2.0.r478/133272
+K 8
+MModel.m
+V 21
+file g3.0.r478/134466
+K 15
+MonetDefaults.h
+V 21
+file g4.0.r478/132457
+K 11
+MonetList.h
+V 21
+file g5.0.r478/127694
+K 11
+MonetList.m
+V 21
+file g6.0.r478/128885
+K 11
+NamedList.h
+V 21
+file g7.0.r478/134268
+K 11
+NamedList.m
+V 21
+file g8.0.r478/135054
+K 11
+PhoneList.h
+V 21
+file g9.0.r478/125899
+K 11
+PhoneList.m
+V 21
+file ga.0.r478/126699
+K 16
+driftGenerator.c
+V 21
+file gb.0.r478/132658
+K 16
+driftGenerator.h
+V 21
+file gc.0.r478/133865
+END
+ENDREP
+id: ex.0.r598/2609
+type: dir
+pred: ex.0.r478/137975
+count: 4
+text: 598 243 2353 2353 15bbb11dceeeb5e86344d68431862c5f
+cpath: /osx/trunk/Frameworks/GnuSpeech/MonetModel
+copyroot: 0 /
+
+PLAIN
+K 9
+Archiving
+V 20
+dir db.0.r478/147717
+K 13
+ChangeLog.txt
+V 20
+file 3i7.0.r484/4060
+K 25
+Compatibility-TypedStream
+V 20
+dir dw.0.r478/142261
+K 13
+English.lproj
+V 20
+dir eb.0.r293/193160
+K 10
+Extensions
+V 20
+dir ed.0.r478/119145
+K 11
+GnuSpeech.h
+V 20
+file d8.0.r579/10515
+K 19
+GnuSpeech.xcodeproj
+V 18
+dir eq.0.r597/3329
+K 20
+GnuSpeech_Prefix.pch
+V 21
+file d9.0.r478/138348
+K 10
+Info.plist
+V 19
+file da.0.r306/3928
+K 15
+MMTextToPhone.m
+V 20
+file 4nv.0.r597/2890
+K 10
+MonetModel
+V 18
+dir ex.0.r598/2609
+K 7
+Parsers
+V 17
+dir gd.0.r594/540
+K 14
+TextProcessing
+V 18
+dir h3.0.r596/6818
+K 4
+Tube
+V 18
+dir es.0.r579/8291
+END
+ENDREP
+id: d7.0.r598/3423
+type: dir
+pred: d7.0.r597/4197
+count: 45
+text: 598 2792 618 618 a544fb181a8758e126c6c544afcba517
+cpath: /osx/trunk/Frameworks/GnuSpeech
+copyroot: 0 /
+
+PLAIN
+K 9
+GnuSpeech
+V 18
+dir d7.0.r598/3423
+K 4
+Tube
+V 18
+dir cj.0.r579/7736
+END
+ENDREP
+id: ci.0.r598/3681
+type: dir
+pred: ci.0.r597/4455
+count: 50
+text: 598 3593 75 75 648141e1039c05b63f1532f4b41b672d
+cpath: /osx/trunk/Frameworks
+copyroot: 0 /
+
+PLAIN
+K 12
+Applications
+V 20
+dir 4e0.0.r596/12607
+K 6
+Builds
+V 18
+dir 3hc.0.r543/887
+K 7
+Daemons
+V 20
+dir 3h1.0.r540/20249
+K 10
+Frameworks
+V 18
+dir ci.0.r598/3681
+K 10
+Installers
+V 19
+dir 3he.0.r544/3223
+K 7
+LICENSE
+V 21
+file 4ii.0.r540/14838
+K 5
+Other
+V 18
+dir 3h4.0.r282/261
+K 6
+README
+V 21
+file 3gx.c.r540/20409
+K 8
+Services
+V 20
+dir 3h2.0.r540/16478
+END
+ENDREP
+id: 2.0.r598/4204
+type: dir
+pred: 2.0.r597/4978
+count: 209
+text: 598 3839 352 352 69498cb3d120c31c64e7e9004dc4c359
+cpath: /osx/trunk
+copyroot: 0 /
+
+PLAIN
+K 8
+branches
+V 15
+dir 3.0.r510/17
+K 4
+tags
+V 16
+dir 4.0.r569/525
+K 5
+trunk
+V 17
+dir 2.0.r598/4204
+END
+ENDREP
+id: 1.0.r598/4467
+type: dir
+pred: 1.0.r597/5242
+count: 251
+text: 598 4352 102 102 f8f364fe76a7138e16ad6fb7c2cd0b4d
+cpath: /osx
+copyroot: 0 /
+
+PLAIN
+K 4
+docs
+V 18
+dir 2w8.0.r509/284
+K 7
+gnustep
+V 18
+dir kb.0.r578/8572
+K 4
+misc
+V 18
+dir 38v.0.r160/333
+K 8
+nextstep
+V 19
+dir 14l.0.r155/8758
+K 3
+osx
+V 17
+dir 1.0.r598/4467
+END
+ENDREP
+id: 0.0.r598/4797
+type: dir
+pred: 0.0.r597/5573
+count: 598
+text: 598 4609 175 175 831ef6e4a59d003e774e2842fe2a5a9d
+cpath: /
+copyroot: 0 /
+
+4nu._0.t597-1 add false false /osx/trunk/Frameworks/GnuSpeech/MonetModel/MMTextToPhone.h
+597 /osx/trunk/Frameworks/GnuSpeech/MMTextToPhone.h
+4nu.0.r597/2726 delete false false /osx/trunk/Frameworks/GnuSpeech/MMTextToPhone.h
+
+
+4797 4936

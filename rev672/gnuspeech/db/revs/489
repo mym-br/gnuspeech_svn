@@ -1,0 +1,145 @@
+PLAIN
+K 6
+Builds
+V 22
+dir 3hc.0.r485/1943354
+K 7
+Daemons
+V 20
+dir 3h1.0.r484/19830
+K 10
+Frameworks
+V 18
+dir ci.0.r484/5095
+K 10
+Installers
+V 19
+dir 3he.0.r487/1584
+K 5
+Other
+V 18
+dir 3h4.0.r282/261
+K 6
+README
+V 20
+file 3gx.c.r303/2388
+K 8
+Services
+V 20
+dir 3h2.0.r484/10244
+END
+ENDREP
+id: 2.g.r489/285
+type: dir
+pred: 2.g.r488/0
+count: 148
+text: 489 0 272 272 93ced3a35b0700fca809720e408c3496
+cpath: /osx/tags/GnuSpeech-0.5.1/trunk
+copyroot: 488 /osx/tags/GnuSpeech-0.5.1/trunk
+
+id: 5.h.r489/479
+type: dir
+pred: 5.0.r484/17909
+count: 107
+text: 484 17741 155 155 465f93f0d8e7ada7e97b117102c5a07c
+cpath: /osx/tags/GnuSpeech-0.5.1/Applications
+copyfrom: 488 /osx/tags/GnuSpeech-0.5.1/trunk/Applications
+
+PLAIN
+K 12
+Applications
+V 16
+dir 5.h.r489/479
+K 5
+trunk
+V 16
+dir 2.g.r489/285
+END
+ENDREP
+id: 3ib.0.r489/790
+type: dir
+pred: 3ib.0.r488/224
+count: 2
+text: 489 701 76 76 9739d379f9289122edd1d4c235c75f36
+cpath: /osx/tags/GnuSpeech-0.5.1
+copyroot: 0 /
+
+PLAIN
+K 13
+GnuSpeech-0.5
+V 14
+dir 2.f.r301/0
+K 15
+GnuSpeech-0.5.1
+V 18
+dir 3ib.0.r489/790
+END
+ENDREP
+id: 4.0.r489/1051
+type: dir
+pred: 4.0.r488/483
+count: 6
+text: 489 950 88 88 bae8778cf033eaeae00e6ef09325693b
+cpath: /osx/tags
+copyroot: 0 /
+
+PLAIN
+K 8
+branches
+V 13
+dir 3.0.r1/65
+K 4
+tags
+V 17
+dir 4.0.r489/1051
+K 5
+trunk
+V 17
+dir 2.0.r487/2070
+END
+ENDREP
+id: 1.0.r489/1306
+type: dir
+pred: 1.0.r488/736
+count: 152
+text: 489 1192 101 101 fed8069ff87312abbccc8e9ec66b14a4
+cpath: /osx
+copyroot: 0 /
+
+PLAIN
+K 4
+docs
+V 18
+dir 2w8.0.r159/538
+K 7
+gnustep
+V 18
+dir kb.0.r473/1245
+K 4
+misc
+V 18
+dir 38v.0.r160/333
+K 8
+nextstep
+V 19
+dir 14l.0.r155/8758
+K 3
+osx
+V 17
+dir 1.0.r489/1306
+END
+ENDREP
+id: 0.0.r489/1635
+type: dir
+pred: 0.0.r488/1063
+count: 489
+text: 489 1447 175 175 5a1521ec9185a9dd68a99fc12f879b20
+cpath: /
+copyroot: 0 /
+
+5.0.r484/17909 delete false false /osx/tags/GnuSpeech-0.5.1/trunk/Applications
+
+5._0.t488-1 add false false /osx/tags/GnuSpeech-0.5.1/Applications
+488 /osx/tags/GnuSpeech-0.5.1/trunk/Applications
+
+1635 1774

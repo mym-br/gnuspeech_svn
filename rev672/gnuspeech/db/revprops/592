@@ -1,0 +1,13 @@
+K 10
+svn:author
+V 9
+dbrisinda
+K 8
+svn:date
+V 27
+2009-05-05T20:47:29.522127Z
+K 7
+svn:log
+V 103
+Adding TextParsers directory for parsing of all English text as taken from the original parser_module.c
+END

@@ -1,0 +1,184 @@
+PLAIN
+K 5
+DEGAS
+V 23
+dir 14q.0.r142/30920717
+K 3
+FFT
+V 23
+dir 163.0.r142/30678566
+K 12
+FFTInspector
+V 23
+dir 16f.0.r142/31012545
+K 9
+FFTViewer
+V 23
+dir 16u.0.r142/30977763
+K 16
+HostToSoundout-2
+V 23
+dir 1f0.0.r142/30683744
+K 8
+LoopBack
+V 23
+dir 1fy.0.r142/30964512
+K 5
+Monet
+V 19
+dir 1bz.0.r153/7915
+K 14
+Monet.realtime
+V 23
+dir 1mk.0.r142/30891158
+K 13
+SpeechManager
+V 19
+dir 1ol.0.r153/9247
+K 15
+SpeechRegistrar
+V 23
+dir 1pq.0.r142/30946459
+K 11
+TTS_Install
+V 23
+dir 1qj.0.r142/30968991
+K 16
+TTS_Install_Demo
+V 20
+dir 1qx.0.r153/11014
+K 19
+TrilliumSoundEditor
+V 23
+dir 1v6.0.r142/30734288
+K 17
+TrilliumSoundView
+V 23
+dir 1we.0.r142/31007915
+K 11
+WhosOnFirst
+V 23
+dir 1wt.0.r142/30936938
+K 13
+newServerTest
+V 23
+dir 1ya.0.r142/30703006
+END
+ENDREP
+id: 14p.0.r632/748
+type: dir
+pred: 14p.0.r153/13830
+count: 6
+text: 632 0 735 735 7595907d3d6e3873c0d18abb1c08c904
+cpath: /nextstep/trunk/ObjectiveC
+copyroot: 0 /
+
+PLAIN
+K 4
+Apps
+V 18
+dir 172.0.r150/277
+K 8
+CONTENTS
+V 20
+file 2w7.0.r152/2728
+K 30
+Copyright_Notice_and_Agreement
+V 20
+file 2w4.0.r148/1119
+K 10
+Dictionary
+V 23
+dir 19q.0.r142/30341442
+K 10
+ObjectiveC
+V 18
+dir 14p.0.r632/748
+K 15
+TextToSpeechKit
+V 23
+dir 1zv.0.r142/30352125
+K 3
+bin
+V 23
+dir 228.0.r142/30674942
+K 4
+priv
+V 19
+dir 233.0.r154/1392
+K 3
+src
+V 19
+dir 24r.0.r155/7889
+K 10
+tubeparams
+V 19
+file 2w5.0.r149/860
+END
+ENDREP
+id: 14m.0.r632/1342
+type: dir
+pred: 14m.0.r155/8481
+count: 15
+text: 632 911 418 418 a1134bb88741f6d289bb9557326db3dd
+cpath: /nextstep/trunk
+copyroot: 0 /
+
+PLAIN
+K 8
+branches
+V 17
+dir 14n.0.r141/74
+K 4
+tags
+V 18
+dir 14o.0.r141/152
+K 5
+trunk
+V 19
+dir 14m.0.r632/1342
+END
+ENDREP
+id: 14l.0.r632/1618
+type: dir
+pred: 14l.0.r155/8758
+count: 15
+text: 632 1497 108 108 b0bbc6fd55678703cd3ec634ec2b7a6f
+cpath: /nextstep
+copyroot: 0 /
+
+PLAIN
+K 4
+docs
+V 18
+dir 2w8.0.r509/284
+K 7
+gnustep
+V 18
+dir kb.0.r606/1866
+K 4
+misc
+V 18
+dir 38v.0.r160/333
+K 8
+nextstep
+V 19
+dir 14l.0.r632/1618
+K 3
+osx
+V 17
+dir 1.0.r631/4046
+END
+ENDREP
+id: 0.0.r632/1956
+type: dir
+pred: 0.0.r631/4376
+count: 632
+text: 632 1768 175 175 17f033b0abeb33b1d460ac6792405ba3
+cpath: /
+copyroot: 0 /
+
+1s9.0.r153/12855 delete false false /nextstep/trunk/ObjectiveC/TouchNTalk
+
+
+1956 2095

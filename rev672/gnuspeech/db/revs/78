@@ -1,0 +1,183 @@
+PLAIN
+K 9
+APPL.icns
+V 21
+file uo.0.r77/1676213
+K 11
+Delete.tiff
+V 21
+file up.0.r77/1676422
+K 10
+DoulosSIL4
+V 20
+dir v0.0.r77/1679873
+K 13
+English.lproj
+V 20
+dir v7.0.r77/1690409
+K 24
+IPA-SIL keyboard 0.6.dmg
+V 21
+file uq.0.r77/1684696
+K 10
+Info.plist
+V 21
+file ur.0.r77/1676044
+K 14
+Japanese.lproj
+V 20
+dir w0.0.r77/1687575
+K 12
+MainMenu.nib
+V 20
+dir wb.0.r77/1674518
+K 18
+PrEditor.xcodeproj
+V 20
+dir wf.0.r77/1675868
+K 18
+PrEditorDocument.h
+V 21
+file vr.0.r77/1687747
+K 18
+PrEditorDocument.m
+V 21
+file us.0.r77/1674688
+K 20
+PrEditorDocument.nib
+V 20
+dir wj.0.r77/1678271
+K 19
+PrEditor_Prefix.pch
+V 21
+file ut.0.r77/1690580
+K 26
+ResponderNotifyingWindow.h
+V 21
+file uu.0.r77/1684181
+K 26
+ResponderNotifyingWindow.m
+V 21
+file uv.0.r77/1684939
+K 10
+Speak.tiff
+V 21
+file uw.0.r77/1676689
+K 10
+Store.tiff
+V 21
+file ux.0.r77/1674910
+K 8
+app.tiff
+V 21
+file uy.0.r77/1684408
+K 6
+main.m
+V 21
+file uz.0.r77/1673650
+K 12
+preditorDict
+V 20
+dir wn.0.r77/1677375
+END
+ENDREP
+id: un.0.r78/961
+type: dir
+pred: un.0.r77/1691761
+count: 1
+text: 78 0 948 948 3797efe23fcacfc9b2c1fb8cc4fe5460
+cpath: /gnustep/trunk/Applications/PrEditor
+copyroot: 0 /
+
+PLAIN
+K 9
+GnuSpeech
+V 18
+dir kg.0.r74/10927
+K 5
+Monet
+V 18
+dir lh.0.r76/61555
+K 8
+PrEditor
+V 16
+dir un.0.r78/961
+END
+ENDREP
+id: kf.0.r78/1255
+type: dir
+pred: kf.0.r77/1692046
+count: 5
+text: 78 1131 111 111 dbacde4c263d3890faadd7e7908a88de
+cpath: /gnustep/trunk/Applications
+copyroot: 0 /
+
+PLAIN
+K 12
+Applications
+V 17
+dir kf.0.r78/1255
+K 7
+Scripts
+V 20
+dir t2.0.r72/1787921
+K 5
+Tools
+V 17
+dir t6.0.r75/4296
+END
+ENDREP
+id: kc.0.r78/1549
+type: dir
+pred: kc.0.r77/1692347
+count: 7
+text: 78 1420 116 116 ffd975f58d00b125fbc8ccff1236f20e
+cpath: /gnustep/trunk
+copyroot: 0 /
+
+PLAIN
+K 8
+branches
+V 15
+dir kd.0.r71/71
+K 4
+tags
+V 16
+dir ke.0.r71/146
+K 5
+trunk
+V 17
+dir kc.0.r78/1549
+END
+ENDREP
+id: kb.0.r78/1816
+type: dir
+pred: kb.0.r77/1692621
+count: 7
+text: 78 1701 102 102 8bb4bf29c96b2a8b127b48963b66eb4f
+cpath: /gnustep
+copyroot: 0 /
+
+PLAIN
+K 7
+gnustep
+V 17
+dir kb.0.r78/1816
+K 3
+osx
+V 16
+dir 1.0.r70/1651
+END
+ENDREP
+id: 0.0.r78/2044
+type: dir
+pred: 0.0.r77/1692856
+count: 78
+text: 78 1962 69 69 250d1db2de3716a87774bab0a29ab443
+cpath: /
+copyroot: 0 /
+
+vi.0.t77-1 delete false false /gnustep/trunk/Applications/PrEditor/Irish.lproj
+
+
+2044 2180

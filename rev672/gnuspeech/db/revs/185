@@ -1,0 +1,210 @@
+PLAIN
+K 11
+Credits.rtf
+V 21
+file v8.0.r77/1688116
+K 17
+InfoPlist.strings
+V 21
+file v9.0.r77/1687926
+K 20
+PrEditorDocument.nib
+V 18
+dir 3ah.1.r179/259
+END
+ENDREP
+id: v7.0.r185/161
+type: dir
+pred: v7.0.r183/201
+count: 12
+text: 185 0 148 148 0c1fb738a33d10bc610dd85187becd76
+cpath: /gnustep/trunk/Applications/PrEditor/English.lproj
+copyroot: 0 /
+
+PLAIN
+K 9
+APPL.icns
+V 21
+file uo.0.r77/1676213
+K 11
+Delete.tiff
+V 21
+file up.0.r77/1676422
+K 10
+DoulosSIL4
+V 20
+dir v0.0.r77/1679873
+K 13
+English.lproj
+V 17
+dir v7.0.r185/161
+K 24
+IPA-SIL keyboard 0.6.dmg
+V 21
+file uq.0.r77/1684696
+K 10
+Info.plist
+V 21
+file ur.0.r77/1676044
+K 18
+PrEditor.xcodeproj
+V 18
+dir wf.0.r184/5321
+K 18
+PrEditorDocument.h
+V 21
+file vr.0.r77/1687747
+K 18
+PrEditorDocument.m
+V 21
+file us.0.r77/1674688
+K 19
+PrEditor_Prefix.pch
+V 21
+file ut.0.r77/1690580
+K 26
+ResponderNotifyingWindow.h
+V 21
+file uu.0.r77/1684181
+K 26
+ResponderNotifyingWindow.m
+V 19
+file uv.0.r93/17539
+K 10
+Speak.tiff
+V 21
+file uw.0.r77/1676689
+K 10
+Store.tiff
+V 21
+file ux.0.r77/1674910
+K 8
+app.tiff
+V 21
+file uy.0.r77/1684408
+K 6
+main.m
+V 21
+file uz.0.r77/1673650
+K 12
+preditorDict
+V 18
+dir wn.0.r109/1879
+END
+ENDREP
+id: un.0.r185/1155
+type: dir
+pred: un.0.r184/6327
+count: 30
+text: 185 345 797 797 e3b653181664383ed8b966ddb994d897
+cpath: /gnustep/trunk/Applications/PrEditor
+copyroot: 0 /
+
+PLAIN
+K 5
+Monet
+V 18
+dir lh.0.r184/4788
+K 8
+PrEditor
+V 18
+dir un.0.r185/1155
+K 5
+PreMo
+V 19
+dir 11w.0.r174/4034
+END
+ENDREP
+id: kf.0.r185/1452
+type: dir
+pred: kf.0.r184/6625
+count: 80
+text: 185 1329 110 110 94ce848bff3a7f4a93e8cf383046845d
+cpath: /gnustep/trunk/Applications
+copyroot: 0 /
+
+PLAIN
+K 12
+Applications
+V 18
+dir kf.0.r185/1452
+K 10
+Frameworks
+V 18
+dir ws.0.r174/2523
+K 7
+Scripts
+V 20
+dir t2.0.r72/1787921
+K 5
+Tools
+V 17
+dir t6.0.r75/4296
+END
+ENDREP
+id: kc.0.r185/1788
+type: dir
+pred: kc.0.r184/6961
+count: 94
+text: 185 1618 157 157 42b0638eaf09f4a9d110e32165fe228d
+cpath: /gnustep/trunk
+copyroot: 0 /
+
+PLAIN
+K 8
+branches
+V 15
+dir kd.0.r71/71
+K 4
+tags
+V 16
+dir ke.0.r71/146
+K 5
+trunk
+V 18
+dir kc.0.r185/1788
+END
+ENDREP
+id: kb.0.r185/2057
+type: dir
+pred: kb.0.r184/7230
+count: 94
+text: 185 1941 103 103 178142dacbfe55b9466074288bfde7db
+cpath: /gnustep
+copyroot: 0 /
+
+PLAIN
+K 4
+docs
+V 18
+dir 2w8.0.r159/538
+K 7
+gnustep
+V 18
+dir kb.0.r185/2057
+K 4
+misc
+V 18
+dir 38v.0.r160/333
+K 8
+nextstep
+V 19
+dir 14l.0.r155/8758
+K 3
+osx
+V 16
+dir 1.0.r70/1651
+END
+ENDREP
+id: 0.0.r185/2391
+type: dir
+pred: 0.0.r184/7564
+count: 185
+text: 185 2204 174 174 10bc69dd9016f28fab76080b812f49e0
+cpath: /
+copyroot: 0 /
+
+3ad.2.r180/0 delete false false /gnustep/trunk/Applications/PrEditor/English.lproj/MainMenu.nib
+
+
+2391 2530

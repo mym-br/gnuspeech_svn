@@ -1,0 +1,134 @@
+PLAIN
+K 12
+GnuTTSClient
+V 20
+dir 3eb.0.r260/30883
+K 5
+Monet
+V 18
+dir 17.0.r273/5701
+K 8
+PrEditor
+V 18
+dir ad.0.r216/1039
+K 5
+PreMo
+V 17
+dir hm.0.r219/741
+END
+ENDREP
+id: 5.0.r285/165
+type: dir
+pred: 5.0.r284/202
+count: 90
+text: 285 0 152 152 422bd0d64fe93a67f87b31b6deefb911
+cpath: /osx/trunk/Applications
+copyroot: 0 /
+
+id: 3gx.c.r285/320
+type: file
+pred: 3gx.0.r265/1411
+count: 1
+text: 265 0 1398 3234 5b0bf4c30cfb91e465954ffebffc5d2e
+cpath: /osx/trunk/README
+copyfrom: 284 /osx/trunk/Applications/README
+
+PLAIN
+K 12
+Applications
+V 16
+dir 5.0.r285/165
+K 6
+Builds
+V 16
+dir 3h3.0.r278/0
+K 7
+Daemons
+V 18
+dir 3h1.0.r284/625
+K 10
+Frameworks
+V 18
+dir ci.0.r261/3204
+K 5
+Other
+V 18
+dir 3h4.0.r282/261
+K 6
+README
+V 19
+file 3gx.c.r285/320
+K 8
+Services
+V 18
+dir 3h2.0.r283/277
+END
+ENDREP
+id: 2.0.r285/780
+type: dir
+pred: 2.0.r284/1013
+count: 116
+text: 285 507 260 260 30672ef8853113a69d2febb7e168744f
+cpath: /osx/trunk
+copyroot: 0 /
+
+PLAIN
+K 8
+branches
+V 13
+dir 3.0.r1/65
+K 4
+tags
+V 14
+dir 4.0.r1/134
+K 5
+trunk
+V 16
+dir 2.0.r285/780
+END
+ENDREP
+id: 1.0.r285/1036
+type: dir
+pred: 1.0.r284/1271
+count: 116
+text: 285 926 97 97 acffbed06dfc390e51787142d01b50b3
+cpath: /osx
+copyroot: 0 /
+
+PLAIN
+K 4
+docs
+V 18
+dir 2w8.0.r159/538
+K 7
+gnustep
+V 18
+dir kb.0.r275/5794
+K 4
+misc
+V 18
+dir 38v.0.r160/333
+K 8
+nextstep
+V 19
+dir 14l.0.r155/8758
+K 3
+osx
+V 17
+dir 1.0.r285/1036
+END
+ENDREP
+id: 0.0.r285/1363
+type: dir
+pred: 0.0.r284/1599
+count: 285
+text: 285 1175 175 175 7be2a326f0012eff35152048ca70a89d
+cpath: /
+copyroot: 0 /
+
+3gx._0.t284-1 add false false /osx/trunk/README
+284 /osx/trunk/Applications/README
+3gx.0.r265/1411 delete false false /osx/trunk/Applications/README
+
+
+1363 1502

@@ -1,0 +1,200 @@
+PLAIN
+K 11
+Credits.rtf
+V 21
+file w1.0.r77/1686248
+K 17
+InfoPlist.strings
+V 21
+file w2.0.r77/1685123
+END
+ENDREP
+id: w0.0.r139/111
+type: dir
+pred: w0.0.r77/1687575
+count: 1
+text: 139 0 98 98 bd6b561ea6d872179c4f5907f169fda3
+cpath: /gnustep/trunk/Applications/PrEditor/Japanese.lproj
+copyroot: 0 /
+
+PLAIN
+K 9
+APPL.icns
+V 21
+file uo.0.r77/1676213
+K 11
+Delete.tiff
+V 21
+file up.0.r77/1676422
+K 10
+DoulosSIL4
+V 20
+dir v0.0.r77/1679873
+K 13
+English.lproj
+V 18
+dir v7.0.r136/1295
+K 24
+IPA-SIL keyboard 0.6.dmg
+V 21
+file uq.0.r77/1684696
+K 10
+Info.plist
+V 21
+file ur.0.r77/1676044
+K 14
+Japanese.lproj
+V 17
+dir w0.0.r139/111
+K 18
+PrEditor.xcodeproj
+V 20
+dir wf.0.r126/100138
+K 18
+PrEditorDocument.h
+V 21
+file vr.0.r77/1687747
+K 18
+PrEditorDocument.m
+V 21
+file us.0.r77/1674688
+K 19
+PrEditor_Prefix.pch
+V 21
+file ut.0.r77/1690580
+K 26
+ResponderNotifyingWindow.h
+V 21
+file uu.0.r77/1684181
+K 26
+ResponderNotifyingWindow.m
+V 19
+file uv.0.r93/17539
+K 10
+Speak.tiff
+V 21
+file uw.0.r77/1676689
+K 10
+Store.tiff
+V 21
+file ux.0.r77/1674910
+K 8
+app.tiff
+V 21
+file uy.0.r77/1684408
+K 6
+main.m
+V 21
+file uz.0.r77/1673650
+K 12
+preditorDict
+V 18
+dir wn.0.r109/1879
+END
+ENDREP
+id: un.0.r139/1152
+type: dir
+pred: un.0.r138/859
+count: 21
+text: 139 296 843 843 903049362e214c48e90f9e0377e09fd2
+cpath: /gnustep/trunk/Applications/PrEditor
+copyroot: 0 /
+
+PLAIN
+K 5
+Monet
+V 18
+dir lh.0.r135/3308
+K 8
+PrEditor
+V 18
+dir un.0.r139/1152
+K 5
+PreMo
+V 18
+dir 11w.0.r136/911
+END
+ENDREP
+id: kf.0.r139/1447
+type: dir
+pred: kf.0.r138/1151
+count: 54
+text: 139 1325 109 109 220f492029d636d036410703185e06a2
+cpath: /gnustep/trunk/Applications
+copyroot: 0 /
+
+PLAIN
+K 12
+Applications
+V 18
+dir kf.0.r139/1447
+K 10
+Frameworks
+V 17
+dir ws.0.r137/795
+K 7
+Scripts
+V 20
+dir t2.0.r72/1787921
+K 5
+Tools
+V 17
+dir t6.0.r75/4296
+END
+ENDREP
+id: kc.0.r139/1782
+type: dir
+pred: kc.0.r138/1486
+count: 68
+text: 139 1613 156 156 24d9b8e7c1ebe456204bf713d92f397b
+cpath: /gnustep/trunk
+copyroot: 0 /
+
+PLAIN
+K 8
+branches
+V 15
+dir kd.0.r71/71
+K 4
+tags
+V 16
+dir ke.0.r71/146
+K 5
+trunk
+V 18
+dir kc.0.r139/1782
+END
+ENDREP
+id: kb.0.r139/2051
+type: dir
+pred: kb.0.r138/1755
+count: 68
+text: 139 1935 103 103 570d6b30cccaada5f7b4fed8fd3736d3
+cpath: /gnustep
+copyroot: 0 /
+
+PLAIN
+K 7
+gnustep
+V 18
+dir kb.0.r139/2051
+K 3
+osx
+V 16
+dir 1.0.r70/1651
+END
+ENDREP
+id: 0.0.r139/2281
+type: dir
+pred: 0.0.r138/1985
+count: 139
+text: 139 2198 70 70 abb8e55b702c55bdd5a9bc1325ae26ac
+cpath: /
+copyroot: 0 /
+
+w3.0.t138-1 delete false false /gnustep/trunk/Applications/PrEditor/Japanese.lproj/MainMenu.nib
+
+w7.0.t138-1 delete false false /gnustep/trunk/Applications/PrEditor/Japanese.lproj/MyDocument.nib
+
+
+2281 2418

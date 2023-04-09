@@ -1,0 +1,186 @@
+PLAIN
+K 16
+dalmazio.mode1v3
+V 22
+file 135.0.r95/2803418
+K 22
+dalmazio.perspectivev3
+V 20
+file 137.0.r190/6255
+K 15
+project.pbxproj
+V 21
+file 138.0.r188/20644
+END
+ENDREP
+id: 134.0.r192/169
+type: dir
+pred: 134.0.r190/6894
+count: 15
+text: 192 0 156 156 b3ad72c1449f1847c2f38337c31d35ed
+cpath: /gnustep/trunk/Applications/PreMo/PreMo.xcodeproj
+copyroot: 0 /
+
+PLAIN
+K 9
+.DS_Store
+V 22
+file 11x.0.r95/2799959
+K 21
+ApplicationDelegate.h
+V 22
+file 11y.0.r95/2800120
+K 21
+ApplicationDelegate.m
+V 22
+file 11z.0.r95/2800795
+K 13
+English.lproj
+V 20
+dir 12w.0.r188/20242
+K 11
+GNUmakefile
+V 22
+file 120.0.r95/2800458
+K 10
+Info.plist
+V 22
+file 121.0.r95/2800294
+K 15
+PreMo.xcodeproj
+V 18
+dir 134.0.r192/169
+K 16
+PreMo_Prefix.pch
+V 22
+file 122.0.r95/2800625
+K 5
+build
+V 18
+dir 125.0.r124/299
+K 6
+main.m
+V 22
+file 123.0.r95/2792475
+K 13
+version.plist
+V 22
+file 124.0.r95/2792635
+END
+ENDREP
+id: 11w.0.r192/873
+type: dir
+pred: 11w.0.r190/7603
+count: 18
+text: 192 355 505 505 e4cc13330b5c848eec6fc153986fb27c
+cpath: /gnustep/trunk/Applications/PreMo
+copyroot: 0 /
+
+PLAIN
+K 5
+Monet
+V 18
+dir lh.0.r190/6081
+K 8
+PrEditor
+V 18
+dir un.0.r191/1150
+K 5
+PreMo
+V 18
+dir 11w.0.r192/873
+END
+ENDREP
+id: kf.0.r192/1167
+type: dir
+pred: kf.0.r191/1447
+count: 87
+text: 192 1045 109 109 58e91c6f13d3aacd4b46cc1c272089fd
+cpath: /gnustep/trunk/Applications
+copyroot: 0 /
+
+PLAIN
+K 12
+Applications
+V 18
+dir kf.0.r192/1167
+K 10
+Frameworks
+V 18
+dir ws.0.r189/3625
+K 7
+Scripts
+V 20
+dir t2.0.r72/1787921
+K 5
+Tools
+V 17
+dir t6.0.r75/4296
+END
+ENDREP
+id: kc.0.r192/1503
+type: dir
+pred: kc.0.r191/1783
+count: 101
+text: 192 1333 157 157 587345e5b88582c1d5670da473c6cb4c
+cpath: /gnustep/trunk
+copyroot: 0 /
+
+PLAIN
+K 8
+branches
+V 15
+dir kd.0.r71/71
+K 4
+tags
+V 16
+dir ke.0.r71/146
+K 5
+trunk
+V 18
+dir kc.0.r192/1503
+END
+ENDREP
+id: kb.0.r192/1773
+type: dir
+pred: kb.0.r191/2053
+count: 101
+text: 192 1657 103 103 b78437e5c33a871182f9ef1e4acd8fa4
+cpath: /gnustep
+copyroot: 0 /
+
+PLAIN
+K 4
+docs
+V 18
+dir 2w8.0.r159/538
+K 7
+gnustep
+V 18
+dir kb.0.r192/1773
+K 4
+misc
+V 18
+dir 38v.0.r160/333
+K 8
+nextstep
+V 19
+dir 14l.0.r155/8758
+K 3
+osx
+V 16
+dir 1.0.r70/1651
+END
+ENDREP
+id: 0.0.r192/2108
+type: dir
+pred: 0.0.r191/2389
+count: 192
+text: 192 1921 174 174 7a8b29d00305d5396679a8177629d9fe
+cpath: /
+copyroot: 0 /
+
+136.0.r190/6468 delete false false /gnustep/trunk/Applications/PreMo/PreMo.xcodeproj/dalmazio.pbxuser
+
+
+2108 2247

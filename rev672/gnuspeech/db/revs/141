@@ -1,0 +1,73 @@
+id: 14m.0.r141/0
+type: dir
+count: 0
+cpath: /nextstep/trunk
+copyroot: 0 /
+
+id: 14n.0.r141/74
+type: dir
+count: 0
+cpath: /nextstep/branches
+copyroot: 0 /
+
+id: 14o.0.r141/152
+type: dir
+count: 0
+cpath: /nextstep/tags
+copyroot: 0 /
+
+PLAIN
+K 8
+branches
+V 17
+dir 14n.0.r141/74
+K 4
+tags
+V 18
+dir 14o.0.r141/152
+K 5
+trunk
+V 16
+dir 14m.0.r141/0
+END
+ENDREP
+id: 14l.0.r141/345
+type: dir
+count: 0
+text: 141 227 105 105 a02edae82c6872850c56fa9821ec74c7
+cpath: /nextstep
+copyroot: 0 /
+
+PLAIN
+K 7
+gnustep
+V 18
+dir kb.0.r140/1708
+K 8
+nextstep
+V 18
+dir 14l.0.r141/345
+K 3
+osx
+V 16
+dir 1.0.r70/1651
+END
+ENDREP
+id: 0.0.r141/590
+type: dir
+pred: 0.0.r140/1938
+count: 141
+text: 141 470 107 107 ca0ddb93545bc7d5de088d66beaab47c
+cpath: /
+copyroot: 0 /
+
+_3.0.t140-1 add false false /nextstep/tags
+
+_0.0.t140-1 add false false /nextstep
+
+_1.0.t140-1 add false false /nextstep/trunk
+
+_2.0.t140-1 add false false /nextstep/branches
+
+
+590 727

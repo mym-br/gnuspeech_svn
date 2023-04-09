@@ -1,0 +1,13 @@
+K 10
+svn:author
+V 9
+dbrisinda
+K 8
+svn:date
+V 27
+2008-12-30T04:40:26.618754Z
+K 7
+svn:log
+V 58
+Trying to create sane handling of the <user>.pbxuser file.
+END

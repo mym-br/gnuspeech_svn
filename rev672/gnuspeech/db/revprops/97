@@ -1,0 +1,14 @@
+K 10
+svn:author
+V 9
+dbrisinda
+K 8
+svn:date
+V 27
+2008-11-08T01:37:57.000000Z
+K 7
+svn:log
+V 173
+Corrected little-endian vs. big-endian issue on Intel vs. PowerPC architectures in playing realtime synthesized speech. Also update the NIB files to the latest .xib format.
+
+END

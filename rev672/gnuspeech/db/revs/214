@@ -1,0 +1,214 @@
+PLAIN
+K 15
+project.pbxproj
+V 18
+file xe.0.r97/7122
+END
+ENDREP
+id: xd.0.r214/62
+type: dir
+pred: xd.0.r213/110
+count: 16
+text: 214 0 49 49 3fea5c4a5f70fdcd66ec05d683f161dd
+cpath: /gnustep/trunk/Frameworks/Tube/Tube.xcodeproj
+copyroot: 0 /
+
+PLAIN
+K 13
+English.lproj
+V 18
+dir xb.0.r83/38702
+K 10
+Info.plist
+V 19
+file xf.0.r83/36312
+K 15
+Tube-Info.plist
+V 19
+file wu.0.r83/35680
+K 14
+Tube.xcodeproj
+V 16
+dir xd.0.r214/62
+K 11
+TubeModel.h
+V 19
+file wv.0.r83/38135
+K 15
+Tube_Prefix.pch
+V 19
+file ww.0.r83/36150
+K 5
+fir.c
+V 19
+file wx.0.r83/37672
+K 5
+fir.h
+V 19
+file wy.0.r83/37982
+K 7
+input.c
+V 19
+file wz.0.r83/35363
+K 7
+input.h
+V 19
+file x0.0.r83/35995
+K 8
+output.c
+V 19
+file x1.0.r94/10422
+K 8
+output.h
+V 19
+file x2.0.r94/10601
+K 13
+ring_buffer.c
+V 19
+file x3.0.r83/38293
+K 13
+ring_buffer.h
+V 19
+file xg.0.r83/38861
+K 9
+structs.h
+V 19
+file x4.0.r83/37195
+K 6
+tube.c
+V 19
+file x5.0.r83/35204
+K 6
+tube.h
+V 19
+file x6.0.r83/35840
+K 6
+util.c
+V 19
+file x7.0.r83/37355
+K 6
+util.h
+V 19
+file x8.0.r83/37827
+K 11
+wavetable.c
+V 19
+file x9.0.r83/36628
+K 11
+wavetable.h
+V 19
+file xa.0.r83/37512
+END
+ENDREP
+id: wt.0.r214/1090
+type: dir
+pred: wt.0.r213/1140
+count: 16
+text: 214 238 839 839 4a0a02c8c58350919c9a2bf79098e60b
+cpath: /gnustep/trunk/Frameworks/Tube
+copyroot: 0 /
+
+PLAIN
+K 9
+GnuSpeech
+V 17
+dir xh.0.r137/538
+K 4
+Tube
+V 18
+dir wt.0.r214/1090
+END
+ENDREP
+id: ws.0.r214/1345
+type: dir
+pred: ws.0.r213/1395
+count: 24
+text: 214 1258 74 74 710fa8252637beb827d1b5a3a36fb658
+cpath: /gnustep/trunk/Frameworks
+copyroot: 0 /
+
+PLAIN
+K 12
+Applications
+V 18
+dir kf.0.r211/1356
+K 10
+Frameworks
+V 18
+dir ws.0.r214/1345
+K 7
+Scripts
+V 20
+dir t2.0.r72/1787921
+K 5
+Tools
+V 17
+dir t6.0.r75/4296
+END
+ENDREP
+id: kc.0.r214/1677
+type: dir
+pred: kc.0.r213/1727
+count: 123
+text: 214 1507 157 157 2f8661dda9e5ffb41e4e812a24e19e94
+cpath: /gnustep/trunk
+copyroot: 0 /
+
+PLAIN
+K 8
+branches
+V 15
+dir kd.0.r71/71
+K 4
+tags
+V 16
+dir ke.0.r71/146
+K 5
+trunk
+V 18
+dir kc.0.r214/1677
+END
+ENDREP
+id: kb.0.r214/1947
+type: dir
+pred: kb.0.r213/1997
+count: 123
+text: 214 1831 103 103 8c3c0dda6012e7f10d89afa4bb39a4d2
+cpath: /gnustep
+copyroot: 0 /
+
+PLAIN
+K 4
+docs
+V 18
+dir 2w8.0.r159/538
+K 7
+gnustep
+V 18
+dir kb.0.r214/1947
+K 4
+misc
+V 18
+dir 38v.0.r160/333
+K 8
+nextstep
+V 19
+dir 14l.0.r155/8758
+K 3
+osx
+V 16
+dir 1.0.r70/1651
+END
+ENDREP
+id: 0.0.r214/2282
+type: dir
+pred: 0.0.r213/2332
+count: 214
+text: 214 2095 174 174 ec21e2b2b32336be70495d2cb3855cd7
+cpath: /
+copyroot: 0 /
+
+11u.0.r94/10961 delete false false /gnustep/trunk/Frameworks/Tube/Tube.xcodeproj/dalmazio.mode1v3
+
+
+2282 2421

@@ -1,0 +1,16 @@
+K 10
+svn:author
+V 6
+nygard
+K 8
+svn:date
+V 27
+2007-02-09T01:05:06.000000Z
+K 7
+svn:log
+V 165
+Turned softwareTRM into a framework.  If we want to be able to build
+the command-line softwareTRM this should build a static library that
+the tool can link against.
+
+END

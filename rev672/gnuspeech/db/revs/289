@@ -1,0 +1,107 @@
+id: 3h6.0.r289/0
+type: dir
+count: 0
+cpath: /osx/trunk/Releases
+copyroot: 0 /
+
+PLAIN
+K 12
+Applications
+V 17
+dir 5.0.r286/2913
+K 6
+Builds
+V 16
+dir 3h3.0.r278/0
+K 7
+Daemons
+V 19
+dir 3h1.0.r286/4763
+K 10
+Frameworks
+V 18
+dir ci.0.r261/3204
+K 5
+Other
+V 18
+dir 3h4.0.r282/261
+K 6
+README
+V 19
+file 3gx.c.r287/704
+K 8
+Releases
+V 16
+dir 3h6.0.r289/0
+K 8
+Services
+V 18
+dir 3h2.0.r283/277
+END
+ENDREP
+id: 2.0.r289/388
+type: dir
+pred: 2.0.r287/1152
+count: 119
+text: 289 78 297 297 87d3baab2c2b37d02211d95aabf8e982
+cpath: /osx/trunk
+copyroot: 0 /
+
+PLAIN
+K 8
+branches
+V 13
+dir 3.0.r1/65
+K 4
+tags
+V 16
+dir 4.0.r288/140
+K 5
+trunk
+V 16
+dir 2.0.r289/388
+END
+ENDREP
+id: 1.0.r289/645
+type: dir
+pred: 1.0.r288/390
+count: 120
+text: 289 533 99 99 6e5a575b466fb9c41ce69bf8d7b16b7c
+cpath: /osx
+copyroot: 0 /
+
+PLAIN
+K 4
+docs
+V 18
+dir 2w8.0.r159/538
+K 7
+gnustep
+V 18
+dir kb.0.r275/5794
+K 4
+misc
+V 18
+dir 38v.0.r160/333
+K 8
+nextstep
+V 19
+dir 14l.0.r155/8758
+K 3
+osx
+V 16
+dir 1.0.r289/645
+END
+ENDREP
+id: 0.0.r289/969
+type: dir
+pred: 0.0.r288/717
+count: 289
+text: 289 782 174 174 93e36abd258d2cf951ca94c763e977e5
+cpath: /
+copyroot: 0 /
+
+_0.0.t288-1 add false false /osx/trunk/Releases
+
+
+969 1105

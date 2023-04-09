@@ -1,0 +1,13 @@
+K 10
+svn:author
+V 9
+dbrisinda
+K 8
+svn:date
+V 27
+2009-01-07T21:32:34.280780Z
+K 7
+svn:log
+V 92
+Changed the configuration of the GnuTTSServer so that it is kept alive instead of on demand.
+END

@@ -1,0 +1,13 @@
+K 10
+svn:author
+V 9
+dbrisinda
+K 8
+svn:date
+V 27
+2009-04-08T21:39:55.467463Z
+K 7
+svn:log
+V 128
+Added the phone string text view to the GUI alongside the English text field with "Parse Text" functionality and visual syncing.
+END

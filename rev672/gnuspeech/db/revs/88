@@ -1,0 +1,706 @@
+PLAIN
+K 11
+GNUmakefile
+V 19
+file u6.0.r76/37158
+K 25
+NSBezierPath-Extensions.h
+V 21
+file rz.0.r72/1730678
+K 25
+NSBezierPath-Extensions.m
+V 19
+file s0.0.r76/36947
+K 22
+NSColor-STExtensions.h
+V 21
+file s1.0.r72/1734328
+K 22
+NSColor-STExtensions.m
+V 21
+file s2.0.r72/1734706
+K 30
+NSNumberFormatter-Extensions.h
+V 21
+file s3.0.r72/1733170
+K 30
+NSNumberFormatter-Extensions.m
+V 21
+file s4.0.r72/1733943
+K 26
+NSOutlineView-Extensions.h
+V 21
+file s5.0.r72/1732404
+K 26
+NSOutlineView-Extensions.m
+V 21
+file s6.0.r72/1733749
+K 26
+NSPopUpButton-Extensions.h
+V 21
+file s7.0.r72/1731061
+K 26
+NSPopUpButton-Extensions.m
+V 21
+file s8.0.r72/1731447
+END
+ENDREP
+id: ry.0.r88/645
+type: dir
+pred: ry.0.r81/6216
+count: 3
+text: 88 0 632 632 bfb604d720f0aac7d503ab38c451e4ec
+cpath: /gnustep/trunk/Applications/Monet/Extensions
+copyroot: 0 /
+
+PLAIN
+K 9
+.dir.tiff
+V 21
+file ll.0.r72/1739097
+K 11
+.dir3_0.wmd
+V 21
+file lm.0.r72/1749486
+K 15
+AppController.h
+V 19
+file li.0.r76/45380
+K 15
+AppController.m
+V 18
+file lj.0.r87/7408
+K 16
+CommentIcon.tiff
+V 21
+file lk.0.r72/1749708
+K 12
+Default.mxml
+V 21
+file lp.0.r72/1747037
+K 13
+English.lproj
+V 18
+dir qm.0.r76/50461
+K 15
+EventListView.h
+V 19
+file ly.0.r76/43664
+K 15
+EventListView.m
+V 18
+file lz.0.r87/6832
+K 10
+Extensions
+V 16
+dir ry.0.r88/645
+K 11
+GNUmakefile
+V 19
+file u4.0.r76/36786
+K 21
+GNUmakefile.postamble
+V 19
+file u5.0.r76/35459
+K 10
+Info.plist
+V 21
+file m0.0.r72/1741848
+K 23
+MAIntonationScaleView.h
+V 19
+file m1.0.r76/34487
+K 23
+MAIntonationScaleView.m
+V 21
+file m2.0.r72/1725275
+K 24
+MAIntonationScrollView.h
+V 21
+file m3.0.r72/1769490
+K 24
+MAIntonationScrollView.m
+V 21
+file m4.0.r72/1773178
+K 18
+MAIntonationView.h
+V 19
+file m5.0.r76/35632
+K 18
+MAIntonationView.m
+V 18
+file me.0.r87/4715
+K 14
+MCommentCell.h
+V 21
+file mf.0.r72/1737704
+K 14
+MCommentCell.m
+V 21
+file mg.0.r72/1738571
+K 22
+MDataEntryController.h
+V 19
+file mh.0.r76/41126
+K 22
+MDataEntryController.m
+V 18
+file mi.0.r87/5673
+K 20
+MExtendedTableView.h
+V 18
+file mj.0.r81/2818
+K 20
+MExtendedTableView.m
+V 21
+file mk.0.r72/1727215
+K 20
+MMDisplayParameter.h
+V 21
+file ms.0.r72/1739263
+K 20
+MMDisplayParameter.m
+V 18
+file mt.0.r87/5290
+K 14
+MOutlineView.h
+V 21
+file o6.0.r72/1777816
+K 14
+MOutlineView.m
+V 21
+file o7.0.r72/1723899
+K 28
+MPostureCategoryController.h
+V 19
+file o8.0.r76/39399
+K 28
+MPostureCategoryController.m
+V 18
+file o9.0.r87/5091
+K 16
+MPostureEditor.h
+V 19
+file oa.0.r76/40371
+K 16
+MPostureEditor.m
+V 18
+file ok.0.r87/5482
+K 19
+MPrototypeManager.h
+V 19
+file ol.0.r76/44236
+K 19
+MPrototypeManager.m
+V 18
+file om.0.r87/7214
+K 25
+MReleaseNotesController.h
+V 19
+file on.0.r76/34684
+K 25
+MReleaseNotesController.m
+V 19
+file oo.0.r76/34883
+K 14
+MRuleManager.h
+V 19
+file op.0.r76/41519
+K 14
+MRuleManager.m
+V 18
+file oq.0.r87/6061
+K 13
+MRuleTester.h
+V 19
+file or.0.r76/38835
+K 13
+MRuleTester.m
+V 18
+file os.0.r87/4905
+K 26
+MSpecialTransitionEditor.h
+V 21
+file ot.0.r72/1726146
+K 26
+MSpecialTransitionEditor.m
+V 18
+file ou.0.r87/4140
+K 22
+MSynthesisController.h
+V 18
+file ov.0.r87/6638
+K 22
+MSynthesisController.m
+V 18
+file ow.0.r87/7019
+K 27
+MSynthesisParameterEditor.h
+V 19
+file ox.0.r76/43085
+K 27
+MSynthesisParameterEditor.m
+V 18
+file oy.0.r87/6437
+K 19
+MTransitionEditor.h
+V 19
+file oz.0.r76/41324
+K 19
+MTransitionEditor.m
+V 18
+file pb.0.r87/5869
+K 19
+MWindowController.h
+V 21
+file pc.0.r72/1777986
+K 19
+MWindowController.m
+V 21
+file pe.0.r72/1724236
+K 10
+Monet.icns
+V 21
+file ob.0.r72/1755097
+K 9
+Monet.png
+V 21
+file oc.0.r72/1737194
+K 10
+Monet.tiff
+V 21
+file od.0.r72/1744281
+K 11
+Monet.xcode
+V 18
+dir sl.0.r76/51294
+K 15
+Monet.xcodeproj
+V 17
+dir wq.0.r87/7859
+K 16
+MonetBlank.monet
+V 21
+file of.0.r72/1727041
+K 16
+Monet_Prefix.pch
+V 21
+file oe.0.r72/1744109
+K 14
+NewMonet.monet
+V 21
+file pn.0.r72/1755266
+K 10
+Play.monet
+V 21
+file pr.0.r72/1746362
+K 11
+Play2.monet
+V 21
+file ps.0.r72/1773870
+K 11
+Play3.monet
+V 21
+file pt.0.r72/1750802
+K 11
+Play7.monet
+V 21
+file py.0.r72/1750972
+K 13
+SpecialView.h
+V 21
+file pv.0.r72/1747206
+K 13
+SpecialView.m
+V 18
+file pw.0.r87/6250
+K 8
+TODO.txt
+V 21
+file q1.0.r72/1751143
+K 9
+Tmp.monet
+V 21
+file q0.0.r72/1768382
+K 16
+TransitionView.h
+V 18
+file q2.0.r87/4338
+K 16
+TransitionView.m
+V 18
+file q3.0.r87/4524
+K 14
+diphones.monet
+V 21
+file lq.0.r72/1729993
+K 13
+diphones.mxml
+V 21
+file lu.0.r72/1724411
+K 17
+dotInspector.tiff
+V 21
+file lv.0.r72/1753363
+K 4
+file
+V 21
+file m9.0.r72/1748745
+K 5
+input
+V 21
+file mb.0.r72/1746873
+K 6
+main.m
+V 19
+file md.0.r76/42101
+K 9
+monet.jpg
+V 21
+file oj.0.r72/1725979
+K 5
+play3
+V 21
+file pq.0.r72/1751310
+K 7
+samples
+V 20
+dir sn.0.r72/1773018
+K 20
+squareInspector.tiff
+V 21
+file px.0.r72/1745309
+K 9
+testthing
+V 21
+file pu.0.r72/1774040
+K 22
+triangleInspector.tiff
+V 21
+file q4.0.r72/1768550
+K 6
+uu.trm
+V 21
+file q6.0.r72/1746711
+K 3
+xml
+V 20
+dir sp.0.r72/1772274
+END
+ENDREP
+id: lh.0.r88/4753
+type: dir
+pred: lh.0.r87/16455
+count: 5
+text: 88 820 3920 3920 a67b6642ce103cb5bc174458378d3bf8
+cpath: /gnustep/trunk/Applications/Monet
+copyroot: 0 /
+
+PLAIN
+K 9
+GnuSpeech
+V 18
+dir kg.0.r74/10927
+K 5
+Monet
+V 17
+dir lh.0.r88/4753
+K 8
+PrEditor
+V 17
+dir un.0.r80/1992
+END
+ENDREP
+id: kf.0.r88/5047
+type: dir
+pred: kf.0.r87/16752
+count: 11
+text: 88 4923 111 111 e2df0ee2042336ffc8af335b224e50f9
+cpath: /gnustep/trunk/Applications
+copyroot: 0 /
+
+PLAIN
+K 12
+Applications
+V 17
+dir kf.0.r88/5047
+K 10
+Frameworks
+V 17
+dir ws.0.r86/1660
+K 7
+Scripts
+V 20
+dir t2.0.r72/1787921
+K 5
+Tools
+V 17
+dir t6.0.r75/4296
+END
+ENDREP
+id: kc.0.r88/5379
+type: dir
+pred: kc.0.r87/17087
+count: 17
+text: 88 5211 155 155 194c5d329fd29413a19cc99bae112049
+cpath: /gnustep/trunk
+copyroot: 0 /
+
+PLAIN
+K 8
+branches
+V 15
+dir kd.0.r71/71
+K 4
+tags
+V 16
+dir ke.0.r71/146
+K 5
+trunk
+V 17
+dir kc.0.r88/5379
+END
+ENDREP
+id: kb.0.r88/5645
+type: dir
+pred: kb.0.r87/17355
+count: 17
+text: 88 5530 102 102 d0eb28766bd43c893b0f7e55fad3b3e2
+cpath: /gnustep
+copyroot: 0 /
+
+PLAIN
+K 7
+gnustep
+V 17
+dir kb.0.r88/5645
+K 3
+osx
+V 16
+dir 1.0.r70/1651
+END
+ENDREP
+id: 0.0.r88/5872
+type: dir
+pred: 0.0.r87/17584
+count: 88
+text: 88 5790 69 69 8bc1145d1b322c3a7c8f1e92f2fc2cb8
+cpath: /
+copyroot: 0 /
+
+og.0.r72/1742871 delete false false /gnustep/trunk/Applications/Monet/MonetDefaults.h
+
+nk.0.r81/6398 delete false false /gnustep/trunk/Applications/Monet/MMParameter.h
+
+s9.0.r81/4702 delete false false /gnustep/trunk/Applications/Monet/Extensions/NSArray-Extensions.h
+
+p3.0.r72/1743404 delete false false /gnustep/trunk/Applications/Monet/MXMLArrayDelegate.m
+
+o1.0.r72/1743043 delete false false /gnustep/trunk/Applications/Monet/MMSynthesisParameters.m
+
+ph.0.r81/8102 delete false false /gnustep/trunk/Applications/Monet/MXMLReferenceDictionaryDelegate.h
+
+lo.0.r72/1753194 delete false false /gnustep/trunk/Applications/Monet/CategoryList.m
+
+nl.0.r72/1737361 delete false false /gnustep/trunk/Applications/Monet/MMParameter.m
+
+sa.0.r72/1734140 delete false false /gnustep/trunk/Applications/Monet/Extensions/NSArray-Extensions.m
+
+o2.0.r81/8667 delete false false /gnustep/trunk/Applications/Monet/MMTarget.h
+
+pl.0.r76/51846 delete false false /gnustep/trunk/Applications/Monet/NamedList.h
+
+pi.0.r72/1750426 delete false false /gnustep/trunk/Applications/Monet/MXMLReferenceDictionaryDelegate.m
+
+o4.0.r72/1740471 delete false false /gnustep/trunk/Applications/Monet/MMTransition.h
+
+p8.0.r81/7713 delete false false /gnustep/trunk/Applications/Monet/MXMLPCDataDelegate.h
+
+o3.0.r72/1754929 delete false false /gnustep/trunk/Applications/Monet/MMTarget.m
+
+pm.0.r72/1777647 delete false false /gnustep/trunk/Applications/Monet/NamedList.m
+
+pf.0.r81/7903 delete false false /gnustep/trunk/Applications/Monet/MXMLReferenceArrayDelegate.h
+
+nc.0.r81/7144 delete false false /gnustep/trunk/Applications/Monet/MMIntonationPoint.h
+
+sf.0.r72/1734517 delete false false /gnustep/trunk/Applications/Monet/Extensions/NSScanner-Extensions.h
+
+o5.0.r72/1741332 delete false false /gnustep/trunk/Applications/Monet/MMTransition.m
+
+p9.0.r72/1748905 delete false false /gnustep/trunk/Applications/Monet/MXMLPCDataDelegate.m
+
+pg.0.r72/1749258 delete false false /gnustep/trunk/Applications/Monet/MXMLReferenceArrayDelegate.m
+
+nd.0.r72/1745826 delete false false /gnustep/trunk/Applications/Monet/MMIntonationPoint.m
+
+sg.0.r72/1730870 delete false false /gnustep/trunk/Applications/Monet/Extensions/NSScanner-Extensions.m
+
+p4.0.r81/3561 delete false false /gnustep/trunk/Applications/Monet/MXMLDictionaryDelegate.h
+
+ng.0.r76/40749 delete false false /gnustep/trunk/Applications/Monet/MMObject.h
+
+nt.0.r81/4132 delete false false /gnustep/trunk/Applications/Monet/MMRule.h
+
+p5.0.r72/1729461 delete false false /gnustep/trunk/Applications/Monet/MXMLDictionaryDelegate.m
+
+sd.0.r81/4498 delete false false /gnustep/trunk/Applications/Monet/Extensions/NSObject-Extensions.h
+
+sh.0.r72/1731828 delete false false /gnustep/trunk/Applications/Monet/Extensions/NSString-Extensions.h
+
+mw.0.r72/1724932 delete false false /gnustep/trunk/Applications/Monet/MMBooleanTerminal.h
+
+nh.0.r72/1742350 delete false false /gnustep/trunk/Applications/Monet/MMObject.m
+
+po.0.r72/1725108 delete false false /gnustep/trunk/Applications/Monet/PhoneList.h
+
+nu.0.r72/1730337 delete false false /gnustep/trunk/Applications/Monet/MMRule.m
+
+se.0.r72/1732597 delete false false /gnustep/trunk/Applications/Monet/Extensions/NSObject-Extensions.m
+
+si.0.r72/1732786 delete false false /gnustep/trunk/Applications/Monet/Extensions/NSString-Extensions.m
+
+ls.0.r72/1736509 delete false false /gnustep/trunk/Applications/Monet/driftGenerator.c
+
+mx.0.r72/1725637 delete false false /gnustep/trunk/Applications/Monet/MMBooleanTerminal.m
+
+pp.0.r72/1725814 delete false false /gnustep/trunk/Applications/Monet/PhoneList.m
+
+no.0.r81/8490 delete false false /gnustep/trunk/Applications/Monet/MMSlope.h
+
+oh.0.r81/7529 delete false false /gnustep/trunk/Applications/Monet/MonetList.h
+
+n3.0.r72/1753717 delete false false /gnustep/trunk/Applications/Monet/MMFormulaExpression.h
+
+n0.0.r76/39212 delete false false /gnustep/trunk/Applications/Monet/MMEquation.h
+
+lt.0.r72/1737532 delete false false /gnustep/trunk/Applications/Monet/driftGenerator.h
+
+n2.0.r72/1750254 delete false false /gnustep/trunk/Applications/Monet/MMFRuleSymbols.h
+
+nv.0.r76/45006 delete false false /gnustep/trunk/Applications/Monet/MMSlope.m
+
+lw.0.r72/1747714 delete false false /gnustep/trunk/Applications/Monet/Event.h
+
+p0.0.r72/1740302 delete false false /gnustep/trunk/Applications/Monet/MUnarchiver.h
+
+oi.0.r72/1747877 delete false false /gnustep/trunk/Applications/Monet/MonetList.m
+
+n4.0.r72/1754750 delete false false /gnustep/trunk/Applications/Monet/MMFormulaExpression.m
+
+n1.0.r72/1738741 delete false false /gnustep/trunk/Applications/Monet/MMEquation.m
+
+lx.0.r72/1748222 delete false false /gnustep/trunk/Applications/Monet/Event.m
+
+p1.0.r72/1741163 delete false false /gnustep/trunk/Applications/Monet/MUnarchiver.m
+
+np.0.r81/3377 delete false false /gnustep/trunk/Applications/Monet/MMPosture.h
+
+nq.0.r76/36222 delete false false /gnustep/trunk/Applications/Monet/MMPosture.m
+
+sj.0.r72/1732016 delete false false /gnustep/trunk/Applications/Monet/Extensions/NSUserDefaults-Extensions.h
+
+n5.0.r81/4311 delete false false /gnustep/trunk/Applications/Monet/MMFormulaNode.h
+
+sb.0.r72/1732210 delete false false /gnustep/trunk/Applications/Monet/Extensions/NSCharacterSet-Extensions.h
+
+my.0.r81/8306 delete false false /gnustep/trunk/Applications/Monet/MMCategory.h
+
+sk.0.r72/1732976 delete false false /gnustep/trunk/Applications/Monet/Extensions/NSUserDefaults-Extensions.m
+
+n6.0.r72/1736683 delete false false /gnustep/trunk/Applications/Monet/MMFormulaNode.m
+
+sc.0.r72/1733367 delete false false /gnustep/trunk/Applications/Monet/Extensions/NSCharacterSet-Extensions.m
+
+n7.0.r72/1772432 delete false false /gnustep/trunk/Applications/Monet/MMFormulaParser.h
+
+mz.0.r72/1752673 delete false false /gnustep/trunk/Applications/Monet/MMCategory.m
+
+n8.0.r72/1773527 delete false false /gnustep/trunk/Applications/Monet/MMFormulaParser.m
+
+mv.0.r72/1726685 delete false false /gnustep/trunk/Applications/Monet/MMBooleanSymbols.h
+
+q7.0.t87-1 delete false false /gnustep/trunk/Applications/Monet/Compatibility
+
+ma.0.r76/45190 delete false false /gnustep/trunk/Applications/Monet/GSXMLFunctions.h
+
+nm.0.r72/1744449 delete false false /gnustep/trunk/Applications/Monet/MMPoint.h
+
+m7.0.r81/3197 delete false false /gnustep/trunk/Applications/Monet/GSParser.h
+
+mc.0.r72/1755439 delete false false /gnustep/trunk/Applications/Monet/GSXMLFunctions.m
+
+nn.0.r72/1745142 delete false false /gnustep/trunk/Applications/Monet/MMPoint.m
+
+mn.0.r76/41904 delete false false /gnustep/trunk/Applications/Monet/MMBooleanExpression.h
+
+pa.0.r76/40563 delete false false /gnustep/trunk/Applications/Monet/MXMLParser.h
+
+m8.0.r72/1728076 delete false false /gnustep/trunk/Applications/Monet/GSParser.m
+
+pz.0.r72/1724069 delete false false /gnustep/trunk/Applications/Monet/TRMData.h
+
+mo.0.r72/1746183 delete false false /gnustep/trunk/Applications/Monet/MMBooleanExpression.m
+
+pd.0.r72/1742015 delete false false /gnustep/trunk/Applications/Monet/MXMLParser.m
+
+ny.0.r81/3950 delete false false /gnustep/trunk/Applications/Monet/MMSymbol.h
+
+q5.0.r72/1724585 delete false false /gnustep/trunk/Applications/Monet/TRMData.m
+
+nz.0.r72/1729825 delete false false /gnustep/trunk/Applications/Monet/MMSymbol.m
+
+ne.0.r76/43288 delete false false /gnustep/trunk/Applications/Monet/MMNamedObject.h
+
+n9.0.r72/1730504 delete false false /gnustep/trunk/Applications/Monet/MMFormulaSymbols.h
+
+nf.0.r72/1752335 delete false false /gnustep/trunk/Applications/Monet/MMNamedObject.m
+
+nw.0.r81/6584 delete false false /gnustep/trunk/Applications/Monet/MMSlopeRatio.h
+
+ni.0.r81/8847 delete false false /gnustep/trunk/Applications/Monet/MModel.h
+
+lr.0.r76/39996 delete false false /gnustep/trunk/Applications/Monet/EventList.h
+
+mp.0.r81/6769 delete false false /gnustep/trunk/Applications/Monet/MMBooleanNode.h
+
+nr.0.r72/1739785 delete false false /gnustep/trunk/Applications/Monet/MMPostureRewriter.h
+
+nx.0.r76/39603 delete false false /gnustep/trunk/Applications/Monet/MMSlopeRatio.m
+
+nj.0.r72/1773702 delete false false /gnustep/trunk/Applications/Monet/MModel.m
+
+m6.0.r76/40183 delete false false /gnustep/trunk/Applications/Monet/EventList.m
+
+mq.0.r72/1740819 delete false false /gnustep/trunk/Applications/Monet/MMBooleanNode.m
+
+ns.0.r72/1740642 delete false false /gnustep/trunk/Applications/Monet/MMPostureRewriter.m
+
+mr.0.r72/1748386 delete false false /gnustep/trunk/Applications/Monet/MMBooleanParser.h
+
+na.0.r72/1768038 delete false false /gnustep/trunk/Applications/Monet/MMFormulaTerminal.h
+
+mu.0.r72/1749082 delete false false /gnustep/trunk/Applications/Monet/MMBooleanParser.m
+
+ml.0.r76/50842 delete false false /gnustep/trunk/Applications/Monet/MDocument.h
+
+p6.0.r81/7335 delete false false /gnustep/trunk/Applications/Monet/MXMLIgnoreTreeDelegate.h
+
+pj.0.r81/3755 delete false false /gnustep/trunk/Applications/Monet/MXMLStringArrayDelegate.h
+
+mm.0.r76/51477 delete false false /gnustep/trunk/Applications/Monet/MDocument.m
+
+nb.0.r72/1769144 delete false false /gnustep/trunk/Applications/Monet/MMFormulaTerminal.m
+
+p7.0.r72/1746531 delete false false /gnustep/trunk/Applications/Monet/MXMLIgnoreTreeDelegate.m
+
+pk.0.r72/1729643 delete false false /gnustep/trunk/Applications/Monet/MXMLStringArrayDelegate.m
+
+p2.0.r81/6955 delete false false /gnustep/trunk/Applications/Monet/MXMLArrayDelegate.h
+
+o0.0.r72/1742516 delete false false /gnustep/trunk/Applications/Monet/MMSynthesisParameters.h
+
+ln.0.r72/1751986 delete false false /gnustep/trunk/Applications/Monet/CategoryList.h
+
+
+5872 6006

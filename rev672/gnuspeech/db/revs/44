@@ -1,0 +1,92 @@
+PLAIN
+K 5
+Monet
+V 19
+dir 17.0.r31/617502
+K 8
+PrEditor
+V 17
+dir ad.0.r40/2017
+K 5
+PreMo
+V 17
+dir hm.0.r33/4639
+END
+ENDREP
+id: 5.0.r44/121
+type: dir
+pred: 5.0.r43/412
+count: 34
+text: 44 0 108 108 5fb5656b9d3ed5982ceb1a763d597b38
+cpath: /osx/trunk/Applications
+copyroot: 0 /
+
+PLAIN
+K 12
+Applications
+V 15
+dir 5.0.r44/121
+K 10
+Frameworks
+V 17
+dir ci.0.r33/2905
+K 7
+Scripts
+V 19
+dir 8s.0.r2/1785465
+K 5
+Tools
+V 16
+dir 8w.0.r5/4226
+END
+ENDREP
+id: 2.0.r44/437
+type: dir
+pred: 2.0.r43/730
+count: 43
+text: 44 273 151 151 3467270a50fc1a17befa2cc6e40cfada
+cpath: /osx/trunk
+copyroot: 0 /
+
+PLAIN
+K 8
+branches
+V 13
+dir 3.0.r1/65
+K 4
+tags
+V 14
+dir 4.0.r1/134
+K 5
+trunk
+V 15
+dir 2.0.r44/437
+END
+ENDREP
+id: 1.0.r44/687
+type: dir
+pred: 1.0.r43/981
+count: 43
+text: 44 578 96 96 1bad9573c897ddef82778a59e015df45
+cpath: /osx
+copyroot: 0 /
+
+PLAIN
+K 3
+osx
+V 15
+dir 1.0.r44/687
+END
+ENDREP
+id: 0.0.r44/866
+type: dir
+pred: 0.0.r43/1161
+count: 44
+text: 44 820 33 33 028e6bfac7377a52bae1e1a89e2c0430
+cpath: /
+copyroot: 0 /
+
+6.0.t43-1 delete false false /osx/trunk/Applications/GnuSpeech
+
+
+866 997

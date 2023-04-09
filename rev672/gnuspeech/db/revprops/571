@@ -1,0 +1,13 @@
+K 10
+svn:author
+V 9
+dbrisinda
+K 8
+svn:date
+V 27
+2009-04-24T06:37:28.860872Z
+K 7
+svn:log
+V 122
+Corrected small bug with color syncing of text and posture fields when tab or shift-tab is selected out of the text field.
+END

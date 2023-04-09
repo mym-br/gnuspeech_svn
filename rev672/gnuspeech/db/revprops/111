@@ -1,0 +1,14 @@
+K 10
+svn:author
+V 9
+dbrisinda
+K 8
+svn:date
+V 27
+2008-11-08T10:44:25.000000Z
+K 7
+svn:log
+V 103
+Added README file to point users to the PreMo application instead of the little GnuSpeech application.
+
+END

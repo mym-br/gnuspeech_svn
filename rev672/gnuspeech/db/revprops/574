@@ -1,0 +1,13 @@
+K 10
+svn:author
+V 8
+mymatuda
+K 8
+svn:date
+V 27
+2009-04-26T02:03:00.761756Z
+K 7
+svn:log
+V 72
+Moved "-lgdbm -lgdbm_compat" to the makefile of the GnuSpeech Framework.
+END

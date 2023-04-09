@@ -1,0 +1,153 @@
+PLAIN
+K 10
+Frameworks
+V 18
+dir ci.0.r537/9046
+K 10
+Installers
+V 19
+dir 3he.0.r544/3223
+K 7
+LICENSE
+V 21
+file 4ii.0.r540/14838
+K 5
+Other
+V 18
+dir 3h4.0.r282/261
+K 6
+README
+V 21
+file 3gx.c.r540/20409
+K 8
+Services
+V 20
+dir 3h2.0.r540/16478
+END
+ENDREP
+id: 2.10.r549/248
+type: dir
+pred: 2.10.r548/489
+count: 191
+text: 549 0 235 235 b6e89f7fe250c38cb4dbee6c0c70c6d3
+cpath: /osx/tags/GnuSpeech-0.6/trunk
+copyroot: 546 /osx/tags/GnuSpeech-0.6/trunk
+
+id: 3h1.13.r549/442
+type: dir
+pred: 3h1.0.r540/20249
+count: 17
+text: 540 20188 48 48 9b472a4f525631027d69fc6c7d75825d
+cpath: /osx/tags/GnuSpeech-0.6/Daemons
+copyfrom: 548 /osx/tags/GnuSpeech-0.6/trunk/Daemons
+
+PLAIN
+K 12
+Applications
+V 19
+dir 4e0.11.r547/513
+K 6
+Builds
+V 17
+dir 3hc.12.r548/0
+K 7
+Daemons
+V 19
+dir 3h1.13.r549/442
+K 5
+trunk
+V 17
+dir 2.10.r549/248
+END
+ENDREP
+id: 4io.0.r549/816
+type: dir
+pred: 4io.0.r548/812
+count: 4
+text: 549 652 151 151 86c3758c6cd926a9d5b563715608e19b
+cpath: /osx/tags/GnuSpeech-0.6
+copyroot: 0 /
+
+PLAIN
+K 13
+GnuSpeech-0.5
+V 14
+dir 2.f.r301/0
+K 15
+GnuSpeech-0.5.1
+V 19
+dir 3ib.0.r499/1462
+K 13
+GnuSpeech-0.6
+V 18
+dir 4io.0.r549/816
+END
+ENDREP
+id: 4.0.r549/1121
+type: dir
+pred: 4.0.r548/1117
+count: 20
+text: 549 976 132 132 dd6ac72aa0abb933c91f719f932d79d7
+cpath: /osx/tags
+copyroot: 0 /
+
+PLAIN
+K 8
+branches
+V 15
+dir 3.0.r510/17
+K 4
+tags
+V 17
+dir 4.0.r549/1121
+K 5
+trunk
+V 17
+dir 2.0.r544/3750
+END
+ENDREP
+id: 1.0.r549/1382
+type: dir
+pred: 1.0.r548/1378
+count: 209
+text: 549 1266 103 103 183209f33f2370448241709e5b4d5cda
+cpath: /osx
+copyroot: 0 /
+
+PLAIN
+K 4
+docs
+V 18
+dir 2w8.0.r509/284
+K 7
+gnustep
+V 19
+dir kb.0.r502/17884
+K 4
+misc
+V 18
+dir 38v.0.r160/333
+K 8
+nextstep
+V 19
+dir 14l.0.r155/8758
+K 3
+osx
+V 17
+dir 1.0.r549/1382
+END
+ENDREP
+id: 0.0.r549/1713
+type: dir
+pred: 0.0.r548/1709
+count: 549
+text: 549 1524 176 176 d1534243917d5c5be61c6afca89eb2ee
+cpath: /
+copyroot: 0 /
+
+3h1.0.r540/20249 delete false false /osx/tags/GnuSpeech-0.6/trunk/Daemons
+
+3h1._0.t548-1 add false false /osx/tags/GnuSpeech-0.6/Daemons
+548 /osx/tags/GnuSpeech-0.6/trunk/Daemons
+
+1713 1852

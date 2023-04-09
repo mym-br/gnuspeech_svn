@@ -1,0 +1,149 @@
+PLAIN
+K 9
+Archiving
+V 19
+dir db.0.r14/185793
+K 25
+Compatibility-TypedStream
+V 19
+dir dw.0.r14/180886
+K 13
+English.lproj
+V 19
+dir eb.0.r14/186624
+K 10
+Extensions
+V 19
+dir ed.0.r21/970107
+K 11
+GnuSpeech.h
+V 20
+file d8.0.r21/974433
+K 19
+GnuSpeech.xcodeproj
+V 17
+dir eq.0.r61/4893
+K 20
+GnuSpeech_Prefix.pch
+V 20
+file d9.0.r14/177359
+K 10
+Info.plist
+V 20
+file da.0.r14/177041
+K 10
+MonetModel
+V 18
+dir ex.0.r23/10138
+K 7
+Parsers
+V 17
+dir gd.0.r15/1455
+K 14
+TextProcessing
+V 19
+dir h3.0.r21/974268
+K 4
+Tube
+V 17
+dir es.0.r61/4456
+END
+ENDREP
+id: d7.0.r67/534
+type: dir
+pred: d7.0.r61/5685
+count: 14
+text: 67 0 521 521 c6a732fa817923ac035cb379eebf34f6
+cpath: /osx/trunk/Frameworks/GnuSpeech
+copyroot: 0 /
+
+PLAIN
+K 9
+GnuSpeech
+V 16
+dir d7.0.r67/534
+K 4
+Tube
+V 17
+dir cj.0.r61/3763
+END
+ENDREP
+id: ci.0.r67/782
+type: dir
+pred: ci.0.r61/5937
+count: 17
+text: 67 697 72 72 1e4417961f35e3fbe98b7df7560a3a34
+cpath: /osx/trunk/Frameworks
+copyroot: 0 /
+
+PLAIN
+K 12
+Applications
+V 16
+dir 5.0.r66/2657
+K 10
+Frameworks
+V 16
+dir ci.0.r67/782
+K 7
+Scripts
+V 19
+dir 8s.0.r2/1785465
+K 5
+Tools
+V 16
+dir 8w.0.r5/4226
+END
+ENDREP
+id: 2.0.r67/1099
+type: dir
+pred: 2.0.r66/2979
+count: 66
+text: 67 935 151 151 b52fef535bc3318cf7b81bb1da0d1256
+cpath: /osx/trunk
+copyroot: 0 /
+
+PLAIN
+K 8
+branches
+V 13
+dir 3.0.r1/65
+K 4
+tags
+V 14
+dir 4.0.r1/134
+K 5
+trunk
+V 16
+dir 2.0.r67/1099
+END
+ENDREP
+id: 1.0.r67/1352
+type: dir
+pred: 1.0.r66/3233
+count: 66
+text: 67 1242 97 97 5b2d22ad0856c9f169c15333d25e1006
+cpath: /osx
+copyroot: 0 /
+
+PLAIN
+K 3
+osx
+V 16
+dir 1.0.r67/1352
+END
+ENDREP
+id: 0.0.r67/1535
+type: dir
+pred: 0.0.r66/3416
+count: 67
+text: 67 1488 34 34 499aa92e1d2488a8e1eedbb6fb9a99a7
+cpath: /
+copyroot: 0 /
+
+k9.0.r59/5939 delete false false /osx/trunk/Frameworks/GnuSpeech/TRMData.m
+
+k8.0.r60/73 delete false false /osx/trunk/Frameworks/GnuSpeech/TRMData.h
+
+
+1535 1668

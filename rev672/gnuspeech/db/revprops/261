@@ -1,0 +1,13 @@
+K 10
+svn:author
+V 9
+dbrisinda
+K 8
+svn:date
+V 27
+2009-01-12T03:27:25.790414Z
+K 7
+svn:log
+V 178
+Modified the TTSParser class in GnuSpeech.framework to allow for handling of punctuation in strings. This is a quick temporary fix until the parser can be looked at more closely.
+END

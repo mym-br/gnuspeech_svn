@@ -1,0 +1,13 @@
+K 10
+svn:author
+V 9
+dbrisinda
+K 8
+svn:date
+V 27
+2009-05-07T04:01:02.515579Z
+K 7
+svn:log
+V 190
+Updated property list version numbers for new software releases. Also updated the Xcode build options not to use deployment processing for debug and release configuration for the frameworks.
+END

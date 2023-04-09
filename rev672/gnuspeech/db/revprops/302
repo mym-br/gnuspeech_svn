@@ -1,0 +1,13 @@
+K 10
+svn:author
+V 9
+dbrisinda
+K 8
+svn:date
+V 27
+2009-01-23T19:14:11.177470Z
+K 7
+svn:log
+V 85
+The package maker files for creating an installable package of the GnuSpeech project.
+END

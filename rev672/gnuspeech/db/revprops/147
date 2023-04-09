@@ -1,0 +1,15 @@
+K 10
+svn:author
+V 5
+fedor
+K 8
+svn:date
+V 27
+2003-01-22T05:17:43.000000Z
+K 7
+svn:log
+V 84
+Re-add NXStream reading on NeXT. Minor changes to compile
+correctly on OPENSTEP 4.2
+
+END

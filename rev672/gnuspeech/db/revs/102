@@ -1,0 +1,149 @@
+DELTA 73 0 1126
+SVNENDREP
+DELTA 72 971956 324
+SVNENDREP
+id: l8.0.r102/58
+type: file
+pred: l8.0.r72/1715342
+count: 1
+text: 102 27 4 0 d41d8cd98f00b204e9800998ecf8427e
+cpath: /gnustep/trunk/Applications/GnuSpeech/version.plist
+copyroot: 0 /
+
+id: tx.0.r102/242
+type: file
+pred: tx.0.r73/2557
+count: 1
+text: 102 0 4 0 d41d8cd98f00b204e9800998ecf8427e
+cpath: /gnustep/trunk/Applications/GnuSpeech/GNUmakefile
+copyroot: 0 /
+
+PLAIN
+K 13
+English.lproj
+V 18
+dir l9.0.r100/1603
+K 11
+GNUmakefile
+V 18
+file tx.0.r102/242
+K 19
+GnuSpeech.xcodeproj
+V 19
+dir 119.0.r100/1257
+K 13
+version.plist
+V 17
+file l8.0.r102/58
+END
+ENDREP
+id: kg.0.r102/614
+type: dir
+pred: kg.0.r100/1988
+count: 7
+text: 102 421 180 180 d814b883e1ed447d5f21f4186e153ea7
+cpath: /gnustep/trunk/Applications/GnuSpeech
+copyroot: 0 /
+
+PLAIN
+K 9
+GnuSpeech
+V 17
+dir kg.0.r102/614
+K 5
+Monet
+V 20
+dir lh.0.r101/617643
+K 8
+PrEditor
+V 19
+dir un.0.r99/157244
+K 5
+PreMo
+V 21
+dir 11w.0.r101/623068
+END
+ENDREP
+id: kf.0.r102/952
+type: dir
+pred: kf.0.r101/623413
+count: 22
+text: 102 787 152 152 89251c468d5e953d3a7be103221f49b7
+cpath: /gnustep/trunk/Applications
+copyroot: 0 /
+
+PLAIN
+K 12
+Applications
+V 17
+dir kf.0.r102/952
+K 10
+Frameworks
+V 20
+dir ws.0.r101/613121
+K 7
+Scripts
+V 20
+dir t2.0.r72/1787921
+K 5
+Tools
+V 17
+dir t6.0.r75/4296
+END
+ENDREP
+id: kc.0.r102/1289
+type: dir
+pred: kc.0.r101/623757
+count: 31
+text: 102 1118 158 158 28dc7c0808cde5cdaf5323f60d8b5b7e
+cpath: /gnustep/trunk
+copyroot: 0 /
+
+PLAIN
+K 8
+branches
+V 15
+dir kd.0.r71/71
+K 4
+tags
+V 16
+dir ke.0.r71/146
+K 5
+trunk
+V 18
+dir kc.0.r102/1289
+END
+ENDREP
+id: kb.0.r102/1560
+type: dir
+pred: kb.0.r101/624032
+count: 31
+text: 102 1444 103 103 e14e99b5dbdd45b186fc6bfd4451b12a
+cpath: /gnustep
+copyroot: 0 /
+
+PLAIN
+K 7
+gnustep
+V 18
+dir kb.0.r102/1560
+K 3
+osx
+V 16
+dir 1.0.r70/1651
+END
+ENDREP
+id: 0.0.r102/1792
+type: dir
+pred: 0.0.r101/624268
+count: 102
+text: 102 1709 70 70 d83964d926e976265e4b59eb2f3fd8e7
+cpath: /
+copyroot: 0 /
+
+tx.0.t101-1 modify true false /gnustep/trunk/Applications/GnuSpeech/GNUmakefile
+
+l8.0.t101-1 modify true false /gnustep/trunk/Applications/GnuSpeech/version.plist
+
+
+1792 1931

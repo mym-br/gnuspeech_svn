@@ -1,0 +1,13 @@
+K 10
+svn:author
+V 9
+dbrisinda
+K 8
+svn:date
+V 27
+2009-05-07T04:28:47.872456Z
+K 7
+svn:log
+V 113
+Adjusted Xcode build deployment processing switches for the frameworks to allow for better deployment processing.
+END

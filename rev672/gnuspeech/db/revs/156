@@ -1,0 +1,77 @@
+id: 2w9.0.r156/0
+type: dir
+count: 0
+cpath: /docs/trunk
+copyroot: 0 /
+
+id: 2wa.0.r156/70
+type: dir
+count: 0
+cpath: /docs/branches
+copyroot: 0 /
+
+id: 2wb.0.r156/144
+type: dir
+count: 0
+cpath: /docs/tags
+copyroot: 0 /
+
+PLAIN
+K 8
+branches
+V 17
+dir 2wa.0.r156/70
+K 4
+tags
+V 18
+dir 2wb.0.r156/144
+K 5
+trunk
+V 16
+dir 2w9.0.r156/0
+END
+ENDREP
+id: 2w8.0.r156/333
+type: dir
+count: 0
+text: 156 215 105 105 e86e541601be285841081a6df4a7f4c6
+cpath: /docs
+copyroot: 0 /
+
+PLAIN
+K 4
+docs
+V 18
+dir 2w8.0.r156/333
+K 7
+gnustep
+V 18
+dir kb.0.r140/1708
+K 8
+nextstep
+V 19
+dir 14l.0.r155/8758
+K 3
+osx
+V 16
+dir 1.0.r70/1651
+END
+ENDREP
+id: 0.0.r156/608
+type: dir
+pred: 0.0.r155/9029
+count: 156
+text: 156 454 141 141 a1d16a431e094a8c0103dc951e29ff5d
+cpath: /
+copyroot: 0 /
+
+_3.0.t155-1 add false false /docs/tags
+
+_0.0.t155-1 add false false /docs
+
+_1.0.t155-1 add false false /docs/trunk
+
+_2.0.t155-1 add false false /docs/branches
+
+
+608 745

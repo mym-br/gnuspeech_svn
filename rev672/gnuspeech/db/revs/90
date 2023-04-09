@@ -1,0 +1,572 @@
+PLAIN
+K 23
+2.0eMainDictionary.dict
+V 21
+file kh.0.r72/1715746
+K 21
+ApplicationDelegate.h
+V 18
+file ki.0.r73/2151
+K 21
+ApplicationDelegate.m
+V 18
+file kj.0.r73/2721
+K 13
+English.lproj
+V 17
+dir l9.0.r74/9128
+K 11
+GNUmakefile
+V 18
+file tx.0.r73/2557
+K 30
+GSDBMPronunciationDictionary.h
+V 21
+file kw.0.r72/1715514
+K 30
+GSDBMPronunciationDictionary.m
+V 18
+file kk.0.r73/2349
+K 27
+GSPronunciationDictionary.h
+V 18
+file kl.0.r89/3073
+K 27
+GSPronunciationDictionary.m
+V 21
+file km.0.r72/1719112
+K 33
+GSSimplePronunciationDictionary.h
+V 21
+file kn.0.r72/1719829
+K 33
+GSSimplePronunciationDictionary.m
+V 21
+file ko.0.r72/1720380
+K 10
+GSSuffix.h
+V 21
+file kp.0.r72/1716772
+K 10
+GSSuffix.m
+V 21
+file kq.0.r72/1717662
+K 19
+GnuSpeech.xcodeproj
+V 18
+dir 119.0.r89/3526
+K 20
+GnuSpeech_Prefix.pch
+V 21
+file kr.0.r72/1719650
+K 10
+Info.plist
+V 21
+file ks.0.r72/1717121
+K 26
+NSFileManager-Extensions.h
+V 21
+file kt.0.r72/1718373
+K 26
+NSFileManager-Extensions.m
+V 21
+file ku.0.r72/1718926
+K 22
+NSScanner-Extensions.h
+V 21
+file kv.0.r72/1720199
+K 22
+NSScanner-Extensions.m
+V 21
+file kx.0.r72/1715986
+K 21
+NSString-Extensions.h
+V 21
+file ky.0.r72/1718014
+K 21
+NSString-Extensions.m
+V 21
+file kz.0.r72/1718744
+K 21
+SpecialAcronyms.plist
+V 21
+file l1.0.r72/1717482
+K 4
+TODO
+V 21
+file l2.0.r72/1719300
+K 25
+TTSNumberPronunciations.h
+V 21
+file l3.0.r72/1719463
+K 11
+TTSParser.h
+V 21
+file l4.0.r72/1720574
+K 11
+TTSParser.m
+V 21
+file l5.0.r72/1716169
+K 17
+TTSSuffixList.txt
+V 21
+file l6.0.r72/1720021
+K 6
+main.m
+V 18
+file l0.0.r73/1968
+K 15
+parser_module.m
+V 21
+file l7.0.r72/1718194
+K 13
+version.plist
+V 21
+file l8.0.r72/1715342
+END
+ENDREP
+id: kg.0.r90/1612
+type: dir
+pred: kg.0.r89/5356
+count: 4
+text: 90 0 1599 1599 4a923915afe052f89633fd5dfb534fd6
+cpath: /gnustep/trunk/Applications/GnuSpeech
+copyroot: 0 /
+
+PLAIN
+K 9
+.dir.tiff
+V 21
+file ll.0.r72/1739097
+K 11
+.dir3_0.wmd
+V 21
+file lm.0.r72/1749486
+K 15
+AppController.h
+V 19
+file li.0.r76/45380
+K 15
+AppController.m
+V 18
+file lj.0.r87/7408
+K 16
+CommentIcon.tiff
+V 21
+file lk.0.r72/1749708
+K 12
+Default.mxml
+V 21
+file lp.0.r72/1747037
+K 13
+English.lproj
+V 18
+dir qm.0.r76/50461
+K 15
+EventListView.h
+V 19
+file ly.0.r76/43664
+K 15
+EventListView.m
+V 18
+file lz.0.r87/6832
+K 10
+Extensions
+V 16
+dir ry.0.r88/645
+K 11
+GNUmakefile
+V 19
+file u4.0.r76/36786
+K 21
+GNUmakefile.postamble
+V 19
+file u5.0.r76/35459
+K 10
+Info.plist
+V 21
+file m0.0.r72/1741848
+K 23
+MAIntonationScaleView.h
+V 19
+file m1.0.r76/34487
+K 23
+MAIntonationScaleView.m
+V 21
+file m2.0.r72/1725275
+K 24
+MAIntonationScrollView.h
+V 21
+file m3.0.r72/1769490
+K 24
+MAIntonationScrollView.m
+V 21
+file m4.0.r72/1773178
+K 18
+MAIntonationView.h
+V 19
+file m5.0.r76/35632
+K 18
+MAIntonationView.m
+V 18
+file me.0.r87/4715
+K 14
+MCommentCell.h
+V 21
+file mf.0.r72/1737704
+K 14
+MCommentCell.m
+V 21
+file mg.0.r72/1738571
+K 22
+MDataEntryController.h
+V 19
+file mh.0.r76/41126
+K 22
+MDataEntryController.m
+V 18
+file mi.0.r87/5673
+K 20
+MExtendedTableView.h
+V 18
+file mj.0.r81/2818
+K 20
+MExtendedTableView.m
+V 21
+file mk.0.r72/1727215
+K 20
+MMDisplayParameter.h
+V 21
+file ms.0.r72/1739263
+K 20
+MMDisplayParameter.m
+V 18
+file mt.0.r87/5290
+K 14
+MOutlineView.h
+V 21
+file o6.0.r72/1777816
+K 14
+MOutlineView.m
+V 21
+file o7.0.r72/1723899
+K 28
+MPostureCategoryController.h
+V 19
+file o8.0.r76/39399
+K 28
+MPostureCategoryController.m
+V 18
+file o9.0.r87/5091
+K 16
+MPostureEditor.h
+V 19
+file oa.0.r76/40371
+K 16
+MPostureEditor.m
+V 18
+file ok.0.r87/5482
+K 19
+MPrototypeManager.h
+V 19
+file ol.0.r76/44236
+K 19
+MPrototypeManager.m
+V 18
+file om.0.r87/7214
+K 25
+MReleaseNotesController.h
+V 19
+file on.0.r76/34684
+K 25
+MReleaseNotesController.m
+V 19
+file oo.0.r76/34883
+K 14
+MRuleManager.h
+V 19
+file op.0.r76/41519
+K 14
+MRuleManager.m
+V 18
+file oq.0.r87/6061
+K 13
+MRuleTester.h
+V 19
+file or.0.r76/38835
+K 13
+MRuleTester.m
+V 18
+file os.0.r87/4905
+K 26
+MSpecialTransitionEditor.h
+V 21
+file ot.0.r72/1726146
+K 26
+MSpecialTransitionEditor.m
+V 18
+file ou.0.r87/4140
+K 22
+MSynthesisController.h
+V 18
+file ov.0.r87/6638
+K 22
+MSynthesisController.m
+V 18
+file ow.0.r87/7019
+K 27
+MSynthesisParameterEditor.h
+V 19
+file ox.0.r76/43085
+K 27
+MSynthesisParameterEditor.m
+V 18
+file oy.0.r87/6437
+K 19
+MTransitionEditor.h
+V 19
+file oz.0.r76/41324
+K 19
+MTransitionEditor.m
+V 18
+file pb.0.r87/5869
+K 19
+MWindowController.h
+V 21
+file pc.0.r72/1777986
+K 19
+MWindowController.m
+V 21
+file pe.0.r72/1724236
+K 10
+Monet.icns
+V 21
+file ob.0.r72/1755097
+K 9
+Monet.png
+V 21
+file oc.0.r72/1737194
+K 10
+Monet.tiff
+V 21
+file od.0.r72/1744281
+K 15
+Monet.xcodeproj
+V 17
+dir wq.0.r87/7859
+K 16
+MonetBlank.monet
+V 21
+file of.0.r72/1727041
+K 16
+Monet_Prefix.pch
+V 21
+file oe.0.r72/1744109
+K 14
+NewMonet.monet
+V 21
+file pn.0.r72/1755266
+K 10
+Play.monet
+V 21
+file pr.0.r72/1746362
+K 11
+Play2.monet
+V 21
+file ps.0.r72/1773870
+K 11
+Play3.monet
+V 21
+file pt.0.r72/1750802
+K 11
+Play7.monet
+V 21
+file py.0.r72/1750972
+K 13
+SpecialView.h
+V 21
+file pv.0.r72/1747206
+K 13
+SpecialView.m
+V 18
+file pw.0.r87/6250
+K 8
+TODO.txt
+V 21
+file q1.0.r72/1751143
+K 9
+Tmp.monet
+V 21
+file q0.0.r72/1768382
+K 16
+TransitionView.h
+V 18
+file q2.0.r87/4338
+K 16
+TransitionView.m
+V 18
+file q3.0.r87/4524
+K 14
+diphones.monet
+V 21
+file lq.0.r72/1729993
+K 13
+diphones.mxml
+V 21
+file lu.0.r72/1724411
+K 17
+dotInspector.tiff
+V 21
+file lv.0.r72/1753363
+K 4
+file
+V 21
+file m9.0.r72/1748745
+K 5
+input
+V 21
+file mb.0.r72/1746873
+K 6
+main.m
+V 19
+file md.0.r76/42101
+K 9
+monet.jpg
+V 21
+file oj.0.r72/1725979
+K 5
+play3
+V 21
+file pq.0.r72/1751310
+K 7
+samples
+V 20
+dir sn.0.r72/1773018
+K 20
+squareInspector.tiff
+V 21
+file px.0.r72/1745309
+K 9
+testthing
+V 21
+file pu.0.r72/1774040
+K 22
+triangleInspector.tiff
+V 21
+file q4.0.r72/1768550
+K 6
+uu.trm
+V 21
+file q6.0.r72/1746711
+K 3
+xml
+V 20
+dir sp.0.r72/1772274
+END
+ENDREP
+id: lh.0.r90/5675
+type: dir
+pred: lh.0.r88/4753
+count: 6
+text: 90 1783 3879 3879 d5b811767a14d8b4510760034c416525
+cpath: /gnustep/trunk/Applications/Monet
+copyroot: 0 /
+
+PLAIN
+K 9
+GnuSpeech
+V 17
+dir kg.0.r90/1612
+K 5
+Monet
+V 17
+dir lh.0.r90/5675
+K 8
+PrEditor
+V 17
+dir un.0.r80/1992
+END
+ENDREP
+id: kf.0.r90/5968
+type: dir
+pred: kf.0.r89/5654
+count: 13
+text: 90 5845 110 110 7798da8cc51ef27f206c808c1fbf2954
+cpath: /gnustep/trunk/Applications
+copyroot: 0 /
+
+PLAIN
+K 12
+Applications
+V 17
+dir kf.0.r90/5968
+K 10
+Frameworks
+V 17
+dir ws.0.r86/1660
+K 7
+Scripts
+V 20
+dir t2.0.r72/1787921
+K 5
+Tools
+V 17
+dir t6.0.r75/4296
+END
+ENDREP
+id: kc.0.r90/6299
+type: dir
+pred: kc.0.r89/5985
+count: 19
+text: 90 6131 155 155 c67955b597221dd2fefa780cc90eed36
+cpath: /gnustep/trunk
+copyroot: 0 /
+
+PLAIN
+K 8
+branches
+V 15
+dir kd.0.r71/71
+K 4
+tags
+V 16
+dir ke.0.r71/146
+K 5
+trunk
+V 17
+dir kc.0.r90/6299
+END
+ENDREP
+id: kb.0.r90/6564
+type: dir
+pred: kb.0.r89/6250
+count: 19
+text: 90 6449 102 102 c8b37b13013cad70449eed03de53b61f
+cpath: /gnustep
+copyroot: 0 /
+
+PLAIN
+K 7
+gnustep
+V 17
+dir kb.0.r90/6564
+K 3
+osx
+V 16
+dir 1.0.r70/1651
+END
+ENDREP
+id: 0.0.r90/6790
+type: dir
+pred: 0.0.r89/6476
+count: 90
+text: 90 6708 69 69 ee98814951ca2ac368a90c803e9cd185
+cpath: /
+copyroot: 0 /
+
+lf.0.t89-1 delete false false /gnustep/trunk/Applications/GnuSpeech/GnuSpeech.xcode
+
+sl.0.t89-1 delete false false /gnustep/trunk/Applications/Monet/Monet.xcode
+
+
+6790 6923

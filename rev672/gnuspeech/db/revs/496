@@ -1,0 +1,145 @@
+PLAIN
+END
+ENDREP
+id: 2.g.r496/17
+type: dir
+pred: 2.g.r495/54
+count: 155
+text: 496 0 4 4 2d2977d1c96f487abe4a1e202dd03b4e
+cpath: /osx/tags/GnuSpeech-0.5.1/trunk
+copyroot: 488 /osx/tags/GnuSpeech-0.5.1/trunk
+
+id: 3gx.o.r496/207
+type: file
+pred: 3gx.c.r303/2388
+count: 7
+text: 303 292 442 4715 ced420e533fd23737cbe4b2feaf56bba
+cpath: /osx/tags/GnuSpeech-0.5.1/README
+copyfrom: 495 /osx/tags/GnuSpeech-0.5.1/trunk/README
+
+PLAIN
+K 12
+Applications
+V 16
+dir 5.h.r489/479
+K 6
+Builds
+V 16
+dir 3hc.i.r490/0
+K 7
+Daemons
+V 18
+dir 3h1.j.r491/404
+K 10
+Frameworks
+V 15
+dir ci.k.r492/0
+K 10
+Installers
+V 16
+dir 3he.l.r493/0
+K 5
+Other
+V 16
+dir 3h4.m.r494/0
+K 6
+README
+V 19
+file 3gx.o.r496/207
+K 8
+Services
+V 18
+dir 3h2.n.r495/247
+K 5
+trunk
+V 15
+dir 2.g.r496/17
+END
+ENDREP
+id: 3ib.0.r496/755
+type: dir
+pred: 3ib.0.r495/763
+count: 9
+text: 496 418 324 324 049be6c13694ccb9f7837619a7a97b97
+cpath: /osx/tags/GnuSpeech-0.5.1
+copyroot: 0 /
+
+PLAIN
+K 13
+GnuSpeech-0.5
+V 14
+dir 2.f.r301/0
+K 15
+GnuSpeech-0.5.1
+V 18
+dir 3ib.0.r496/755
+END
+ENDREP
+id: 4.0.r496/1018
+type: dir
+pred: 4.0.r495/1026
+count: 13
+text: 496 917 88 88 830006d543c9ae249710bbbeb9dfd0e6
+cpath: /osx/tags
+copyroot: 0 /
+
+PLAIN
+K 8
+branches
+V 13
+dir 3.0.r1/65
+K 4
+tags
+V 17
+dir 4.0.r496/1018
+K 5
+trunk
+V 17
+dir 2.0.r487/2070
+END
+ENDREP
+id: 1.0.r496/1275
+type: dir
+pred: 1.0.r495/1283
+count: 159
+text: 496 1161 101 101 76584b5cd7320567883ae6f568141d09
+cpath: /osx
+copyroot: 0 /
+
+PLAIN
+K 4
+docs
+V 18
+dir 2w8.0.r159/538
+K 7
+gnustep
+V 18
+dir kb.0.r473/1245
+K 4
+misc
+V 18
+dir 38v.0.r160/333
+K 8
+nextstep
+V 19
+dir 14l.0.r155/8758
+K 3
+osx
+V 17
+dir 1.0.r496/1275
+END
+ENDREP
+id: 0.0.r496/1605
+type: dir
+pred: 0.0.r495/1613
+count: 496
+text: 496 1417 175 175 1a4cfab21825cd7825b50a52ad4c0f8b
+cpath: /
+copyroot: 0 /
+
+3gx._0.t495-1 add false false /osx/tags/GnuSpeech-0.5.1/README
+495 /osx/tags/GnuSpeech-0.5.1/trunk/README
+3gx.c.r303/2388 delete false false /osx/tags/GnuSpeech-0.5.1/trunk/README
+
+
+1605 1744

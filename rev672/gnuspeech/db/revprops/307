@@ -1,0 +1,13 @@
+K 10
+svn:author
+V 9
+dbrisinda
+K 8
+svn:date
+V 27
+2009-03-12T17:07:29.028111Z
+K 7
+svn:log
+V 107
+Modified copyright information in the Info.plist file for the GnuSpeech service from CC-GNU GPL to GNU GPL.
+END
