@@ -1,0 +1,158 @@
+{\rtf0\nextcset {\fonttbl{\f20\froman Times-Roman;}{\f3\fswiss 
+Helvetica;}}
+\paperw12240\paperh15840 \margl1800\margr1800\margt0\margb0 
+\pgnstart1\ftnstart1 \deftab31680 \sectd\sbknone \linemod0\linex0 
+\ftnbj \headery0\footery0 \cols1 {\header \pard \li0\ri0\fi0\qc\sl320 
+\plain \f3 \par 
+\par 
+\par 
+\par 
+}{\footer \pard \li0\ri0\fi0\qc\sl320 \plain \f3 \par 
+\par 
+\par 
+\par 
+}\pard \li0\ri0\fi0\sl320 \tx360 \tx6120 \plain \f20\b 
+SpeechManager Help\b0 \par 
+\par 
+\tab SpeechManager provides the ability to customize the 
+execution characteristics of the TextToSpeech server for 
+any given system.  Because each system is different 
+in its configuration and computing load, it is not possible 
+give a general configuration which will be best for 
+all systems.  To ensure the best possible configuration 
+for your system, it is recommended that the concepts 
+outlined under \'aaThe Mach Operating System\'ba in the 
+NEXTSTEP Developer Documentation be understood.  \par 
+\par 
+\tab Under NEXTSTEP 3.0, 3.1, and 3.2 some users reported 
+that the speech output \'aacrackled\'ba.  This cracking 
+is due to the inability of the TextToSpeech system to 
+compute speech quickly enough.  This problem is generally 
+found on systems which are integrated into networks, 
+systems with a higher than normal computing load, and 
+Color Stations.  One of the main purposes for SpeechManager 
+is to allow the user to increase the amount of CPU 
+time for the Speech server to eliminate interruptions 
+in speech output.\par 
+\par 
+\tab The following is a description of the various customizable 
+functions available to the user.  Characteristics set 
+using this program are saved in the TextToSpeech Defaults 
+Database and are invoked each time the TextToSpeech server 
+is executed.\par 
+\par 
+\b General Guidelines\b0 \par 
+\par 
+\tab Most systems work well with the default TextToSpeech 
+Kit configuration.  However, if \'aacrackling\'ba does 
+occur, here are some general guidelines to follow:\par 
+\par 
+\tab \'b7 The goal is to determine the best configuration 
+for the system.  Optimal results are obtained when speech 
+output is continuous and a minimal amount of system 
+resources are consumed.  Experiment with different configurations 
+to see if the results are satisfactory.\par 
+\par 
+\tab \'b7 If speech output crackles only at the beginning 
+of sentences and phrases, consider increasing the \'aaSilence 
+Prefill\'ba parameter.\par 
+\par 
+\tab \'b7 If speech output crackles throughout, start 
+by experimenting with a higher Mach Priority and Time 
+Quantum.  If the problem persists, consider adopting 
+a Fixed Priority scheduling policy.\par 
+\par 
+\tab \'b7 Remember that values set on the TextToSpeech 
+Server panel take effect after the \'aaSet\'ba button 
+is clicked.\par 
+\par 
+\b TextToSpeech Server Information\b0 \par 
+\par 
+\tab Information about the TTS_Server for this system 
+is reported in this box.  The current server version 
+and date of last compilation is reported in the first 
+field.  The next two fields refer to the main dictionary; 
+ the first is the version of the dictionary file /LocalLibrary/TextToSpeech/system/MainDictionary. 
+ The second field reports which version of the main 
+dictionary your TTS_Server is compiled to run with.  
+If these version strings are not identical, contact \i 
+Trillium\i0  (at the address on the info panel) and 
+describe the problem.  The final field reports the current 
+Process ID of the TTS_Server.\par 
+\par 
+\b Scheduling Policy\b0 \par 
+\par 
+\tab Scheduling policy of the TTS_Server can be set 
+using the radio buttons in the \'aaScheduling Policy\'ba 
+box.  The default policy is \b Time Share\b0 .  The 
+timesharing policy allows processes to be pre-empted from 
+executing so that other processes may execute.  However, 
+since the TextToSpeech server is required to run in 
+real-time (otherwise speech output will be interrupted) 
+some systems may require that the server adopt the \b 
+Fixed Priority\b0  policy.  Under fixed priority, the 
+server's priority will not degrade to let other processes 
+execute.  \b Time Share\b0  policy is recommended as 
+it has the least impact on the performance of other 
+processes.  For more information about scheduling policies, 
+see \'aa4 Mach Functions\'ba in the NeXT Developer Documentation.\par 
+\par 
+\b Mach Priority\b0 \par 
+\par 
+\tab Under NEXTSTEP, each process has a priority.  The 
+higher the priority, the more likely the program is 
+to be executed.  In the \'aaMach Priority\'ba box on 
+the TextToSpeech Server panel, the priority of the TextToSpeech 
+server can be set.  If speech output is interrupted 
+(ie, it crackles) increase the priority and click the 
+\'aaSet\'ba button.  NOTE: Setting the priority higher 
+will reduce the CPU time available to other programs 
+and their performance may be degraded as a result.  
+Experiment with different priorities to determine which 
+priority is best for your system.\par 
+\par 
+\tab For more information about system priorities, see 
+\'aa1 Mach Concepts\'ba in the NeXT Developer Documentation.\par 
+\par 
+\b Silence Prefill\b0 \par 
+\par 
+\tab To produce speech output in real-time, large amounts 
+of data are transferred between the main CPU and the 
+DSP through DMA.  When speech output begins, it may 
+be interrupted if the system DMA buffers have not yet 
+stabilized.  It is possible to alleviate this problem 
+by injecting silence at the beginning of the speech 
+stream so that the DMA buffers will have stabilized 
+by the time speech output begins.  Silence is inserted 
+in 25 ms units and the default is 1 unit of silence. 
+ The user can select 1 to 5 units of silence and 
+it is best to experiment to determine what amount of 
+silence is best for your system.  NOTE: More silence 
+at the beginning of the speech stream will increase 
+the latency at which speech output begins.\par 
+\b \par 
+Time Quantum\b0 \par 
+\par 
+\tab The amount of CPU time that a process is given 
+when it is invoked by the scheduler is called its \b 
+Time Quantum\b0 .  The user can set the server's time 
+quantum to values between 15 ms and 350 ms.  Adjusting 
+this parameter seems to have little effect on most systems 
+but does have a beneficial effect on some.  If you 
+find that a large time quantum has little effect on 
+your system, it is recommended that you keep it set 
+to its default value of 15 ms.\par 
+\b \par 
+Terminate Inactive Speech Server\b0 \par 
+\par 
+\tab The TextToSpeech Kit was designed to provide seamless 
+integration into the NEXTSTEP environment.  By default, 
+when the TextToSpeech server determines that it is inactive 
+(ie. that it has no connections to executing processes), 
+it shuts itself down to minimize its usage of system 
+resources.  Whether or not the TextToSpeech server terminates 
+upon becoming inactive can be set through the switch 
+at the bottom of the panel.  \par 
+\par 
+\par 
+}

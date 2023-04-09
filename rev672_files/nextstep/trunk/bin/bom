@@ -1,0 +1,10 @@
+# generate bom file
+echo -n "       generating bill of materials file ... "
+/bin/cat $1 -f | /NextAdmin/Installer.app/installer_bigtar tvf - >mine
+echo "done."
+        
+# compute number of files in package
+echo `/bin/cat mine | wc -l`
+
+
+# end package

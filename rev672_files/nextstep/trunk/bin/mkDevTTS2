@@ -1,0 +1,11 @@
+mv /LocalLibrary/TextToSpeech/system/SerialNumber /tmp
+
+
+/NextAdmin/Installer.app/installer_bigtar -cfp TextToSpeech.tar /usr/local/bin/say /usr/local/man/man1/say.1 /usr/local/bin/tube /LocalDeveloper/Headers/TextToSpeech/TextToSpeech.h /LocalDeveloper/Headers/TextToSpeech/TTS_types.h 
+
+
+/NextAdmin/Installer.app/installer_bigtar -ufp TextToSpeech.tar /LocalApps/TextToSpeech /LocalLibrary/Devices /LocalLibrary/TextToSpeech /LocalLibrary/Fonts/Phonetica.font /LocalLibrary/Fonts/Lexical.font 
+
+/NextAdmin/Installer.app/installer_bigtar -ufp TextToSpeech.tar /LocalLibrary/Fonts/Trillium-Phonetic.font /usr/local/lib/libTextToSpeech.a
+
+mv /tmp/SerialNumber /LocalLibrary/TextToSpeech/system/SerialNumber

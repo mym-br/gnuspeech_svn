@@ -1,0 +1,2122 @@
+<!DOCTYPE HTML PUBLIC *-//W3C//DTD HTML 4.0 Transitional//EN*><HTML>
+<HEAD>
+<TITLE>Manual for the MONET speech synthesis engine and parameter editor</TITLE>
+</HEAD>
+
+<BODY ALINK=Green VLINK=Purple LINK=Blue>
+
+<CENTER>
+<H1>
+Manual for the MONET<A HREF="#foot1"><SUP><FONT SIZE=+1>(1)</FONT></A></SUP><A NAME=back1></A> speech synthesis<BR>
+engine and parameter editor<BR>
+<FONT SIZE=-1>(GnuSpeech Version 1.0)</FONT></H1>
+</P><P>
+David R. Hill, P.Eng.</P><P>
+© 1993, 1994, 1995, 2001, 2002 David R. Hill.  All rights reserved.</P>
+
+<H2><FONT COLOR="red">
+Note: this manual is a draft, under development.
+</FONT>
+</H2>
+</CENTER>
+
+<P><TT><FONT SIZE=-2>
+Permission is granted to anyone to copy, distribute and/or modify this document under the terms of the GNU Free Documentation Licence, Version 1.1 or any later version published by the Free Software Foundation (<A HREF="http://www.gnu.org/copyleft/fdl.html"> http://www.gnu.org/copyleft/fdl.html</A>); with invariant sections being Appendices A, B, C and D and all copyright information; and with the Front-cover text being: (1)Manual for the MONET speech synthesis engine and parameter editor; (2)original author David R. Hill and (3) a list of all revision authors; and with the back cover text being: (1)the ISBN; (2) the statement of the purpose of the <I>MONET</I> system; and (3) a summary of the revisions made.  A copy of the licence is included in the section entitled "GNU Free Documentation Licence".
+</FONT></TT></P>
+
+<A NAME="summary">
+<CENTER>
+<H2>
+SUMMARY</H2>
+</CENTER>
+
+<P>
+<BLOCKQUOTE>
+<I>MONET</I> is a generalised speech synthesis database editor and manager, and synthesiser parameter generation engine, that forms part of the TextToSpeech Experimenter Kit--a tool designed for speech researchers.  Those interested in speech synthesis, speech production, or speech perception research will find the tool provides precise access to the timing and nature of speech events that, put together, form spoken language.  This tool also opens up the possibility of experiments and training programs related to speech pathology, speech therapy and the process of acquiring spoken language.  Although designed with the richness needed to manage an articulatory synthesiser, it can equally well be used to manage the databases associated with other parametric synthesis methods.</P><P>
+<I>MONET</I> is designed around a conceptual speech synthesis framework of speech postures, speech events, precisely controllable timing, and precise interpolation specifications.</P><P>
+<I>MONET</I> allows researchers to create new speech databases for synthesising speech (fragments or complete utterances), using a variety of synthesisers, by providing tools for:<BR>
+<UL>
+<li>defining and editing: sound symbols related to speech postures; synthesiser parameters names and value ranges; time framework symbols and equations; meta-parameter names and value ranges; event-times; interpolation profiles; and the occurrence of special events;<BR>
+<li>setting and editing: the synthesiser parameter targets that define the speech postures associated with the basic sounds of a target language;<BR>
+<li>generating: rhythm and intonation specifications automatically;<BR>
+<li>creating and editing: rhythm and intonation specifications, or customising automatically generated specifications.
+</UL>
+
+<P>
+
+<I>MONET</I> automatically provides defaults for any component that has not been explicitly defined.
+</P>
+
+<P>
+This manual outlines the background to understand <I>MONET</I>, provides a description of how to use it to create and modify synthesis databases, and how to generate utterances for test and demonstration purposes.  The same synthesis engine is used in the TextToSpeech kits intended for developers and end users, and in particular for <I>GnuSpeech</I>, the speech synthesis program that forms part of the GNU Project.  The whole software suite, kits, developer tools, experimenter tools, databases, and proprietary software for building and testing these items, which was originally developed by <I>Trillium Sound Research Inc.</I> for the <I>NeXT</I>, and for <I>NeXTSTEP</I> for Intel (NSFIP) operating systems, has been donated to the <A HREF="http://www.gnu.org"><I>Free Software Foundation</I></A> and is now being released under a <A HREF="http://www.gnu.org/copyleft/gpl.html">General Public License</A> as <I>GnuSpeech</I>.  For those with <I>NeXTSTEP</I> Versions 3.0 to 3.3, the original software just runs.  For the rest, the software will be ported over time, initially to FSF's <I>GnuStep</I> and possibly to <I>OpenStep</I>, and in principle to any operating system.  Volunteers for this work are welcome.  Real-time performance and sophistication of the computer-human interface will, of course, depend on the power and facilities of the platform hardware and OS to which any port is made.
+</P>
+
+<P>
+Note that both <I>MONET</I> and this manual are in the process of development.  Both have a number of flaws, but the system has successfully been used to create a complete database for articulatory synthesis of spoken English that has received favourable reviews.  Comments, suggestions and help in ongoing development are solicited.
+</P>
+
+<P>
+There are many images in the manual which require reasonable resolution to be visible.  All the diagrams have been presented as thumbnails in the text.  Clicking on the thumbnail will bring up the full resolution images in a new browser window.  The window may be closed or hidden when no longer needed.  If it is hidden, remember that it is likely to remain hidden even if a new image is brought up, and it will be necessary to unhide the window to see the new image.  Footnotes provide explicit backwards links so that the referrents for footnotes may be traced from the footnotes themselves.  Of course, the back button has its usual effect if the footnote is accessed from the text in the normal way.
+</P>
+
+<P>
+Some appendices related to the original research and development are attached, and will be found helpful.  Readers are also strongly recommended to read <A HREF="../avios95/index.html"> <I>Real-time articulatory speech-synthesis-by-rules</I></A> by Hill, Manzara & Schock (1995) as background to this manual, and <I>GnuSpeech</I> in general.
+</BLOCKQUOTE>
+</P>
+
+<CENTER>
+<IMG SRC="./images/palette.jpg" SIZE HEIGHT=60 WIDTH=60></A>
+</CENTER>
+
+<A NAME="purpose">
+<H2>
+Purpose of the system
+</H2>
+<P>
+<I>MONET</I> allows speech researchers to understand and create the databases needed to drive a variety of parametrically driven speech synthesisers in order to test theories of speech production and perception, or to synthesise different languages.  The original purpose of <I>MONET</I> was to develop a system to allow spoken language to be synthesised automatically by machines with greater fidelity and control than has previously been possible, based on a new articulatory model derived from work by Fant, Carré and others <A HREF="http://www.cpsc.ucalgary.ca/~hill/papers/avios95">(Hill, Manzara & Schock 1995)</A>.
+</P>
+
+<P>
+The development system that had to be created provides close control over arbitrary speech postures, timing, and interpolation.  All relevant information used for this purpose is formalised and quantified by rules, equations and values that can be extended and edited. As a result <I>MONET</I> also provides a very useful tool for psychophysical experiments related to speech production, and speech perception.  Apart from creating the detailed parameter variations needed to produce the best speech, the system may also be used for the generation of speech stimuli based on systematic changes in arbitrary parameters.  Because the articulatory configurations involved in speech can be controlled directly and simply, instead of being approximated by spectral derivations, there exist the further possibilities of experiments and training programs related to speech pathology, speech therapy and the process of acquiring spoken language.</P><P>
+</P>
+
+
+<CENTER>
+<IMG SRC="./images/palette.jpg" SIZE HEIGHT=60 WIDTH=60></A>
+</CENTER>
+
+<A NAME="introduction">
+<H2>
+Introduction</H2>
+<P>
+Unrestricted speech synthesis-by-rules conventionally uses methods developed in the 50s and 60s to simulate speech production by feeding information about spectral features to a source-filter model of the vocal apparatus comprising a pulsed energy source, and a set of filters that approximate the resonant properties of the oral and possibly nasal passages on the human head [e.g. Lawrence (1953); Fant (1956)].  Following Tatham (see below) modelling at this level may be termed "low-level" synthesis.  "High-level" synthesis is then needed to provide the data required to make the low-level synthesiser speak a particular language.  Work by other researchers provided the data and methods (high-level synthesis) needed to drive these models to produce synthetic speech [e.g. Liberman, et al. 1959; Holmes et al. 1964)].  The overall approach has been given a variety of names, but formant synthesis seems the most descriptive, since the variable driving data mainly comprises the centre frequencies of the resonances of the vocal tract  (correlated with the output spectrum frequency peaks or <I>formants</I>) interacting with the energy input from the vocal folds and various noise sources formed by the passage of air through constrictions in the tract, perhaps associated with vibrations of fleshy parts such as the tongue.  <I>DECtalk</I> and its look-alikes is a formant synthesis approach and is widely used.
+</P>
+
+<P>
+More recently, techniques for concatenating waveform segments derived from natural speech have been developed which partially overcome problems encountered with the concatenation approaches developed in the early daywhen the approach was first trieds (problems of joining fixed segments, and managing pitch independently of the sound spectra).
+</P>
+
+<P>
+Both formant and concatenation methods still suffer from restrictions of various kinds that interfere with the potential for naturalness in unrestricted speech--though, for restricted purposes, concatenated natural speech can be very effective.  Waveform concatentation is the principle method underlying the <I>Festival</I> system at <A HREF="http://www.cstr.ed.ac.uk">Edinburgh University's <I>Centre for Speech Technology Research</I></A>.  This project modularises thge synthesis process so that researchers can work on a single module (say intonation management) without having to create and manage the entire synthesis process.
+</P>
+
+<P>
+Mark Tatham's <A HREF="http://speech.essex.ac.uk/speech/"><I>SPRUCE</I> project</A> at the University of Essex (UK)  is described as a system that provides the high level synthesis needed to drive both formant synthesis and concatentation synthesis.  The emphasis appears to be on concatenation synthesis.
+</P>
+
+<P>
+In 1993/4, building on fundamental work by Carré, Fant and others (e.g. Fant & Pauli 1974; Carré & Mrayati 1994), Hill, Manzara and Schock (1995) developed an improved version of the source filter model that uses a waveguide approximation to the vocal tract and thereby provides an <I>articulatory model</I>, also called a tube model or waveguide model.  Such a model emulates rather than simulates the resonant behaviour of the vocal tract because the tube behaviour modelled maps directly onto the articulatory and acoustic characteristics of the real vocal tract and nasal passage tube structures rather than simply imitating the resonance-mediated output.
+</P>
+
+<P>
+The previous barriers to using a tube model for speech were two-fold.  First there was the problem of controlling the many sections required for the tube approximation, in real-time, without instability or self-defeating approximations<A HREF="#foot2"><SUP>2</SUP></A><A NAME="back2">; and secondly there was the problem of providing the complete database that represented the behaviour of a real vocal apparatus<A HREF="#foot3"><SUP>3</SUP></A><A NAME="back3"> speaking a particular language.
+</P>
+
+<P>
+The work of Fant, Carré and their colleagues provided the theoretical basis for solving the control problem for the tube model.  Based on a formant sensitivity analysis by Fant and his colleagues, Carré and Mrayati devised what they call the <B>Distinctive Region (DRM) Model</B> that provides an accurate model of articulation, related to the known properties of the real vocal tract, that requires only eight independently controlled sections instead of the forty or so that seem to be needed if the properties of speech are ignored.  The topic is discussed more fully in <A HREF="../avios95/avios95.htm">the paper by Hill, Manzara & Taube-Schock (1995)</A> "Real-time articulatory speech synthesis by rules".  The controlled sections correspond closely to the distribution of articulatory possibilities in the vocal tract so that, even though the traditional parameters such as jaw rotation, tongue height, and so on are not used directly, the model is truly an articulatory model, and the traditional parameters could be used to define the changes in the DRM regions.  Provision for this intended extension has been made in the basic framework of the system now to be described.  It was necessary to make the DRM model practical, and to create the needed database to provide the high-level synthesis component to complement the low-level synthesis possibilities of the DRM-based <I>Tube Model</I>.  <I>MONET</I>, a tool originally developed by the author and his colleagues at Trillium Sound Research Inc. was the tool for this high-level synthesis component.
+</P>
+
+<P>
+A paper is in preparation to describe in detail how the database was built, what it contains, and (to some extent) why<A HREF="#foot4"><SUP>4</SUP></A><A NAME="back4">.  However, since all the kits, tools, and databases used in the development are now available under a General Public Licence (<A HREF="http://www/gnu.org/copyleft/gpl.html">http://www/gnu.org/copyleft/gpl.html</A>), the databases can already be examined and modified by those interested using <I>MONET</I>.  The relevant standard file for the speech sounds in the current version of these kits is <I>diphones.monet</I>.  If any use is made of this file, it is recommended that a copy be made to avoid corrupting the original.  This is a normal precaution when experimenting with <I>any</I> computer data.  When <I>MONET</I> is started, the first action (unless an entirely new database is being built) should be to open the file <I>diphones.monet</I> or whichever <I>&#60;filename&#62;.monet</I> file is being worked on.  The <I>&#60;filename&#62;.monet</I> file contains definitions of the steady articulatory configurations of the tube model for each of the sounds to be synthesised (we call the articulatory configurations <B>postures</B>--see below), along with rules describing how to co-articulate the various postures as <I>diphones</I>, <I>triphones</I> or <I>tetraphones</I>.
+</P>
+
+<P>
+<I>MONET</I> also makes provision for creating pitch contours to control the variation in pitch (<B>intonation</B>) over an utterance comprising a number of successive postures, and has a built-in rhythm model that deals with relative and absolute time duration of postures.  The rhythm model is derived from research on British English speech by Hill, Jassem & Witten (e.g. Hill, Jassem & Witten 1979, Jassem, Hill & Witten 1984).  The intonation model is broadly based on Halliday's model of intonation in spoken English (Halliday 1970), and is integrated with the rhythm model as it has to be.  Indeed, it is not possible to describe the Halliday intonation model without also specifying the rhythmic structure.
+</P>
+
+<P>
+In dealing with the machine perception and production of speech, a number of technical terms must inevitably be used in order to achieve precision of expression..  The reader's attention is drawn particularly to the terms associated with speech sounds (<I>phones, phonemes, postures,</I> etc) and the basic concepts associated with <I>rhythm</I> and <I>intonation</I>.  <A HREF="http://www.cpsc.ucalgary.ca/~hill/papers/conc">"A conceptionary for speech and hearing in the context of machines and experimentation"</A> (Hill 1991) provides a source of such conceptual knowledge.
+</P>
+
+<P>
+ <I>Phonemes</I> are not speech sounds.  They are <I>categories</I> of speech sounds.  Sounds fall in the same phoneme category for a given language if the difference between them does not distinguish words in that language.  Thus the sounds in a given phoneme category--called <I>allophones</I>--may be quite varied acoustically, and may result from a variety of quite different articulatory causes.  Sounds in the same phoneme category may be as different acoustically as upper and lower case letters are visually (consider the acoustic realisation of the English /r/ sound across various dialects).  Equally, allophones from different phoneme categories may be rather similar acoustically (for example, the actual sounds produced as different vowel phonemes may overlap for different speakers and phonetic contexts).  This is why we prefer to work from the concrete basis of speech postures.  Speech postures can easily be related to the phoneme categories of a language, but they are not phonemes.  A series of postures articulated in succession, will produce a series of <I>phones</I> (instantiations of phonemes--particular allophones of that phoneme).  Thus the term phone is sometimes used interchangeably with posture, but the postures in any series interact with and modify each other, which is why the phones representing the same phoneme in different contexts are different.  Thus, especially for an articulatory speech synthesiser, the postures and associated interpolation rules, plus special events, time quantities, and intonation contours (or, following Halliday, <I>tones</I>), are the truly basic entities.  The notation /r/ represents the phoneme for the "r" sound in any English dialect while [r] represents a particular allophone of the /r/ phoneme.  These are called broad and narrow transcriptions respectively when the notation is used to transcribe utterances.  The broad transcription is a very high-level transcription that assumes an understanding of a particular dialect to fill in the missing details that describe the sounds accurately.  The narrow transcription uses all kinds of additional annotations, called diacritical marks, to indicate the exact properties of the sounds of a given utterance.  Thus a broad transcription is phonemic while a narrow transcription is phonetic and describes the individual allophones explicitly.  The full gory details of this topic may be pursued in any decent text on phonetics or phonology.
+</P>
+
+<P>
+Version 1.0 of <I>MONET</I> is complete in the sense that it has been successfully used to create a complete articulatory database for spoken English, including rhythm and intonation, but is still under development to provide additional productivity-enhancing features such as links between various data views and editing tools.  Various bugs also need to be fixed, and all components are the subject of ongoing research.  However, as noted, <I>MONET</I> was one of the tools used to create the databases associated with Trillium's unique TextToSpeech system based on articulatory synthesis.  The other components used in that work included Trillium's interactive tube-model-based Synthesiser system, together with spectrographic analysis and display tools, dictionaries, and so on.  <I>Trillium Sound Research Inc.</I> no longer exists, but as a last act of the copmany, the software and databases developed by Trillium were donated to the <A HREF="http://www.gnu.org"><I> Free Software Foundation</I></A>, under a <A HREF="http://www.gnu.org/copyleft/gpl.html">General Public Licence</A>, and have collectively been dubbed <I>GnuSpeech</I>.  The port to GNU/Linux and the further development of the software are now part of the GNU Project.  The system is suitable for speech output for end users, incorporation of speech output into applications by software developers, for use in speech research by university and industry research laboratories, as well as for further development of speech synthesis methods and additional languages.
+</P>
+
+<CENTER>
+<IMG SRC="./images/palette.jpg" SIZE HEIGHT=60 WIDTH=60></A>
+</CENTER>
+
+<A NAME="sysoviewetc">
+<H2>
+System overview and rationale
+</H2>
+
+<A NAME="sysoviewintro">
+<H3><I>Introduction</I></H3>
+
+<I>MONET</I> is organised around a time/parameter-value framework that assumes speech is formed by a vocal apparatus moving successively from one vocal <B>posture</I> to another, under contextual influences.  Sounds affect neighbouring sounds even when they are not immediately adjacent.  Silence (as when not speaking) is a posture, just as much as any vowel or consonant posture, and its specification may equally depend on the context.  Postures are also referred to as <B>phones</B> (but <I>not</I> <B>phonemes</B> which are categories of sound whose realisations vary according to their specific phonetic context and other factors).
+</P>
+
+<P>
+<I>MONET</I> assumes that speech is to be produced by a speech synthesiser that is controlled by feeding varying parameters to it at some time rate.  No assumptions are made about the nature of the synthesiser, except for the assumption that there is a special parameter controlling pitch variation that will be manipulated specially in order to provide intonation contours.  This special manipulation can be turned off, and pitch then treated like any other parameter, but that is not usual.  The small pitch variations associated with articulation, which arise from the effect of changes in air pressure across the <B>vocal folds</B> (<B>glottis</B>), changes in <I>vocal fold</I> tension caused by articulation, and the like (<B>microintonation</B>), are handled by a mechanism called <B>Special Parameter Prototypes</B>.  The same mechanism handles special variations to other parameters according to the postures involved.  Special parameter variations are superimposed on the general parameter variations by "linear superposition" (that is, the effects of parameter specifications from all sources are added together linearly to produce the final values sent to the synthesiser). Thus <I>Special Parameter Prototypes</I> are used to handle <I>microintonation</I> and to introduce phenomena such as noise bursts, which must be superimposed on any existing noise parameter variations.
+</P>
+
+<P>
+It is assumed that each posture (corresponding to a vocal tract configuration) can be defined in terms of the parameters used to control the synthesiser, but that the parameter values so defined are not necessarily the same for all instantiations (realisations) of the posture--they likely vary with context and other factors; nor do they necessarily take on their characteristic values at the same time--for an articulatory synthesiser, the lips and tongue move independently, whilst for a formant synthesiser, the formant transitions may not be synchronised.
+</P>
+
+<P>
+The time framework is constructed starting with a framework (<B>Major Event Times</B> and <B>Posture Targets</B>) that is based on fixed posture targets occurring at fixed times, but the system then provides mechanisms for specifying departures from the framework in a very flexible and comprehensive manner.  In particular, although the underlying time framework exists, the main governing principle for time rests on the occurrence of speech events--times at which changes in parameter rates (and therefore perceptual manifestations) begin and end, based on the changing acoustics.  The target-time framework is simply a foundation for building the more complex reality.  The view is related to research on muscle action groups due to William Condon and his associates (e.g. 
+</P>
+
+<P>
+Since we have used <I>MONET</I> exclusively for working with our tube-model-based articulatory synthesiser, the remainder of this document will assume such a synthesiser, in order to provide concrete examples when discussing synthesiser-related concepts and actions.  An account of the synthesiser appears in <A HREF="http://www.cpsc.ucalgary.ca/~hill/papers/avios95">(Hill, Manzara & Schock 1995)</A>.
+</P>
+
+<CENTER>
+<IMG SRC="./images/monet.jpg" SIZE HEIGHT=60 WIDTH=60></A>
+</CENTER>
+
+<A NAME="sysoviewcomp">
+<H3><I>Main components, subsystems and databases
+</I></H3>
+
+It should be emphasised that <I>GnuSpeech</I> includes a complete database as required for <I>MONET</I> and the tube model synthesiser, and it is not necessary to create databases in order to produce reasonable speech output (including intonation and rhythm).  In fact, although some <I>MONET</I> components provide the "brain" that translates input text into the parameters to drive the synthesiser (Tatham's "high-level" synthesis), the end user interested only in the existing speech out capability of <I>GnuSpeech</I> will not need to have any understanding of <I>MONET</I> at all.  For such purposes, the system is well hidden.  However, the capabilities of <I>MONET</I>, as already discussed, go far beyond providing a fixed speech output means.
+</P>
+
+<P>
+The broad divisions of <I>MONET</I> include:
+<UL>
+<LI>data entry (setting up the parameters, time symbols and posture data);
+<LI>equation prototype management (creating and editing the equations governing the timing of events, and other time values that may need to be computed);
+<LI>parameter prototype management (creating and editing parameter interpolation and special event methods using timing derived from basic time and target definitions according to formulae ("formulas", equations) that may be defined arbitrarily; the synthesiser parameter prototypes for the different parameters needed to create a given <I>n</I>-phone can all be different, and will implicitly define deviations in timing and target values, as well as the actual shape of the movements required;  which prototypes are used is governed by the rule for the particular <I>n</I>-phone context, as set up during rule creation);
+<LI>rule creation (specifying what combinations of postures are relevant when choosing interpolation methods, as above); and
+<LI>speech synthesis (in which symbol strings may be converted into the parameters needed to drive the synthesiser, in order to hear speech created according to the current database of nominal targets, nominal timing, and actual interpolation rules).
+</UL>
+Thus, beyond the general framework of postures having parameter target values and transitional specifications, and universal facilities for adding explanatory comments to the database elements (accessible through the inspector panel in its various forms), the <I>MONET</I> database comprises in detail:
+<UL>
+<LI>posture names which may be assigned arbitrarily;
+<LI>data  associated with each posture to define the nominal targets, nominal durations of components, and the like, accessible as meaningful symbols chosen by the user;
+<LI>equations defining durations or event times, accessible as symbols (which may be used in the computation of additional symbols, or in the specification of points in the interpolation templates;  they could also be used to modify target values);
+<LI>parameter variation prototypes (interpolation templates) which can be applied in arbitrary ways to arbitrary individual parameters for arbitrary posture combinations;
+<LI>special parameter variation prototypes to manage added speech events that are superimposed on the general framework (for example, noise bursts, microintonation, and the like);
+<LI>context sensitive rules to specify which prototypes apply to which parameters and when;
+<LI>meta-parameters (higher level parameters) that allow synthesiser parameter variations to be derived from a higher-level representation framework including  such items as tongue position, jaw rotation, lip rounding etc, based on further defined symbols, derived symbols, and equations.  The intention is to allow synthesis to be defined on the basis of physical articulator movement which can fairly readily be converted to the lower-level tube radii. Meta-parameters are not yet in use or even defined.  This would be a useful next step in developing the system.
+
+</UL>
+
+<P>
+These broad divisions correspond to the various subsystems and data structures that together comprise <I>MONET</I>.  The overall database itself is keyed by the postures and posture combinations that, accessed sequentially, create continuous speech.  <I>MONET</I> allows for the contextual effects of up to four adjacent postures (tetraphones).  The system could be modified to take more context into account, if necessary.  For the <I>GnuSpeech</I> system, this has so far proved unnecessary.  Context-dependency is equivalent to using diphones, triphones or tetraphones as a basis for synthesis, and allows various co-articulation effects and specific consonant clusters to be handled effectively and efficiently.  Context matching is based on logical operations on combinations of postures (phones) and categories of postures (such as "<B>nasal</B>", or "<B>voiceless stop</B>", in the current database).</P>
+
+<A NAME="screenb">
+
+<A HREF ="./images/screenb.jpg" TARGET="new"><IMG SRC="./images/.thumbnails/screenb.aa.jpg.png" SIZE WIDTH=160 HEIGHT=140 ALIGN=left HSPACE=60 VSPACE=20>
+</A>
+<SPACER TYPE=vertical SIZE=20>
+
+
+<P>
+<A HREF="images/screenb.jpg" TARGET="new"><STRONG>Fig 1:</STRONG> <I>Full screen view of MONET in use</I></A><BR>
+</P>
+
+<P>
+Figure 1 shows the appearance of the full <I>MONET</I> screen during normal operation.  Only the <B>Data Entry</B> window, <B>Inspector Panel</B>, and <B>Rule Builder</B> window have been opened, using the <B>Panels</B> menu, which has been "torn off" the <B>MONET</B> (Main) menu at the top left of the screen.  The phone (posture) "aa" was been selected, and the Inspector Panel has become a <B>Phone Inspector</B> showing the parameter values for the phone target.  The radius of DRM region 5 ("r5") was selected, and the precise value is shown in the box at the bottom of the Inspector.  At the moment of the screen shot, the operator had just selected the pull-down menu on the <B>Data Entry</B> window, which therefore shows all the data entry possibilities (the cursor is visible on the pull down menu).
+</P>
+<BR CLEAR=left>
+<SPACER TYPE=vertical SIZE=20>
+
+
+<P>
+The major subsystems in <I>MONET</I> corresponding to the above divisions/functions, and accessible from the <I>Panels</I> menu, are:
+<OL TYPE=i>
+
+<li><B>Inspector</B> (Brings up a standard <I>Inspector</I> panel which fulfills many rôles, depending on the window that is selected as <I>key window</I>, and also on the pull-down menu selection on the inspector itself; it is fundamental to most <I>MONET</I> operations);
+<li><B>Data Entry</B> (Allows: phone symbols to be defined; categories for the symbols to be set up; parameters and meta-parameters relevant to the synthesiser used to be designated; and symbols to be defined for use in computational formulae.  Using the inspector, actual parameter targets for each posture can be defined for both normal and special parameters);
+<li>the <B>Rule Builder</B> (<I>Rule Window</I> and <I>Rule Parser</I>) (Allows: parsing rules to be defined that determine what transition profiles are used to control the different parameters that must be specified for groups of phones, from diphones to tetraphones--time-synchronisation of the phone target values only occurs at <I>n</I>-phone boundaries);
+<li>the <B>Prototype Manager</B> (Has three modes that allow:(1) equations governing necessary computations to be defined; and both (2) normal and (3) special parameter transition profiles to be defined, named and categorised.  The named entities may then be assigned to govern appropriate rule processing components in an arbitray way.  (1) involves the use of the <I>Inspector Panel</I> while (2) and (3) involve the use of the <I>Transition Builder</I> (see next) and <I>Inspector</I> together);
+<li>the <B>Transition Builder</B> (Allows the form of transition, including deviations in time course and target value, to be defined; particular transition profiles (<I>Transition Prorotypes</I>) are selected for a particular parameter variation in a particular context by the rule that matches the phone context.  Different profiles may be used for each parameter in a given context.  Symbolic references to prototypes for both equations and prototypes are accessed with the help of the inspector.)
+<li>the <B>Special Transition Builder</B> (Similar to <I>Transition Builder</I> but for <I>Special Transition Profiles</I>--such as those required to control microintonation and produce noise bursts which must be accurately superimposed on the base parameter movements generated by the normal <I>Transition Profiles</I> selected);
+<li>the <B>Synthesiser Engine</B> and related interactive controls (<I>Synthesis Window</I>, <I>Synthesiser Control Panel</I> and <I>Intonation Control</I>) (This component is used to mainly in experimental mode, to generate test utterances of various combinations of phones for fidelity and naturalness.  The <I>Intonation Control</I> allows modifications to be made to the intonation contours produced by the intonation model based on M.A.K. Halliday's work [Halliday 1970, for example] and thesis work by Craig Schock [Taube-Schock 1993] which is built into the system.  The <I>Synthesiser</I> input format also allows various mark-ups to allow the metric structure of utterances being used for test purposes to be varied.  Such variation affects both rhythm and intonation.)
+<LI>in addition, there is the <B>Tube Model</B> of the vocal and nasal tracts which is necessary for sound output, but is not considered part of <I>MONET</I> (The tube model, which provides a direct emulation of the physical vocal and nasal tracts, could be replaced by an arbitrary synthesiser, provided a suitable new database was supplied to specify the kind of phones, targets, rules, parameter variations and so on required by the new synthesiser.  The tube model used in <I>GnuSpeech</I> and the underlying theory are described in <A HREF="http://www.cpsc.ucalgary.ca/~hill/papers/avios95">Hill, Manzara & Schock [1995]</A>.  Interactive access to the <I>Tube Model</I> is provided by <I>Synthesizer</I>, a separate application.  A screen shot of the <I>Synthesizer</I> application appears in the section <A HREF="#screenb2">Import TRM Data</A> below, but is not discussed in any detail.)
+</OL>
+</P>
+
+<P>
+The interfaces to these components and sub-components (except the <I>Synthesizer</I> application related to the <I>Tube Model</I> itself, not to be confused with the <I>Synthesis</I> component of the <I>MONET</I> application) are accessed through the <B>Panels</B> menu, brought up using the selection of that name in the <B>MONET</B> (Main) menu.  The menu can be torn off, so that it stays around, as shown in the screen shot <A HREF="./images/screenb.jpg" TARGET="new">(Figure 1, above)</A>.
+</P>
+
+<P>
+In the <B>Speech Server</B>--which provides speech output facilities for applications, as a service, or as embedded capability in the host system, based on the <I>Tube Model</I> low-level synthesis driven by the high-level synthesis engine from <I>MONET</I>--these interactive components are unnecessary, because the server runs autonomously as a daemon in the background, using a database for spoken English that has already been created.  However, to create the database of posture targets, and  rules for dynamic the parameter variations needed for a new language, different English dialect, or modification of the existing database; to create specific speech stimuli for psychophysical experiments; to experiment with different intonation possibilities; and the like; it is necessary to provide interactive access to the various components above, together with facilities for managing and updating the various databases.  Thus <B><I>MONET</I></B> has two "<I>personae</I>" (characters)--the visible <I>persona</I> provided by the system that is the subject of this manual; and the invisible <I>persona</I> that is provided by the <B>Speech Server</B>.  The two <I>personae</I> have much in common at the core, but are distinct.
+</P>
+
+
+<A NAME="servtest">
+
+<A HREF ="./images/servtest.jpg" TARGET="new"><IMG SRC="./images/.thumbnails/servtest.aa.jpg.png" SIZE WIDTH=160 HEIGHT=140 ALIGN=left HSPACE=60 VSPACE=20>
+</A>
+<SPACER TYPE=vertical SIZE=20>
+
+<P>
+<A HREF="images/servtest.jpg"><STRONG>Fig 2:</STRONG> <I>ServerTest window</I></A><BR>
+</P>
+<SPACER TYPE=vertical SIZE=10>
+
+
+<P>
+The <B>Speech Server</B> itself will also not be discussed in detail in this manual.  When the server is running under <I>GNU/Linux</I>, its use will be documented in the usual <I>man</I> pages.  However, there is a simple Graphical User Interface (GUI) for the <I>Speech Server</I>--<I>ServerTestPlus</I> which allows <I>all</I> the facilities provided by the server to be tested directly (Figure 2).  Since this includes the actual synthesis of utterances, as well as manipulation of the fixed parameter settings, the test system is able to generate syntactically correct input for the <I>MONET</I> engine.  This is useful when experimenting with the full <I>MONET</I> system because it facilitates creating correct input for the <I>Synthesis Window</I> subsystem when editing the database and testing the result of modifications.  An earlier server testing module that hid certain components--<I>ServerTest</I> is obsolete now that the system is <I>Free Software</I> and fully open.
+</P>
+
+<BR CLEAR=left>
+<SPACER TYPE=vertical SIZE=30>
+
+<P>
+Thus, using the <I>MONET</I> facilities, a set of posture symbols may be defined, and their DRM model target values specified.  Time values may be associated with the postures, and used in setting up the time-event framework for parameter interpolation and special event creation. Rules may be defined for recognising particular phone contexts (posture configurations) and for selecting appropriate interpolation methods (transition profiles and special event profiles).  Finally, speech may be synthesised (with or without intonation) by passing the output from the <B>Synthesiser</B> module to the <B>Tube Model</B> and a waveform specification produced which may be output to a file, or sent to a sound card.
+</P>
+
+<P>
+This organisation was chosen to allow precise control without loss of generality, and to ensure that any knowledge used to produce parameter variations needed for synthesis or the correction of imperfections in synthesis, would be precisely specified, recorded and reproducable.  It was designed as a very general research tool and language database creation tool as well as a speech output method.  Apart from creating the detailed parameter variations needed to produce the best speech, the system may be used for a variety of purposes including the generation of speech stimuli based on systematic changes in arbitrary parameters for use in speech therapy, language training, or psychophysical experiments (for example).
+</P>
+
+
+<CENTER>
+<IMG SRC="./images/monet.jpg" SIZE HEIGHT=60 WIDTH=60></A>
+</CENTER>
+
+<A NAME="sysoviewparcomp">
+<H3>
+<I>Parameter computations</I>
+</H3>
+
+<P>
+The parameter computations necessary for synthesis are carried out "on the fly" (in real time), as needed.  The same synthesis engine that powers <I>MONET</I>'s synthesis (though without the graphical interface and editing facilities) is built into the <I>GnuSpeech</I> User and Software Developer Kits.  The concept is similar to the original <I>NeXT</I> computer philosophy of using the same postscript system for screen display and printing.  The strategy ensures that any speech synthesis is carried out in the same way.</P>
+
+
+<CENTER>
+<IMG SRC="./images/palette.jpg" SIZE HEIGHT=60 WIDTH=60></A>
+</CENTER>
+
+<A NAME="usingsys">
+<H2>
+Using the system to view and edit an existing database
+</H2>
+
+<A NAME="usingstart">
+<H3>
+<I>Getting started</I>
+</H3>
+
+<P>
+It is assumed that you can install <I>MONET</I> correctly on your system.  For help with this, please refer to the installation manual.  Double-click on the <I>MONET</I> icon on your desktop, or use a command line command to start the program.  You will see the main menu for <I>MONET</I> (Figure 2).
+</P>
+
+
+
+<A NAME="mainmen">
+<CENTER>
+<IMG SRC="./images/mainmen.jpg" ALIGN=left HSPACE=60 VSPACE=20>
+</CENTER>
+<P>
+<STRONG>Fig 3:</STRONG> <I>Main Menu</I>
+</P>
+
+<P>
+If you intend working on an existing database, click on <I>MONET/Document</I> and select the <I>&#60;filename&#62;.monet</I> file you wish to work on.  If you wish to work on <I>diphones.monet</I>, which is the file supplied with the <I>GnuSpeech</I> kit, make a copy and work on that.  You will find the file in /usr/local/lib/system.  You could rename the original <I>diphones.monet</I> file as <I>diphones.orig</I> and place a copy of your working file in /usr/local/lib/system under the name <I>diphones.monet</I>.  It would then replace the original database for all synthesis operations in the system.  But you would not do that until you were reasonably satisfied with the new dialect or language you had thereby created.
+</P>
+
+<P>
+For all these operations, you will need to set up appropriate file permissions.  Take care that you do not lose track of which file is the original and which file(s) is (are) the ones you wish to experiment with.  By changing <I>diphones.monet</I> "on the fly" you could have the system speak with different voices depending on which database was referenced.  It would be better arrange for a file name to be passed to the <B>Speech Server</B> as a parameter, which is a feature that should be added.</P>
+<BR CLEAR=left>
+
+
+<CENTER>
+<IMG SRC="./images/monet.jpg" SIZE HEIGHT=60 WIDTH=60></A>
+</CENTER>
+
+
+
+<A NAME="usingstartpanmen">
+<H3>
+<I>Facilities accessed via the Panels Menu</I>
+</H3>
+<A NAME="panmenu">
+
+<IMG SRC="./images/panmenu.jpg" ALIGN=left HSPACE=60 VSPACE=20>
+
+<SPACER TYPE=vertical SIZE=15>
+
+
+<P>
+<STRONG>Fig 4:</STRONG> <I>Panels sub-menu</I>
+</P>
+
+<P>
+Most of the facilities you require to create and modify databases are accessed via the <I>MONET/Panels</I> menu selection which brings up the <I>Panels</I> sub-menu (Figure 3):
+</P>
+
+<BR CLEAR=left>
+
+<A NAME="usingstartinspect">
+
+<CENTER>
+<IMG SRC="./images/monet.jpg" SIZE HEIGHT=60 WIDTH=60></A>
+</CENTER>
+
+<H3><I>The Inspector Panel</I></H4>
+
+<P>
+(1) The <B>Inspector</B> selection brings up a normal <I>GnuStep</I> <I>Inspector Panel</I> (Figure 4(b)), but one which is constrained always to remain in front of other screen objects.  It allows attributes and values for whatever entity is selected to be viewed and changed.  Its appearance and specific function changes, as identified in the title bar, according to the context and current active selection.  In Figure 4(b), because the key window is the <I>Data Entry</I> panel, the <I>Inspector</I> has become a <I>Phone Inspector</I>.</P>
+
+<BR CLEAR=left>
+
+
+<CENTER>
+<IMG SRC="./images/monet.jpg" SIZE HEIGHT=60 WIDTH=60></A>
+</CENTER>
+
+<SPACER TYPE=vertical SIZE=15>
+
+<A NAME="usingstartdatent">
+<H3><I>The Data Entry Panel</I></H4>
+
+<A NAME="pipartgt">
+<IMG SRC="./images/dataent.jpg" ALIGN=left HSPACE=10 VSPACE=10>
+<IMG SRC="./images/pipartgt.jpg" ALIGN=left HSPACE=10 VSPACE=15>
+
+<SPACER TYPE=vertical SIZE=15>
+
+<P>
+<STRONG>Fig 5:</STRONG> <I> (a)Data Entry panel with; (b) Phone Inspector showing target values</I>
+</P>
+
+<P>
+<B>(2)</B> <B>Data Entry</B> brings up a panel that allows the names for basic posture symbols (<B>phones</B>) to be defined and characterised.  This panel appears on the right in <A HREF="./images/screenb.jpg" TARGET="_new">Figure 1</A> with the posture "aa" highlighted and also by itself in Figure 5(a).  Figure 5(b) shows the Phone Inspector that allows inspection of the parameter values associated with the phone.  Buttons on the <I>Data Entry</I> panel allow a posture to be added, renamed or removed (deleted)  Double-clicking a defined posture symbol will automatically open the <B>Inspector</B> panel as a <B>Phone Inspector</B> (if it is not already open) as in Figure 5(b), allowing access, through a pull-down menu at the top of the <I>Phone Inspector</I> panel, to: the <B>Parameter Target</B> values; <B>Meta Parameter Target</B> values; <B>Categories</B> into which the posture falls; and <B>Symbols</B> associated with the posture, as well as <B>Comment</B> space for entering comments to help document the postures, their attributes, and associated values.  The pull down menu for the <I>Data Entry</I> panel and the <I>Phone Inspector</I> are shown in Figure 6.  More precisely, the <I>Data Entry</I> pull-down accesses:<BR>
+
+<I>(2a)</I> <B>Categories</B> of postures which help in expressing generalised rules and may be used interchangeably with postures in rule definitions (the non-exclusive categories currently defined appear in Figure 6(a), and include <I>phone</I>, <I>asp</I>, <I>vocoid</I>, etc);<BR>
+<I>(2b)</I> the basic <B>Parameter Targets</B> which specify the values needed to drive the synthesiser to realise the particular nominal posture (for our articulatory synthesiser database these include: cross-sectional radii, r1 through r8; the state of the velum; specification of superimposed <I>microintonation</I>; and so on, as shown in Figure 6(b));<BR>
+<I>(2c)</I> <B>Meta Parameter Targets</B> which, for our articulatory synthesiser, would relate to parameters such as jaw rotation and lip opening, which can be converted to the basic parameters such as cross-sectional areas by means of defined equations expressing mutual constraints; although central to future plans, no meta-parameters are currently defined;<BR>
+<I>(2d)</I> <B>Symbols</B>, arbitrarly named, which represent the time specifications associated with each posture which are usable both directly, and as quantities in equations. Equations allow the definition of derivative symbols.  Any defined symbols may be used define the time of occurrence of events which--in turn--define the time framework for the definition of transition profiles (trajectories) between successive nominal posture targets.  In the existing database, as shown in Figure 6(c), only very basic symbols have been defined: the overall duration of phones (duration); the proportion allocated to transitions (transition); and quasi-steady-state portions of phones (qssa and qssb).  The remaining symbols (a fairly numerous set) are derived from these to control the transition profiles (interpolation methods, parameter trajectories) and are defined using the <B>Prototype Manager</B> in the equation mode for definition, or in the transition or special event mode for use in determining time positions within transition profiles.
+</P>
+
+<BR CLEAR=left>
+
+<A NAME="phopuldn">
+
+<IMG SRC="./images/phopuldn.jpg" ALIGN=left HSPACE=10 VSPACE=10>
+<IMG SRC="./images/phinspd.jpg" ALIGN=left HSPACE=10 VSPACE=10>
+
+<SPACER TYPE=vertical SIZE=15>
+
+<P>
+<STRONG>Fig 6:</STRONG> <I>(a) Data Entry Panel and (b) Phone Inspector panel, each with pull down menu activated</I>
+</P>
+
+<P>
+The pull down menu of the <I>Data Entry</I> panel (Figure 5) allows further data types needed for synthesis to be defined to facilitate management of the overall database creation and synthesis processes.  The types cover <B>Categories</B> for grouping phones; the (named) <B>Parameters</B> required for feeding to the actual synthesiser; the <B>Meta Parameters</B> that might be used in the synthesis engine process (<I>MONET</I>), as opposed to the physical parameters fed to the synthesiser itself; and the basic <B>Formula</B> symbols that are needed in the various timings and computations, as shown in Figures 7, 8 and 9.  Thus the <I>Data Entry</I> options allow the named variables of the synthesis process to be set up, while the <I>Phone Inspector</I> allows the values to be assigned for particular instances (such as the DRM model radii corresponding to the "target" values needed for our form of synthesis).  The only formula symbols defined for the current <I>GnuSpeech</I> process are <I>duration</I>, <I>transition</I>, <I>qssa</I> and <I>qssb</I> (the nominal posture duration, and the internal divisions associated with the major transition to/from neighbouring posture, and the division of the quasi-steady-state portion into and b components.  This forms the underlying fraemwork to which the actual movements and timings are related and anchored.  The categories are self explanatory, except that the two "hack" categories are added to simplify some rewrite rules that isert extra pseudo-postures to avoid synthesiser anomalies.  The parameters are those required for dynamic operation of the tube model (as opposed to the static parameters that control synthesiser qualities associated with the speaker, such as vocal tract length, pitch range, nasal cavity shape, glottal pulse shape, air stream temperature and so on).  These may be set by the synthesiser <I>Control Panel</I>.  Double clicking on an entry in any of the <I>Data Entry</I> panels opens the <I>Inspector</I> panel (if it is not already open) which then allows maximum, minimum and default values to be assigned where appropriate, or comments to be added to explain the purpose or use of the various items that can be defined/selected.
+</P>
+
+<A NAME="dentcats">
+<P>
+<CENTER>
+<STRONG>Fig 7:</STRONG> <I>Data Entry Panel showing (a) <B>Categories</B>, (b) <B>Parameters</B> and (c) <B>Symbols</B> selections (as defined for GnuSpeech)</I>
+</P>
+</CENTER>
+
+<IMG SRC="./images/dentcats.jpg" HSPACE=10 VSPACE=20>
+<IMG SRC="./images/dentpars.jpg" HSPACE=10 VSPACE=20>
+<IMG SRC="./images/dentsyms.jpg" HSPACE=10 VSPACE=20>
+
+
+<CENTER>
+<IMG SRC="./images/monet.jpg" SIZE HEIGHT=60 WIDTH=60></A>
+</CENTER>
+
+
+<A NAME="rulbldr">
+<H3><I>The Rule Builder and associated Inspector Panel selections</I></H4>
+
+<A HREF ="./images/rulbldr.jpg" TARGET="new"><IMG SRC="./images/rulbldrthum.jpg" SIZE WIDTH=160 HEIGHT=160 ALIGN=left HSPACE=60 VSPACE=20>
+</A>
+<SPACER TYPE=vertical SIZE=20>
+
+<A HREF="images/rulbldr.jpg"><STRONG>Fig 8:</STRONG> <I>Rule Builder Window</I></A><BR>
+</P>
+
+<P>
+<B>(3)</B> The <B>Rule Window</B> selection in the <I>Panels</I> menu brings up a <B>Rule Builder</B> window (Fig. 8) to allow the rules--used to consume tokens from a phonetic input string input to <I>MONET</I>--to be created, displayed and edited.
+</P>
+
+
+<P>
+The consumption of one or more tokens<a href="#foot5"><SUP><FONT SIZE=-1>5</FONT></SUP><A NAME="back5"></A> <a name="back9"></a>by a rule causes appropriate target and interpolation data to be selected to construct the next portion of parameter input for the synthesiser.  To show what tokens can fill a given expression (<I>Total Matches</I> column) it is necessary to place the cursor at the end of the expression and hit Enter.
+</P>
+
+<P>
+<I>It is very important that the rules are ordered from the more specific to the more general</I>.  Thus specific postures (phones), narrower categories, and larger context, will appear in rules near the start, while broader categories, and smaller context will occur towards the end.  The last rule simply recognises "phone >> phone" as the default, and is present when <I>MONET</I> is first invoked.  In this way, even before any rules have been created by the user, the system will not fail for lack of a rule.  This is a general philosophy.  The system should function and produce parameters, even if they are totally generic, while the database is under construction.
+</P>
+
+<P>
+Note that if the Rule Builder Window is opened prior to opening a <I><filename>.monet</I> file, only the "phone>>phone" rule will show so opening the <I>&#60;filename.monet&#62;</I> file should be the first action when using <I>MONET</I> unless the user is starting a database from scratch.
+</P>
+
+<A NAME="rulinspd">
+<IMG SRC="./images/rulinspd.jpg" ALIGN=left HSPACE=60 VSPACE=20>
+
+<P>
+<B>Figure 9:</B> <I>Inspector Panel during selection of a rule, showing the pull-down menu</I>
+</P>
+
+<P>
+If the <I>Inspector</I> panel is open, then double clicking on a rule will cause the it to become a <B>Rule Inspector</I> and display various data associated with the rule, depending on what has been selected from the pull-down menu that forms part of the inspector panel.  The possibilities include: <I>General Information</I> (as actually shown in the figure); the <I>Equations</I> involved in timing (categories and names); the categories and names of the <I>Parameter Prototypes</I> (for regular parameter movements) and <I>Special Prototypes</I> (for additional parameter movements that will be superimposed on the basic structure) as necessary to implement the rule; the names of the <I>Meta Parameter Prototypes</I>; and <I>Comments</I> (again, to help with documentation).
+</P>
+
+<P>
+General Information: causes the Rule Inspector to display the number of tokens (postures, phones) consumed by the rule along with the order in which the rule appears in the list of rules.  It also provides a way of changing where the rule is placed in the list.  Note that when a new rule is added, it is added immediately before the last rule (which the reader will remember is "phone>>phone").  The ability to re-order the rules is important, since it determines their precedence.  The more particular rules generally take precedence over the more general and the ordering should reflect this.</P>
+
+<BR CLEAR=left>
+<SPACER TYPE=vertical SIZE=10>
+
+<A NAME="riequ">
+<IMG SRC="./images/riequ.jpg" ALIGN=left HSPACE=10 VSPACE=10>
+<IMG SRC="./images/equri.jpg" ALIGN=left HSPACE=10 VSPACE=10>
+
+<P>
+<STRONG>Fig 10:</STRONG> <I> Rule Inspector: Equations (a) before clicking "Rule Duration" and (b) after clicking "Rule Duration"</I>
+</P>
+
+<P>
+The <B>Equations</B> selection displays a list of the major timing framework symbols (<B>Major Events</B>) comprising: <B>Rule Duration</B> (the nominal diphone, triphone or tetraphone duration); <B>Beat</B> (the location of the rhythmic beat), plus <b>Mark1</B> and <B>Mark 2</B> (which specify the nominal time for achieving the target values for the second and third phones in triphones and tetraphones respectively).  <I>Rule Duration</I> signifies the nominal time when the target values for the last posture in an <I>n</I>-phone are achieved.  Points may be assigned arbitrary times by choosing the governing symbol; the <I>Major Event</I> times simply provide a framework.  Clicking on a <I>Major Event</I> highlights the category and symbolic name of the timing value, derived from an equation which was previously defined using the <I>Prototype Manager</I><A HREF="#foot6"><SUP>6</SUP></A><A NAME="back6">.  Many categories and names are defined within this module since they are also used to specify the timing of <B>Minor Events</B>.  <I>Minor Events</I> are the times of additional changes in parameters as needed to form the detailed parameter movements corresponding to the articulations associated with the language and accent being synthesised.  Thus changes in parameter rates can be associated with either <I>Major</I> or <I>Minor Event</I> times, as set by the user.  In this way, the <I>Major Event</I> timing framework is only a nominal framework deviations from which are the norm rather than the exception. (It will be noted that some items have a symbolic name of "dud#".  This is because equation symbols can currently be renamed, but not deleted--an obvious problem.  This bug needs to be fixed!)
+</P>
+
+<BR CLEAR=left>
+
+<A NAME="riparpro">
+<SPACER TYPE=vertical SIZE=10>
+
+
+<IMG SRC="./images/riparpro.jpg" ALIGN=left HSPACE=10 VSPACE=10>
+<IMG SRC="./images/riselrul.jpg" ALIGN=left HSPACE=10 VSPACE=10>
+
+<P>
+<STRONG>Fig 11:</STRONG> <I>Rule Inspector: Parameter Prototypes (a) before finding and clicking "r7"; and (b) after finding and clicking "r7"</I>
+</P>
+
+
+<P>
+<B>Parameter</B>, <B>Special Parameter</B> and <B>Meta Parameter Prototypes</B>: If <I>Parameter</I> or <I>Special Parameter</I> or <I>Meta Parameter Prototype</I> is selected from the pull-down menu in the Rule Inspector window the top sub-panel now displays the parameter names while the two lower sub-panels continue to display the timing value symbol categories and names, as derived from the equations set up by the user from the Prototype Manager in the appropriate mode.  Those in use are bolded.  Those defined but not in use are in normal type face.  Clicking on the parameter name in the top sub-panel highlights the category and name of the relevant transition prototype, in much the same way that the category and name of the timing value were highlighted for the <I>Equation</I> selection.  Double clicking on a parameter  will bring up the <B>Transition Builder</B> or <B>Special Transition Builder</B> window for that particular parameter, allowing the particular interpolation prototype specification to be edited by selecting points, changing the value or timing, or by other measures <A HREF="#tranbld">(see <I>Transition Builder</I>, below)</A>.  No meta parameters are currently defined and the meta parameter part of the <I>MONET</I> system has therefore not been completed.  Meta parameter transition profiles are currently inaccessible/unusable.  This facility needs to be implemented soon, to allow normal articulatory parameter driving schemes to be developed.</P>
+<BR CLEAR=left>
+
+
+<BR CLEAR=left>
+<SPACER TYPE=vertical SIZE=30>
+
+<A NAME="rulpars">
+<H4>Checking which rule applies: the Rule Parser</H4>
+
+<IMG SRC="./images/rulepars.jpg" ALIGN=left HSPACE=10 VSPACE=10>
+
+<P>
+<STRONG>Fig 12:</STRONG> <I>Rule Parser Window</I>
+</P>
+
+<P>
+<B>(4)</B> The <B>Rule Parser</B> is a utility window that allows a string of up to four specified <I>MONET</I> input symbols to be tested to see which rule will apply if they are fed to <I>MONET</I>.  This facilitates ordering and debugging the rule set.  Enter four valid phone (posture) symbols, hitting "Enter" after each entry until four are entered and the first applicable rule will be displayed in the dark window together with the actual values of the framework times as calculated according to the equations associated with the rule, and the number of tokens (phone/posture symbols) consumed by the rule.  If less than four phones are involved, it is still necessary to enter all four fields, using blanks as needed.  The new display appears when "Enter" terminates the last of the four entries.  When testing a string, the unused tokens from one rule, plus any further tokens, must be re-entered to determine which is the next rule to apply.  Note that unused framework fields show very small values.  They should show some symbol indicating they are not applicable.  This problem needs to be fixed.
+</P>
+
+<SPACER TYPE=vertical SIZE=10>
+<BR CLEAR=left>
+
+
+<CENTER>
+<IMG SRC="./images/monet.jpg" SIZE HEIGHT=60 WIDTH=60></A>
+</CENTER>
+
+<A NAME="protmanb">
+<H3><I>Prototype Manager for Equations and Transitions (Interpolation) with associated Inspector Panels</I></H4>
+
+<IMG SRC="./images/protmanb.jpg" ALIGN=left HSPACE=10>
+
+<P>
+<STRONG>Fig 13:</STRONG> <I><B>Prototype manager</B> window: (a) in <B>Equation</B> mode; and (b) in <B>Transition Prototype</B> mode</I><BR>
+<FONT SIZE=-1>
+(Note (a) shows the time point group (category) <I>Carré</I> with <I>endOfStopClosureOnset</I> as the specific time symbol highlighted, showing the governing equation of the symbol; (b) shows the <I>Transition Profile</I> group (category) <I>Carré</I> with <I>voicedStopClosure</I> as the specific <I>Transition Profile</I> highlighted, and it is identified as a <I>Triphone Transition Profile</I>.
+</P></FONT>
+
+<P>
+<B>(4)</B> The two <B>Prototype Manager</B> windows are associated with the selected point(box round the selected point) and the actual <I>Transition Profile</I> respectively, as shown in Figure 13.  The <I>Prototype Manager</I> is used to create, name and edit the symbol and profile names as well as the Transition and Special Prototypes (interpolation templates) themselves.  The inspector panel becomes a <B>Point Inspector</B> when a point is selected in the transition profile, so that the name and governing equation of each point may be checked, and its percentage value entered and adjusted, or the time symbol defining its time of occurrence changed.  Note that there should be a more direct connection between the point and the <I>Prototype Manager</I> window.  At present, the latter shows the timing symbol in full, but changes must be made in the <I>Inspector Panel</I>, which often entails counting down the symbols because they are truncated to fit the panel. 
+</P>
+
+<P>
+Typing a name into the white text field defines a new category name, time-point name, or profile name and enters it into the appropriate part of the database, which changes the display accordingly.
+</P>
+
+<P>
+By defining timing symbols in a regular succession, points in the <I>Transition Profiles</I> may be systematically moved (by selecting different symbols for successive synthesis trials of a given utterance).  The values achieved may similarly be varied using the <I>Point Inspector</I>.  In this somewhat tedious manner, systematically varying stimuli may be produced for various purposes, such as psychophysical experiments (e.g. voice onset time experiments).  The process should be automated.
+</P>
+<BR CLEAR=left>
+
+<SPACER TYPE=vertical SIZE=20>
+
+<CENTER>
+<IMG SRC="./images/monet.jpg" SIZE HEIGHT=60 WIDTH=60></A>
+</CENTER>
+
+<SPACER TYPE=vertical SIZE=20>
+
+<A NAME="tranbld">
+<H3><I>The Transition Builder and associated Point Inspector</I></H4>
+
+<A HREF="./images/tranbld.jpg" TARGET="new"><IMG SRC="./images/.thumbnails/tranbld.aa.jpg.png" ALIGN=left HSPACE=10 VSPACE=10></A>
+
+<P>
+<A HREF="./images/tranbld.jpg"><STRONG>Fig 14:</STRONG> Transition Builder Window with</I></A><BR>
+<FONT SIZE=-1>(The <I>Transition Prototype Manager</I> window shows parameter r7 for Rule 6 which is governed by <I>VoicedStopClosure</I> from the <I>Carré</I> group (category) rules.  The point selected is at <I>endOfStopClosure</I> from the <I>Carré</I> group (category) of time symbols, as revealed by the <I>Point Inspector</I>).  This was deliberately chosen to fit in with the Rule Builder window highlight <A HREF="#rulbldr">Figure 10</A> and the associated <I>Inspector Panel</I> <A HREF="#riparpro">Figure 13 (b)</A>.</FONT>
+</P>
+
+<P>
+Figure 15 shows a <B>Transition Builder</B> window<A HREF="#foot7"><SUP>7</SUP></A><A NAME="back7">.  Symbolically named points mark the beginnings and end of segments during which a given rate of change of parameter value applies.  The rate of change that applies during any given segment is represented by the percentage value of the point between 0% (the actual value being determined by the value achieved during the previous transition--normally the nominal target value for that parameter for the previous posture) and 100%, which represents the target value for the posture to which the current transition is taking the parameter. Only one <I>Transition Builder</I> may be open at a given time.  To see changes being made, or to view a different prototype, it is necessary to double-click the relevant <I>Transition Prototype</I> name.  If the <I>Transition Builder</I> is selected from the <I>Panels Menu</I>, a blank prototype is displayed.  Note that the associated <I>Point Inspector</I> displays information about the rate change point that has been selected in the currently active <I>Transition Builder</I> window, showing the type of point, the percentage value of the total parameter change in progress that is to be reached at that point, and also the category and name of the time value at which the point occurs.  The type of point refers to whether the point is part of the transition to the second posture (disc), the third (triangle), or the fourth (square) as appropriate in a diphone, triphone or tetraphone.  Obviously a diphone would not have a third or fourth posture, and a triphone would not have a fourth posture.
+</P>
+
+<P>
+It must be emphasised that the <I>Transition Prototype</I> shows, for the parameter concerned, how the value changes between the nominal target time of one posture and the next, the percentage being a percentage of the difference between the two target values.  If the values happened to be the same, the actual parameter value sent to the synthesiser would not change at all (any percentage of zero is zero).  If the difference is positive, the actual change would resemble the prototype in form over a particular transition, but the amplitude would depend on the absolute difference.  If the difference were negative, then the actual parameter change would resemble an inverted form of the prototype at an appropriate amplitude.  The actual parameters are continuous.  The apparent discontinuities in the Transition Prototype arise because having achieved 100% of one parameter value change (from around one steady state to the next), the next transition (normally) starts at 0% again, only reaching 100% of the change around the next steady state time.  It is possible to use percentages outside 0% and 100%, but this would clearly cause problems is the values were not 0% at the start, and 100% at the end of a given <I>n</I>-phone.  However, this method of representing the parameter changes is clearly necessary, and explains the non-intuitive character of the profiles, which embody an apparent step at the time when control changes from one target to the next.  This step leads to the need for "<I>Phantom Points</I>" since there are two points at this change of control boundary, but the <I>MONET</I> engine has to deal with only one point.
+</P>
+
+<P>
+It is possible to determine the shape of transitions between postures by imposing a slope ratio on the segments of the transition rather than specifying the value of each point.  This produces a similar "shape" despite changes in the length assigned to an <I>n</I>-phone, and is used frequently.
+</P>
+
+<P>
+The <I>Transition Builder</I> window shows vertical boundary lines representing the conceptual values of the <I>Major Event</I> times for the diphone, triphone, or tetraphone to which the prototype parameter transition profile applies.  These are for reference only since the actual points may be placed anywhere, according to the times calculated by the user-defined equations and referenced by the user-defined time symbols at which actual change-of-rate-of-change points are placed, as previously noted.  These user-defined event times are represented by short line segments at the bottom of the transition graphs.  In the <I>Synthesis</I> window, they appear as full lines across the parameter track display, as shown in <A HREF="#fig21">Figure 21</A>
+</P>
+
+<BR CLEAR=left>
+<SPACER TYPE=vertical SIZE=10>
+
+<A NAME="pigi">
+<IMG SRC="./images/pigi.jpg" ALIGN=left HSPACE=10 VSPACE=10>
+
+<P>
+<STRONG>Fig 15:</STRONG> <I>The Point Inspector panel associated with Figure 14</I>
+</P>
+
+<P>
+The <I>Point Inspector</I> pull-down menu has only one entry at present--<I>General Information</I>.  The value, type of point, and applicable time symbol may be changed.  If there is no time symbol that specifies the time at which the user wishes to place a new point, it is necessary to define a new time symbol through the <I>Equation Prototype</I> process, and then return to the relevant <I>Transition Profile</I> and <I>Point Inspector</I> to use it.  By creating and using the values for points, arbitrary transition profiles may be constructed for <I>Parameters</I> and <I>Special Parameters</I> to control the construction of the actual parameter tracks sent to the synthesiser.  This interaction should be improved by linking the two processes together in an intuitive way.
+</P>
+
+<BR CLEAR=left>
+<SPACER TYPE=vertical SIZE=20>
+
+<CENTER>
+<IMG SRC="./images/monet.jpg" SIZE HEIGHT=60 WIDTH=60></A>
+</CENTER>
+
+<A NAME="rlbldreq">
+<H3><I>Relation between the Rule Builder, Equation Prototypes and timing/duration symbols.  How do we know where a given equation is used?</I></H4>
+
+<A HREF="./images/rlbldreq.jpg" TARGET="new"><IMG SRC="./images/.thumbnails/rlbldreq.aa.jpg.png" ALIGN=left HSPACE=10 VSPACE=10>
+
+<P>
+<A HREF="./images/rlbldreq.jpg" TARGET="new"><STRONG>Fig 16:</STRONG> <I>Rule Builder Window</I></A>
+</P>
+
+<P>
+If "<I>Equations</I>" is selected on the <I>Rule Inspector</I> panel associated with the <I>Rule Builder</I> window, major event timing symbols are displayed in the list displayed in the top part of the Inspector panel as already discussed in connection with <A HREF="#riequ">Figure 12</A>.
+</P>
+
+<P>
+Clicking on a symbol displays the category and name of the symbolic duration.  In Figure 17, Rule 11 has been highlighted, <I>Rule Duration</I> has been clicked, and the <I>Rule Duration</I> symbolic duration turns out to be the same as for Rule 6 (it is actually used for many rules) as shown in Figure 18. 
+</P>
+
+
+<BR CLEAR=left>
+<SPACER TYPE=vertical SIZE=10>
+
+<A NAME="equri">
+<A HREF="./images/equri.jpg" TARGET="new"><IMG SRC="./images/.thumbnails/equri.aa.jpg.png" ALIGN=left HSPACE=10 VSPACE=10></A>
+<A HREF="./images/r11tdeq.jpg" TARGET="new"><IMG SRC="./images/.thumbnails/r11tdeq.aa.jpg.png" ALIGN=left HSPACE=10 VSPACE=10></A>
+
+<P>
+<STRONG>Fig 17:</STRONG> <I>(a) Rule Inspector with "Rule Duration" selected; (b) Prototype Equation Manager with the same rule selected</I>
+</P>
+
+<P>
+
+
+
+<BR CLEAR=left>
+<SPACER TYPE=vertical SIZE=10>
+
+<A NAME="r11tdeqf">
+<IMG SRC="./images/r11tdeqf.jpg" ALIGN=left HSPACE=10 VSPACE=10>
+<IMG SRC="./images/r11tdequ.jpg" ALIGN=left HSPACE=10 VSPACE=10>
+
+<P>
+<STRONG>Fig 18:</STRONG> <I>(a) Prototype Equation Inspector with "Equation" selected; (b) Prototype Equation Inspector with "Usage" selected</I>
+</P>
+For Figure 19 (a) and (b) the <I>Prototype Equation Manager</I> of Figure 18 has been made the key window.  As a result, the inspector has changed to an <I>Equation Prototype Inspector</I> and provides details of the highlighted rule, which has been manually selected to be the same as the rule highlighted in the <I>Rule Builder</I> window of Figure 17.  Choosing "<I>Equation</I>" from the pull-down menu on the inspector allows the equation governing the symbol value to be edited.  Choosing "<I>Usage</I>" from the pull-down shows in which other rules the same timing symbol is used, which might inhibit the user from changing the symbol value without thinking.  It may be necessary to create a new symbol and use it for need has to be met instead.
+</P>
+
+<P>
+<B>Note:</B> At present, there is unfortunately no mechanism to set up for moving to equation editing by double clicking the timing symbol name in the <I>Rule Inspector</I>.  This is a deficiency that needs to be fixed!  At present, as just described, it is necessary, by a manual process, to: note the equation category and name from the <I>Rule Inspector</I> while the <I>Rule Builder</I> is the key window; make the <I>Prototype Manager</I> the key window; select <I>Equation Prototypes</I> on what has now become the <I>Prototype Equation Inspector</I>; in the <I>Prototype Equation Manager</I> select the duration symbol category and double-click the symbol name (in this case <I>VStopVTotalDur</I> according to what was displayed in the <I>Rule Inspector</I> as above.  Then the equation appears as <I>Selected Prototype Equation</I> in the white text field in the <I>Prototype Equation Inspector</I> panel, which allows editing to be carried out.  The process is not made easier by the fact that names are truncated to fit the inspector window, and what is seen may be ambiguous, so that it is often necessary to count from a non-truncated symbol to ensure that the correct name is transferred from the <I>Rule Inspector</I> to the equation prototype management process.
+</P>
+
+<P>
+The task of entering a new timing symbol (including possibly a new category) and defining the governing equation is similar, except there is the extra step, in the <I>Equation Prototype Manager</I> of defining the timing symbol (category and) name by selection and/or typing.
+</P>
+
+"<I>Usage</I>" from the same pull-down menu shows in which rules the selected equation is used (Figure 19(b)).  "<I>Comment</I>" (not shown) allows explanatory comments about the equation to be viewed, added or edited.  More information on these topics is provided below under <I>Rule Development</I> and <I>Sample Dialogues</I>.</P>
+<P>
+
+<BR CLEAR=left>
+<SPACER TYPE=vertical SIZE=10>
+
+
+<H4>Synthesising speech from within <I>MONET</I>: the Synthesis Window</H4>
+
+<CENTER>
+<P>
+<STRONG>Fig 19:</STRONG> <I>The Synthesis Window with parameters r3, r7, r8 and velum selected for display</I>
+</P>
+
+<A NAME="synwin3">
+<IMG SRC="./images/synwin3.jpg" HSPACE=10 VSPACE=10>
+</CENTER>
+
+<P>
+<B>(8)</B> Selecting <B>Synthesis Window</B> opens a window used to accept a phonetic input string for synthesis, display the parameters constructed from the input string in graphical form, and to run the synthesis.  The syntax for input strings is currently defined only in the source code for the <I>GnuSpeech</I> system.  However, the input string needed may easily be constructed using the <I>Line Pronunciation</I> "hidden" method in the <I>ServerTestPlus</I> application<A HREF="#foot8"><SUP>8</SUP></A><A NAME="back8">.  Simply type in the text on the top line of the <A HREF="images/servtest.jpg" TARGET="new"><I>ServerTestPlus</I> application window</A> and click on the <I>Line Pronunciation</I> method under <I>Hidden Methods</I>.  Once a valid input string for <I>MONET</I> has been constructed, it may easily be edited.  Care is necessary when constructing input strings for <I>MONET</I>, because in the present version, no error checking of the input is performed, and bad strings will cause the application to crash.  The syntax should be properly documented, and error checking added to <I>MONET</I>.  The "<I>Hidden Methods</I>" selection is a historical carry-over from the time before the text-to-speech system was put out under a GPL as <I>GnuSpeech</I> and should be changed, now that the work is <I>Free Software</I>.  Originally there was a "<I>ServerTest</I>" utility for the public to use, which hid the <I>Hidden Methods</I>, and a "<I>ServerTestPlus</I>" utility for use by the originators of the system, which revealed the <I>Hidden Methods</I>.  The former can be dropped, and <I>Server Test Plus</I> updated to present all test methods on an equal footing and renamed <I>ServerTest</I>.
+</P>
+
+<P>
+A selection list at the top left-hand side of the window allows the user to choose which parameter tracks will be displayed.  Only four may be seen at the same time due to space limitations.  It would be possible to allow scrolling, and also allow the order of the parameter displays to be changed, but this is not a priority.  Double clicking on a named parameter will toggle the graphical display of the variation in that parameter "on" or "off".  The parameter variation (parameter track--constructed from successive transition and special prototypes applicable to the parameters) is presented against a framework of value and event times.  The major events are shown as black vertical lines and the minor events as grey vertical lines.  Cursor tracking is provided to allow the value at particular times to be read directly, but is only partially implemented in this pre-release version.  Note that there are two possible displays for each synthesiser parameter.  One shows the track constructed from the <I>Transition Prototypes</I>.  The other shows the deviations from that track constructed from the <I>Special Prototypes</I>.  This approach allows special events to be inspected and included by linear superposition, regardless of what the basic parameter profile (interpolation template) may be doing.
+</P>
+
+<P>
+Double clicking and dragging on the second click<A HREF="#foot9"><SUP>9</SUP></A><A NAME="back9">, within the parameter display window, allows the time scale to be compressed to show a longer section of parameters.  There is currently no mechanism for scrolling so that the time scale for lengthy pieces of speech becomes quite small.  There is a limit on the total length, which is not likely to be encountered in the short utterances normally used in testing.  It would be useful to add a scroll bar to allow scrolling while keeping the same scale, but also retain the current mechanism for changing the scale.  Both would be useful.  For the same reason, the scale changing mechanism could usefully be added to the <I>Intonation Control</I> window (see below) while retaining the scrolling mechanism.
+</P>
+
+<P>
+Certain other fields and controls are provided in the Synthesis Window to help control intonation, divert the output speech to a sound file (.snd), control the tempo (speed) of the speech, use the software synthesizer (written in "C") instead of the DSP synthesizer (written in Motorola 56001 assembler), and dump the values stored in the database.  The DSP version is actually obsolete now that synthesis can be achieved in real time with the current host processors so that these selections need revising.  The current development version has some inconsistencies in the intonation controls, but they should not cause problems.  The toggle for intonation is inactive, as is the field for tonic movement.  A separate Intonation panel has been added which is accessed by a selection in the main menu (Figure 14).  It will now be discussed.
+</P>
+
+
+<A NAME="intraw2">
+
+<A HREF ="./images/intraw2.jpg" TARGET="new"><IMG SRC="./images/.thumbnails/intraw2.aa.jpg.png" SIZE WIDTH=160 HEIGHT=140 ALIGN=left HSPACE=60 VSPACE=20>
+</A>
+<SPACER TYPE=vertical SIZE=20>
+
+
+<P>
+<A HREF="images/intraw2.jpg" TARGET="new"><STRONG>Fig 20:</STRONG> <I>The Intonation Control window"</I></A><BR>
+<FONT SIZE=-1>(Showing the basic intonation pattern for the utterance "GnuSpeech" without smoothing.  Note, the initial pitch rise occurs when there is no voicing.)
+</FONT></P>
+
+<P>
+The <B>Intonation Control</B> window allows selection of <B>Macro Intonation</B>, <B>Micro Intonation</B>, <B>Drift</B> and <B>Smoothing</B>.  A full discussion of the rhythm and intonation models, plus ongoing research, is to appear in papers in preparation.  Suffice it to say here that the rhythm is based on the assumption that English is a stress-timed language, which means that successive word stresses<A HREF="#foot10"><SUP>10</SUP></A><A NAME="back10"> in spoken English fall (or are perceived to fall) at somewhat regular intervals (so-called isochrony).  This contrasts with a language like French which is described as "syllable-timed", meaning that it is the <I>syllables</I> which fall (or are perceived to fall) at somewhat regular intervals.
+</P>
+
+<P>
+In M.A.K. Halliday's model on intonation, which we follow closely, the most highly stressed word in a phrase or sentence conveying information is called the <I>tonic</I> and provides the information focus of the utterance.  A significant body of spoken English was statistically analysed in order to determine the source(s) of the regularity, which turns out to be related to constraints on the length of phones in different contexts, both at the <I>segmental level</I> (the level of phones) and the <I>suprasegmental level</I> (the level of prosody--which covers many phones and relates to the speaker's resources for identifying the important content of an utterance).  The work has been reported in several papers (e.g. Jassem, Hill & Witten 1984; Hill, Jassem & Witten 1979; Hill, Manzara & Schock 1992).  According to the model developed, rhythm is determined by choosing the lengths of the phones according to these contexts.  The intonation is then fitted to the sequence of phones according to the stressed and tonic syllables syllables in a method closely based on Michael Halliday's work (e.g. Halliday 1970).  Feet are derived from the intended utterance by placing a boundary before each stressed syllable.  These feet form the basis of the partial isochrony as noted above.  The tonic syllables are the stressed syllables of the main content words in the utterance and receive special treatment in both rhythmic and intonational terms.  All the segments in the tonic foot are given extra lengthening; and the main pitch movement of the intonation contour occurs over the foot, with the greatest movement on the tonic syllable.  Pre-tonic and post-tonic feet in a phrase or short sentence (a "phrase or short sentence" would loosely correspond to Halliday's <I>tone group</I>) receive some pitch movement, but not as much as, or necessarily even the same form as the tonic foot.
+</P>
+
+<P>
+There are five main tone groups, receiving a different form of pitch movement, and then there are variations within these groups.  This is what we call <B>Macro Intonation</B>.  In addition, we have to add <B>Micro Intonation</B> which reflects the pitch changes resulting from changing air pressure across the vocal folds (glottis) as the constrictions in the vocal tract come and go; there is also some <B>Drift</B> or variation in absolute pitch values making up the contour, which simulates the natural variation that occurs when someone says the same utterance several times in succession.  Finally, since the basic model is rather simple, and only defines straight line segments for the pitch variations required, <B>Smoothing</B> is added; but not just arbitrary smoothing.  The form of the smoothing turns out to be quite critical to the quality of the intonation and is an area we are continuing to investigate.  Figure 22 shows the same contour as Figure 21, but with smoothing added according to the current model.
+</P>
+
+<A NAME="intsmoo2">
+
+<A HREF ="./images/intsmoo2.jpg" TARGET="new"><IMG SRC="./images/.thumbnails/intsmoo2.aa.jpg.png" SIZE WIDTH=160 HEIGHT=140 ALIGN=left HSPACE=60 VSPACE=20>
+</A>
+<SPACER TYPE=vertical SIZE=20>
+
+
+<P>
+<A HREF="images/intsmoo2.jpg" TARGET="new"><STRONG>Fig 21:</STRONG> <I>The Intonation Control window"</I></A><BR>
+<FONT SIZE=-1>(As in Figure 27, but with smoothing added to the contour segments that actually have an effect)
+</FONT></P>
+
+<P>
+The controls provided allow these four aspects of the intonation contour to be switched on and off (for testing and comparison) by means of toggles on the <I>Intonation Window</I>.  The values used in the model are entered in the <I>Synthesis Window</I> (only four of the five fields are used.)
+</P>
+
+<P>
+When preparing to synthesise with a specified intonation contour, it is necessary to use the <I>Generate Contour</I> button before pressing the <I>Synthesise</I> button.  The contour generated is displayed in the window and, by scrolling, the whole contour may be examined.  A flat intonation contour may be used for testing the phone specifications during development to highlight any inadequacies of the segmental synthesis.  In this case, do not generate an intonation contour.
+</P>
+
+<P>
+Points may be added or deleted to the initial contour, and the contour is then regenerated.  However, <I>if the utterance is changed, the contour must be regenerated from scratch or some very strange things may happen!</I>  Utterances with associated intonation contours may be saved or restored using the appropriate options from the Intonation selection in the Main Menu.
+</P>
+
+<P>
+The default tone group used for utterances is Halliday's tone group 1.  Tone group 1 is associated with statements or "wh--" questions.  The default placement for the tonic is then on the last stressed syllable of the utterance, and comprises a falling contour especially over the tonic syllable.  The string in the <I>Synthesis Window</I> may be edited to break an utterance into more tone groups, relocate the tonic(s) and so on.  The subsystems provided for going from text to speech use the original text punctuation clues to vary the tone group applied to utterances, but only 3 of Halliday's five tone groups are currently used, with naive assumptions about the location of the tonic, because more sophisticated algorithms would require both grammatical and semantic analysis of the utterances.  Such analysis should be added in the future, and a more sophisticated use of Halliday's intonation model used.  The high-rising (tone group 2) is associated with questions expecting the answer 'yes' or 'no'.  Tone group 3 (low-rising) indicates some uncertainty.  Tone groups 4 and 5, and compounds 1-3 and 5-3 which we do not use, are complex, but involve similar elements.  Readers are advised to study Halliday's course book (Halliday 1970) for a simple introduction to his model of British English intonation.  It is noticable that modern British English seems to have shifted to a somewhat new paradigm, as evidenced by BBC radio reporters (though news anchors still tend to the form described by Halliday).  This illustrates the difficulty of studying intonation--it is a moving target, even amongst a well defined social subgroup.  The main purpose of intonation, regardless of the precise form, is to reveal what is important in an utterance and to clarify which of a number of alternative meanings is intended by the speaker.  It is based on the customary behaviour of the native speakers in a group, and what works.  To sound natural, it has to be credible, consistent, and effective for its purpose.
+</P>
+
+<P>
+A simple example may convey a flavour of the difficulties.  Consider a situation where Persons A & B are discussing an appointment for the future.  A says: "Shall we meet at five then?"  B replies: "No earlier" or "No, earlier."  The first reply has one stressed syllable and one tone group (1); the second two stressed syllables and two tone groups (both 1).  This slight change in rhythm and associated intonation completely reverses the semantics of the reply.  The first states that the stated time is the earliest possible time, and the meeting could be later.  The second states that it is too late, and the meeting must be arranged earlier.
+</P>
+
+<P>
+The <I>Server Test</I> application can be used to generate the required breakdown into feet and tone groups for <I>GnuSpeech</I>, but Halliday's book provides an excellent tutorial.
+</P>
+
+<P>
+
+<A NAME="contpan">
+
+<A HREF ="./images/contpan.jpg" TARGET="new"><IMG SRC="./images/.thumbnails/contpan.aa.jpg.png" SIZE WIDTH=160 HEIGHT=140 ALIGN=left HSPACE=60 VSPACE=10>
+</A>
+<SPACER TYPE=vertical SIZE=10>
+
+
+<P>
+<A HREF="images/contpan.jpg" TARGET="new"><STRONG>Fig 22:</STRONG> <I>The Synthesiser Control panel</I></A><BR>
+</P>
+
+<P>
+<B>(9)</B> The Synthesizer Control Panel (Figure 16) provides an interface to the synthesizer utterance rate controls.  These are parameters that control attributes characteristic of the speaker, rather than what the speaker is saying.  They are very similar to the equivalent parameter controls provided in the Synthesiser application (which provides GUI access to the tube model synthesiser, and is the subject of a separate document yet to be written, though the use of the system is reasonably intuitive).  They include: volume, vocal tract length, stereo balance, temperature of the air in the vocal tract, breathiness, losses in the tube, mean pitch, and coefficients associated with throat, mouth and nose radiation, as well as nose passage shape and glottal pulse shape.  The sample rate may be varied (the higher sampling rate is necessary at shorter vocal tract lengths), and the modulation of frication noise by glottal pulse function may be varied.  This last feature is associated with voiced fricatives such as /z/.  It is a subtle acoustic feature that has the perceptual effect of fusing the noise and voiced energy into one percept, thereby improving the perceived quality of the speech.  It is generally not necessary to adjust these parameters for normal use of <I>MONET</I>.
+</P>
+
+
+<BR CLEAR=left>
+<SPACER TYPE=vertical SIZE=10>
+
+<A NAME="docmenu">
+<IMG SRC="./images/docmenu.jpg" ALIGN=left HSPACE=10 VSPACE=10>
+<SPACER TYPE=vertical SIZE=10>
+
+<P>
+<STRONG>Fig 23:</STRONG> <I>The Document Menu</I>
+</P>
+
+
+<P>
+<B>(11)</B> The <B>Document Menu</B> (Figure 30) allows a variety of options for loading and saving data, some of which are obsolete.
+</P>
+
+<P>
+<B>Open</B> is used to load an existing <I>&#60;name&#62;.monet</I> file at the start of an editing session, and must be the first action in a session, before any panels or windows are opened.
+</P>
+
+<P>
+<B>New</B> allows a new <I>&#60;name&#62;.monet file</I> to be created from scratch, as might be required to define the phones and rules for a language that was different from English, or a different accent/dialect.  As noted, the current <I>GnuSpeech</I> accent is not pure, and represents a compromise between US and British English which is not entirely satisfactory, but has been judged as the best available by independent listeners, especially in terms of extended listening sessions.
+</P>
+
+<P>
+<B>Import DEGAS File</B> is obsolete, and was implemented to allow data to be imported from a previous system ("Diphone Editor and Generator for Animation and Speech"--described in Manzara & Hill 1992).
+</P>
+
+
+<A NAME="screenb2">
+
+<A HREF ="./images/synthimg/synthapp.jpg" TARGET="new"><IMG SRC="./images/synthimg/.thumbnails/synthapp.aa.jpg.png" SIZE WIDTH=160 HEIGHT=140 ALIGN=left HSPACE=60 VSPACE=10>
+</A>
+<SPACER TYPE=vertical SIZE=10>
+
+
+<P>
+<A HREF="images/synthimg/synthapp.jpg" TARGET="new"><STRONG>Fig 24:</STRONG> <I>Full screen view of Synthesizer in use</I></A><BR>
+</P>
+
+
+<P>
+<B>Import TRM Data</B> allows the parameters defining a posture to be imported from the independent <B>Synthesizer</B> application that allows direct manipulation access to the tube synthesiser (i.e. through a Graphical User Interface).  The system is documented separately, but Figure 31 provides a screen shot of the Synthesizer in operation.  It allows tube model configurations to be explored in real time.  When a satisfactory set of steady state values defining a posture have been determined (perhaps using the <B>Sonogram</B> application as an aid), the data may be saved as a <I>&#60;name&#62;.trm</I> file and then imported to <I>MONET</I>.  This is convenient, saves work, and avoids errors.  Of course, the dynamic variations are equally--if not more--important.  <I>MONET</I> allows the dynamics to be created and checked according to the rules developed and selected.
+</P>
+
+<P>
+<B>Export Data</B> produces a text file containing data about the phones/postures.  It includes: the categories to which phones may belong; the parameters which may be used to define postures, along with the allowed ranges and the default values; the symbols related to the major event times again with the allowed ranges and the default values; and a listing of the phones/postures showing the symbols, parameter values and times associated with them.
+</P>
+
+<P>
+<B>Save</B> and <B>Save As</B> perform the usual operations of saving the <I>&#60;name&#62;.monet</I> file depending on whether the edited file is to replace the original file, or be saved under a new name.
+</P>
+
+<P>
+<B>Save Default Prototypes</B> and <B>Load Default Prototypes</B> save and load the prototype databases--<I>Equation</I>, <I>Parameter</I>, and <I>Special Prototypes</I>.  Together with the posture/phone database saved by the <I>Export data</I> selection, these comprise the entire database on which <I>MONET</I> operates.  An entire <I>&#60;name&#62;.monet</I> database (comprising all the components) may, as noted previously, be loaded by the <I>Open</I>mmand or saved by the <I>Save</I> or <I>Save As</I> commands.
+</P>
+
+<A NAME="addrul">
+
+<H2>How to add a new rule to the database and manage prototypes using MONET facilities</H2>
+
+<A HREF="./addrule.html" TARGET="new">This section is provided in a new window, by clicking here</A>
+
+<A NAME="addpos">
+
+<H2>How to add a new posture to the database using MONET facilities</H2>
+
+<A HREF="./addpost.html" TARGET="new">This section is provided in a new window, by clicking here</A>
+
+
+<A NAME="help">
+<H3>Help facilities available</H3>
+This manual comprises the only help facilities currently available.
+</P>
+
+<P>
+If you have comments, suggestions or questions about any aspect of the <I>MONET</I> synthesizer database editing application, the Synthesizer application (that allows direct access to the tube model controls), or the various related applications and software, please contact <A HREF="mailto:david@firethorne.com"> the author (David Hill) </A>in the first instance.
+</P>
+
+<A NAME="acknowledge">
+
+<H2>Acknowledgements</H2>
+<P>
+The author wishes to acknowledge the fundamental work performed by Craig Schock in his amazing feat of implementing <I>MONET</I>--which is the most complete version achieved, so far, of the author's speech synthesis approach based on the management of a sequence of events controlling the time progression of perceptually relevant acoustic parameters, including the interface to Leonard Manzara's tube model synthesizer; and for his original work on English intonation based on M.A.K. Halliday's formulation.  Craig Schock received the Governor-General's Gold Medal for his thesis on the topic, though the research has progressed beyond the point reached by the thesis (<A HREF="#tschock">Taube-Schock 1993</A>).  Craig also acted as the system architect for the overall synthesis system, including associated mini-apps, and developed a number of essential tools for Dictionary management and the like.  The <I>TrilliumSoundEditor</I> application, intended to replace the <I>Sonogram</I> application was also Craig's baby, but is currently incomplete.
+</P>
+
+<P>
+The author also wishes to acknowledge the fundamental work performed by Leonard Manzara on designing and implementing the tube model synthesis system, and the Synthesiser application based on earlier work by Perry Cook, of the Centre for Computer Research in Music and Acoustics (CCRMA) at Stanford University (who used waveguide synthesis as a basis for emulating musical instruments).  Leonard also worked with the author on the creation of a complete database for spoken English using <I>MONET</I>, and acted as critic for the development of the dictionary pronunciations (around 70,000 of them, not counting derivatives) generated by the author.  The one point of disagreement was the use of the rhotic /r/ in the dictionary.  Leonard insisted that it was necessary to approximate US speech, even though the rhythm model, intonation model and vowel posture parameters more closely approximated British English.  The resulting pronunciations for the speech system as a whole are therefore a curious mixture of British (RP) and American (General American) accents.  It is not an unpleasant accent, but more work is needed on the posture and rule databases, as well as the intonation model and the dictionary.</P>
+
+<P>
+The author acted as research director for the development of the various systems and enjoyed many stimulating discussions on the problems we all encountered.
+</P>
+
+<A NAME="refs">
+<H2>References</H2>
+
+<P>
+CARRE, R & MRAYATI, M (1994)  Vowel transitions, vowel systems, and the Distinctive Region Model.  in <I>Levels in Speech Communication: Relations and Interactions</I>.  Elsevier: New York
+</P>
+
+<P>
+FANT, G (1956)  On the predictability of formant levels and spectrum envelopes from formant frequencies.  In <I>For Roman Jakobson</I>.  Mouton: The Hague, 109-120
+</P>
+
+<P>
+FANT, G & PAULI, S  (1974)  Spatial characteristics of vocal tract resonance models.  <I>Proceedings of the Stockholm Speech Communication Seminar</I>, KTH, Stockholm, Sweden
+</P>
+
+<P>
+HALLIDAY, MAK (1970) <I>A course in spoken English: intonation</I>. Oxford University Press 134pp
+</P>
+
+<P>
+HILL, DR, MANZARA, L & TAUBE-SCHOCK, C-R (1995)  <A HREF="http://www.cpsc.ucalgary.ca/~hill/papers/avios95/index.htm" TARGET="new">Real-time articulatory speech-synthesis-by-rules</A>.  <I>Proc. AVIOS '95 14th Annual International Voice Technologies Conf</I>, San Jose, 12-14 September 1995, 27-44.
+</P>
+
+<P>
+HILL, DR, SCHOCK, C-R & MANZARA, L (1992)  Unrestricted text-to-speech revisited:  rhythm and intonation.  <I>Proc. 2nd. Int. Conf. on Spoken Language Processing</I>, Banff, Alberta, Canada, October 12th.-16th., 1219-1222
+</P>
+
+<P>
+HILL, DR (1991)  <A HREF="http://www.cpsc.ucalgary.ca/~hill/papers/conc/index.htm" TARGET="new"><I>A conceptionary for speech and hearing in the context of machines and experimentation</I></A>.
+</P>
+
+<P>
+HILL, DR, JASSEM, W & WITTEN, IH (1979) A statistical approach to the problem of isochrony in spoken British English.  In <I>Current Issues in Linguistic Theory 9</I> (eds. H. & P. Hollien), 285-294, Amsterdam: John Benjamins B.V.
+</P>
+
+<P>
+HOLMES, JN, MATTINGLEY, IG & SHEARME, JN (1964) Speech synthesis by rule. <I>Language & Speech</I> <B>7</B>, 127-143
+</P>
+
+<P>
+JASSEM, W, HILL, DR & WITTEN, IH (1984) Isochrony in English speech: its statistical validity and linguistic relevance.  Pattern, Process and Function in Discourse Phonology (ed. Davydd Gibbon), Berlin: de Gruyter, 203-225
+</P>
+
+<P>
+LAWRENCE, W (1953)  The synthesis of speech from signals which have a low information rate.  In <I>Communication Theory</I>, Butterworth: London, 460-469
+</P>
+
+<P>
+LIBERMAN, AM, INGEMANN, F, LISKER, L, DELATTRE, P & COOPER, FS (1959)  Minimal rules for synthesising speech.  J. Acoust. Soc. Amer. 31 (11), 1490-1499, Nov
+</P>
+
+<P>
+MANZARA, L & HILL, DR (1992)  DEGAS:  A system for rule-based diphone synthesis. <I> Proc. 2nd. Int. Conf. on Spoken Language Processing</I>, Banff, Alberta, Canada, October 12th.-16th., 117-120
+</P>
+
+<A NAME="tschock">
+<P>
+TAUBE-SCHOCK, C-R. (1993)  <I>Synthesizing Intonation for Computer Speech Output</I>.  M.Sc. Thesis, Department of Computer Science, University of Calgary
+</P>
+
+<P>
+MANZARA, L. and HILL, D.R. (2002) <A HREF="pronguid.html" TARGET="new"><I>Pronunciation Guide</I></A>
+</P>
+
+<HR>
+<A NAME="appa">
+<H2>Appendix A: Posture data for tube model synthesiser -- timings and spectral features</H2>
+<P>
+<FONT COLOR="red">(Note: the <I>MONET</I> database contains the <I>raw</I> tube model parameters, such as tube radii)</FONT>
+</P>
+
+<TABLE BORDER>
+<THEAD>
+
+<TR>
+   <TH ROWSPAN=2><B>Phone</B><BR>
+   <TH COLSPAN=3>Unmarked
+   <TH COLSPAN=3>Marked
+   <TH COLSPAN=8>Parameter values
+
+<TR>
+   <TH>transition
+   <TH>qss
+   <TH>duration
+   <TH>transition
+   <TH>qss
+   <TH>duration
+   <TH>nasal
+   <TH>F1
+   <TH>F2
+   <TH>F3
+   <TH>F4
+   <TH>FH2
+   <TH>BW
+   <TH>AX
+
+</THEAD>
+
+<TBODY>
+
+<TR>
+   <TH>^<TH>-<TD ALIGN=right>50<TD ALIGN=right>200<TD ALIGN=right>50<TD ALIGN=right>250<TD ALIGN=right>300<TH>-<TD ALIGN=right>(e)<TD ALIGN=right>(e)<TD ALIGN=right>(e)<TD ALIGN=right>(e)<TH>-<TH>-<TD ALIGN=right>0
+<TR>
+   <TH>h<TD ALIGN=right>30<TD ALIGN=right>49.7<TH>-<TD ALIGN=right>50<TD ALIGN=right>66.5<TH>-<TH>-<TD ALIGN=right>(e)<TD ALIGN=right>(e)<TD ALIGN=right>(e)<TD ALIGN=right>(e)<TH>-<TH>-<TD ALIGN=right>0
+<TR>
+   <TH>gs<TD ALIGN=right>30<TD ALIGN=right>49.7<TH>-<TD ALIGN=right>50<TD ALIGN=right>66.5<TH>-<TH>-<TD ALIGN=right>(e)<TD ALIGN=right>(e)<TD ALIGN=right>(e)<TD ALIGN=right>(e)<TH>-<TH>-<TD ALIGN=right>0
+<TR>
+   <TH>ot<TD ALIGN=right>20<TD ALIGN=right>6<TH>-<TD ALIGN=right>20<TD ALIGN=right>10<TH>-<TH>-<TD ALIGN=right>581<TD ALIGN=right>1381<TD ALIGN=right>2436<TD ALIGN=right>3500<TH>-<TH>-<TH>-
+<TR>
+   <TH>aa<TH>-<TD ALIGN=right>58.8<TD ALIGN=right>84.1<TH>-<TD ALIGN=right>96.8<TD ALIGN=right>122.1<TH>-<TD ALIGN=right>748<TD ALIGN=right>1746<TD ALIGN=right>2460<TD ALIGN=right>3450<TH>-<TH>-<TH>-
+<TR>
+   <TH>ah<TH>-<TD ALIGN=right>40.1<TD ALIGN=right>65.4<TH>-<TD ALIGN=right>93.2<TD ALIGN=right>118.5<TH>-<TD ALIGN=right>750<TD ALIGN=right>1500<TD ALIGN=right>2500<TD ALIGN=right>3500<TH>-<TH>-<TH>-
+<TR>
+   <TH>a<TH>-<TD ALIGN=right>51.7<TD ALIGN=right>77<TH>-<TD ALIGN=right>107.1<TD ALIGN=right>132.4<TH>-<TD ALIGN=right>722<TD ALIGN=right>1236<TD ALIGN=right>2537<TD ALIGN=right>3500<TH>-<TH>-<TH>-
+<TR>
+   <TH>e<TH>-<TD ALIGN=right>35.7<TD ALIGN=right>61<TH>-<TD ALIGN=right>52.4<TD ALIGN=right>77.7<TH>-<TD ALIGN=right>569<TD ALIGN=right>1965<TD ALIGN=right>2636<TD ALIGN=right>3500<TH>-<TH>-<TH>-
+<TR>
+   <TH>i<TH>-<TD ALIGN=right>28<TD ALIGN=right>53.3<TH>-<TD ALIGN=right>51<TD ALIGN=right>76.3<TH>-<TD ALIGN=right>356<TD ALIGN=right>2098<TD ALIGN=right>2696<TD ALIGN=right>3700<TH>-<TH>-<TH>-
+<TR>
+   <TH>o<TH>-<TD ALIGN=right>45.2<TD ALIGN=right>70.5<TH>-<TD ALIGN=right>78.6<TD ALIGN=right>103.9<TH>-<TD ALIGN=right>599<TD ALIGN=right>891<TD ALIGN=right>2605<TD ALIGN=right>3220<TH>-<TH>-<TH>-
+<TR>
+   <TH>uh<TH>-<TD ALIGN=right>20.9<TD ALIGN=right>46.2<TH>-<TD ALIGN=right>48.8<TD ALIGN=right>74.1<TH>-<TD ALIGN=right>581<TD ALIGN=right>1381<TD ALIGN=right>2436<TD ALIGN=right>3500<TH>-<TH>-<TH>-
+<TR>
+   <TH>u<TH>-<TD ALIGN=right>25.7<TD ALIGN=right>51<TH>-<TD ALIGN=right>83.6<TD ALIGN=right>108.9<TH>-<TD ALIGN=right>376<TD ALIGN=right>950<TD ALIGN=right>2440<TD ALIGN=right>3320<TH>-<TH>-<TH>-
+<TR>
+   <TH>ar<TH>-<TD ALIGN=right>81.5<TD ALIGN=right>106.8<TH>-<TD ALIGN=right>156.4<TD ALIGN=right>181.7<TH>-<TD ALIGN=right>677<TD ALIGN=right>1083<TD ALIGN=right>2540<TD ALIGN=right>3410<TH>-<TH>-<TH>-
+<TR>
+   <TH>aw<TH>-<TD ALIGN=right>88.8<TD ALIGN=right>114.1<TH>-<TD ALIGN=right>168.8<TD ALIGN=right>194.1<TH>-<TD ALIGN=right>449<TD ALIGN=right>737<TD ALIGN=right>2635<TD ALIGN=right>3700<TH>-<TH>-<TH>-
+<TR>
+   <TH>ee<TH>-<TD ALIGN=right>57.1<TD ALIGN=right>82.4<TH>-<TD ALIGN=right>116.5<TD ALIGN=right>141.8<TH>-<TD ALIGN=right>285<TD ALIGN=right>2373<TD ALIGN=right>3088<TD ALIGN=right>3700<TH>-<TH>-<TH>-
+<TR>
+   <TH>er<TH>-<TD ALIGN=right>106.9<TD ALIGN=right>132.2<TH>-<TD ALIGN=right>142.4<TD ALIGN=right>167.7<TH>-<TD ALIGN=right>581<TD ALIGN=right>1381<TD ALIGN=right>2436<TD ALIGN=right>3500<TH>-<TH>-<TH>-
+<TR>
+   <TH>uu<TH>-<TD ALIGN=right>38.4<TD ALIGN=right>63.7<TH>-<TD ALIGN=right>99.7<TD ALIGN=right>125<TH>-<TD ALIGN=right>309<TD ALIGN=right>939<TD ALIGN=right>2320<TD ALIGN=right>3320<TH>-<TH>-<TH>-
+<TR>
+   <TH>ah-uu<TH>-<TD ALIGN=right>20<TD ALIGN=right>112.4<TH>-<TD ALIGN=right>40<TD ALIGN=right>148.2<TH>-<TH>&#60;-<TH>-<TH>See<TH>compo<TH>nent<TH>sounds<TH>-&#62;
+<TR>
+   <TH>e-i<TH>-<TD ALIGN=right>20<TD ALIGN=right>99<TH>-<TD ALIGN=right>40<TD ALIGN=right>132.1<TH>-<TH>&#60;-<TH>-<TH>See<TH>compo<TH>nent<TH>sounds<TH>-&#62;
+<TR>
+   <TH>o-i<TH>-<TD ALIGN=right>20<TD ALIGN=right>92.5<TH>-<TD ALIGN=right>40<TD ALIGN=right>135<TH>-<TH>&#60;-<TH>-<TH>See<TH>compo<TH>nent<TH>sounds<TH>-&#62;
+<TR>
+   <TH>uh-uu<TH>-<TD ALIGN=right>20<TD ALIGN=right>104.8<TH>-<TD ALIGN=right>40<TD ALIGN=right>168<TH>-<TH>&#60;-<TH>-<TH>See<TH>compo<TH>nent<TH>sounds<TH>-&#62;
+<TR>
+   <TH>in<TH>-<TD ALIGN=right>51.7<TD ALIGN=right>77<TH>-<TD ALIGN=right>107.1<TD ALIGN=right>132.4<TD ALIGN=center>X<TD ALIGN=right>722<TD ALIGN=right>1236<TD ALIGN=right>2537<TD ALIGN=right>3500<TH>-<TH>-<TH>-
+<TR>
+   <TH>an<TH>-<TD ALIGN=right>81.5<TD ALIGN=right>106.8<TH>-<TD ALIGN=right>156.4<TD ALIGN=right>181.7<TD ALIGN=center>X<TD ALIGN=right>677<TD ALIGN=right>1083<TD ALIGN=right>2540<TD ALIGN=right>3410<TH>-<TH>-<TH>-
+<TR>
+   <TH>on<TH>-<TD ALIGN=right>45.2<TD ALIGN=right>70.5<TH>-<TD ALIGN=right>78.6<TD ALIGN=right>103.9<TD ALIGN=center>X<TD ALIGN=right>599<TD ALIGN=right>891<TD ALIGN=right>2605<TD ALIGN=right>3220<TH>-<TH>-<TH>-
+<TR>
+   <TH>un<TH>-<TD ALIGN=right>20.9<TD ALIGN=right>46.2<TH>-<TD ALIGN=right>48.8<TD ALIGN=right>74.1<TD ALIGN=center>X<TD ALIGN=right>581<TD ALIGN=right>1381<TD ALIGN=right>2436<TD ALIGN=right>3500<TH>-<TH>-<TH>-
+<TR>
+   <TH>r<TD ALIGN=right>75.7<TD ALIGN=right>40.3<TH>-<TD ALIGN=right>40<TD ALIGN=right>70.7<TH>-<TH>-<TD ALIGN=right>240<TD ALIGN=right>1100<TD ALIGN=right>1300<TD ALIGN=right>2200<TH>-<TH>-<TH>-
+<TR>
+   <TH>w<TD ALIGN=right>33.7<TD ALIGN=right>47.4<TH>-<TD ALIGN=right>86.6<TD ALIGN=right>68.6<TH>-<TH>-<TD ALIGN=right>240<TD ALIGN=right>500<TD ALIGN=right>2500<TD ALIGN=right>3320<TH>-<TH>-<TH>-
+<TR>
+   <TH>l<TD ALIGN=right>22.6<TD ALIGN=right>72<TH>-<TD ALIGN=right>58<TD ALIGN=right>84<TH>-<TH>-<TD ALIGN=right>380<TD ALIGN=right>1500<TD ALIGN=right>3000<TD ALIGN=right>3700<TH>-<TH>-<TH>-
+<TR>
+   <TH>ll<TD ALIGN=right>22.6<TD ALIGN=right>72<TH>-<TD ALIGN=right>58<TD ALIGN=right>84<TH>-<TH>-<TD ALIGN=right>309<TD ALIGN=right>1200<TD ALIGN=right>3000<TD ALIGN=right>3700<TH>-<TH>-<TH>-
+<TR>
+   <TH>y<TD ALIGN=right>37.7<TD ALIGN=right>54.5<TH>-<TD ALIGN=right>96.7<TD ALIGN=right>84.4<TH>-<TH>-<TD ALIGN=right>285<TD ALIGN=right>2373<TD ALIGN=right>3088<TD ALIGN=right>3700<TH>-<TH>-<TH>-
+<TR>
+   <TH>m<TD ALIGN=right>16<TD ALIGN=right>62<TH>-<TD ALIGN=right>16<TD ALIGN=right>114<TH>-<TD ALIGN=center>X<TD ALIGN=right>190<TD ALIGN=right>950<TD ALIGN=right>2000<TD ALIGN=right>3320<TH>-<TH>-<TH>-
+<TR>
+   <TH>n<TD ALIGN=right>25.7<TD ALIGN=right>60<TH>-<TD ALIGN=right>25.7<TD ALIGN=right>88<TH>-<TD ALIGN=center>X<TD ALIGN=right>190<TD ALIGN=right>1850<TD ALIGN=right>3300<TD ALIGN=right>4200<TH>-<TH>-<TH>-
+<TR>
+   <TH>ng<TD ALIGN=right>28.5<TD ALIGN=right>50<TH>-<TD ALIGN=right>28.5<TD ALIGN=right>68<TH>-<TD ALIGN=center>X<TD ALIGN=right>190<TD ALIGN=right>2300<TD ALIGN=right>3400<TD ALIGN=right>4000<TH>-<TH>-<TH>-
+<TR>
+   <TH>p<TD ALIGN=right>18.3<TD ALIGN=right>86<TH>-<TD ALIGN=right>18.3<TD ALIGN=right>92<TH>-<TH>-<TD ALIGN=right>190<TD ALIGN=right>460<TD ALIGN=right>2000<TD ALIGN=right>3320<TH>-<TH>-<TH>-
+<TR>
+   <TH>t<TD ALIGN=right>24.2<TD ALIGN=right>60<TH>-<TD ALIGN=right>24.2<TD ALIGN=right>80<TH>-<TH>-<TD ALIGN=right>190<TD ALIGN=right>1780<TD ALIGN=right>3300<TD ALIGN=right>4200<TH>-<TH>-<TH>-
+<TR>
+   <TH>k<TD ALIGN=right>30<TD ALIGN=right>82<TH>-<TD ALIGN=right>30<TD ALIGN=right>104<TH>-<TH>-<TD ALIGN=right>100<TD ALIGN=right>2600<TD ALIGN=right>2700<TD ALIGN=right>3500<TH>-<TH>-<TH>-
+<TR>
+   <TH>ph<TD ALIGN=right>18.3<TD ALIGN=right>100<TH>-<TD ALIGN=right>18.3<TD ALIGN=right>126<TH>-<TH>-<TD ALIGN=right>190<TD ALIGN=right>460<TD ALIGN=right>2000<TD ALIGN=right>3320<TH>-<TH>-<TH>-
+<TR>
+   <TH>th<TD ALIGN=right>24.2<TD ALIGN=right>100<TH>-<TD ALIGN=right>24.2<TD ALIGN=right>118<TH>-<TH>-<TD ALIGN=right>190<TD ALIGN=right>1780<TD ALIGN=right>3300<TD ALIGN=right>4200<TH>-<TH>-<TH>-
+<TR>
+   <TH>kh<TD ALIGN=right>30<TD ALIGN=right>98<TH>-<TD ALIGN=right>30<TD ALIGN=right>124<TH>-<TH>-<TD ALIGN=right>190<TD ALIGN=right>2600<TD ALIGN=right>2700<TD ALIGN=right>3500<TH>-<TH>-<TH>-
+<TR>
+   <TH>b<TD ALIGN=right>16<TD ALIGN=right>72<TH>-<TD ALIGN=right>16<TD ALIGN=right>82<TH>-<TH>-<TD ALIGN=right>100<TD ALIGN=right>460<TD ALIGN=right>2000<TD ALIGN=right>3320<TH>-<TH>-<TH>-
+<TR>
+   <TH>d<TD ALIGN=right>18<TD ALIGN=right>58<TH>-<TD ALIGN=right>18<TD ALIGN=right>86<TH>-<TH>-<TD ALIGN=right>100<TD ALIGN=right>1850<TD ALIGN=right>3300<TD ALIGN=right>4200<TH>-<TH>-<TH>-
+<TR>
+   <TH>g<TD ALIGN=right>14<TD ALIGN=right>60<TH>-<TD ALIGN=right>14<TD ALIGN=right>80<TH>-<TH>-<TD ALIGN=right>100<TD ALIGN=right>2300<TD ALIGN=right>2500<TD ALIGN=right>3500<TH>-<TH>-<TH>-
+<TR>
+   <TH>bh<TD ALIGN=right>21.5<TD ALIGN=right>73.9<TH>-<TD ALIGN=right>21.5<TD ALIGN=right>93.9<TH>-<TH>-<TD ALIGN=right>100<TD ALIGN=right>460<TD ALIGN=right>2000<TD ALIGN=right>3320<TH>-<TH>-<TH>-
+<TR>
+   <TH>dh<TD ALIGN=right>28.5<TD ALIGN=right>51.3<TH>-<TD ALIGN=right>28.5<TD ALIGN=right>65.4<TH>-<TH>-<TD ALIGN=right>100<TD ALIGN=right>1780<TD ALIGN=right>3300<TD ALIGN=right>4200<TH>-<TH>-<TH>-
+<TR>
+   <TH>f<TD ALIGN=right>40<TD ALIGN=right>70.1<TH>-<TD ALIGN=right>40<TD ALIGN=right>97.9<TH>-<TH>-<TD ALIGN=right>100<TD ALIGN=right>690<TD ALIGN=right>2600<TD ALIGN=right>4000<TD ALIGN=right>1600<TD ALIGN=right>1000<TD ALIGN=right>0
+<TR>
+   <TH>th<TD ALIGN=right>40<TD ALIGN=right>54.6<TH>-<TD ALIGN=right>40<TD ALIGN=right>116.1<TH>-<TH>-<TD ALIGN=right>100<TD ALIGN=right>2000<TD ALIGN=right>2850<TD ALIGN=right>3950<TD ALIGN=right>1350<TD ALIGN=right>1000<TD ALIGN=right>0
+<TR>
+   <TH>s<TD ALIGN=right>29.6<TD ALIGN=right>78.1<TH>-<TD ALIGN=right>29.6<TD ALIGN=right>111.5<TH>-<TH>-<TD ALIGN=right>190<TD ALIGN=right>1300<TD ALIGN=right>3300<TD ALIGN=right>4000<TD ALIGN=right>6000<TD ALIGN=right>1000<TD ALIGN=right>0
+<TR>
+   <TH>sh<TD ALIGN=right>24.2<TD ALIGN=right>63.8<TH>-<TD ALIGN=right>24.2<TD ALIGN=right>124.2<TH>-<TH>-<TD ALIGN=right>190<TD ALIGN=right>2000<TD ALIGN=right>2700<TD ALIGN=right>4000<TD ALIGN=right>1500<TD ALIGN=right>500<TD ALIGN=right>0
+<TR>
+   <TH>v<TD ALIGN=right>44<TD ALIGN=right>48.4<TH>-<TD ALIGN=right>44<TD ALIGN=right>68.9<TH>-<TH>-<TD ALIGN=right>100<TD ALIGN=right>690<TD ALIGN=right>2600<TD ALIGN=right>4000<TD ALIGN=right>1600<TD ALIGN=right>1000<TD ALIGN=right>30
+<TR>
+   <TH>dh<TD ALIGN=right>44<TD ALIGN=right>80<TH>-<TD ALIGN=right>44<TD ALIGN=right>108<TH>-<TH>-<TD ALIGN=right>100<TD ALIGN=right>2000<TD ALIGN=right>2850<TD ALIGN=right>3950<TD ALIGN=right>1350<TD ALIGN=right>1000<TD ALIGN=right>30
+<TR>
+   <TH>z<TD ALIGN=right>30.4<TD ALIGN=right>56.5<TH>-<TD ALIGN=right>30.4<TD ALIGN=right>84.8<TH>-<TH>-<TD ALIGN=right>190<TD ALIGN=right>1300<TD ALIGN=right>3300<TD ALIGN=right>4000<TD ALIGN=right>6000<TD ALIGN=right>1000<TD ALIGN=right>30
+<TR>
+   <TH>sh<TD ALIGN=right>29.6<TD ALIGN=right>58<TH>-<TD ALIGN=right>29.6<TD ALIGN=right>82.9<TH>-<TH>-<TD ALIGN=right>190<TD ALIGN=right>2000<TD ALIGN=right>2700<TD ALIGN=right>4000<TD ALIGN=right>1500<TD ALIGN=right>500<TD ALIGN=right>30
+<TR>
+   <TH>ch<TD ALIGN=right>24.2<TD ALIGN=right>(118.5)<TH>-<TD ALIGN=right>24.2<TD ALIGN=right>(118.5)<TH>-<TH>-<TD ALIGN=right>190<TD ALIGN=right>2000<TD ALIGN=right>2700<TD ALIGN=right>4000<TD ALIGN=right>1500<TD ALIGN=right>500<TD ALIGN=right>0
+<TR>
+   <TH>j<TD ALIGN=right>24.2<TD ALIGN=right>(93.4)<TH>-<TD ALIGN=right>24.2<TD ALIGN=right>(100)<TH>-<TH>-<TD ALIGN=right>190<TD ALIGN=right>2000<TD ALIGN=right>2700<TD ALIGN=right>4000<TD ALIGN=right>1500<TD ALIGN=right>500<TD ALIGN=right>30
+<TR>
+
+</BODY>
+</TABLE>
+
+<A NAME="appanotes">
+<H3>Notes:</H3>
+Assume that we are constructing a parameter transition from posture <I>p</I> to  posture <I>p</I>+1.  DiphoneDuration DD defaults to:
+</P>
+
+<P>
+<SPACER TYPE=horizontal SIZE=100>DD = QSS<SUB>p</SUB>/J + TT<SUB>p to p+1</SUB> + QSSp+1/K = qssb1 + transition(x) + qssa2 -- (A)</P>
+
+<P>
+for the time from steady-state target to steady-state target, for the basic framework.  We have to compute or specify qssa1, qssb2 and transition(x).  This must be done for two successive diphones in the case of triphones, and three successive diphones in the case of tetraphones.  What follows describes basic defaults that can be used for any diphone component.  Special measures may be needed for any unit, but that is not of concern in specifying the defaults.  In the case of tetraphones, the notation would be extended to give, in order, qssb1, transition(x), qssa2, qssb2, transition(y), qssa3, qssb3, transition(z), qssa4.  All examples are worked in diphone terms in what follows, which is constructed to allow for problems with the original data.</P>
+
+<P>
+(a).  The transition time for a <I>vocoid</I> &#62;&#62; <I>contoid</I>, or <I>contoid</I> &#62;&#62; <I>vocoid</I> is specified by the <I>contoid</I>.  Thus transition(x) defaults to:</P>
+
+<P>
+<SPACER TYPE=horizontal SIZE=100>transition(x) = TT<SUB>p+1</SUB> for <I>vocoid</I> to <I>contoid</I> = transition<SUB><I>contoid</I></SUB> = transition2</P>
+
+<P>
+<SPACER TYPE=horizontal SIZE=100>transition(x) = TT<SUB>p</SUB> for <I>contoid</I> to <I>vocoid</I> = transition<SUB><I>contoid</I></SUB> = transition1</P>
+
+<P>
+The transition<SUB><I>contoid</I></SUB> time defaults to that which appears in the tabulated data for each <I>contoid</I> posture.  The value of qss<I>n</I> defaults to that which is specified for each posture.  For the present, qssa<I>n</I> is assumed to be equal to qssb<I>n</I>.  The actual qssa&b times for a <I>vocoid</I> to <I>contoid</I> or <I>contoid</I> to <I>vocoid</I> default to those obtained by taking the transition time already allocated out of the <I>vocoid</I> total time.  Thus:</P>
+
+<P>
+<SPACER TYPE=horizontal SIZE=100>qssa<SUB><I>vocoid</I></SUB> = duration<SUB><I>vocoid</I></SUB> / 2 - transition<SUB><I>contoid</I></SUB>.</P><P>
+If this produces a value less than 10 msecs for qssa<I>vocoid</I> it defaults to 10 msecs</P><P>
+</P><P>
+The transition(x) time for <I>vocoid</I> to <I>vocoid</I> as occurs in <I>diphthong</I>s, <I>triphthongs</I>, etc. defaults to:</P>
+
+<P>
+<SPACER TYPE=horizontal SIZE=100>transition(x) = (duration1 + duration2)/2 - 20</P><P>
+If this produces a transition time of less than 40 msecs, it defaults to 40 msecs.  The qssa&b times default to:</P>
+
+<P>
+<SPACER TYPE=horizontal SIZE=100>qssb1 = qssa2 = 10.</P>
+
+<P>
+If the <I>diphthong</I> exists in the table, the duration is taken from the table, and then:</P>
+
+<P>
+<SPACER TYPE=horizontal SIZE=100>transition(x) = duration<SUB><I>diphthong</I></SUB> - 20</P>
+
+<P>
+</P><P>
+The transition time from <I>contoid</I> to <I>contoid</I> defaults to a fixed 12 msecs, taken from the durations of the two qss's involved (this is pretty arbitrary, but is probably not critical):</P>
+
+<P>
+<SPACER TYPE=horizontal SIZE=100>transition(x) = 12</P>
+
+<P>
+<SPACER TYPE=horizontal SIZE=100>qssb1 = (qss1)/2 - 6</P>
+
+<P>
+<SPACER TYPE=horizontal SIZE=100>qssa2 = (qss2)/2-6</P>
+
+<P>
+Note that as a result of the above the default total diphone duration (DD) for any <I>diphone</I> which is not a <I>diphthong</I> is simply:</P>
+
+<P>
+<SPACER TYPE=horizontal SIZE=100>DD = (duration1 + duration2)/2
+</P>
+
+<P>
+for <I>diphthongs</I>:
+</P>
+
+
+<P>
+<SPACER TYPE=horizontal SIZE=100>DD = duration<SUB><I>diphthong</I></SUB>
+</P>
+
+<P>
+These equations will produce results that somewhat inaccurate compared to real speech because, when the durations of the phones were measured as a basis for setting up the rhythmic framework, what was <I>really</I> measured was the [qss<SUB><I>contoid</I></SUB>] for <I>contoids</I>, [transition(x) + duration<SUB><I>diphthong</I></SUB> + transition(y) for <I>diphthong</I>s, and [transition(x) + qss<SUB><I>vocoid</I></SUB> + transition(y)] for <I>vocoids</I>, with no record of what preceded and followed the <I>diphthong</I> or <I>vocoid</I> to produce the transitions.  Thus there was an uncontrolled source of variation in the durations measured for <I>vocoids</I> because a variety of transitions of different types were likely included in the measures.  The mitigating factor is that <I>diphthong</I>s were measured separately, so that the transition times included in vowels were biassed towards <I>contoids</I>.  However, the glides "w", "y" (/j/), "r", and "l" would produced long transitions, compared to other <I>contoids</I>, and certainly increase the variability.  A study of consonant transitions by Green (1959) showed a variation in consonant transitions (included as part of the vowel duration in traditional phonetic analysis) ranging from 41 msecs to 78 msecs even without including the glides.  Interestingly, the transition time for "l" is relatively short at 58 msecs (94 in and 74 out for "w"; 96.7 for "y" (/j/); and 75.7 for "r")<A HREF="#foot11"><SUP>11</SUP></A><A NAME="back11">.  The corpus of material needs to be re-analysed in diphone terms, and the transition types specified.  This will likely require an expansion of the corpus, but even a re-analysis of the existing corpus would provide some insight into the kind of data that are missing.  The equations above, specifying the component durations, have attempted to unscramble the egg a little, and should produce speech that approximates the rhythm of real speech quite well, despite the confounded data.  The framework will allow better data to be used when it is available.</P>
+
+<P>
+(b)	The target values for "k", "g", and "ng" must be modified before backvowels "o", "u", "uu", "aw", "ar".  The second formant target should be put 300 hz above the value for the vowel.</P>
+
+<P>
+(c)	The target values for h/silence/glottal-stop to posture, or posture to h/silence/glottal-stop, are taken from the posture (i.e. the transitions are flat).</P>
+
+<P>
+(d)	The shape of a given transition is determined by which of the postures involved is checked or free (i.e. is the articulation constrained by physical constraints on the articulators, as in tongue against alveolar ridge -- checked, or is it determined more by acoustic feedback from the quality of the sound, as in vowel-like sounds -- free).  There is very little deviation from the steady state targets of a checked posture, during the QSS, and the transition begins or ends fairly abruptly.  For a free posture, there is considerable deviation from the target values during the QSS.</P>
+
+
+<SPACER TYPE=vertical SIZE=10>
+
+<A NAME="parmove2">
+<CENTER>
+<IMG SRC="./images/parmove2.jpg" ALIGN=left HSPACE=10 VSPACE=10>
+</CENTER>
+
+<P>
+<STRONG>Fig A1:</STRONG> <I>Diagram of parameter movement between two nominal posture targets</I>
+</P>
+
+<P>
+To obtain an appropriate shape, default slopes are computed so that if the slope during  a checked posture is <I>m</I>, then the slope during a free posture is 3<I>m</I> and the slope during the transition is 6--12<I>m</I>  Then, if the total movement from the target in posture 1 to the target in posture 2 is D, then:
+</P>
+
+<P>
+<SPACER TYPE=horizontal SIZE=100>D = a<SUB>1</SUB>.qss<SUB>p</SUB> + a<SUB>2</SUB>.TT<SUB>p to p+1</SUB> + a<SUB>3</SUB>.QSS<SUB>p+1</SUB> 
+</P>
+
+<P>
+where a<SUB>1</SUB> a<SUB>2</SUB> and a<SUB>3</SUB> are the slopes as described, according to the type of p and p+1.  Since the relationship between a<SUB>1</SUB> a<SUB>2</SUB> and a<SUB>3</SUB> are known in terms of <I>m</I> , as is the value of D, the value of <I>m</I> may be calculated and substituted for the individual segment slopes.
+</P>
+
+<P>
+(e)  The glides are similar, but fall into two groups, "w" & "y" (/j/), versus "r" & "l"<A HREF="#foot12"><SUP>12</SUP></A><A NAME="back12">.  The former pair are close to the vowels "uu" and "ee" respectively, and are adequately synthesised by two formants.  The other pair require a third formant (if two formants are used, what is perceived--"r" or "l"--depends on the identity of the following vowel).  A steady-state onset of at least 50-60 msecs is required to avoid hearing some sort of plosive.  Extending that to 70 msecs or more produces a syllabic consonant.  For "w" and "y" 30 msecs of steady state onset avoided the perception of explosion, and more than 40 msecs produced the perception of the associated vowel.</P>
+
+<P>
+The first formant onset for l should be raised before the vowel "ar" (to 480 hz).  Otherwise 360 is adequate.  This represents the top of the acceptable range for w and y, which break down if F1 is placed higher.  The second formant onset should be lower for back vowels than for front vowels for both r and l (is this related to clear and dark versions of these two glides--the former of which is not generally documented?  The onset for w needs to be lower for vowels with lower second formants.  All in all, there is clear evidence in the glides for changes in the formant onset locations according to the phonetic context.  Green's study provides further specific evidence (Green 1959).  Interestingly, Lisker (1957) found that F2 in the vowel u had to be raised to 840 Hz from the selected value for an American u in order to synthesise a convincing u-w-u sequence.  As we use 950 Hz, it should not be a problem.</P>
+
+<P>
+The transition duration can be similar at 100 msecs for all four glides, but shorter transitions favour l and longer favour r.  If the l transition is as brief as 30 msecs, it may be confused with nasals; around 60-70 msecs was found most satisfactory.  The duration of the first formant transition is exceptional, and is an important aid to perceiving l.  Using a 10 msec transition did not adversely affect w, r and y, but definitely improved l.  We can afford to make a fast F1 transition specific to l, and use the measured transition durations from Green (1959)--as documented in the tabulated data above.
+</P>
+
+<P>
+
+<A NAME="apparefs">
+<H2>References</H2>
+
+GREEN, P.S. (1959)  Consonant-Vowel Transitions: a Spectrographic Study. <I>Studia Linguistica</I> <B>XII</B>  (2), <I>Travaux de l'Institut de Phonetique de Lund</I>, Bertil Malmberg: University of Lund 53pp.
+</P>
+
+<P>
+HILL, D.R., WITTEN, I.H. & JASSEM, W. (1978)  Some results from a preliminary study of British English speech rhythm.  <I>Research Report 78/26/5</I>, Dept. of Computer Science, U of Calgary: Calgary, Canada, 34pp. (http://www.cpsc.ucalgary.ca/~hill/papers
+</P>
+
+<P>
+O'CONNOR, J.D., GERSTMAN, L.J., LIBERMAN, A.M., DeLATTRE, P.C. & COOPER, F.S. (1957)  Acoustic cues for the perception of initial /w, j, r, l/ in English.  <I>Word</I> <B>13</B> (1), 24-43
+</P>
+
+<P>
+LISKER, L. (1957)  Minimal cues for separating /w, r, l, y/ in intervocalic position. <I>Word</I> <B>13</B> (2), 256-267
+</P>
+
+<HR>
+
+<A NAME="appb">
+<H2>Appendix B: Vowel-to-vowel transition and other miscellaneous rewrite rules</H3>
+(Working notes only)
+
+<P>
+Key: "-" = do nothing; "1" = insert a "gs" (glottal stop); "2" = insert an "r" (Source Kenyon & Knott: A pronouncing Dictionary of American English)
+</P>
+
+<P>
+Note 1: K&K also tell us that Eastern & Southern American drops utterance final "r" after the same vowels.  Brad Hodges phoned me today about the tape I sent him. Impressed, but he says our supposedly General American "r" sounds like a Chicago teenager before maturity!
+</P>
+
+<P>
+Note 2: We could probably dispense with the diphthongs if the second components are easily available.
+</P>
+
+<TABLE BORDER>
+
+<TR>
+   <TD><BR>
+   <TH>aa
+   <TH>ah
+   <TH>a
+   <TH>e
+   <TH>i
+   <TH>o
+   <TH>uh
+   <TH>u
+   <TH>ar
+   <TH>aw
+   <TH>ee
+   <TH>er
+   <TH>uu
+   <TH>ah_i
+   <TH>ah_uu
+   <TH>e_i
+   <TH>o_i
+   <TH>uh_uu
+
+
+<TBODY>
+
+<TR>
+   <TH>aa<TD ALIGN=center>1<TD ALIGN=center>1<TD ALIGN=center>1<TD ALIGN=center>1<TD ALIGN=center>1<TD ALIGN=center>1<TD ALIGN=center>1<TD ALIGN=center>1<TD ALIGN=center>1<TD ALIGN=center>1<TD ALIGN=center>1<TD ALIGN=center>1<TD ALIGN=center>1<TD ALIGN=center>1<TD ALIGN=center>1<TD ALIGN=center>1<TD ALIGN=center>1<TD ALIGN=center>1
+<TR>
+   <TH>ah<TD ALIGN=center>1<TD ALIGN=center>1<TD ALIGN=center>1<TD ALIGN=center>1<TD ALIGN=center>1<TD ALIGN=center>1<TD ALIGN=center>1<TD ALIGN=center>1<TD ALIGN=center>1<TD ALIGN=center>1<TD ALIGN=center>1<TD ALIGN=center>1<TD ALIGN=center>1<TD ALIGN=center>1<TD ALIGN=center>1<TD ALIGN=center>1<TD ALIGN=center>1<TD ALIGN=center>1
+<TR>
+   <TH>a<TD ALIGN=center>1<TD ALIGN=center>1<TD ALIGN=center>1<TD ALIGN=center>1<TD ALIGN=center>1<TD ALIGN=center>1<TD ALIGN=center>1<TD ALIGN=center>1<TD ALIGN=center>1<TD ALIGN=center>1<TD ALIGN=center>1<TD ALIGN=center>1<TD ALIGN=center>1<TD ALIGN=center>1<TD ALIGN=center>1<TD ALIGN=center>1<TD ALIGN=center>1<TD ALIGN=center>1
+<TR>
+   <TH>e<TD ALIGN=center>1<TD ALIGN=center>1<TD ALIGN=center>1<TD ALIGN=center>1<TD ALIGN=center>1<TD ALIGN=center>1<TD ALIGN=center>1<TD ALIGN=center>1<TD ALIGN=center>1<TD ALIGN=center>1<TD ALIGN=center>1<TD ALIGN=center>1<TD ALIGN=center>1<TD ALIGN=center>1<TD ALIGN=center>1<TD ALIGN=center>1<TD ALIGN=center>1<TD ALIGN=center>1
+<TR>
+   <TH>i<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-
+<TR>
+   <TH>o<TD ALIGN=center>1<TD ALIGN=center>1<TD ALIGN=center>1<TD ALIGN=center>1<TD ALIGN=center>1<TD ALIGN=center>1<TD ALIGN=center>1<TD ALIGN=center>1<TD ALIGN=center>1<TD ALIGN=center>1<TD ALIGN=center>1<TD ALIGN=center>1<TD ALIGN=center>1<TD ALIGN=center>1<TD ALIGN=center>1<TD ALIGN=center>1<TD ALIGN=center>1<TD ALIGN=center>1
+<TR>
+   <TH>uh<TD ALIGN=center>2<TD ALIGN=center>2<TD ALIGN=center>2<TD ALIGN=center>2<TD ALIGN=center>2<TD ALIGN=center>2<TD ALIGN=center>2<TD ALIGN=center>2<TD ALIGN=center>2<TD ALIGN=center>2<TD ALIGN=center>2<TD ALIGN=center>2<TD ALIGN=center>2<TD ALIGN=center>2<TD ALIGN=center>2<TD ALIGN=center>2<TD ALIGN=center>2<TD ALIGN=center>2
+<TR>
+   <TH>u<TD ALIGN=center>1<TD ALIGN=center>1<TD ALIGN=center>1<TD ALIGN=center>1<TD ALIGN=center>1<TD ALIGN=center>1<TD ALIGN=center>1<TD ALIGN=center>1<TD ALIGN=center>1<TD ALIGN=center>1<TD ALIGN=center>1<TD ALIGN=center>1<TD ALIGN=center>1<TD ALIGN=center>1<TD ALIGN=center>1<TD ALIGN=center>1<TD ALIGN=center>1<TD ALIGN=center>1
+<TR>
+   <TH>ar<TD ALIGN=center>2<TD ALIGN=center>2<TD ALIGN=center>2<TD ALIGN=center>2<TD ALIGN=center>2<TD ALIGN=center>2<TD ALIGN=center>2<TD ALIGN=center>2<TD ALIGN=center>2<TD ALIGN=center>2<TD ALIGN=center>2<TD ALIGN=center>2<TD ALIGN=center>2<TD ALIGN=center>2<TD ALIGN=center>2<TD ALIGN=center>2<TD ALIGN=center>2<TD ALIGN=center>2
+<TR>
+   <TH>aw<TD ALIGN=center>2<TD ALIGN=center>2<TD ALIGN=center>2<TD ALIGN=center>2<TD ALIGN=center>2<TD ALIGN=center>2<TD ALIGN=center>2<TD ALIGN=center>2<TD ALIGN=center>2<TD ALIGN=center>2<TD ALIGN=center>2<TD ALIGN=center>2<TD ALIGN=center>2<TD ALIGN=center>2<TD ALIGN=center>2<TD ALIGN=center>2<TD ALIGN=center>2<TD ALIGN=center>2
+<TR>
+   <TH>ee<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-
+<TR>
+   <TH>er<TD ALIGN=center>2<TD ALIGN=center>2<TD ALIGN=center>2<TD ALIGN=center>2<TD ALIGN=center>2<TD ALIGN=center>2<TD ALIGN=center>2<TD ALIGN=center>2<TD ALIGN=center>2<TD ALIGN=center>2<TD ALIGN=center>2<TD ALIGN=center>2<TD ALIGN=center>2<TD ALIGN=center>2<TD ALIGN=center>2<TD ALIGN=center>2<TD ALIGN=center>2<TD ALIGN=center>2
+<TR>
+   <TH>uu<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>1<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-
+<TR>
+   <TH>ah_i<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-
+<TR>
+   <TH>ah_uu<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-
+<TR>
+   <TH>a_i<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-
+<TR>
+   <TH>o_i<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-
+<TR>
+   <TH>uh_uu<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-<TD ALIGN=center>-
+
+</BODY>
+</TABLE>
+
+<P>
+Other rewrite rules (* is a wild card for the stress indicator--indicates stressed or unstressed)
+</P>
+
+<P>
+[stop]&#62;&#62;[h* or hv*]  becomes [stop]&#62;&#62; q?* &#62;&#62; [h* or hv*]
+</P>
+
+<P>
+[stop] &#62;&#62; [stop] &#62;&#62; [stop] becomes [stop] &#62;&#62; [stop] &#62;&#62; q?* &#62;&#62; [stop]
+</P>
+
+<P>
+[affricate] &#62;&#62; [stop|affricate|hlike] becomes [affricate] &#62;&#62; qc* &#62;&#62; [stop|affricate|hlike]
+</P>
+
+<P>
+[vowel(i) & end-of-word] &#62;&#62; [vowel(i)] becomes [vowel(i)] &#62;&#62; gs* &#62;&#62; [vowel(i)]<BR>
+
+{i.e. the gs only gets inserted for same vowels in succession -- see table above}
+</P>
+
+<P>
+[l* & end-of-word] &#62;&#62; [<I>contoid</I>] becomes [ll*] &#62;&#62; [<I>contoid</I>]  {this is the dark /l/ re-write rule}<BR>
+
+{we may need a similar rule for r to rr, but at present r and rr are the same: tried and added}
+</P>
+
+<P>
+[affricate]&#62;&#62;[stop]&#62;&#62;[stop|affricate|hlike] becomes [affricate]&#62;&#62;qc*&#62;&#62;[stop]&#62;&#62;q?*&#62;&#62;[stop|affricate|hlike]
+</P>
+
+<P>
+Last changed Wed Jan 18th 1995
+</P>
+
+<P>
+<B>drh: 95-05-23</B>
+</P>
+
+<HR>
+
+<A NAME="appc">
+<H2>Appendix C: Some internal notes from target/rule construction September 19th 1994 onwards</H2>
+(Unedited)
+
+<P>
+1. Uniform vocal tract at shortest real-time-computable length (~16 cm) gives approximation to 500, 1500, 2500 series of formants.
+</P>
+
+<P>
+2. When an area figure is entered, it frequently gets slightly changed (e.g. entering "1.1"displays "1.0")
+</P>
+
+<P>
+3. F1 has a propensity to come out at 435Hz.  What kind of artifact (if it is) is this.When checking spectra, to get a clearer idea of the formant peaks, it seems helpful to set the rise time to 25 and the fall time min to 5.  This flattens the glottal source spectrum in the low end and distorts the peaks less.  May not be good for listening though.
+</P>
+
+<P>
+4. There is ambiguity about whether the current state is saved or not.  The close box shows a solid cross even when the configuration has been modified.
+</P>
+
+<P>
+5. Should be able to import a <I>group</I> of .trm files to <I>MONET</I>
+</P>
+
+<P>
+6. <I>MONET</I> "New File" option disabled.  Why?
+</P>
+
+<P>
+7. In some spectra, the amplitude of the formants is greater at higher than at mid frequencies.
+</P>
+
+<P>
+8. Could we have an attachable/detachable section 8, as per Carré model.  Would this give us anything (e.g. in "put" versus "poot")?
+</P>
+
+<P>
+9. Whenever there is a chance to select something & perform an action, it should be possible to select several things & perform the same action (e.g. deleting items from the data entry window).
+</P>
+
+<P>
+10. Monet does not appear to add the file extension automatically.  I had to add the ".monet" manually.
+</P>
+
+<P>
+20th September<BR>
+--------------<BR>
+
+11. Had a real problem getting <I>MONET</I> to start up fresh.  Wouldn't read .monet file until I undeleted my mail and got a fresh copy of MonetBlank.monet.  Then wouldn't import .trm files until I had manually made one manual phone entry.  It allowed.trm files to be imported without having opened a .monet file, but wouldn't show any parameters.
+</P>
+
+<P>
+12. Need to show which file is currently being worked on and give proper "Save" feedback.At present, the solid cross appears even after changes (e.g. in the Rule Window).
+</P>
+
+<P>
+13. Why does the glottal source analysis still show a spectrum at zero amplitude?
+</P>
+
+<P>
+21st September<BR>
+--------------<BR>
+
+14.  Not at all clear how to raise a panel showing the posture durations in <I>MONET</I>.  The name "Symbols" does not relate well to durations.  Also, it would be very nice to be able to import and replace, and select that only certain things be replaced, using .trm files.
+</P>
+
+<P>
+15. <I>MONET</I> in entering data, better to keep old value in entry field to allow repeated entry of data.  Actual value of selected item could show in different field (or even be visible in main window).
+</P>
+
+<P>
+16. Inspectors should continue to show selection even when main window is not the key window.
+</P>
+
+<P>
+17. The mods made last time (94-09-20) seem to have fouled up the parameter display.
+</P>
+
+<P>
+22nd September<BR>
+--------------<BR>
+
+18. Need a switch to go to file, on <I>MONET</I>.
+</P>
+
+<P>
+19. ah_uu diphthong.  Check Synthesizer 2ms output samples for discontinuity.
+</P>
+
+<P>
+20. (Len) Try interpolation on all scattering coefficients.
+</P>
+
+<P>
+21. It would be nice to have a recursive rule interpreter such that a set of rules could themselves form a category to be used recursively to reduce the number of rules needed to deal with combinations.  E.g. we have ten rules for diphthongs.  We also need the triphthongs (as in RP "fire").  Nice if there was an element to call the appropriate diphthong rule into effect & then add the "uh".
+</P>
+
+<P>
+22. Utterance rate settings:  Breath: 0.5, Loss Factor 0.1, Mouth & Nose 0.601071, Pitch: -14.2857
+</P>
+
+<P>
+23. The click at the end of utterances can become very severe (try w' er' r' k').It seems to be a bug, rather than an artifact.  "^ ah i ah i ah i ah i ^  ^ uu ^"produced very little click, but lost the "uu", while "^ ah i ah i ah i ah i ^"produced a very loud click.  On the other hand "^ d' e' i' v' i d ^ ^ uu ^"produced both clicks and part of the "uu".  With Temp.monet values "t" by itself comes out silent.  Add initial "i" and the t-burst is heard (& very convincing too).  But special parameter displays showed nothing!
+</P>
+
+<P>
+24. "n" comes out sounding like "l" and "m" is little better.
+</P>
+
+<P>
+
+23rd September 1994<BR>
+--------------<BR>
+
+25. We really should have designed the system so that we have a single database and can run either <I>MONET</I> or the interactive synthesiser on it--each would deal only with those parts that were appropriate, but all file conversions,difficulties of synchronisation, etc. would go away!!
+</P>
+
+<P>
+26.  There is a problem in that synthesising "// / ^ p aa ^ p ah ^ p a ^ / //" loses the final "pa" in real-time synthesis, but the console, the display, and recording to a file all produce everything.  If this is symptomatic of some input pages to the synthesiser being overwritten under pressure (or organisation) of real time synthesis, it could also explain inconsistent clicks and other anomalies.  Some inconsistencies also with the use of double slashes to enable tempo.  Sometimes worked with, sometimes not, but also tied in with whether final syllable above was cut or not!!  Have we got an initialisation problem??  Syllable lost after fresh start-up.
+</P>
+
+<P>
+<B>Note:</B> that changing whether "//" surrounded the string changed whether the syllable was lost or not.  Adding silences would bring the syllable back and the click ultimately went away permanently.  Removing silences with "//" surrounding would bring the problem back.  Looking at the console showed:
+</P>
+
+<P>
+***</P><P>
+Tone Groups 1</P><P>
+0  start: 0  end: 1  type: 0</P><P>
+</P><P>
+Feet 2</P><P>
+0  tempo: 1.000000 start: 0  end: 10  marked: 0 last: 0</P><P>
+1  tempo: 1.000000 start: 11  end: 11  marked: 0 last: 0</P><P>
+</P><P>
+Phones 11</P><P>
+0  "^" tempo: 1.000000 syllable: 0<BR>
+1  "p" tempo: 1.000000 syllable: 0<BR>
+2  "aa" tempo: 1.000000 syllable: 0<BR>
+3  "^" tempo: 1.000000 syllable: 0<BR>
+4  "p" tempo: 1.000000 syllable: 0<BR>
+5  "ah" tempo: 1.000000 syllable: 0<BR>
+6  "^" tempo: 1.000000 syllable: 0<BR>
+7  "p" tempo: 1.000000 syllable: 0<BR>
+8  "a" tempo: 1.000000 syllable: 0<BR>
+9  "^" tempo: 1.000000 syllable: 0<BR>
+10  "^" tempo: 1.000000 syllable: 0<BR>
+CurrentIndex = 7936  Zeroing from 360192... 256 bytes<BR>
+79559</P><P>
+</P><P>
+***</P><P>
+Tone Groups 1</P><P>
+0  start: 0  end: 1  type: 0</P><P>
+</P><P>
+Feet 2</P><P>
+0  tempo: 1.000000 start: 0  end: 11  marked: 0 last: 0<BR>
+1  tempo: 1.000000 start: 12  end: 12  marked: 0 last: 0<BR>
+<BR>
+Phones 12<BR>
+0  "^" tempo: 1.000000 syllable: 0<BR>
+1  "p" tempo: 1.000000 syllable: 0<BR>
+2  "aa" tempo: 1.000000 syllable: 0<BR>
+3  "^" tempo: 1.000000 syllable: 0<BR>
+4  "p" tempo: 1.000000 syllable: 0<BR>
+5  "ah" tempo: 1.000000 syllable: 0<BR>
+6  "^" tempo: 1.000000 syllable: 0<BR>
+7  "p" tempo: 1.000000 syllable: 0<BR>
+8  "a" tempo: 1.000000 syllable: 0<BR>
+9  "^" tempo: 1.000000 syllable: 0<BR>
+10  "^" tempo: 1.000000 syllable: 0<BR>
+11  "^" tempo: 1.000000 syllable: 0<BR>
+78379<BR>
+</P><P>
+***</P><P>
+Tone Groups 1<BR>
+0  start: 0  end: 1  type: 0<BR>
+</P><P>
+Feet 2<BR>
+0  tempo: 1.000000 start: 0  end: 10  marked: 0 last: 0<BR>
+1  tempo: 1.000000 start: 11  end: 11  marked: 0 last: 0<BR>
+</P><P>
+Phones 11<BR>
+0  "^" tempo: 1.000000 syllable: 0<BR>
+1  "p" tempo: 1.000000 syllable: 0<BR>
+2  "aa" tempo: 1.000000 syllable: 0<BR>
+3  "^" tempo: 1.000000 syllable: 0<BR>
+4  "p" tempo: 1.000000 syllable: 0<BR>
+5  "ah" tempo: 1.000000 syllable: 0<BR>
+6  "^" tempo: 1.000000 syllable: 0<BR>
+7  "p" tempo: 1.000000 syllable: 0<BR>
+8  "a" tempo: 1.000000 syllable: 0<BR>
+9  "^" tempo: 1.000000 syllable: 0<BR>
+10  "^" tempo: 1.000000 syllable: 0<BR>
+CurrentIndex = 7936  Zeroing from 360192... 256 bytes<BR>
+76560<BR>
+</P><P>
+***<BR>
+Tone Groups 1</P><P>
+0  start: 0  end: 1  type: 0</P><P>
+</P><P>
+Feet 2<BR>
+0  tempo: 1.000000 start: 0  end: 9  marked: 0 last: 0<BR>
+1  tempo: 1.000000 start: 10  end: 10  marked: 0 last: 0<BR>
+</P><P>
+Phones 10<BR>
+0  "^" tempo: 1.000000 syllable: 0<BR>
+1  "p" tempo: 1.000000 syllable: 0<BR>
+2  "aa" tempo: 1.000000 syllable: 0<BR>
+3  "^" tempo: 1.000000 syllable: 0<BR>
+4  "p" tempo: 1.000000 syllable: 0<BR>
+5  "ah" tempo: 1.000000 syllable: 0<BR>
+6  "^" tempo: 1.000000 syllable: 0<BR>
+7  "p" tempo: 1.000000 syllable: 0<BR>
+8  "a" tempo: 1.000000 syllable: 0<BR>
+9  "^" tempo: 1.000000 syllable: 0<BR>
+15304<BR>
+</P><P>
+***
+</P>
+
+<P>
+
+But tests showed that whether the "zeroing" message was produced or not did not seem consistently tied to whether the last syllable was lost or not.
+</P>
+
+<P>
+27.  We really need better cross-checking between inspector values for point characteristics etc. and the system that defines the symbols.  At least we should be able to see the whole name.  Preferably, we should be able to double click and bring up the prototype manager with the specific item highlighted.
+</P>
+
+<P>
+28.  Could put in piece of init code that creates the pad page values for the synthesiser from the Monet values for silence.
+</P>
+
+<P>
+29.  Looked at voiced stops.  Horrible noises due to parameter transitions.  Tried out the Carré scheme.  "adu" sounded like "abu".  Played with combinations of transition types.  Noises came back when transitions set to triphone defaults and volume raised.  Nothing seemed to produce d-like sound from crude Carré scheme.  Formant transitions are wrong.  When all transitions except r8 were put to Triphone default and volume kept down, something like a "d" appeared in "aa d aa".
+</P>
+
+<P>
+30. Not possible to move a rule to last position in list directly.  Have to move to penultimate and move last one up.
+</P>
+
+<P>
+31.  Would be less confusing if the Fricative Centre Frequency value equalled the section #.
+</P>
+
+<P>
+32. I find it annoying that Monet only displays one decimal place in param values.  Also that a value in the synthesiser will have discrepancies (1.05 = 1.045 e.g.)
+</P>
+
+<P>
+33.  See this!  I failed to load a .monet file.</P><P>
+[MONET.app] 16=> MONET</P><P>
+Now First Responder<BR>
+Points = 3<BR>
+Points = 3<BR>
+Points = 4<BR>
+Points = 3<BR>
+Points = 3<BR>
+Points = 3<BR>
+Points = 3<BR>
+</P><P>
+45959<BR>
+</P><P>
+***</P><P>
+Tone Groups 0</P><P>
+</P><P>
+Feet 0</P><P>
+</P><P>
+Phones 0</P><P>
+TTS Server:  Sound Driver failed under heavy load (iw).</P><P>
+[MONET.app] 17=>
+</P>
+
+<P>
+34.  The special symbols RuleDuration, Mark1, Mark2, Beat, rd etc. should be handled as a separate option under the Inspector (a second option besides "General Information" in the Inspector for the Rule Window).  Also, setting them up should be made a more intuitive component (i.e. a separate exercise).  At present these important symbols are mixed up with everything else, which is confusing.
+</P>
+
+<P>
+We also need some notes on phantom points which behave in an inconsistent way, in that for the points at an internal major event, the second point (if added) is a phantom, but at the end, the first point is phantom, and the next diphone has a none-phantom point to start.  I realise there are reasons for this, but the user interface is very confusing!!!*?
+</P>
+
+<P>
+35.  It is important to develop rules in a rational order.  Get the voiced stops without any bursts sounding right before converting to voiceless stops.  the m and n count as voiced stops, of course.  We'll add other constraints later.
+</P>
+
+<P>
+36.  When selecting points in the prototype diagram. one really should have to click twice to select, and creating a new point should be done differently.  I'm not sure a triple click is appropriate, but it may well be better than the current method. Len Suggests CMD-click, which seems a good idea to me.
+</P>
+
+<P>
+37.  I ought to be able to select a group in the middle for slope ratio.</P><P>
+38.  Remember to make microintonation transitions for voicelss stops do the opposite things on either side of closure.
+</P>
+
+<P>
+39.  The input // / ^ ^ b ah i d ee ^ ^ / // produced some trailing hiss after things were supposedly all off.  Is this related to the spurious events at the end, problems with special event points, and the like??  We got around a spurious parameter value problem in the Voiced Stop fricative burst by setting the inital point in the special event to a triangle instead of a circle type.  Try "butn" !!
+</P>
+
+<P>
+40.  In the data entry process, it would be nice if, when a new posture is accessed, the inspector (if up) should already be highlighted on the item that was selected in the last access, as many times one wishes to go through and change a series of values in different postures (e.g. adjust all glottal volumes in voiced stops).
+</P>
+
+<P>
+41. // / ^ ^ aa d ^ / // and // / ^ ^ aa d / // screw up really badly at the end.  Probably a good test case for the end bug.
+</P>
+
+<P>
+42.  Need another text field on the inspector that shows the full name of the item selected, plus an easier way of reading the whole formula!
+</P>
+
+<P>
+41.  Bug in entering equations.  Sometimes a totally wrong equation gets substituted when changing an equation (has happened two or three times, and it is not that "set" was not used.  The equation changes, but it seems to a standard simple equation (like "qssb1/tempo1").
+</P>
+
+<P>
+42.  The scale of the fricative (at least for special events) needs to be modified so we can see what is going on by viewing the parameters.
+</P>
+
+<P>
+43.  We need a special way of handling the schwa vowel.  It is short & the normal rules run foul of timing limits, but making it longer wrecks the rhythm.
+</P>
+
+<P>
+44.  Nice to be able to choose scales for parameter display.  Fricative volume is so low you can't see the timing of the noise relative to other things.
+</P>
+
+<P>
+45.  Need to generate the padding values for the synthesiser from the target values supplied for silence in <I>MONET</I>, at initialisation time.
+</P>
+
+<P>
+46.  Should consider  allowing the fricative position to move just in front of R8 so that the bursts associated with bilabial articulations may be heard more easily, and controlled more effectively.  Len thinks this is a very bad idea, and we should open the closure before making the noise (true, but that's version 2!!).
+</P>
+
+<P>
+47.  Need extension in order to:<BR>
+<UL>
+<LI>get onto faster DSP so we can shorten tube length in real time and get a better approximation to the aspiration spectrum, and generally reduce compromises made in existing prototype (split R4/R5 to see if it allows more accurate simulation of velar closure)
+<LI>more rule development (we don't know if rules for some sounds can be done??), we think it may be possible to develop a better rules structure in our new framework, use > 4 postures etc.
+<LI>develop a better user interface as a basis for a lab software package
+<LI>incorporate driver software available from Stanford U to complete port to PC hardware.
+<LI>we mistakenly put extra ideas into the first proposal which are more appropriate to an extension, once the basic ideas were proven.
+<LI>need to do some experimental validation of the rules etc. we have developed as a basis for improvement.
+<LI>include intonation & rhythm components in <I>MONET</I> for more accurate testing and develop,ment of sounds, and of rhythm & intonation stuff.
+<LI>tackle the unresolved problems of moving the system onto white hardware.
+</UL>
+
+<P>
+48.  Nice to have a system to allow us to represent a vowel or whatever as an unused symbol and be able to link that symbol to an arbitrary symbol for synthesis.
+</P>
+
+<P>
+49.  In setting up "uu z uu" under Monet, we noticed that R6 had a slight change in the middle of the closure. Looking at the Monet parameter file showed that after the target, the value decreased slightly from 0.200 to 0.194.  This is clearly not correct, and may relate to the negative values we saw in glottal volume in a voiceless stop example reported earlier.</P><P>
+50.  There's a bug in the Trillium Sound Editor that causes clipping as a result of normalisation (seen on "We were away a year ago" sound output file during investigation of other matters).
+</P>
+
+<P>
+51.  The error message in the rule window should be cleared next time anything is done in the window, or the window is closed, if the error has been cleared.  Same with the inspector.
+</P>
+
+<P>
+52.  Strange occurrence.  j's stopped working after we'd played around with rules & database, but restored everything.  Fortunately we had a back-up which <I>really</I> restored stuff, but there was no obvious reason why j's would have ceased working.  We checked targets and rules and everything looked right.  Maybe screwing up the rule field, so it took blanks (cos of extra parentheses) did damamge that restoring the rule didn't undo.
+</P>
+
+<P>
+53. When applying the "Group for Slope Ratio" to a set of points, if the points are too close together, the slope ratio legends get super-imposed, even though they work correctly.  Also, it would be better to allow a more direct method of selecting multiple points (such as holding the Shift key down whilst selecting whatever points are to participate in the slope ratio).  The current system of boxing the points is awkward to the point of being almost unusable.  Sometimes it is necessary to move points in time just to be able to select the points wanted without selecting unwanted points.  The points then have to be moved back.
+</P>
+
+<P>
+
+--------------(end of development notes section)------------
+
+<HR>
+
+<A NAME="appd">
+<H2>Appendix D: GNU Free Documentation Licence</H2>
+
+
+<H2><FONT COLOR="red">GNU Free Documentation License</FONT></H2>
+<P>
+Version 1.1, March 2000
+<P>
+<PRE>
+Copyright (C) 2000  Free Software Foundation, Inc.
+59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+Everyone is permitted to copy and distribute verbatim copies
+of this license document, but changing it is not allowed.
+</PRE>
+<P>
+<STRONG>0. PREAMBLE</STRONG>
+<P>
+The purpose of this License is to make a manual, textbook, or other
+written document "free" in the sense of freedom: to assure everyone
+the effective freedom to copy and redistribute it, with or without
+modifying it, either commercially or noncommercially.  Secondarily,
+this License preserves for the author and publisher a way to get
+credit for their work, while not being considered responsible for
+modifications made by others.
+<P>
+This License is a kind of "copyleft", which means that derivative
+works of the document must themselves be free in the same sense.  It
+complements the GNU General Public License, which is a copyleft
+license designed for free software.
+<P>
+We have designed this License in order to use it for manuals for free
+software, because free software needs free documentation: a free
+program should come with manuals providing the same freedoms that the
+software does.  But this License is not limited to software manuals;
+it can be used for any textual work, regardless of subject matter or
+whether it is published as a printed book.  We recommend this License
+principally for works whose purpose is instruction or reference.
+<P>
+
+<STRONG>1. APPLICABILITY AND DEFINITIONS</STRONG>
+<P>
+This License applies to any manual or other work that contains a
+notice placed by the copyright holder saying it can be distributed
+under the terms of this License.  The "Document", below, refers to any
+such manual or work.  Any member of the public is a licensee, and is
+addressed as "you".
+<P>
+A "Modified Version" of the Document means any work containing the
+Document or a portion of it, either copied verbatim, or with
+modifications and/or translated into another language.
+<P>
+A "Secondary Section" is a named appendix or a front-matter section of
+the Document that deals exclusively with the relationship of the
+publishers or authors of the Document to the Document's overall subject
+(or to related matters) and contains nothing that could fall directly
+within that overall subject.  (For example, if the Document is in part a
+textbook of mathematics, a Secondary Section may not explain any
+mathematics.)  The relationship could be a matter of historical
+connection with the subject or with related matters, or of legal,
+commercial, philosophical, ethical or political position regarding
+them.
+<P>
+The "Invariant Sections" are certain Secondary Sections whose titles
+are designated, as being those of Invariant Sections, in the notice
+that says that the Document is released under this License.
+<P>
+The "Cover Texts" are certain short passages of text that are listed,
+as Front-Cover Texts or Back-Cover Texts, in the notice that says that
+the Document is released under this License.
+<P>
+A "Transparent" copy of the Document means a machine-readable copy,
+represented in a format whose specification is available to the
+general public, whose contents can be viewed and edited directly and
+straightforwardly with generic text editors or (for images composed of
+pixels) generic paint programs or (for drawings) some widely available
+drawing editor, and that is suitable for input to text formatters or
+for automatic translation to a variety of formats suitable for input
+to text formatters.  A copy made in an otherwise Transparent file
+format whose markup has been designed to thwart or discourage
+subsequent modification by readers is not Transparent.  A copy that is
+not "Transparent" is called "Opaque".
+<P>
+Examples of suitable formats for Transparent copies include plain
+ASCII without markup, Texinfo input format, LaTeX input format, SGML
+or XML using a publicly available DTD, and standard-conforming simple
+HTML designed for human modification.  Opaque formats include
+PostScript, PDF, proprietary formats that can be read and edited only
+by proprietary word processors, SGML or XML for which the DTD and/or
+processing tools are not generally available, and the
+machine-generated HTML produced by some word processors for output
+purposes only.
+<P>
+The "Title Page" means, for a printed book, the title page itself,
+plus such following pages as are needed to hold, legibly, the material
+this License requires to appear in the title page.  For works in
+formats which do not have any title page as such, "Title Page" means
+the text near the most prominent appearance of the work's title,
+preceding the beginning of the body of the text.
+<P>
+
+<STRONG>2. VERBATIM COPYING</STRONG>
+<P>
+You may copy and distribute the Document in any medium, either
+commercially or noncommercially, provided that this License, the
+copyright notices, and the license notice saying this License applies
+to the Document are reproduced in all copies, and that you add no other
+conditions whatsoever to those of this License.  You may not use
+technical measures to obstruct or control the reading or further
+copying of the copies you make or distribute.  However, you may accept
+compensation in exchange for copies.  If you distribute a large enough
+number of copies you must also follow the conditions in section 3.
+<P>
+You may also lend copies, under the same conditions stated above, and
+you may publicly display copies.
+<P>
+
+<STRONG>3. COPYING IN QUANTITY</STRONG>
+<P>
+If you publish printed copies of the Document numbering more than 100,
+and the Document's license notice requires Cover Texts, you must enclose
+the copies in covers that carry, clearly and legibly, all these Cover
+Texts: Front-Cover Texts on the front cover, and Back-Cover Texts on
+the back cover.  Both covers must also clearly and legibly identify
+you as the publisher of these copies.  The front cover must present
+the full title with all words of the title equally prominent and
+visible.  You may add other material on the covers in addition.
+Copying with changes limited to the covers, as long as they preserve
+the title of the Document and satisfy these conditions, can be treated
+as verbatim copying in other respects.
+<P>
+If the required texts for either cover are too voluminous to fit
+legibly, you should put the first ones listed (as many as fit
+reasonably) on the actual cover, and continue the rest onto adjacent
+pages.
+<P>
+If you publish or distribute Opaque copies of the Document numbering
+more than 100, you must either include a machine-readable Transparent
+copy along with each Opaque copy, or state in or with each Opaque copy
+a publicly-accessible computer-network location containing a complete
+Transparent copy of the Document, free of added material, which the
+general network-using public has access to download anonymously at no
+charge using public-standard network protocols.  If you use the latter
+option, you must take reasonably prudent steps, when you begin
+distribution of Opaque copies in quantity, to ensure that this
+Transparent copy will remain thus accessible at the stated location
+until at least one year after the last time you distribute an Opaque
+copy (directly or through your agents or retailers) of that edition to
+the public.
+<P>
+It is requested, but not required, that you contact the authors of the
+Document well before redistributing any large number of copies, to give
+them a chance to provide you with an updated version of the Document.
+<P>
+
+<STRONG>4. MODIFICATIONS</STRONG>
+<P>
+You may copy and distribute a Modified Version of the Document under
+the conditions of sections 2 and 3 above, provided that you release
+the Modified Version under precisely this License, with the Modified
+Version filling the role of the Document, thus licensing distribution
+and modification of the Modified Version to whoever possesses a copy
+of it.  In addition, you must do these things in the Modified Version:
+<P>
+<UL>
+<LI><STRONG>A.</STRONG> Use in the Title Page (and on the covers, if any) a title distinct
+   from that of the Document, and from those of previous versions
+   (which should, if there were any, be listed in the History section
+   of the Document).  You may use the same title as a previous version
+   if the original publisher of that version gives permission.
+<LI><STRONG>B.</STRONG> List on the Title Page, as authors, one or more persons or entities
+   responsible for authorship of the modifications in the Modified
+   Version, together with at least five of the principal authors of the
+   Document (all of its principal authors, if it has less than five).
+<LI><STRONG>C.</STRONG> State on the Title page the name of the publisher of the
+   Modified Version, as the publisher.
+<LI><STRONG>D.</STRONG> Preserve all the copyright notices of the Document.
+<LI><STRONG>E.</STRONG> Add an appropriate copyright notice for your modifications
+   adjacent to the other copyright notices.
+<LI><STRONG>F.</STRONG> Include, immediately after the copyright notices, a license notice
+   giving the public permission to use the Modified Version under the
+   terms of this License, in the form shown in the Addendum below.
+<LI><STRONG>G.</STRONG> Preserve in that license notice the full lists of Invariant Sections
+   and required Cover Texts given in the Document's license notice.
+<LI><STRONG>H.</STRONG> Include an unaltered copy of this License.
+<LI><STRONG>I.</STRONG> Preserve the section entitled "History", and its title, and add to
+   it an item stating at least the title, year, new authors, and
+   publisher of the Modified Version as given on the Title Page.  If
+   there is no section entitled "History" in the Document, create one
+   stating the title, year, authors, and publisher of the Document as
+   given on its Title Page, then add an item describing the Modified
+   Version as stated in the previous sentence.
+<LI><STRONG>J.</STRONG> Preserve the network location, if any, given in the Document for
+   public access to a Transparent copy of the Document, and likewise
+   the network locations given in the Document for previous versions
+   it was based on.  These may be placed in the "History" section.
+   You may omit a network location for a work that was published at
+   least four years before the Document itself, or if the original
+   publisher of the version it refers to gives permission.
+<LI><STRONG>K.</STRONG> In any section entitled "Acknowledgements" or "Dedications",
+   preserve the section's title, and preserve in the section all the
+   substance and tone of each of the contributor acknowledgements
+   and/or dedications given therein.
+<LI><STRONG>L.</STRONG> Preserve all the Invariant Sections of the Document,
+   unaltered in their text and in their titles.  Section numbers
+   or the equivalent are not considered part of the section titles.
+<LI><STRONG>M.</STRONG> Delete any section entitled "Endorsements".  Such a section
+   may not be included in the Modified Version.
+<LI><STRONG>N.</STRONG> Do not retitle any existing section as "Endorsements"
+   or to conflict in title with any Invariant Section.
+</UL>
+<P>
+If the Modified Version includes new front-matter sections or
+appendices that qualify as Secondary Sections and contain no material
+copied from the Document, you may at your option designate some or all
+of these sections as invariant.  To do this, add their titles to the
+list of Invariant Sections in the Modified Version's license notice.
+These titles must be distinct from any other section titles.
+<P>
+You may add a section entitled "Endorsements", provided it contains
+nothing but endorsements of your Modified Version by various
+parties--for example, statements of peer review or that the text has
+been approved by an organization as the authoritative definition of a
+standard.
+<P>
+You may add a passage of up to five words as a Front-Cover Text, and a
+passage of up to 25 words as a Back-Cover Text, to the end of the list
+of Cover Texts in the Modified Version.  Only one passage of
+Front-Cover Text and one of Back-Cover Text may be added by (or
+through arrangements made by) any one entity.  If the Document already
+includes a cover text for the same cover, previously added by you or
+by arrangement made by the same entity you are acting on behalf of,
+you may not add another; but you may replace the old one, on explicit
+permission from the previous publisher that added the old one.
+<P>
+The author(s) and publisher(s) of the Document do not by this License
+give permission to use their names for publicity for or to assert or
+imply endorsement of any Modified Version.
+<P>
+
+<STRONG>5. COMBINING DOCUMENTS</STRONG>
+<P>
+You may combine the Document with other documents released under this
+License, under the terms defined in section 4 above for modified
+versions, provided that you include in the combination all of the
+Invariant Sections of all of the original documents, unmodified, and
+list them all as Invariant Sections of your combined work in its
+license notice.
+<P>
+The combined work need only contain one copy of this License, and
+multiple identical Invariant Sections may be replaced with a single
+copy.  If there are multiple Invariant Sections with the same name but
+different contents, make the title of each such section unique by
+adding at the end of it, in parentheses, the name of the original
+author or publisher of that section if known, or else a unique number.
+Make the same adjustment to the section titles in the list of
+Invariant Sections in the license notice of the combined work.
+<P>
+In the combination, you must combine any sections entitled "History"
+in the various original documents, forming one section entitled
+"History"; likewise combine any sections entitled "Acknowledgements",
+and any sections entitled "Dedications".  You must delete all sections
+entitled "Endorsements."
+<P>
+
+<STRONG>6. COLLECTIONS OF DOCUMENTS</STRONG>
+<P>
+You may make a collection consisting of the Document and other documents
+released under this License, and replace the individual copies of this
+License in the various documents with a single copy that is included in
+the collection, provided that you follow the rules of this License for
+verbatim copying of each of the documents in all other respects.
+<P>
+You may extract a single document from such a collection, and distribute
+it individually under this License, provided you insert a copy of this
+License into the extracted document, and follow this License in all
+other respects regarding verbatim copying of that document.
+<P>
+
+
+<STRONG>7. AGGREGATION WITH INDEPENDENT WORKS</STRONG>
+<P>
+A compilation of the Document or its derivatives with other separate
+and independent documents or works, in or on a volume of a storage or
+distribution medium, does not as a whole count as a Modified Version
+of the Document, provided no compilation copyright is claimed for the
+compilation.  Such a compilation is called an "aggregate", and this
+License does not apply to the other self-contained works thus compiled
+with the Document, on account of their being thus compiled, if they
+are not themselves derivative works of the Document.
+<P>
+If the Cover Text requirement of section 3 is applicable to these
+copies of the Document, then if the Document is less than one quarter
+of the entire aggregate, the Document's Cover Texts may be placed on
+covers that surround only the Document within the aggregate.
+Otherwise they must appear on covers around the whole aggregate.
+<P>
+
+<STRONG>8. TRANSLATION</STRONG>
+<P>
+Translation is considered a kind of modification, so you may
+distribute translations of the Document under the terms of section 4.
+Replacing Invariant Sections with translations requires special
+permission from their copyright holders, but you may include
+translations of some or all Invariant Sections in addition to the
+original versions of these Invariant Sections.  You may include a
+translation of this License provided that you also include the
+original English version of this License.  In case of a disagreement
+between the translation and the original English version of this
+License, the original English version will prevail.
+<P>
+
+<STRONG>9. TERMINATION</STRONG>
+<P>
+You may not copy, modify, sublicense, or distribute the Document except
+as expressly provided for under this License.  Any other attempt to
+copy, modify, sublicense or distribute the Document is void, and will
+automatically terminate your rights under this License.  However,
+parties who have received copies, or rights, from you under this
+License will not have their licenses terminated so long as such
+parties remain in full compliance.
+<P>
+
+<STRONG>10. FUTURE REVISIONS OF THIS LICENSE</STRONG>
+<P>
+The Free Software Foundation may publish new, revised versions
+of the GNU Free Documentation License from time to time.  Such new
+versions will be similar in spirit to the present version, but may
+differ in detail to address new problems or concerns.  See
+http://www.gnu.org/copyleft/.
+<P>
+Each version of the License is given a distinguishing version number.
+If the Document specifies that a particular numbered version of this
+License "or any later version" applies to it, you have the option of
+following the terms and conditions either of that specified version or
+of any later version that has been published (not as a draft) by the
+Free Software Foundation.  If the Document does not specify a version
+number of this License, you may choose any version ever published (not
+as a draft) by the Free Software Foundation.
+</P>
+
+
+
+--------------end of Free Documentation Licence copy------
+
+<HR>
+
+<A NAME="footnotes">
+<P>
+<H2>Footnotes</H2>
+<A NAME="foot1">1.</A>
+The <I>MONET</I> speech database creation, editing and production system was designed and programmed by Craig Schock whilst at Trillium Sound Research Incorporated, based on the original ideas developed by the author of this manual.  The name originally stood for "My Own Nifty Editing Tool" (for speech parameters), but took on a much more complete set of functions.  Both the creation of the system, and its use, involve(d) sufficient artistry that it seems very appropriate to maintain the connection with the French impressionist of the same name, especially as that school of painting is my favourite.  The section delimiters augment this connection.<A HREF="#back1"> (back)</A>
+</P>
+</P><P>
+<A NAME="foot2">2.</A>
+The underlying control model used for the tube-model is derived from research carried out at the Ecole Nationale Supérieur des Télécommunication (ENST), Laboratoire de Traitment et Communication de l'Information (LCTI) (Department of Signals), in Paris, by Dr. Réné Carré.  This work in turn built on earlier work by Fant and his colleagues at the Speech Technology Laboratory, at KTH in Stockholm.  Background on this research and the authors' developments from it are provided in Hill, Manzara and Taube-Schock (1995)<A HREF="#back2"> (back)</A>
+
+</P><P>
+<A NAME="foot3">3.</A>
+Lungs, trachea, vocal folds, oral tube, tongue, teeth, cheeks, velum, nasal tube, lips, mouth orifice, and nostrils.<A HREF="#back3"> (back)</A>
+
+</P><P>
+<A NAME="foot4">4.</A>
+Other papers describing the tube model itself and other aspects of the work are also in preparation.<A HREF="#back4"> (back)</A>
+
+</P><P>
+<A NAME="foot5">5.</A>
+<I>MONET</I>'s input string comprises mainly characters from the phonetic font named Trillium Phonetic. This font provides ascii equivalents for the International Phonetic Association (IPA) phonetic symbol set used for broad (phonemic) transcription of languages (see "References").  Only the postures relevant to English and French are defined in the current diphones.monet file, and these are mapped onto the specific IPA symbols that are relevant (see the note on the title page for comments on the term phoneme).  The font was developed using the Fontographer package that ran on Macintosh computers.  For <I>MONET</I>, only the Trillium ascii font is needed.<A HREF="#back5"> (back)</A>
+
+</P><P>
+<A NAME="foot6">6.</A>
+The Prototype Manager has three modes: <B>Equations</B>, <B>Transition</B>, and <B>Special</B>.  In the <I>Equation</I> mode, equations may be defined to allow timing values to be computed from the basic phone timing data and associated with meaningful symbols grouped into categories with meaningful names.  This helps keep track of their use, and helps with documentation of the database.  In the <I>Transition</I> and <I>Special</I> modes, provision is made for setting up a parameter transition profile in which the points at which the parameter rate changes are controlled by points which have a defined time based on the timing symbols set up from the equations, and a defined percentage of the total parameter movement.  The parameter transition profile does not have absolute values of parameters.  It is used to produce the absolute values needed to drive the synthesiser by applying the percentages and rates to the absolute data defined by the actual postures (phones) in a given string.<A HREF="#back6"> (back)</A>
+
+</P><P>
+<A NAME="foot7">7.</A>
+The window that opens does not display the name of the prototype being edited in the Title bar.  This problem requires correction.<A HREF="#back7"> (back)</A>
+
+</P><P>
+<A NAME="foot8">8.</A>
+Not ServerTest which does not allow access to the "hidden" methods--which is why they are called hidden methods.<A HREF="#back8"> (back)</A>
+
+</P><P>
+<A NAME="foot9">9.</A>
+I.e. don't release the second down on double clicking until the desired scale change has been achieved by dragging with the button down.<A HREF="#back9"> (back)</A>
+
+</P><P>
+<A NAME="foot10">10.</A>
+Stressed and tonic syllables have longer phones.  Tonic syllables fall in the words representing the major content items of a phrase and have lengthening even beyond that of the normally stressed syllables.  The synthesis system provides for the various influences.<A HREF="#back10"> (back)</A>
+
+</P><P>
+<A NAME="foot11">11.</A>
+This is probably an important factor in the variance that was "missing" in the study of British English speech rhythm by Hill, Witten and Jassem (1978).<A HREF="#back11"> (back)</A>
+
+</P><P>
+<A NAME="foot12">12.</A>
+This note is based on material in O'Connor, Gerstman, Liberman, Delattre and Cooper (1957) and Lisker (1957).<A HREF="#back12"> (back)</A>
+</P>
+
+<HR>
+
+<P><H4>
+Please email any comments or questions about this paper to 
+<A HREF="mailto:david@firethorne.com">
+the author (David Hill)</A>
+</H4>
+</P>
+<P>Page last updated 02-04-12.</P>
+</BODY>
+</HTML>

@@ -1,0 +1,5 @@
+Area.o : Area.h 
+AreaCell.o : AreaCell.h 
+AreaCellInspector.o : AreaCellInspector.h 
+AreaInspector.o : AreaInspector.h 
+AreaPalette.o : AreaPalette.h 

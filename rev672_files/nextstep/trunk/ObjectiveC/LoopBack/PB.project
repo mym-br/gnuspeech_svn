@@ -1,0 +1,28 @@
+INSTALLDIR = "$(HOME)/Apps";
+APPICON = Meter1.tiff;
+GENERATEMAIN = YES;
+DOCICONFILES = ();
+FILESTABLE = {
+    M_FILES = (HostToSoundout_main.m);
+    OTHER_LINKED = ();
+    H_FILES = (errors.h, DACPlayer.h, Player.h, Transport.h);
+    CLASSES = (DACPlayer.m, Player.m, Transport.m);
+    IMAGES = ();
+    PSW_FILES = ();
+    C_FILES = (errors.c);
+    OTHER_SOURCES = ();
+    PSWM_FILES = ();
+    SOUNDS = ();
+    OTHER_LIBS = (Media_s, NeXT_s);
+    INTERFACES = (HostToSoundout.nib);
+};
+APPCLASS = Application;
+MAINNIB = HostToSoundout;
+DOCEXTENSIONS = ();
+PROJECTTYPE = Application;
+LOCALIZABLE_FILES = {
+};
+PROJECTVERSION = 1.1;
+PROJECTNAME = HostToSoundout;
+SYSTEMEXTENSIONS = ();
+LANGUAGE = English;

@@ -1,0 +1,87 @@
+FFTScaleView = {
+    ACTIONS = {
+    };
+    OUTLETS = {
+    };
+    SUPERCLASS = View;
+};
+FFTBrain = {
+    ACTIONS = {
+	windowWillMiniaturize:;
+	windowWillClose:;
+	takeTimeInterval:;
+	takeGridDisplay:;
+	printFFT:;
+	takeMinScale:;
+	takeNegative:;
+	takeMaxScale:;
+	takePixelWidth:;
+	takeFreqInterval:;
+	takeScaling:;
+	play:;
+    };
+    OUTLETS = {
+	scrollView;
+	freqResolution;
+	windowSize;
+	windowSlide;
+	minSlider;
+	minField;
+	freqIntervalField;
+	theMinField;
+	sampleFreq;
+	maxSlider;
+	theMaxField;
+	pWidth;
+	hanningWindow;
+	timeResolution;
+	window;
+	timeIntervalField;
+	maxField;
+    };
+    SUPERCLASS = Object;
+};
+FirstResponder = {
+    ACTIONS = {
+	resyncWindows:;
+    };
+    SUPERCLASS = Object;
+};
+FFTScrollView = {
+    ACTIONS = {
+	fred:;
+	printPSCode:;
+    };
+    OUTLETS = {
+	scaleView;
+    };
+    SUPERCLASS = ScrollView;
+};
+FFT = {
+    ACTIONS = {
+    };
+    OUTLETS = {
+    };
+    SUPERCLASS = Object;
+};
+Brain = {
+    ACTIONS = {
+	appDidInit:;
+	newFFT:;
+    };
+    OUTLETS = {
+	newFFT;
+    };
+    SUPERCLASS = Object;
+};
+FFTView = {
+    ACTIONS = {
+	updateBitmap:;
+	theDrawing:;
+	recache:;
+    };
+    OUTLETS = {
+	lr;
+    };
+    SUPERCLASS = View;
+};

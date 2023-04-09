@@ -1,0 +1,24 @@
+Hi Craig:
+
+This is the second version of the client-side parts of the server.
+I've made all the global variables into instance variables, and changed
+the C functions into internal methods.  This solves the scoping problem,
+and the problem of no inherited dataspace when subclassing.
+
+Also note that the initiateConnection method (formerly initiate_connection())
+expects the value of SpeechIdentifier to be returned to the client using
+receive_int_message().  This causes problems now, since I think the server
+still uses a simple message.  Make sure that SpeechIdentifier ranges from
+0 to 49;  sending a value outside of this range signals that a connection
+cannot be made, implying that all the client slots are being used.
+
+I've altered speakText:, serverVersion, pronunciation:::, 
+and linePronunciation:: so that they will resend a message to the
+server after a restart.  This means that these methods no longer need
+to be executed twice to speak or return the appropriate data after a
+restart.
+
+Finally, I've fixed the bugs to do with pointers pointing to memory
+allocated on the stack.  Simply involved declaring some arrays static.
+
+Len

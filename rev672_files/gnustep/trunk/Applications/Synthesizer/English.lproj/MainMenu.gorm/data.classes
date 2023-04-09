@@ -1,0 +1,478 @@
+{
+    "## Comment" = "Do NOT change this file, Gorm maintains it";
+    AboutView = {
+	Actions = (
+	);
+	Outlets = (
+	);
+	Super = NSImageView;
+    };
+    Analysis = {
+	Actions = (
+	    "magnitudeScaleSelected:",
+	    "grayLevelSelected:",
+	    "windowFormEntered:",
+	    "rateFormEntered:",
+	    "updateMatrixPushed:",
+	    "binSizeSelected:",
+	    "spectrographGridPushed:",
+	    "windowSelected:",
+	    "doAnalysisButtonPushed:",
+	    "spectrumGridPushed:",
+	    "windowWillMiniaturize:",
+	    "normalizeSwitchPushed:",
+	    "magnitudeFormEntered:"
+	);
+	Outlets = (
+	    doAnalysisButton,
+	    testSwitch,
+	    updateMatrix,
+	    magnitudeLabel,
+	    binSizePopUp,
+	    rateForm,
+	    grayLevelPopUp,
+	    windowForm,
+	    spectrumGridButton,
+	    binSizeFrequency,
+	    spectrum,
+	    analysisDataObject,
+	    analysisWindow,
+	    rateSecond,
+	    synthesizer,
+	    spectrograph,
+	    windowPopUp,
+	    normalizeSwitch,
+	    magnitudeForm,
+	    magnitudePopUp,
+	    controller,
+	    runButton,
+	    spectrographGridButton
+	);
+	Super = NSObject;
+    };
+    AnalysisWindow = {
+	Actions = (
+	);
+	Outlets = (
+	    spectrum
+	);
+	Super = NSObject;
+    };
+    ChartView = {
+	Actions = (
+	);
+	Outlets = (
+	);
+	Super = NSView;
+    };
+    Controller = {
+	Actions = (
+	    "saveToDefaultsButtonPushed:",
+	    "mixOffsetFieldEntered:",
+	    "mouthApertureCoefficientSliderMoved:",
+	    "fricPosFieldEntered:",
+	    "aspVolSliderMoved:",
+	    "vSliderMoved:",
+	    "throatCutoffSliderMoved:",
+	    "n2RadiusFieldEntered:",
+	    "n4RadiusFieldEntered:",
+	    "apertureScalingFieldEntered:",
+	    "glottalWaveformSelected:",
+	    "fricBWSliderMoved:",
+	    "breathinessSliderMoved:",
+	    "lossFactorSliderMoved:",
+	    "n2RadiusSliderMoved:",
+	    "r4RadiusSliderMoved:",
+	    "n1RadiusSliderMoved:",
+	    "r3RadiusSliderMoved:",
+	    "r2RadiusSliderMoved:",
+	    "r1RadiusSliderMoved:",
+	    "noisePulseModulationSelected:",
+	    "playSine:",
+	    "stereoBalanceFieldEntered:",
+	    "fricVolFieldEntered:",
+	    "samplingRateSelected:",
+	    "mouthApertureCoefficientFieldEntered:",
+	    "r1RadiusFieldEntered:",
+	    "r3RadiusFieldEntered:",
+	    "lossFactorFieldEntered:",
+	    "r5RadiusFieldEntered:",
+	    "r7RadiusFieldEntered:",
+	    "tubeLengthFieldEntered:",
+	    "noseApertureCoefficientFieldEntered:",
+	    "noseApertureCoefficientSliderMoved:",
+	    "mixOffsetSliderMoved:",
+	    "apertureScalingSliderMoved:",
+	    "glottalVolumeFieldEntered:",
+	    "glottalVolumeSliderMoved:",
+	    "throatVolumeFieldEntered:",
+	    "aspVolFieldEntered:",
+	    "throatCutoffFieldEntered:",
+	    "stereoBalanceSliderMoved:",
+	    "loadFileButtonPushed:",
+	    "loadDefaultsButtonPushed:",
+	    "temperatureFieldEntered:",
+	    "n1RadiusFieldEntered:",
+	    "temperatureSliderMoved:",
+	    "stopPlaying:",
+	    "n3RadiusFieldEntered:",
+	    "n5RadiusFieldEntered:",
+	    "fricVolSliderMoved:",
+	    "throatVolumeSliderMoved:",
+	    "fricPosSliderMoved:",
+	    "fricBWFieldEntered:",
+	    "vRadiusFieldEntered:",
+	    "pitchFieldEntered:",
+	    "tubeLengthSliderMoved:",
+	    "saveOutputFile:",
+	    "r2RadiusFieldEntered:",
+	    "r4RadiusFieldEntered:",
+	    "breathinessFieldEntered:",
+	    "r6RadiusFieldEntered:",
+	    "r8RadiusFieldEntered:",
+	    "r8RadiusSliderMoved:",
+	    "fricCFFieldEntered:",
+	    "updateToneFrequency:",
+	    "r7RadiusSliderMoved:",
+	    "runButtonPushed:",
+	    "n5RadiusSliderMoved:",
+	    "monoStereoSelected:",
+	    "n4RadiusSliderMoved:",
+	    "r6RadiusSliderMoved:",
+	    "n3RadiusSliderMoved:",
+	    "r5RadiusSliderMoved:",
+	    "fricCFSliderMoved:"
+	);
+	Outlets = (
+	    rS7,
+	    fricBWField,
+	    tnMinSlider,
+	    rS8,
+	    analysis,
+	    toneFrequencySlider,
+	    fricVolSlider,
+	    apertureScalingField,
+	    lossFactorSlider,
+	    aspVolField,
+	    fricPosField,
+	    runStopButton,
+	    mouthCoefSlider,
+	    fricVolField,
+	    breathinessSlider,
+	    testSwitch,
+	    noseCoefField,
+	    throatCutOffSlider,
+	    temperatureSlider,
+	    vS,
+	    glottalVolumeSlider,
+	    fricCFSlider,
+	    actualLengthField,
+	    throatCutOff,
+	    apertureScalingSlider,
+	    fricPosSlider,
+	    tubeLengthSlider,
+	    sampleRateField,
+	    fricativeArrow,
+	    glottalVolumeField,
+	    aspVolSlider,
+	    temperatureField,
+	    mixOffsetField,
+	    stereoBalanceField,
+	    lossFactorField,
+	    stereoBalanceSlider,
+	    harmonicsSwitch,
+	    fricCFField,
+	    tpSlider,
+	    throatVolumeSlider,
+	    tnMaxSlider,
+	    mouthCoefField,
+	    nS1,
+	    tpField,
+	    throatVolumeField,
+	    controlPeriodField,
+	    nS2,
+	    pitchSlider,
+	    noseCoefSlider,
+	    nS3,
+	    _mainWindow,
+	    nS4,
+	    pitchField,
+	    nS5,
+	    tnMaxField,
+	    toneFrequencyTextField,
+	    tubeLengthField,
+	    mixOffsetSlider,
+	    breathinessField,
+	    rS1,
+	    rS2,
+	    rS3,
+	    rS4,
+	    fricBWSlider,
+	    tnMinField,
+	    rS5,
+	    rS6
+	);
+	Super = NSObject;
+    };
+    Crossmix = {
+	Actions = (
+	);
+	Outlets = (
+	);
+	Super = ChartView;
+    };
+    FirstResponder = {
+	Actions = (
+	    "apertureScalingFieldEntered:",
+	    "apertureScalingSliderMoved:",
+	    "aspVolFieldEntered:",
+	    "aspVolSliderMoved:",
+	    "binSizeSelected:",
+	    "breathinessEntered:",
+	    "breathinessFieldEntered:",
+	    "breathinessSliderMoved:",
+	    "doAnalysisButtonPushed:",
+	    "fallTimeMaxEntered:",
+	    "fallTimeMinEntered:",
+	    "frequencyEntered:",
+	    "fricBWFieldEntered:",
+	    "fricBWSliderMoved:",
+	    "fricCFFieldEntered:",
+	    "fricCFSliderMoved:",
+	    "fricPosFieldEntered:",
+	    "fricPosSliderMoved:",
+	    "fricVolFieldEntered:",
+	    "fricVolSliderMoved:",
+	    "glottalPulseParametersChanged:",
+	    "glottalVolumeFieldEntered:",
+	    "glottalVolumeSliderMoved:",
+	    "glottalWaveformSelected:",
+	    "grayLevelSelected:",
+	    "harmonicsSwitchPushed:",
+	    "loadDefaultsButtonPushed:",
+	    "loadFileButtonPushed:",
+	    "lossFactorFieldEntered:",
+	    "lossFactorSliderMoved:",
+	    "magnitudeFormEntered:",
+	    "magnitudeScaleSelected:",
+	    "mixOffsetFieldEntered:",
+	    "mixOffsetSliderMoved:",
+	    "monoStereoSelected:",
+	    "mouthApertureCoefficientFieldEntered:",
+	    "mouthApertureCoefficientSliderMoved:",
+	    "n1RadiusFieldEntered:",
+	    "n1RadiusSliderMoved:",
+	    "n2RadiusFieldEntered:",
+	    "n2RadiusSliderMoved:",
+	    "n3RadiusFieldEntered:",
+	    "n3RadiusSliderMoved:",
+	    "n4RadiusFieldEntered:",
+	    "n4RadiusSliderMoved:",
+	    "n5RadiusFieldEntered:",
+	    "n5RadiusSliderMoved:",
+	    "noisePulseModulationSelected:",
+	    "normalizeSwitchPushed:",
+	    "noseApertureCoefficientFieldEntered:",
+	    "noseApertureCoefficientSliderMoved:",
+	    "pitchEntered:",
+	    "pitchFieldEntered:",
+	    "pitchSliderMoved:",
+	    "playSine:",
+	    "r1RadiusFieldEntered:",
+	    "r1RadiusSliderMoved:",
+	    "r2RadiusFieldEntered:",
+	    "r2RadiusSliderMoved:",
+	    "r3RadiusFieldEntered:",
+	    "r3RadiusSliderMoved:",
+	    "r4RadiusFieldEntered:",
+	    "r4RadiusSliderMoved:",
+	    "r5RadiusFieldEntered:",
+	    "r5RadiusSliderMoved:",
+	    "r6RadiusFieldEntered:",
+	    "r6RadiusSliderMoved:",
+	    "r7RadiusFieldEntered:",
+	    "r7RadiusSliderMoved:",
+	    "r8RadiusFieldEntered:",
+	    "r8RadiusSliderMoved:",
+	    "rateFormEntered:",
+	    "riseTimeEntered:",
+	    "runButtonPushed:",
+	    "samplingRateSelected:",
+	    "saveOutputFile:",
+	    "saveToDefaultsButtonPushed:",
+	    "setEnvelopeSmoothingSpan:",
+	    "setNormalTestState:",
+	    "setShowGraph:",
+	    "setShowSpectralEnvelope:",
+	    "showAmplitudeSwitchPushed:",
+	    "sliderMoved:",
+	    "spectrographGridPushed:",
+	    "spectrumGridPushed:",
+	    "stereoBalanceFieldEntered:",
+	    "stereoBalanceSliderMoved:",
+	    "stopPlaying:",
+	    "temperatureFieldEntered:",
+	    "temperatureSliderMoved:",
+	    "throatCutoffFieldEntered:",
+	    "throatCutoffSliderMoved:",
+	    "throatVolumeFieldEntered:",
+	    "throatVolumeSliderMoved:",
+	    "tubeLengthFieldEntered:",
+	    "tubeLengthSliderMoved:",
+	    "unitButtonPushed:",
+	    "updateMatrixPushed:",
+	    "updateToneFrequency:",
+	    "vRadiusFieldEntered:",
+	    "vSliderMoved:",
+	    "volumeEntered:",
+	    "volumeSliderMoved:",
+	    "waveformTypeSwitchPushed:",
+	    "windowFormEntered:",
+	    "windowSelected:",
+	    "windowWillMiniaturize:"
+	);
+	Super = NSObject;
+    };
+    FricativeArrow = {
+	Actions = (
+	);
+	Outlets = (
+	);
+	Super = NSView;
+    };
+    GPParamView = {
+	Actions = (
+	);
+	Outlets = (
+	);
+	Super = ChartView;
+    };
+    GlottalSource = {
+	Actions = (
+	    "frequencyEntered:",
+	    "volumeEntered:",
+	    "breathinessSliderMoved:",
+	    "harmonicsSwitchPushed:",
+	    "unitButtonPushed:",
+	    "waveformTypeSwitchPushed:",
+	    "riseTimeEntered:",
+	    "fallTimeMaxEntered:",
+	    "fallTimeMinEntered:",
+	    "breathinessEntered:",
+	    "pitchSliderMoved:",
+	    "pitchEntered:",
+	    "glottalPulseParametersChanged:",
+	    "showAmplitudeSwitchPushed:",
+	    "volumeSliderMoved:",
+	    "windowWillMiniaturize:"
+	);
+	Outlets = (
+	    breathinessSlider,
+	    pitchMaxField,
+	    harmonicsSwitch,
+	    pitchMinField,
+	    pitchSlider,
+	    glottalSourceWindow,
+	    harmonics,
+	    parameterView,
+	    noiseSource,
+	    breathinessField,
+	    waveformTypeSwitch,
+	    frequencyField,
+	    showAmplitudeSwitch,
+	    parameterPercent,
+	    gpParameterView,
+	    waveform,
+	    pitchField,
+	    unitButton,
+	    synthesizer,
+	    scaleView,
+	    volumeSlider,
+	    parameterForm,
+	    controller,
+	    volumeField
+	);
+	Super = NSObject;
+    };
+    Harmonics = {
+	Actions = (
+	);
+	Outlets = (
+	);
+	Super = ChartView;
+    };
+    PitchScale = {
+	Actions = (
+	);
+	Outlets = (
+	    foreground,
+	    background
+	);
+	Super = ChartView;
+    };
+    Spectrograph = {
+	Actions = (
+	);
+	Outlets = (
+	    magnitudeForm
+	);
+	Super = ChartView;
+    };
+    Spectrum = {
+	Actions = (
+	    "normalizeSwitchPushed:",
+	    "setEnvelopeSmoothingSpan:",
+	    "setShowGraph:",
+	    "setShowSpectralEnvelope:",
+	    "setNormalTestState:"
+	);
+	Outlets = (
+	    updateMatrix,
+	    doAnalysisButton,
+	    runButton,
+	    analysisWindow,
+	    testSwitch,
+	    spectrograph,
+	    envelopeSwitch,
+	    graphSwitch,
+	    envelopeField,
+	    analysis
+	);
+	Super = ChartView;
+    };
+    TubeSection = {
+	Actions = (
+	    "sliderMoved:"
+	);
+	Outlets = (
+	    area,
+	    radius,
+	    diameter
+	);
+	Super = NSView;
+    };
+    VelarNasalConnector = {
+	Actions = (
+	);
+	Outlets = (
+	);
+	Super = NSView;
+    };
+    VelumSlider = {
+	Actions = (
+	);
+	Outlets = (
+	    area,
+	    radius,
+	    diameter
+	);
+	Super = NSView;
+    };
+    Waveform = {
+	Actions = (
+	);
+	Outlets = (
+	);
+	Super = ChartView;
+    };
+}

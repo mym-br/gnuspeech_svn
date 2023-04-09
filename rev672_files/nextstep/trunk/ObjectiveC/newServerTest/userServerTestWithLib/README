@@ -1,0 +1,19 @@
+This subdirectory contains the source code for the TextToSpeech
+ServerTest application.  In many ways this is the simplest interface
+to the TextToSpeech Object.  There are only two fields, one for data
+entry, and another one in which to return data or error codes.  Each
+method is represented by its own button, and almost every method of
+the Object is made accessible to the user.
+
+ServerTest is only meant to provide access to all methods of the
+TextToSpeech Object in the simplest manner possible.  The interface is
+not very elegant, since most of the functions are better controlled with
+sliders or buttons---an example of a better user interface can be seen
+in the BigMouth application.  However, ServerTest is useful in that it
+provides a feel for how the TextToSpeech Object works, and to confirm
+the behaviour of its methods.
+
+Note that the speakStream: method normally takes a raw memory stream
+as its input.  In the ServerTest, a file name is accepted and mapped
+to a memory stream.  This method can be tested by typing in
+"streamInputFile".  This file can be edited as desired.

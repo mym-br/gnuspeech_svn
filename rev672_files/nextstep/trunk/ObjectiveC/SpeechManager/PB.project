@@ -1,0 +1,25 @@
+INSTALLDIR = "$(HOME)/Apps";
+DOCICONFILES = ();
+APPICON = SpeechManager.tiff;
+GENERATEMAIN = YES;
+FILESTABLE = {
+    OTHER_LIBS = (Media_s, NeXT_s, ni_s, TextToSpeech, TextToSpeechPriority);
+    CLASSES = (MyController.m);
+    OTHER_SOURCES = (Makefile.preamble, Makefile, Makefile.postamble);
+    H_FILES = (MyController.h);
+    INTERFACES = (SpeechManager.nib);
+    IMAGES = ();
+    OTHER_LINKED = ();
+    M_FILES = (SpeechManager_main.m);
+};
+APPCLASS = Application;
+DOCEXTENSIONS = ();
+MAINNIB = SpeechManager;
+PROJECTTYPE = Application;
+PROJECTVERSION = 1.1;
+LOCALIZABLE_FILES = {
+    SpeechManager.nib;
+};
+PROJECTNAME = SpeechManager;
+SYSTEMEXTENSIONS = ();
+LANGUAGE = English;

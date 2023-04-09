@@ -1,0 +1,14 @@
+defineps PSsine(float x; float y; float width; float height; float amplitude)
+	/midy {height 2 div x add} def
+	/maxx {x width add} def
+	/angle {x sub width div 360 mul} def
+	/sinepath {dup angle sin amplitude mul height mul 2 div midy add} def
+
+	1 setlinewidth			% set linewidth and gray level
+	0 setgray
+
+	x midy moveto			% draw the sine waveform
+	x 1 add 1 maxx 1 sub {sinepath lineto} for
+	maxx midy lineto
+	stroke
+endps

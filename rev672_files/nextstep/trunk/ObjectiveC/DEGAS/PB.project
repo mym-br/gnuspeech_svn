@@ -1,0 +1,29 @@
+INSTALLDIR = "$(HOME)/Apps";
+APPICON = "";
+GENERATEMAIN = YES;
+DOCICONFILES = ();
+FILESTABLE = {
+    M_FILES = (degas_main.m);
+    OTHER_LINKED = ();
+    H_FILES = (Categories.h, CategoryList.h, CategoryNode.h, dspcore.h, evaluate.h, FileManager.h, Generate.h, NXImageView.h, Parameter.h, ParameterList.h, parse.h, Phone.h, PhoneDescription.h, PhoneList.h, reserved_symbol.h, Rule.h, SpecialEventView.h, Synthesize.h, synthesizer_module.h, Target.h, TargetList.h, Template.h, TileScrollView.h, TransitionView.h);
+    CLASSES = (Categories.m, CategoryList.m, CategoryNode.m, FileManager.m, Generate.m, NXImageView.m, Parameter.m, ParameterList.m, Phone.m, PhoneDescription.m, PhoneList.m, Rule.m, SpecialEventView.m, Synthesize.m, Target.m, TargetList.m, Template.m, TileScrollView.m, TransitionView.m);
+    IMAGES = (crosshairCursor.tiff);
+    PSW_FILES = ();
+    C_FILES = (evaluate.c, parse.c, reserved_symbol.c, synthesizer_module.c);
+    OTHER_SOURCES = ();
+    SUBPROJECTS = ();
+    PSWM_FILES = ();
+    SOUNDS = ();
+    OTHER_LIBS = (dsp, Media_s, NeXT_s);
+    INTERFACES = (degas.nib);
+};
+APPCLASS = Application;
+MAINNIB = degas;
+DOCEXTENSIONS = ();
+PROJECTTYPE = Application;
+PROJECTVERSION = 1.1;
+LOCALIZABLE_FILES = {
+};
+PROJECTNAME = degas;
+SYSTEMEXTENSIONS = ();
+LANGUAGE = English;

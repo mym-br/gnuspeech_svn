@@ -1,0 +1,27 @@
+MySlider = {
+    SUPERCLASS = Slider;
+};
+FirstResponder = {
+    ACTIONS = {
+    };
+    SUPERCLASS = Object;
+};
+AreaInspector = {
+    ACTIONS = {
+    };
+    OUTLETS = {
+	grayLevelField;
+	tagField;
+	backgroundGrayField;
+	grayLevelSlider;
+	backgroundGraySlider;
+	borderedSwitch;
+	activeEdgeMatrix;
+	exampleArea;
+	borderGrayField;
+	controlValuesMatrix;
+	displayOnlySwitch;
+	borderGraySlider;
+    };
+    SUPERCLASS = IBInspector;
+};

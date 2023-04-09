@@ -1,0 +1,54 @@
+#!/bin/sh
+#*
+#*    Filename:	InstallScript
+#*    Created :	Mon Jun  1 19:45:37 1992 
+#*    Author  :	Vince DeMarco
+#*		<vince@whatnxt.cuc.ab.ca>
+#*    LastEditDate was "Mon Jun  8 23:21:32 1992"
+#*
+#*    $Id: InstallScript,v 1.1 2002-03-21 16:49:51 rao Exp $
+#*
+#*    $Log: not supported by cvs2svn $
+# Revision 1.0  1992/06/09  05:21:40  vince
+# Initial revision
+#
+#*
+
+
+if [ `/usr/ucb/whoami` != root ] ;  	# Make sure that the program
+					# is being run as root.
+then
+	echo "$0 Error:"
+	echo "\tMust be run as root."
+	exit 0;
+fi
+
+# $1 is the path to the TextToSpeech/system directory
+# $2 is the path to the directory where the fonts are located
+
+if [ $# != 2 ] ;       	# Check Number of arguments, there should
+			# only be two.
+then
+	echo "Usage $0 path_to_TextToSpeech/system path_to_fonts"
+else
+	if [ -d $1 -a  -r $1/TTS_Server ] ;
+	then
+		/usr/bin/dwrite TextToSpeech systemPath "$1"
+	else
+		echo "$0 Error:"
+		echo "\t$1 is not the directory where TTS_Server is located"
+		exit 0;
+	fi
+
+	if [ -d $2 -a  -d $2/Lexical.font -a -d $2/Phonetica.font -a -d $2/Trillium-Phonetic.font ] ;
+	then
+		/usr/bin/buildafmdir "$2"
+		/usr/bin/cacheAFMData "$2"
+	else
+		echo "$0 Error:"
+		echo "\t$2 dosen't contain the PrEditor fonts"
+		echo "\tLexical.font, Phonetica.font, and Trillium-Phonetic.font"
+		exit 0;
+	fi
+fi
+#

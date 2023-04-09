@@ -1,0 +1,63 @@
+April 3rd, 1992:	Took out all error checking in paged_diphone()
+			and diphone_duration(), to speed calculation.
+			If a non-existent phone is entered, then the
+			system will crash.  This should not be a problem
+			when pronunciations come from system dictionaries
+			or algorithms, since only legal phones are used
+			there.  When pronunciations are entered from
+			Literal Mode, then the function validPhone()
+			should be used to check the user-entered phones.
+
+			Cache preloading has been added to this module.
+			The function init_diphone_module() now has a 3rd
+			argument which specifies a cache preload file.
+			Diphones in this file are specified as:
+		
+			phone1 phone2\n
+
+			That is, phone1 followed by a space, followed by
+			phone2, followed immediately with a newline.  One
+			diphone, therefore, is specified per line.  If the
+			3rd argument to init_diphone_module() is set to
+			NULL, then no preloading of the cache takes place.
+			The size of the cache can be changed in the
+			diphone_module.h file.
+
+			Diphones are now placed on a diphone block of size
+			2044, instead of on a vm page, to save memory, and
+			since DEGAS will produce a diphone of size 2024 maximum.
+			2044 is the size recommended by the malloc() man page,
+			for efficiency, and to avoid vm fragmentation.
+
+
+March 30th, 1992:	Added error checking to paged_diphone(), and to
+			diphone_duration().  If the specified phones are
+			not legal, then these two routines return 0.
+			Added the function validPhone(), as a resource
+			to check if specified phone is legal.  Also, now
+			if any of the specified parameters in the function
+			init_diphone_module() are not legal, then an error
+			code is returned.
+
+March 27th, 1992:	Added a cache to the diphone_module.  This is a most
+			recently used cache;  it consists of a list, with
+			most recently used items at the top, and least recently
+			used at the bottom.  The cache is searched top to bottom
+			and if the item is found in the cache, it is put at the
+			top of the list.  If the diphone is not found in the
+			cache, it is calculated, and put at the top of the list.
+			If the cache was full, then the bottom item (the least
+			recently used) is removed from the list.  The cache is
+			wiped clean if the diphone module is re-initialized.
+
+March 26th, 1992:	Created diphone_module.  This module allows the caller
+			to calculate specified diphones on the fly.  The module
+			must first be initialized using init_diphone_module(),
+			which takes the full path name to a .degas file, as well
+			as a list of synthesizer parameters.  The other functions
+			(see diphone_module.h for a complete listing) can be called
+			at any time, and in any order, once the initialization is
+			complete.  This module recalculates each diphone each time
+			the diphone is requested, and does NOT do caching.  Note
+			that the module can be re-initialized at any time with
+			a new .degas file and parameter list.

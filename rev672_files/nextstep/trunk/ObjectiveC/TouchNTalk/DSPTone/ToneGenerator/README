@@ -1,0 +1,26 @@
+/*  REVISION INFORMATION  *****************************************************
+
+$Author: len $
+$Date: 1994/06/16 16:40:12 $
+$Revision: 1.1.1.1 $
+$Source: /cvsroot/ToneGenerator/README,v $
+$State: Exp $
+
+
+$Log: README,v $
+# Revision 1.1.1.1  1994/06/16  16:40:12  len
+# Initial archive of ToneGenerator application.
+#
+
+******************************************************************************/
+
+VERSION:		v1	Original archived version.
+
+******************************************************************************/
+
+
+HISTORY:
+
+June 19th, 1994:	Finished the Tone Generator application.  This 
+			includes the Tone class, which Dale needs for the
+			Touch'n Talk application.

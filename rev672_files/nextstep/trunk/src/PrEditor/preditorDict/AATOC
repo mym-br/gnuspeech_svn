@@ -1,0 +1,42 @@
+#*
+#*    Filename:	AATOC
+#*    Created :	Mon Jun  8 21:26:27 1992 
+#*    Author  :	Vince DeMarco
+#*		<vince@whatnxt.cuc.ab.ca>
+#*    LastEditDate was "Mon Jun  8 22:58:30 1992"
+#*
+#*    $Id: AATOC,v 1.1 2002-03-21 16:49:51 rao Exp $
+#*
+#*    $Log: not supported by cvs2svn $
+# Revision 2.1  1992/06/09  05:08:17  vince
+# Created
+#
+#*
+
+ AATOC				This file.
+ ChangeLog			File listing all of the changes made
+				to code in this directory. Maintain by
+				using emacs. Simply type Control-X4a
+				inside the emacs buffer. Make sure
+				that this is your current working directory.
+
+ Makefile			Makefile for the libpreditorDict.a file
+ Makefile.dependencies		Dependencies file.
+
+ PrDict.h -> ../PrDict.h	
+ PrDict.m -> ../PrDict.m
+ TAGS	     			etags file for emacs.
+
+ conversion.c -> ../conversion.c
+ conversion.h -> ../conversion.h
+
+ lib.make	 		base make file for libraries included
+				by Makefile.
+
+ phone_conversion.h -> ../phone_conversion.h
+
+ preditorDict.h	       		Header file for the preditorDict
+				library. documentation for the library
+				is included within this header file.
+
+ preditorDict.m			Code for the preditorDict library.

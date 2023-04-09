@@ -1,0 +1,14 @@
+#!/bin/sh
+#
+#	This script must be run as root after the TextToSpeech Kit
+#	has been installed.
+#
+dwrite TextToSpeech systemPath "/LocalLibrary/TextToSpeech/system"
+
+say "Running install script"
+/bin/ranlib /usr/local/lib/libTextToSpeech.a
+
+say "Installing Fonts"
+/usr/bin/buildafmdir /LocalLibrary/Fonts
+
+say "Installation Complete"

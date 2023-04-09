@@ -1,0 +1,24 @@
+INSTALLDIR = "$(HOME)/Apps";
+FILESTABLE = {
+    OTHER_LIBS = (Media_s, NeXT_s);
+    CLASSES = (Brain.m, FFT.m, FFTBrain.m, FFTScaleView.m, FFTScrollView.m, FFTView.m);
+    OTHER_SOURCES = (Makefile);
+    H_FILES = (Brain.h, FFT.h, FFTBrain.h, FFTScaleView.h, FFTScrollView.h, FFTView.h, structs.h);
+    INTERFACES = (FFT.nib, FFTViewer.nib);
+    OTHER_LINKED = ();
+    M_FILES = (FFTViewer_main.m);
+};
+GENERATEMAIN = YES;
+DOCICONFILES = (fft.tiff);
+APPCLASS = Application;
+MAINNIB = FFTViewer;
+DOCEXTENSIONS = (fft);
+PROJECTTYPE = Application;
+PROJECTVERSION = 1.1;
+LOCALIZABLE_FILES = {
+    FFTViewer.nib;
+    FFT.nib;
+};
+PROJECTNAME = FFTViewer;
+SYSTEMEXTENSIONS = ();
+LANGUAGE = English;

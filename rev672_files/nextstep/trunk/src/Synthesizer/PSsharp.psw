@@ -1,0 +1,50 @@
+defineps PSsharp(float x; float y; float width; float height)
+	/narrowlinewidth {1 setlinewidth} def
+	/widelinewidth {3 setlinewidth} def
+
+	/horizontalinsetfactor {2 7 div} def
+	/horizontalinset {width horizontalinsetfactor mul} def
+
+	/verticalinsetfactor {2 7 div} def
+	/verticalinset {height verticalinsetfactor mul} def
+
+	/slantfactor {2 7 div} def
+	/slant {width slantfactor mul} def
+
+	/center {y slant 2 div sub} def
+
+	/halfwidth {width 2 div} def
+	/halfheight {height 2 div} def
+
+	/vs1offset {slant horizontalinset width div mul} def
+	/vs2offset {slant width horizontalinset sub width div mul} def
+
+
+	narrowlinewidth				% set linewidth to narrow
+
+	x halfwidth sub horizontalinset add	% left vertical stroke
+	center halfheight sub vs1offset add
+	moveto
+	0 height slant 2 div sub rlineto
+
+	x halfwidth add horizontalinset sub	% right vertical stroke
+	center halfheight sub vs2offset add
+	moveto
+	0 height slant 2 div sub rlineto
+	
+	stroke					% paint the vertical strokes
+
+	widelinewidth				% set linewidth to wide
+
+	x halfwidth sub				% bottom horizontal stroke
+	center halfheight sub verticalinset add
+	moveto	
+	width slant rlineto
+
+	x halfwidth sub				% bottom horizontal stroke
+	center halfheight add verticalinset sub slant sub
+	moveto
+	width slant rlineto
+
+	stroke					% paint the horizontal strokes
+endps

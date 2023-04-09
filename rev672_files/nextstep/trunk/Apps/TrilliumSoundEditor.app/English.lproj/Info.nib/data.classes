@@ -1,0 +1,47 @@
+FirstResponder = {
+    ACTIONS = {
+    };
+    SUPERCLASS = Object;
+};
+WindowController = {
+    ACTIONS = {
+	displayInfoWindow:;
+	setCurrentFFTController:;
+	gridDisplay:;
+	newDocument:;
+	logScale:;
+	linearScale:;
+	updateControlPanel:;
+	changeGridTime:;
+	appDidInit:;
+	changeGridFreq:;
+	changeMaxSlider:;
+	changeMinSlider:;
+	setIntStuff:;
+	doAnalysis:;
+    };
+    OUTLETS = {
+	windowShapeCoef;
+	freqResolution;
+	newFFT;
+	timeInterval;
+	maxFFTValueField;
+	windowSize;
+	windowSlide;
+	scalingSliderMin;
+	numSamplesField;
+	freqInterval;
+	currentFFTController;
+	infoWindow;
+	numWindowsField;
+	displaySwitch;
+	timeResolution;
+	samplingRateField;
+	scaleMax;
+	scaleMin;
+	scalingSliderMax;
+	myWindow;
+	windowShape;
+    };
+    SUPERCLASS = Object;
+};

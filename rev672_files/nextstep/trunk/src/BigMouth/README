@@ -1,0 +1,24 @@
+This subdirectory contains the source code for the BigMouth
+application.  BigMouth provides a service to other applications,
+allowing selected text or files to be converted to synthesized speech.
+Full control over voice type, vocal tract length offset, pitch offset,
+volume, number of channels, balance, speed, and intonation is
+conveniently provided in the Preferences Panel. The Scratch Pad allows
+users to experiment with text-to-speech conversion of arbitrary text
+and files.
+
+Long spoken text may be interrupted with the "pause" item in the main
+menu, and resumed with the "continue" menu item.  Spoken text can be
+stopped entirely with the "stop" item, and "repeat" will repeat the
+last utterance.
+
+BigMouth is fairly complete.  Possible enhancements include setting
+the User Dictionary, and support of speakText: modes.  Doubtless,
+programmers will find other features to add.
+
+The source code provides clear examples of how to incorporate
+text-to-speech into applications using the TextToSpeech Kit.  In
+particular, one should note the conventions used when instantiating
+and freeing a TextToSpeech object---it is poor practise to terminate
+an application before severing the connection to the TTS server (via
+-free).

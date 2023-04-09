@@ -1,0 +1,31 @@
+INSTALLDIR = "$(HOME)/Apps";
+APPICON = app.tiff;
+GENERATEMAIN = YES;
+DOCICONFILES = ();
+FILESTABLE = {
+    M_FILES = (TTS_Developer_Upgrade_main.m);
+    OTHER_LINKED = ();
+    H_FILES = (myController.h);
+    CLASSES = (myController.m);
+    IMAGES = ();
+    PSW_FILES = ();
+    C_FILES = (buffer.c, munge.c);
+    OTHER_RESOURCES = (TextToSpeech.Dev);
+    OTHER_SOURCES = ();
+    SUBPROJECTS = ();
+    PSWM_FILES = ();
+    SOUNDS = ();
+    OTHER_LIBS = (Media_s, NeXT_s);
+    INTERFACES = (TTS_Developer_Upgrade.nib);
+};
+APPCLASS = Application;
+MAINNIB = TTS_Developer_Upgrade;
+DOCEXTENSIONS = ();
+PROJECTTYPE = Application;
+PROJECTVERSION = 1.1;
+LOCALIZABLE_FILES = {
+    TTS_Developer_Upgrade.nib;
+};
+PROJECTNAME = TTS_Developer_Upgrade;
+SYSTEMEXTENSIONS = ();
+LANGUAGE = English;

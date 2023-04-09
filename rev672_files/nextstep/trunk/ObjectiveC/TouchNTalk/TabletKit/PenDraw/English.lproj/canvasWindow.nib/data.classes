@@ -1,0 +1,65 @@
+CanvasView = {
+    ACTIONS = {
+    };
+    OUTLETS = {
+	imageCopy;
+	image;
+    };
+    SUPERCLASS = View;
+};
+FirstResponder = {
+    ACTIONS = {
+    };
+    SUPERCLASS = Object;
+};
+PenDraw = {
+    ACTIONS = {
+	changeLineWidth:;
+	selectEPSImageFormat:;
+	saveAllRequest:;
+	newRequest:;
+	clearCanvas:;
+	revertToSavedRequest:;
+	appWillTerminate:;
+	changeDevice:;
+	changeLineColor:;
+	selectTIFFImageFormat:;
+	appDidInit:;
+	openRequest:;
+    };
+    OUTLETS = {
+	saveAsMenuCell;
+	lineColorWell;
+	accessoryPanel;
+	revertToSavedMenuCell;
+	openPanel;
+	saveMenuCell;
+	deviceRadioButtons;
+	closeMenuCell;
+	lineWidthTextField;
+	documentSubmenuCell;
+	tabletDriver;
+	canvasControl;
+	lineWidthSlider;
+	savePanel;
+	saveAllMenuCell;
+    };
+    SUPERCLASS = Object;
+};
+CanvasControl = {
+    ACTIONS = {
+	close:;
+	save:;
+	windowDidResize:;
+	windowDidBecomeKey:;
+	windowWillClose:;
+	windowWillResize:;
+	saveAs:;
+    };
+    OUTLETS = {
+	window;
+	savePanel;
+	canvasView;
+    };
+    SUPERCLASS = Object;
+};

@@ -1,0 +1,9 @@
+#! /bin/sh
+
+#
+# TabletKit.post_delete only works as root.
+#
+
+echo
+echo "        Deleting /usr/local/lib/libGrooveSlider.a ..."
+/bin/rm -f /usr/local/lib/libGrooveSlider.a

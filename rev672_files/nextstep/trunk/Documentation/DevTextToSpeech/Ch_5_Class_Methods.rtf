@@ -1,0 +1,1711 @@
+{\rtf0\ansi{\fonttbl\f0\fnil Times-Roman;\f2\fmodern Courier;\f4\ftech Symbol;\f1\fmodern Ohlfs;}
+\paperw12240
+\paperh14600
+\margl1800
+\margr1080
+\pard\tx1140\tx2280\tx3420\tx4560\tx5700\tx6840\tx7980\f0\b0\i0\ulnone\fs72\fc0\cf0 Chapter 5\
+\
+
+\fs96 Class Methods\
+\
+
+\fs28 \
+
+\b\fs36 5.1  Creating and Freeing the Object\
+
+\b0\fs28 \
+
+\b\fs32 alloc
+\b0\fs28 \
+\
+
+\b\li540 + alloc
+\b0 \
+\
+Allocates memory in the default zone for the TextToSpeech Object. The object must then be initialized immediately using the 
+\b init
+\b0  method.  For example:\
+\
+
+\f2\fs24     mySpeaker = [[TextToSpeech alloc] init];\
+
+\f0\fs28 \
+See also:  
+\b allocFromZone:, free, init
+\b0 \
+
+\li0 \
+\
+
+\b\fs32 allocFromZone:
+\b0\fs28 \
+\
+
+\b\li540 + allocFromZone:
+\b0 (NXZone *)
+\i zone
+\i0 \
+\
+Allocates memory in the specified 
+\i zone
+\i0  for the TextToSpeech Object. The object must then be initialized immediately using the 
+\b init
+\b0  method.  For example:\
+\
+
+\f2\fs24     mySpeaker = [[TextToSpeech allocFromZone:myZone] init]; \
+
+\f0\fs28 \
+Of course, the programmer can use the inherited method 
+\b zone
+\b0  to specify the zone of another object.\
+\
+See also:  
+\b alloc, init, free
+\b0 \
+
+\li0 \
+\
+
+\b\fs32 init
+\b0\fs28 \
+\
+
+\b\li540 ± init
+\b0 \
+\
+Initializes the TextToSpeech Object.  This method must be invoked immediately after the object has been allocated memory. If the TextToSpeech server cannot be started, or if all client slots are occupied, then this method will return 
+\b nil
+\b0 .  It is best to check for this immediately after allocating and initializing the object, as in the following example: \
+\
+
+\f2\fs24     mySpeaker = [[TextToSpeech alloc] init];\
+    if (mySpeaker == nil) \{\
+    	    /*  TELL THE USER THAT NO CONNECTION CAN BE MADE  */     \
+        NXRunAlertPanel("No Connection Possible",\
+           "Too many clients, or server cannot be started.",\
+           "OK", NULL, NULL);\
+        [NXApp terminate:self];\
+    \}\
+
+\f0\fs28 \
+If 
+\b init
+\b0  returns 
+\b nil
+\b0 , there is no need to free the allocated object, since deallocation is handled automatically in this case.\
+\
+The server is automatically launched when the client instantiates the Text-to-Speech Object (unless it has already been launched by another client application), and is freed whenever no clients are connected.  Instantiating the Object creates a connection between the client application and the server;  a single client slot in the server space thus becomes occupied.  An application can instantiate as many Text-to-Speech Objects as needed (within system limits).  This is the same, in effect, as having multiple connections to the server.  Currently, the server can handle a maximum of 50 clients.\
+\
+See also:  
+\b alloc, allocFromZone:, free
+\b0 \
+
+\li0 \
+\
+
+\b\fs32 free
+\b0\fs28 \
+\
+
+\b\li540 ± free
+\b0 \
+\
+Frees the TextToSpeech Object in memory, and returns 
+\b nil
+\b0 . Freeing the Object causes the connection between the client and server to be dropped, and frees a client slot in the server.\
+\
+See also:  
+\b alloc, allocFromZone:
+\b0 \
+
+\li0 \
+\
+
+\b\fs36 5.2  Voice Quality Methods\
+
+\b0\fs28 \
+
+\b\fs32 setOutputSampleRate:
+\b0\fs28 \
+
+\li540 \
+
+\b ±
+\b0  (tts_error_t)
+\b setOutputSampleRate:
+\b0 (float)
+\i rateValue
+\i0 \
+\
+Sets the output sample rate of the speaking voice.  The argument 
+\i rateValue
+\i0  must be set to either 44100 or 22050 Hz, or the 
+\f2\fs24 TTS_OUT_OF_RANGE
+\f0\fs28  error is returned and the rate is set to the nearest in-range value.  The following constants can also be used:\
+\
+
+\fi-240\li1140 ∑	TTS_SAMPLE_RATE_LOW\
+∑	TTS_SAMPLE_RATE_HIGH\
+∑	TTS_SAMPLE_RATE_DEF\
+
+\fi0\li540 \
+The default rate is 22050 Hz.  Due to limits in DSP hardware speed, the higher rate is only available when speaking to file.  If you attempt to synthesize text to real-time output at the higher rate (using 
+\b speakText:
+\b0  or 
+\b speakStream:
+\b0 ), no speech is synthesized and the 
+\f2\fs24 TTS_DSP_TOO_SLOW
+\f0\fs28  error is returned.\
+\
+The 
+\b setOutputSampleRate:
+\b0  method takes effect only after the current sentence has finished speaking.  The method returns 
+\f2\fs24 TTS_OUT_OF_RANGE
+\f0\fs28  if the argument is out of range, and 
+\f2\fs24 TTS_OK
+\f0\fs28  otherwise.  Out-of-range values for 
+\i rateValue
+\i0  are reset to the nearest in-range value.\
+\
+When using the DSP to synthesize shorter vocal tract lengths (under 15.9 cm), the higher sample rate must be used.  Effectively, this means that voices that have short vocal tracts (children and smaller women) can only be synthesized to file with the present hardware.  If you synthesize speech to file using the low sample rate and a vocal tract length under 15.9 cm, the file is created using the higher sample rate and the 
+\f2\fs24 TTS_SAMPLE_RATE_TOO_LOW
+\f0\fs28  error is returned.\
+\
+If you use the software synthesizer to synthesize to file, either the high or low sample rate can be used.  Unlike the DSP synthesizer, the software synthesizer is far too slow to work in real time.\
+\
+See also:  
+\b outputSampleRate, setVoiceType:, setSoftwareSynthesizer:, setVocalTractLengthOffset:
+\fs32 \
+
+\li0 \
+\
+outputSampleRate
+\b0\fs28 \
+
+\b\li540 \
+± 
+\b0 (float)
+\b outputSampleRate
+\b0 \
+\
+Returns the current output sample rate.  The returned value is a float\
+set to either 22050 or 44100 Hz.\
+\
+See also:  
+\b setOutputSampleRate:\
+\
+
+\b0 \
+
+\b\fs32\li0 setNumberChannels:
+\b0 \
+
+\fs28\li540 \
+
+\b ± 
+\b0 (tts_error_t)
+\b setNumberChannels:
+\b0 (int)
+\i channelsValue
+\i0 \
+\
+Sets the number of channels used for sound output.  The argument 
+\i channelsValue
+\i0  is an integer that must be set to 1 or 2.  The default number of channels is 2.  The following constants can also be used:\
+\
+
+\fi-240\li1140 ∑	TTS_CHANNELS_1\
+∑	TTS_CHANNELS_2\
+∑	TTS_CHANNELS_DEF\
+
+\fi0\li540 \
+The 
+\b setNumberChannels:
+\b0  method takes effect only after the current sentence has finished speaking.  The method returns 
+\f2\fs24 TTS_OUT_OF_RANGE
+\f0\fs28  if the argument is out of range, and 
+\f2\fs24 TTS_OK
+\f0\fs28  otherwise.  Out-of-range values for 
+\i channelsValue
+\i0  are reset to the nearest in-range value.\
+\
+You can't adjust the stereo balance unless the number of channels is set to 2.  When synthesizing to real-time output, using 1 channel is effectively the same as using 2 channels and setting the stereo balance to 0.0 (center position).  This is because you cannot disable a single channel of the stereo D/A converter.  Note, however, that when synthesizing to file, half as many samples are created when 1 channel is used.  Thus, you normally only use a mono setting to save space when speaking to file.\
+\
+See also:  
+\b numberChannels, setBalance:, balance
+\b0 \
+
+\li0 \
+\
+
+\b\fs32 numberChannels
+\b0\fs28 \
+\
+
+\b\li540 ± 
+\b0 (int)
+\b numberChannels
+\b0 \
+\
+Returns the current number of channels used for sound output.  An integer with the value 1 or 2 is returned.\
+\
+See also:  
+\b setNumberChannels:, setBalance:, balance
+\b0 \
+
+\li0 \
+\
+
+\b\fs32 setBalance:
+\b0\fs28 \
+\
+
+\b\li540 ± 
+\b0 (tts_error_t)
+\b setBalance:
+\b0 (float)
+\i balanceValue
+\i0 \
+\
+Sets the stereo balance of the speaking voice.  The argument 
+\i balanceValue
+\i0  is a float that ranges from ±1.0 (hard left) to +1.0 (hard right).  The default is 0.0 (center).  The following constants are also available:\
+
+\fi-240\li1140 \
+∑	TTS_BALANCE_LEFT\
+∑	TTS_BALANCE_RIGHT\
+∑	TTS_BALANCE_CENTER\
+\
+
+\fi0\li540 The 
+\b setBalance:
+\b0  method takes effect only after the current sentence has finished speaking.  The method returns 
+\f2\fs24 TTS_OUT_OF_RANGE
+\f0\fs28  if the argument is out of range, and 
+\f2\fs24 TTS_OK
+\f0\fs28  otherwise.  Out-of-range values for 
+\i balanceValue
+\i0  are reset to the nearest in-range value.  Any change of stereo balance is heard only when the number of output channels has been set to 2.\
+\
+See also:  
+\b balance, setNumberChannels:, numberChannels
+\b0 \
+
+\li0 \
+\
+
+\b\fs32 balance
+\b0\fs28 \
+\
+
+\b\li540 ±
+\b0  (float)
+\b balance
+\b0 \
+\
+Returns the current stereo balance.  The returned value is a float which will range from ±1.0 (hard left) to +1.0 (hard right).\
+\
+See also:  
+\b setBalance:, setNumberChannels:, numberChannels
+\b0 \
+
+\li0 \
+\
+
+\b setSpeed:
+\b0 \
+\
+
+\b\li540 ±
+\b0  (tts_error_t)
+\b setSpeed:
+\b0 (float)
+\i speedValue
+\i0 \
+\
+Sets the speed of the voice.  The argument 
+\i speedValue
+\i0  must be a float within the range 0.2 to 2.0.  The value 1.0 is the normal rate of speech.  The speed is varied by setting 
+\i speedValue
+\i0  to a factor of this normal rate.  For example, the value 2.0 indicates that the speech will be twice the normal rate, and the value 0.5 indicates that the speech will be one half the normal rate.  The 
+\i speedValue
+\i0  argument can also be set using the definitions contained in TextToSpeech.h.  The available choices are:\
+
+\fi-240\li1140 \
+∑	TTS_SPEED_FAST,\
+∑	TTS_SPEED_NORMAL,\
+∑	TTS_SPEED_SLOW.\
+\
+
+\fi0\li540 The 
+\b setSpeed
+\b0  method takes effect only after the current sentence has finished speaking.  The method returns 
+\f2\fs24 TTS_OUT_OF_RANGE
+\f0\fs28  if the argument is out of range, and 
+\f2\fs24 TTS_OK
+\f0\fs28  otherwise.  Out-of-range values for 
+\i speedValue
+\i0  are reset to the nearest in-range value.\
+\
+See also:  
+\b speed
+\b0 \
+
+\li0 \
+\
+
+\b\fs32 speed
+\b0\fs28 \
+\
+
+\b\li540 ±
+\b0  (float)
+\b speed
+\b0 \
+\
+Returns the current speed of the TextToSpeech Object.  The returned value is a float within the range of 0.2 to 2.0.\
+\
+See also:  
+\b setSpeed:
+\b0 \
+
+\li0 \
+\
+
+\b setIntonation:
+\b0 \
+\
+
+\b\li540 ±
+\b0  (tts_error_t)
+\b setIntonation:
+\b0 (int)
+\i intonationMask
+\i0 \
+\
+Sets the type and extent of intonation used by the synthesized voice.  Intonation is set by bitwise OR'ing the desired options listed below:\
+
+\fi-240\li1140 \
+∑	TTS_INTONATION_NONE\
+∑	TTS_INTONATION_MICRO\
+∑	TTS_INTONATION_MACRO\
+∑	TTS_INTONATION_DECLIN\
+∑	TTS_INTONATION_CREAK\
+∑	TTS_INTONATION_RANDOMIZE\
+∑	TTS_INTONATION_ALL\
+\
+
+\fi0\li540 Micro-intonation is variation in pitch due to segmental level changes in air pressure associated with events such as stops and plosives;  its effect is quite subtle.  Macro-intonation results from supra-segmental features such as syllable stress, phrase structure, sentence type, etc.  Declination (
+\f2\fs24 TTS_INTONATION_DECLIN
+\f0\fs28 ) is the gradual drop in pitch that naturally occurs in most sentences.  Creaky voice (
+\f2\fs24 TTS_INTONATION_CREAK
+\f0\fs28 ) results when the voice drops in pitch to such an extent that a pulse-like quality is heard (currently not implemented).  When the randomize bit is set, slight pitch variations are added to the macro-intonation.\
+\
+If no intonation at all is desired, then 
+\i intonationMask
+\i0  should be set to 
+\f2\fs24 TTS_INTONATION_NONE
+\f0\fs28 .  If intonation from all sources is desired, then set the argument to 
+\f2\fs24 TTS_INTONATION_ALL
+\f0\fs28 .  This is the default setting.\
+\
+The 
+\b setIntonation:
+\b0  method takes effect only after the current sentence has finished speaking.  The method returns 
+\f2\fs24 TTS_OUT_OF_RANGE
+\f0\fs28  if the argument is out of range, and 
+\f2\fs24 TTS_OK
+\f0\fs28  otherwise.  Out-of-range values for 
+\i intonationMask
+\i0  are reset to the default.\
+\
+See also:  
+\b intonation
+\b0 \
+
+\li0 \
+\
+
+\b\fs32 intonation
+\b0\fs28 \
+\
+
+\b\li540 ±
+\b0  (int)
+\b intonation
+\b0 \
+\
+Returns the type of intonation currently in use.  The returned value can be decoded by bitwise AND'ing it with the constants listed in 
+\b setIntonation:
+\b0  above.\
+\
+See also:  
+\b setIntonation:
+\b0 \
+
+\li0 \
+\
+
+\b\fs32 setVoiceType:
+\b0\fs28 \
+\
+
+\b\li540 ±
+\b0  (tts_error_t)
+\b setVoiceType:
+\b0 (int)
+\i voiceType
+\i0 \
+\
+Sets the voice type of the speaking voice.  The global definitions contained in TextToSpeech.h may be used to set 
+\i voiceType
+\i0 .  Currently, the available choices are:\
+
+\fi-240\li1140 \
+∑	TTS_VOICE_TYPE_MALE,\
+∑	TTS_VOICE_TYPE_FEMALE,\
+∑	TTS_VOICE_TYPE_LARGE_CHILD\
+∑	TTS_VOICE_TYPE_SMALL_CHILD\
+∑	TTS_VOICE_TYPE_BABY\
+\
+
+\fi0\li540 TTS_VOICE_TYPE_MALE is the default.  The 
+\b setVoiceType:
+\b0  method takes effect only after the current sentence has finished speaking.  The method returns 
+\f2\fs24 TTS_OUT_OF_RANGE
+\f0\fs28  if the argument is out of range, and 
+\f2\fs24 TTS_OK
+\f0\fs28  otherwise.  Out-of-range values for 
+\i voiceType
+\i0  are reset to the default.\
+\
+Setting the voice type sets the baseline values for the median pitch and vocal tract length.  You can ``offset'' from these baseline values by calling the 
+\b setPitchOffset:
+\b0  or 
+\b setVocalTractLengthOffset:
+\b0  methods.  These offsets remain in effect when you change voice type.  This means, for example, that if you offset the pitch to create a low male voice, when you switch to a female voice, it too will be a ``low'' voice.\
+\
+The baseline values for each voice type are summarized below:\
+\
+
+\pard\tx1800\tx3420\tx5040\tx6660\tx8460\li540\fc0\cf0 	
+\i Male
+\i0 	
+\i Female
+\i0 	
+\i Large Child
+\i0 	
+\i Small Child
+\i0 	
+\i Baby
+\i0 \
+length	17.5	15.0	12.5	10.0	7.5\
+pitch	±12.0	0.0	2.5	5.0	7.5\
+
+\pard\tx1140\tx2280\tx3420\tx4560\tx5700\tx6840\tx7980\li540\fc0\cf0 \
+The vocal tract length is given in centimeters, and the pitch is given in semitones, with 0 equal to middle C.\
+\
+Note that smaller vocal tract lengths cannot be synthesized in real time on the DSP (this varies from platform to platform, and from sound card to sound card).  Also note that there are other restrictions when  synthesizing to file using the DSP.  See the Concepts chapter for details.\
+\
+See also:  
+\b voiceType, setPitchOffset:, setVocalTractLengthOffset:
+\b0 \
+
+\li0 \
+\
+
+\b\fs32 voiceType
+\b0\fs28 \
+\
+
+\b\li540 ±
+\b0  (int)
+\b voiceType
+\b0 \
+\
+Returns an integer which indicates what voice type is currently in use.  The integer will correspond to one of the definitions contained in TextToSpeech.h.  The available choices are:\
+
+\fi-240\li1140 \
+∑	TTS_VOICE_TYPE_MALE,\
+∑	TTS_VOICE_TYPE_FEMALE,\
+∑	TTS_VOICE_TYPE_LARGE_CHILD\
+∑	TTS_VOICE_TYPE_SMALL_CHILD\
+∑	TTS_VOICE_TYPE_BABY\
+
+\fi0\li540 \
+See also:  
+\b setVoiceType:
+\b0 \
+
+\li0 \
+\
+
+\b\fs32 setPitchOffset:
+\b0\fs28 \
+\
+
+\b\li540 ±
+\b0  (tts_error_t)
+\b setPitchOffset:
+\b0 (float)
+\i offsetValue
+\i0 \
+\
+Sets the pitch offset of the speaking voice, in semitones.  This method is used to raise or lower the ``center pitch'' of the speaking voice.  Naturally, each voice type will have its own unique center pitch–this method allows one to customize a voice type.  For example, when the voice type is set to 
+\f2\fs24 TTS_VOICE_TYPE_MALE
+\f0\fs28 , a deep baritone could be specified by offsetting the pitch downwards by several semitones.  Of course, if intonation is enabled, the pitch of the voice will vary around its center pitch.\
+\
+The argument 
+\i offsetValue
+\i0  is a float with an allowable range of 
+\f4 ±
+\f0 12.0 semitones (one octave up or down).  Note that fractional semitones are possible.  The 
+\b setPitchOffset:
+\b0  method takes effect only after the current sentence has finished speaking.  The method returns 
+\f2\fs24 TTS_OUT_OF_RANGE
+\f0\fs28  if the argument is out of range, and 
+\f2\fs24 TTS_OK
+\f0\fs28  otherwise.  Out-of-range values for 
+\i offsetValue
+\i0  are reset to the nearest in-range value.  The default is 0.0.\
+\
+See also:  
+\b pitchOffset, setVoiceType:
+\b0 \
+
+\li0 \
+\
+
+\b\fs32 pitchOffset
+\b0\fs28 \
+\
+
+\b\li540 ±
+\b0  (float)
+\b pitchOffset
+\b0 \
+\
+Returns the current pitch offset, in semitones.  A float within the range of 
+\f4 ±
+\f0 12.0 (one octave up or down) is returned.\
+\
+See also:  
+\b setPitchOffset:
+\b0 \
+
+\li0 \
+\
+
+\b\fs32 setVocalTractLengthOffset:
+\b0\fs28 \
+\
+
+\b\li540 ±
+\b0  (tts_error_t)
+\b setVocalTractLengthOffset:
+\b0 (float)
+\i offsetValue
+\i0 \
+\
+Sets the vocal tract length offset of the speaking voice.  This method is used to add to or subtract from  the baseline vocal tract length associated with each voice type.  For example, if a male voice has been specified, the vocal tract length is normally 17.5 cm.  The vocal tract can be lengthened to 18.0 cm by setting the offset to 0.5 cm.  If the voice type is then changed to female, the new vocal tract length will be 15.5 cm, since the 0.5 cm offset is added to baseline length of 15.0 cm.\
+\
+The argument 
+\i offsetValue
+\i0  is a float with an allowable range of 
+\f4 ±
+\f0 3.0 centimeters.  The 
+\b setVocalTractLengthOffset:
+\b0  method takes effect only after the current sentence has finished speaking.  The method returns 
+\f2\fs24 TTS_OUT_OF_RANGE
+\f0\fs28  if the argument is out of range, and 
+\f2\fs24 TTS_OK
+\f0\fs28  otherwise.  Out-of-range values for 
+\i offsetValue
+\i0  are reset to the nearest in-range value.  The default is 0.0.\
+\
+See also:  
+\b vocalTractLengthOffset, setVoiceType:
+\b0 \
+
+\li0 \
+\
+
+\b\fs32 vocalTractLengthOffset
+\b0\fs28 \
+\
+
+\b\li540 ±
+\b0  (float)
+\b vocalTractLengthOffset
+\b0 \
+\
+Returns the current vocal tract length offset, in centimeters.  A float within the range of 
+\f4 ±
+\f0 3.0 is returned.\
+\
+See also:  
+\b setVocalTractLengthOffset:
+\b0 \
+
+\li0 \
+\
+
+\b\fs32 setBreathiness:
+\b0\fs28 \
+\
+
+\b\li540 ±
+\b0  (tts_error_t)
+\b setBreathiness:
+\b0 (float)
+\i breathinessValue
+\i0 \
+\
+Sets the breathiness of the synthesized speaking voice.  The argument 
+\i breathinessValue
+\i0  is a float with an allowable range of 0.0 to 10.0.  0.0 means no breathiness, and larger numbers mean that more noise is added to the glottal source waveform.\
+\
+The 
+\b setBreathiness:
+\b0  method takes effect only after the current sentence has finished speaking.  The method returns 
+\f2\fs24 TTS_OUT_OF_RANGE
+\f0\fs28  if the argument is out of range, and 
+\f2\fs24 TTS_OK
+\f0\fs28  otherwise.  Out-of-range values for 
+\i breathinessValue
+\i0  are reset to the nearest in-range value.  The default value is 0.5.\
+\
+See also:  
+\b breathiness
+\b0 \
+
+\li0 \
+\
+
+\b\fs32 breathiness
+\b0\fs28 \
+\
+
+\li540 ± (float)
+\b breathiness
+\b0 \
+\
+Returns the current breathiness value.  A float within the range of 0.0 to 10.0 is returned.\
+\
+See also:  
+\b setBreathiness:
+\b0 \
+
+\li0 \
+\
+
+\b setVolume:
+\b0 \
+\
+
+\b\li540 ±
+\b0  (tts_error_t)
+\b setVolume:
+\b0 (float)
+\i volumeLevel
+\i0 \
+\
+Sets the volume of the synthesized speaking voice.  The argument 
+\i volumeLevel
+\i0  is a float with an allowable range of 0.0 to 60.0.  The 
+\i volumeLevel
+\i0  is in decibels, with 60.0 dB the maximum, and 0.0 dB silence.  The following constants are also available:\
+
+\fi-240\li1140 \
+∑	TTS_VOLUME_LOUD,\
+∑	TTS_VOLUME_MEDIUM,\
+∑	TTS_VOLUME_SOFT,\
+∑	TTS_VOLUME_OFF.\
+\
+
+\fi0\li540 TTS_VOLUME_LOUD (60.0 dB) is the default value.  The 
+\b setVolume:
+\b0  method takes effect only after the current sentence has finished speaking.  The method returns 
+\f2\fs24 TTS_OUT_OF_RANGE
+\f0\fs28  if the argument is out of range, and 
+\f2\fs24 TTS_OK
+\f0\fs28  otherwise.  Out-of-range values for 
+\i volumeLevel
+\i0  are reset to the nearest in-range value.\
+\
+See also:  
+\b volume
+\b0 \
+
+\fs32\li0 \
+\
+
+\b volume
+\b0 \
+
+\fs28 \
+
+\b\li540 ±
+\b0  (float)
+\b volume
+\b0 \
+\
+Returns the current volume level of the speaking voice in decibels.  The returned value is a float which will range from a minimum of 0.0 dB to a maximum of 60.0 dB.\
+\
+See also:  
+\b setVolume:
+\b0 \
+
+\li0 \
+\
+
+\b\fs36 5.3  Dictionary Control Methods\
+
+\b0\fs28 \
+
+\b\fs32 setDictionaryOrder:
+\b0\fs28 \
+\
+
+\b\li540 ± 
+\b0 (int)
+\b setDictionaryOrder:
+\b0 (const short *)
+\i order
+\i0 \
+\
+Sets the dictionary search order.  This gives the user a high degree of control over which dictionaries are used for word pronunciations, and in what order the dictionaries are searched.  The desired dictionaries are placed in a list, numbered from 1 to 
+\i n
+\i0 .  When the pronunciation for a word is needed, the dictionaries are searched in order until the pronunciation is found.  The pronunciation is always taken from the first dictionary in which it is found; dictionaries further down in order are not searched.  There are five dictionaries available:\
+\
+
+\fi-420\li1140 1.	Number parser.  Actually an algorithm.  Handles any string which contains a digit, including all cardinal and ordinal numbers, decimal numbers, fractions of the form 
+\f2\fs24 a/b
+\f0\fs28 , positive and negative quantities, percentages, clock times of the form 
+\f2\fs24 [d]d:dd[:dd]
+\f0\fs28 , phone numbers in North American format, among others.\
+\
+2.	User dictionary.  This dictionary contains user-specified pronunciations, and is local to each user's account.  This file is built and maintained with the utility called 
+\i PrEditor
+\i0 .\
+\
+3.	Application dictionary.  This dictionary contains developer-specified pronunciations, and is local to the application.  This file is built and maintained with the utility called 
+\i PrEditor
+\i0 .\
+\
+4.	Main dictionary.  This dictionary is the main source for pronunciations.  It contains pronunciations for about 100,000 words.\
+\
+5.	Letter-to-sound.  Actually an algorithm.  It is designed to catch any words not found in any of the other dictionaries since it provides relatively crude pronunciations based on letter-to-sound rules.\
+
+\fi0\li540 \
+The argument 
+\i order
+\i0  is a pointer to a four-element array declared by the user.  The search order is set by initializing this array with the following constants:\
+\
+
+\fi-240\li1140 ∑	TTS_NUMBER_PARSER\
+∑	TTS_USER_DICTIONARY\
+∑	TTS_APPLICATION_DICTIONARY\
+∑	TTS_MAIN_DICTIONARY\
+∑	TTS_LETTER_TO_SOUND\
+∑	TTS_EMPTY\
+
+\fi0\li540 \
+For example, the default search order is:  number parser, user dictionary, application dictionary, main dictionary, and letter-to-sound.  This could be explicitly set with:\
+\
+
+\f2\fs24     short int order[4] = \{TTS_NUMBER_PARSER,\
+                          TTS_USER_DICTIONARY,\
+                          TTS_APPLICATION_DICTIONARY,\
+                          TTS_MAIN_DICTIONARY\};\
+    [mySpeaker setDictionaryOrder:order];\
+
+\f0\fs28 \
+Note that 
+\f2\fs24 TTS_LETTER_TO_SOUND
+\f0\fs28  is not specified in this list. This is because the letter-to-sound algorithm cannot be removed from the search order since it is a ``catch-all'' designed to provide a pronunciation if none can be found in any of the other dictionaries. If the letter-to-sound algorithm is put before another dictionary, then that dictionary will never be referenced since the letter-to-sound algorithm is guaranteed to find a pronunciation of some sort.\
+\
+Any dictionary or algorithm except the letter-to-sound algorithm can be left out of the search order.  For example, if one wants to leave out the user dictionary and number parser, but retain the main dictionary, application dictionary, and letter-to-sound algorithm, the following would be used: \
+\
+
+\f2\fs24     short int order[4] = \{TTS_MAIN_DICTIONARY,\
+                          TTS_APPLICATION_DICTIONARY,\
+                          TTS_LETTER_TO_SOUND,\
+                          TTS_EMPTY\}; \
+    [mySpeaker setDictionaryOrder:order];\
+
+\f0\fs28 \
+In this case the letter-to-sound algorithm is explicitly set to be third in the search order, but this is somewhat redundant since the letter-to-sound algorithm can never be removed from the search order. The above example is equivalent to:\
+\
+
+\f2\fs24     short int order[4] = \{TTS_MAIN_DICTIONARY,\
+                          TTS_APPLICATION_DICTIONARY,\
+                          TTS_EMPTY,\
+                          TTS_EMPTY\}; \
+    [mySpeaker setDictionaryOrder:order];\
+
+\f0\fs28 \
+Note that 
+\f2\fs24 TTS_EMPTY
+\f0\fs28  must be used for any unused entries, and that unused entries must always be at the end of the order list.  If 
+\f2\fs24 TTS_EMPTY
+\f0\fs28  occurs at the beginning or in the middle of the list, then the method returns an error code, and resets the order to the default.  Repeating any item except 
+\f2\fs24 TTS_EMPTY
+\f0\fs28  in the order list also returns an error.\
+\
+The 
+\b setDictionaryOrder
+\b0  method takes effect only after the current sentence has finished speaking. The method returns 
+\f2\fs24 TTS_OUT_OF_RANGE
+\f0\fs28  if any element of the 
+\i order
+\i0  array is out of range or if any of the above input errors occur, and returns 
+\f2\fs24 TTS_OK
+\f0\fs28  otherwise. The search order is reset to the default on these error conditions.\
+\
+See also:  
+\b dictionaryOrder
+\b0 \
+
+\li0 \
+\
+
+\b\fs32 dictionaryOrder
+\b0\fs28 \
+\
+
+\b\li540 ± 
+\b0 (const short *)
+\b dictionaryOrder
+\b0 \
+\
+Returns the dictionary search order currently in use.  The method returns a pointer to an array of short ints, each element of which corresponds to one of the constants defined in the 
+\b setDictionaryOrder:
+\b0  method.  This array contains four elements.\
+\
+See also:  
+\b setDictionaryOrder:
+\b0 \
+
+\li0 \
+\
+
+\b\fs32 setAppDictPath:
+\b0\fs28 \
+\
+
+\b\li540 ± 
+\b0 (int)
+\b setAppDictPath:
+\b0 (const char *)
+\i path
+\i0 \
+\
+Sets the complete pathname of the file containing the Application Pronunciation Dictionary. The Application Dictionary is built and maintained by the utility 
+\i PrEditor
+\i0 .  This method returns 
+\f2\fs24 TTS_NO_FILE
+\f0\fs28  if the file containing the dictionary does not exist or cannot be opened, and the pathname is set to a zero-length string. Otherwise, 
+\f2\fs24 TTS_OK
+\f0\fs28  is returned.\
+\
+See also:  
+\b appDictPath
+\b0 \
+
+\li0 \
+\
+
+\b\fs32 appDictPath
+\b0\fs28 \
+\
+
+\b\li540 ± 
+\b0 (const char *)
+\b appDictPath
+\b0 \
+\
+Returns a string which contains the current pathname of the Application Pronunciation Dictionary. A zero-length string is returned if the path is not set.\
+\
+See also:  
+\b setAppDictPath:
+\b0 \
+
+\li0 \
+\
+
+\b\fs32 setUserDictPath:
+\b0\fs28 \
+\
+
+\b\li540 ± 
+\b0 (int)
+\b setUserDictPath:
+\b0 (const char *)
+\i path
+\i0 \
+\
+Sets the complete pathname of the file containing the User Pronunciation Dictionary. The User Dictionary is built and maintained by the utility 
+\i PrEditor
+\i0 .  This method returns 
+\f2\fs24 TTS_NO_FILE
+\f0\fs28  if the file containing the dictionary does not exist or cannot be opened, and the pathname is set to a zero-length string. Otherwise, 
+\f2\fs24 TTS_OK
+\f0\fs28  is returned.\
+\
+Normally, this method will never be used in an application.  Whenever a user dictionary is created (using 
+\i PrEditor
+\i0 ), an entry is created in the defaults database.  When the Text-to-Speech Object is initialized, the path to the user dictionary is set to the path specified in the defaults database; thus, the application will normally never need to set the path explicitly.  However, there may be cases where the programmer may wish to override the default path–this method allows for such an eventuality.\
+\
+See also:  
+\b userDictPath
+\b0 \
+
+\li0 \
+\
+
+\b\fs32 userDictPath
+\b0\fs28 \
+\
+
+\b\li540 ± 
+\b0 (const char *)
+\b userDictPath
+\b0 \
+\
+Returns a string which contains the current pathname of the User Pronunciation Dictionary. A zero-length string is returned if the path is not set.\
+\
+See also:  
+\b setUserDictPath:
+\b0 \
+
+\li0 \
+\
+
+\b\fs36 5.4  Text Input Methods\
+
+\b0\fs28 \
+
+\b\fs32 speakText:
+\b0\fs28 \
+\
+
+\b\li540 ±
+\b0  (tts_error_t)
+\b speakText:
+\b0 (const char *)
+\i text
+\i0 \
+\
+Enters text to be spoken into the real-time system.  This method is non-blocking, unless the 
+\b setBlock:
+\b0  method has been used to turn blocking on.  The argument 
+\i text
+\i0  is a pointer to a null-terminated ASCII string which contains the text.  Each string is considered an 
+\i utterance
+\i0 .  Each utterance must contain one or more words (or if in letter mode, one or more symbols).  There is no limit on the length of an utterance, although the programmer has more control over how the text is to be spoken if the text is divided into smaller units such as sentences, and a series of 
+\b speakText:
+\b0 \
+calls are used.  Remember that the text is referred to by a pointer, so the programmer must be sure not to destroy or overwrite the character string until the text has been spoken.\
+\
+This method returns 
+\f2\fs24 TTS_PARSE_ERROR
+\f0\fs28  if the input 
+\i text
+\i0  cannot be successfully parsed.  
+\f2\fs24 TTS_SPEAK_QUEUE_FULL
+\f0\fs28  is returned if too many utterances are queued up and haven't had a chance to be synthesized.  
+\f2\fs24 TTS_DSP_TOO_SLOW
+\f0\fs28  is returned if the hardware is too slow to synthesize the text with the current vocal tract length and output sample rate. Otherwise, 
+\f2\fs24 TTS_OK
+\f0\fs28  is returned.\
+\
+The Text-to-Speech Object uses the DSP chip to synthesize the desired speech.  If the DSP and/or sound-out hardware is in use when the 
+\b speakText:
+\b0  message is sent, then the speech will not be heard.  The DSP and sound-out hardware is reserved by the Text-to-Speech system 
+\i only
+\i0  when the 
+\b speakText:
+\b0  message is being processed.  This means that the hardware is free at all other times, allowing it to be used for such things as system beeps.\
+\
+The 
+\b speakText:
+\b0  method attempts to produce the most natural sounding speech from the information provided in the text.  This means that punctuation such as commas, periods, colons, semi-colons, question marks, and exclamation marks are used by the system to group words into units, to insert pauses of appropriate length between units, and to provide the appropriate pitch contour for the utterance.  Idiosyncratic use of punctuation marks thus may produce rather strange sounding speech.\
+\
+The programmer can embed escape codes into the text to control how the text it to be spoken.  These escape codes are always 3 characters long and use the following format:\
+\
+	
+\b ESC
+\b0  
+\i modeSymbol
+\i0  
+\i modeMarker
+\i0 \
+\
+The 
+\b ESC
+\b0  character (hexadecimal 
+\f2\fs24 1B
+\f0\fs28 ) indicates the beginning of an embedded escape code.  It must always be followed by 2 characters.  The 
+\i modeSymbol
+\i0  is a character which indicates which mode is being invoked.  The modes and their 
+\i modeSymbols
+\i0  are:\
+\
+	
+\b Mode
+\b0 		
+\b Symbol
+\b0 \
+	Letter		l or L\
+	Emphasis		e or E\
+	Silence		s or S\
+\
+The 
+\i modeMarker
+\i0  is a single character which indicates whether the mode is beginning or ending.  The letters 
+\b b
+\b0  or 
+\b B
+\b0  indicate the beginning of the mode, while the letters 
+\b e
+\b0  or 
+\b E
+\b0  indicate the end of the mode.  Escape codes should never be embedded in the middle of a word.  The 
+\b ESC
+\b0  character itself can be changed to another value by using the 
+\b setEscapeCharacter:
+\b0  method.\
+\
+Letter mode causes one or more words or symbols to be spelled out one character at a time, rather than pronounced as a word.  For example, if one wanted the words ``pear'' and ``pair'' in the following sentence to be spelled out, the escape codes for letter mode would be  embedded as follows:\
+\
+	
+\f2\fs24 Use the word ESC-LBpairESC-LE rather \
+	than ESC-LBpearESC-LE.\
+
+\f0\fs28 \
+Any amount of text can be put into letter mode.  Remember that once you are in letter mode you must explicitly exit it using the ESC-le code.  The letter mode escape codes should never be placed in the middle of a word, since a word must be either solely spelled or spoken.\
+\
+Letter mode is useful for spelling out unpronounceable strings.  Strings such as 
+\f2\fs24 /*
+\f0\fs28  or 
+\f2\fs24 1:594A-3
+\f0\fs28  are often found in program source files or data files, and are obviously unpronounceable as words.  Such strings should be sent to the TextToSpeech Object in letter mode.  Letter mode is also useful if you wish a number to be pronounced one digit at a time, rather than as would be normally done.  For example, 
+\f2\fs24 ESC-lb123ESC-le
+\f0\fs28  would be pronounced as ``one two three'' instead of ``one hundred and twenty-three''.  All this implies that the programmer may have to pre-parse the text to produce suitable pronunciations; every application is different in its needs.\
+\
+Emphasis mode is used to emphasize one or more words in an utterance.\
+Usually it is applied to a single word which normally does not receive\
+emphasis in a sentence.  By placing the stress on that word the meaning\
+of the utterance is altered.  For example, by putting emphasis on the\
+word ``was'' in the following sentence, it indicates that what was\
+once true is no longer true, a considerable change from the sentence's\
+normal declarative meaning:\
+\
+	
+\f2\fs24 He ESC-eb was ESC-ee an honest man.
+\f0\fs28 \
+\
+Emphasis is often implied in text when a word is italicized or underlined.  When spoken, an emphasized word is stressed, usually by making the word longer, louder, and higher in pitch.  The Text-to-Speech system takes care of the emphasis, making sure it fits naturally with the rest of the words of the utterance.  Note that the emphasis escape code cannot be placed in the middle of a word because only the whole word can be emphasized; partial emphasis of a word is not allowed.\
+\
+Silence mode may be used by the programmer to insert silence between words.  The amount of silence is specified in seconds or fractions of seconds with a decimal number.  The specified length of silence will be rounded to the nearest 10th of a second, since that is the resolution of control.  One must remember that silence is automatically inserted between words wherever a pause will naturally occur, such as after a period or comma.  Silence mode should not be used to replace such naturally occurring pauses, but rather to specify arbitrary lengths of silence between words or utterances.  If silence mode is used where there would normally be a pause, then that pause is discarded and the length of the pause becomes that which is specified with the embedded escape code.  Silence mode cannot be used in the middle of a word; pauses are allowed between words only.\
+\
+Silence is specified by embedding the escape code 
+\f2\fs24 ESC-sb
+\f0\fs28  
+\i time
+\i0  between words.  For example the text:\
+\
+	
+\f2\fs24 Come back to the Five and Dime, Jimmy Dean!\
+	ESC-sb 3.0 Jimmy Dean!\
+
+\f0\fs28 \
+has a 3 second silence inserted between the repetition of the words ``Jimmy Dean''.  Normally there would be a short pause after the exclamation mark, but in this case the pause is arbitrarily specified by the programmer.\
+\
+The 
+\f2\fs24 ESC-se
+\f0\fs28  escape code is not necessary after the time, but can be inserted if desired to be consistent with letter and emphasis modes.  Remember that the time values assigned using the silence mode are ASCII character representations of an integer or real number, not the integer or real data type itself.  This is because the time value must be embedded within a character string.\
+\
+See also:  
+\b setEscapeCharacter:, setBlock:
+\b0 \
+
+\li0 \
+\
+
+\b\fs32 speakText:toFile:
+\b0\fs28 \
+
+\li540 \
+
+\b ±
+\b0  (tts_error_t)
+\b speakText:
+\b0 (const char *)
+\i text
+\i0  
+\b toFile:
+\b0 (const char *)
+\i path
+\i0 \
+\
+Converts 
+\i text
+\i0  to speech and writes the resulting sound samples to the file with the specified  
+\i path
+\i0  name.  This method works exactly the same way as the 
+\b speakText:
+\b0  method, except that output is directed to file instead of the sound output hardware; see the 
+\b speakText:
+\b0  method for full details.\
+\
+The output file can have 1 or 2 channels and either a 22050 or 44100 Hz sample rate (vocal tract lengths under 15.9 cm must use the 44100 sample rate when using the DSP to write to file).  Its name should have a .snd suffix so that system commands such as 
+\i sndplay
+\i0  and 
+\i sndinfo
+\i0  will recognize the file.  Note that the 
+\i sndconvert
+\i0  command can be used on the resulting file to convert to another format or sampling rate.  Also note that this method returns immediately, but the file will not be finished written to until all the text has been processed.  Blocking can be turned on so that subsequent code will not be executed until the file is finished.\
+\
+This method returns the same error codes as the 
+\b speakText:
+\b0  method.  Additionally, 
+\f2\fs24 TTS_INVALID_PATH
+\f0\fs28  is returned if the argument 
+\i path
+\i0  is a null pointer, points to a zero-length string, exceeds 
+\f2\fs24 MAXPATHLEN
+\f0\fs28 , or specifies a file which cannot be opened for writing.  
+\f2\fs24 TTS_SAMPLE_RATE_TOO_LOW
+\f0\fs28  is returned if the DSP is used to write to file using a vocal tract length under 15.9 cm at the low sample rate;  the file is produced, but at the high sample rate.\
+\
+See also:  
+\b speakText:, setEscapeCharacter:, setBlock:, setOutputSampleRate:, setNumberChannels:
+\b0 \
+
+\li0 \
+\
+
+\b\fs32 speakStream:
+\b0\fs28 \
+
+\li540 \
+
+\b ±
+\b0  (tts_error_t)
+\b speakStream:
+\b0 (NXStream *)
+\i stream
+\i0 \
+\
+Enters all text contained in a memory stream into the real-time system. This method is non-blocking, unless the 
+\b setBlock:
+\b0  method has been used to turn blocking on.  The argument 
+\i stream
+\i0  must point to an opened memory stream.  The stream may be closed immediately after calling this method since the entire contents of the stream are copied to a local buffer.  NeXT provides several C functions for reading and writing to streams, as well as mapping files to memory;  see the 
+\i NEXTSTEP Reference Manual
+\i0  for more details.\
+\
+This method functions in exactly the same way as the 
+\b speakText:
+\b0  method, except that the text to be spoken is stored in an memory stream.  The stream need not be NULL terminated.  The method returns the same error codes, plus 
+\f2\fs24 TTS_ILLEGAL_STREAM
+\f0\fs28  if 
+\i stream
+\i0  is invalid.  This method only works with memory streams;  all other stream types will not work and an error code will be returned.  Note that many Application Kit streams are not memory streams (e.g. the stream in the Text class).\
+\
+See also:  
+\b speakText:, setBlock:
+\b0 \
+
+\li0 \
+\
+
+\b\fs32 speakStream:toFile:
+\b0\fs28 \
+\
+
+\b\li540 ±
+\b0  (tts_error_t)
+\b speakStream:
+\b0 (NXStream *)
+\i stream
+\i0 \
+                           
+\b toFile:
+\b0 (const char *)
+\i path
+\i0 \
+\
+Converts the text contained in the memory 
+\i stream
+\i0  to speech and writes the resulting sound samples to the file with the specified 
+\i path
+\i0  name.  This method works exactly the same way as the 
+\b speakStream:
+\b0  method, except that output is directed to file instead of the sound output hardware; see the 
+\b speakStream:
+\b0  method for full details.\
+\
+The output file can have 1 or 2 channels and either a 22050 or 44100 Hz sample rate (vocal tract lengths under 15.9 cm must use the 44100 sample rate when using the DSP to write to file).  Its name should have a .snd suffix so that system commands such as 
+\i sndplay
+\i0  and 
+\i sndinfo
+\i0  will recognize the file.  Note that the 
+\i sndconvert
+\i0  command can be used on the resulting file to convert to another format or sampling rate.  Also note that this method returns immediately, but the file will not be finished written to until all the text has been processed.  Blocking can be turned on so that subsequent code will not be executed until the file is finished.\
+\
+This method returns the same error codes as the 
+\b speakStream:
+\b0  method.  Additionally, 
+\f2\fs24 TTS_INVALID_PATH
+\f0\fs28  is returned if the argument path is a null pointer, points to a zero-length string, exceeds 
+\f2\fs24 MAXPATHLEN
+\f0\fs28 , or specifies a file which cannot be opened for writing.  
+\f2\fs24 TTS_SAMPLE_RATE_TOO_LOW
+\f0\fs28  is returned if the DSP is used to write to file using a vocal tract length under 15.9 cm at the low sample rate;  the file is produced, but at the high sample rate.\
+\
+See also:  
+\b speakStream:, speakText:, speakText:toFile:, setBlock:
+\b0 \
+
+\li0 \
+\
+
+\b setEscapeCharacter:
+\b0 \
+\
+
+\li540 ± (tts_error_t)
+\b setEscapeCharacter:
+\b0 (char)
+\i character
+\i0 \
+\
+This method allows the programmer to change the value of the escape character for embedded escape codes used in the 
+\b speak...
+\b0  methods.  This may prove useful whenever the escape character must be visible, allowing easy editing of escape codes by hand.  The default value of the escape character is hexadecimal 
+\f2\fs24 1B
+\f0\fs28 .\
+\
+This method returns 
+\f2\fs24 TTS_WARNING
+\f0\fs28  if 
+\i character
+\i0  is a printable character (including space).  While such values are allowed for the escape character, they are not recommended since most texts will contain these characters as a matter of course.  If the escape character is set to NULL or a non-ASCII value, then 
+\f2\fs24 TTS_OUT_OF_RANGE
+\f0\fs28  is returned, and the escape character is reset to the default.  
+\f2\fs24 TTS_OK
+\f0\fs28  is returned in all other cases.\
+\
+See also:  
+\b escapeCharacter, speakText:
+\b0 \
+
+\li0 \
+\
+
+\b\fs32 escapeCharacter
+\b0\fs28 \
+
+\li540 \
+
+\b ±
+\b0  (char)
+\b escapeCharacter
+\b0 \
+\
+Returns the value of the current escape character.  The default value of the escape character is hexadecimal 
+\f2\fs24 1B
+\f0\fs28 .\
+\
+See also:  
+\b setEscapeCharacter:
+\b0 \
+
+\li0 \
+\
+
+\b\fs32 setBlock:
+\b0\fs28 \
+\
+
+\li540 ± (tts_error_t)
+\b setBlock:
+\b0 (BOOL)
+\i flag
+\i0 \
+\
+Sets blocking off or on for the 
+\b speak...
+\b0 methods.  The use of blocking is strongly discouraged since no other processing can occur in your application until the entire text has been spoken.  This means that the user will not be able to interrupt the synthesized speech with a pause method, or any of the erase methods.  This is objectionable behavior for most applications, especially those that process long passages of text.\
+\
+This method returns 
+\f2\fs24 TTS_OK
+\f0\fs28  once the blocking has been set.\
+\
+See also:  
+\b block
+\b0 \
+
+\li0 \
+\
+
+\b\fs32 block
+\b0\fs28 \
+
+\li540 \
+
+\b ±
+\b0  (BOOL)
+\b block
+\b0 \
+\
+Returns a value which indicates if blocking has been set on or off for the 
+\b speak...
+\b0  methods.\
+\
+See also:  
+\b setBlock:
+\b0 \
+
+\li0 \
+\
+
+\b\fs32 setSoftwareSynthesizer:
+\b0\fs28 \
+
+\li540 \
+
+\b ±
+\b0  (tts_error_t)
+\b setSoftwareSynthesizer:
+\b0 (BOOL)
+\i flag
+\i0 \
+\
+If set on, speech will be synthesized on the host CPU instead of the DSP when using the 
+\b speakText:toFile:
+\b0 and 
+\b speakStream:toFile:
+\b0  methods.  This is useful if a DSP card is not available on Intel hardware.  Note that the software synthesizer is extremely slow, and cannot be used for real-time synthesis.  Also note that the software synthesizer will produce speech of somewhat better quality than the DSP, since a variable glottal pulse and high quality control-rate interpolation is used.\
+\
+See also:  
+\b softwareSynthesizer
+\b0 \
+
+\li0 \
+\
+
+\b\fs32 softwareSynthesizer
+\b0\fs28 \
+
+\li540 \
+
+\b ±
+\b0  (BOOL)
+\b softwareSynthesizer
+\b0 \
+\
+Returns a flag which indicates if the software synthesizer is used for the 
+\b speakText:toFile:
+\b0  and 
+\b speakStream:toFile:
+\b0  methods.\
+\
+See also:  
+\b setSoftwareSynthesizer:
+\b0 \
+
+\li0 \
+\
+
+\b\fs36 5.5  Real-Time Methods\
+
+\b0\fs28 \
+
+\b\fs32 pauseImmediately
+\b0\fs28 \
+\
+
+\b\li540 ± 
+\b0 (tts_error_t)
+\b pauseImmediately
+\b0 \
+\
+Pauses the sound output immediately upon receipt of the method. If the system is already in a paused state, then the method is ignored, although an error code is returned. Pausing immediately may cause a ``glitch'' in the sound, especially if the pause occurs in the middle of a word or utterance.  Sound output can be resumed by using the 
+\b continue
+\b0  method.  While in a paused state, new text can be entered into the system using the 
+\b speakText:
+\b0  method, but will not be heard until the system is taken out of the paused state by using the 
+\b continue
+\b0  method.  Of course, any words left to be spoken at the time of the pause will be spoken before this new text can be heard.  This can be overridden by using one of the ``erase'' methods described below.\
+\
+This method returns 
+\f2\fs24 TTS_ALREADY_PAUSED
+\f0\fs28  if the system is already in a paused state.  
+\f2\fs24 TTS_NO_UTTERANCE
+\f0\fs28  is returned if no utterance exists to pause.  Otherwise, 
+\f2\fs24 TTS_OK
+\f0\fs28  is returned.\
+\
+See also:  
+\b continue, eraseAllSound, eraseCurrentUtterance
+\b0 \
+
+\li0 \
+\
+
+\b\fs32 pauseAfterCurrentUtterance
+\b0\fs28 \
+\
+
+\b\li540 ± 
+\b0 (tts_error_t)
+\b pauseAfterCurrentUtterance
+\b0 \
+\
+Pauses the sound output after the currently speaking utterance upon receipt of the method.  If the system is already in a paused state, then the method is ignored, although an error code is returned. Sound output at the start of the next utterance can be resumed by using the 
+\b continue
+\b0  method.  While in a paused state, new text can be entered into the system using the 
+\b speakText:
+\b0  method, but will not be heard until the system is taken out of the paused state by using the 
+\b continue
+\b0  method.  Of course, any utterances left to be spoken at the time of the pause will be spoken before this new text can be heard.  This can be overridden by using one of the ``erase'' methods described below.\
+\
+This method returns 
+\f2\fs24 TTS_ALREADY_PAUSED
+\f0\fs28  if the system is already in a paused state.  
+\f2\fs24 TTS_NO_UTTERANCE
+\f0\fs28  is returned if no utterance exists in which to pause.  Otherwise, 
+\f2\fs24 TTS_OK
+\f0\fs28  is returned.\
+\
+See also:  
+\b continue, eraseAllSound, eraseCurrentUtterance
+\b0 \
+
+\li0 \
+
+\b\fs32 \
+continue
+\b0\fs28 \
+\
+
+\b\li540 ± 
+\b0 (tts_error_t)
+\b continue
+\b0 \
+\
+Resumes sound output if the system is in a paused state, and returns 
+\f2\fs24 TTS_OK
+\f0\fs28 . If the system is not in a paused state, then the method is ignored, and 
+\f2\fs24 TTS_NO_UTTERANCE
+\f0\fs28  is returned.\
+\
+See also:  
+\b pauseImmediately, pauseAfterCurrentUtterance
+\b0 \
+
+\li0 \
+
+\b\fs32 \
+eraseAllSound
+\b0\fs28 \
+\
+
+\b\li540 ± 
+\b0 (tts_error_t)
+\b eraseAllSound
+\b0 \
+\
+Erases all sound left to be spoken upon receipt of the method, including any utterances after the current utterance. This method can be invoked in both the paused or unpaused state. All sound after the current speaking point or the pause point is erased.  This will cause the latter portion of a word to be erased if the system is paused in the middle of a word (using the 
+\b pauseImmediately
+\b0  method), or if the method is received while the system is still speaking a word.  This method is useful for clearing the system after a pause, allowing fresh input to be immediately entered.\
+\
+This method returns 
+\f2\fs24 TTS_OK
+\f0\fs28  in all cases, even if there is no sound to erase.\
+\
+See also:  
+\b  eraseCurrentUtterance
+\b0 \
+
+\li0 \
+
+\b\fs32 \
+eraseCurrentUtterance
+\b0\fs28 \
+\
+
+\b\li540 ± 
+\b0 (int)
+\b eraseCurrentUtterance
+\b0 \
+\
+Erases all sound left to be spoken in the current utterance upon receipt of the method. This method can be invoked in both the paused or unpaused state.  All sound after the current speaking point or the pause point to the end of the current utterance is erased.  This will cause the latter portion of a word to be erased if the system is paused in the middle of a word (using the 
+\b pauseImmediately
+\b0  method), or if the method is received while the system is still speaking a word.  If the current utterance is paused, then the pause which is associated with this utterance is also erased, which means that if there are any other utterances queued up after this utterance, they will be heard immediately.\
+\
+This method returns 
+\f2\fs24 TTS_UTTERANCE_ERASED
+\f0\fs28  if the current utterance has already been erased.  
+\f2\fs24 TTS_NO_UTTERANCE
+\f0\fs28  is returned if there is no utterance in which to erase.  Otherwise, 
+\f2\fs24 TTS_OK
+\f0\fs28  is returned.\
+\
+See also:  
+\b eraseAllSound
+\b0 \
+
+\li0 \
+\
+
+\b\fs36 5.6  Version Query Methods\
+
+\b0\fs28 \
+
+\b\fs32 serverVersion
+\b0\fs28 \
+\
+
+\b\li540 ± 
+\b0 (const char *)
+\b serverVersion
+\b0 \
+\
+Returns a string which contains information about the current version of the Text-to-Speech Server.\
+\
+See also:  none\
+
+\li0 \
+
+\b\fs32 \
+dictionaryVersion
+\b0\fs28 \
+\
+
+\b\li540 ± 
+\b0 (const char *)
+\b dictionaryVersion
+\b0 \
+\
+Returns a string which contains information about the current version of the Main Dictionary.\
+\
+See also:  none\
+
+\li0 \
+\
+
+\b\fs36 5.7  Error Reporting Methods\
+
+\b0\fs28 \
+
+\b\fs32 errorMessage:
+\b0\fs28 \
+
+\li540 \
+
+\b ±
+\b0  (const char *)
+\b errorMessage:
+\b0 (tts_error_t)
+\i errorNumber
+\i0 \
+\
+Returns a pointer to a printable error message.  The argument 
+\i errorNumber
+\i0  is the tts_error_t value returned by most methods of the TextToSpeech class.\
+\
+See also:  none\
+\
+
+\b\fs36\li0 \
+5.8  Archiving Methods\
+
+\b0\fs28 \
+
+\b\fs32 read:
+\b0\fs28 \
+\
+
+\b\li540 ± read:
+\b0 (NXTypedStream *)
+\i stream
+\i0 \
+\
+Reads the TextToSpeech object from the typed stream 
+\i stream
+\i0 . A 
+\b read:
+\b0  message is sent in response to archiving; you never send this message directly.\
+\
+See also:  
+\b write:, awake
+\b0 \
+
+\li0 \
+\
+
+\b\fs32 write:
+\b0\fs28 \
+\
+
+\b\li540 ± write:
+\b0 (NXTypedStream *)
+\i stream
+\i0 \
+\
+Writes the TextToSpeech object to the typed stream 
+\i stream
+\i0 . A 
+\b write:
+\b0  message is sent in response to archiving: you never send this message directly.  Returns 
+\b self
+\b0 .\
+\
+See also:  
+\b read:, awake
+\b0 \
+
+\li0 \
+\
+
+\b\fs32 awake
+\b0\fs28 \
+\
+
+\b\li540 ± awake
+\b0 \
+\
+Reinitializes the TextToSpeech object after it's been read in from a stream.  This method ensures that a connection is made to the server.\
+\
+An 
+\b awake
+\b0  message is automatically sent to each object of an application after all objects of that application have been read in.  You never send 
+\b awake
+\b0  messages directly.  The 
+\b awake
+\b0  message gives the object a chance to complete any initialization that 
+\b read:
+\b0  could not do.  If you override this method in a subclass, the subclass should send this message to its superclass:\
+\
+
+\f2\fs24     [super awake];\
+
+\f0\fs28 \
+This method returns 
+\b self
+\b0 , unless a connection cannot be made to the server.  In this case, 
+\b nil
+\b0  is returned.\
+\
+See also:  
+\b read:, write:
+\b0 \
+\
+
+}

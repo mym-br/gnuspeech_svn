@@ -1,0 +1,511 @@
+{\rtf0\ansi{\fonttbl\f0\fnil Times-Roman;\f2\fmodern Courier;\f1\fmodern Ohlfs;}
+\paperw12240
+\paperh15980
+\margl1800
+\margr720
+\pard\tx1140\tx2280\tx3420\tx4560\tx5700\tx6840\tx7980\f0\b0\i0\ulnone\fs72\fc0\cf0 Chapter 3\
+\
+
+\fs96 Programming Tutorial\
+\
+
+\fs28 \
+
+\b\fs36 3.1  General Programming Procedures\
+
+\b0\fs28 \
+An application communicates with the TextToSpeech Server using various methods of the 
+\i TextToSpeech Object
+\i0 .  The TextToSpeech Object is a subclass of the superclass called 
+\i Object
+\i0 , and like any other class, can itself be subclassed.\
+\
+The operation of the TextToSpeech Server is normally completely transparent to both the programmer and user.  It is started automatically when needed, and terminates itself whenever it detects that no clients are connected to it.  The client application never communicates with the Server directly, but accesses its services using the methods of the TextToSpeech Object.  These methods are described in detail in Chapter 5.\
+\
+In order for an application to instantiate and communicate with the TextToSpeech Object, it must be compiled with the TextToSpeech client library.  This library is installed in:\
+\
+
+\f2\fs24\li360 /usr/local/lib/libTextToSpeech.a.
+\fs28 \
+
+\li0 \
+
+\f0 You can specify this library in Project Builder simply by adding lib
+\f2\fs24 TextToSpeech.a
+\f0\fs28  to the ``Libraries'' suitcase in the Files part of Project Builder.\
+\
+The header file TextToSpeech.h must be included in every Objective C file which refers to the TextToSpeech class.  This is usually done with the directive:\
+\
+
+\f2\fs24\li360 #import <TextToSpeech/TextToSpeech.h>
+\f0\fs28  \
+
+\li0 \
+This file specifies the Objective C interface to the TextToSpeech class.  The header file, and file it includes, also contain definitions and datatypes used by the TextToSpeech Object.  The header files are installed in the subdirectory:\
+\
+
+\f2\fs24\li360 /LocalDeveloper/Headers/TextToSpeech.
+\fs28 \
+
+\li0 \
+
+\f0 The TextToSpeech Kit is designed to be as flexible as possible, and to not limit the number and variety of uses that the programmer may envisage for the system.  How the TextToSpeech Object will be used depends in large part on the nature of the application that the developer is building.  In spite of this variety, however, the programmer will, in general, observe the following conventions in order when programming with the TextToSpeech Kit:\
+\
+
+\pard\tx900\tx2280\tx3420\tx4560\tx5700\tx6840\tx7980\fi-540\li900\fc0\cf0 1.	Instantiate and initialize the TextToSpeech Object using the 
+\b alloc
+\b0  and 
+\b init
+\b0  methods.  This establishes a connection to the Server.\
+\
+2.	Configure the TextToSpeech Object so that it can do what the application requires of it.  This may involve setting such things as voice quality and dictionary order.\
+\
+3.	Use the text input and real-time methods to produce speech as desired. \
+\
+4.	Free the TextToSpeech Object from memory using the 
+\b free
+\b0  method. This also severs the connection to the Server. \
+\
+
+\pard\tx1140\tx2280\tx3420\tx4560\tx5700\tx6840\tx7980\fc0\cf0 \
+
+\b\fs36 3.2  A Simple Example\
+
+\b0\fs28 \
+In this section we will develop a simple application which allows the user to enter text into a text field, and then hear it with the push of a button.  Step-by-step instructions are given, so you should be able to follow along and create the application at your computer.\
+\
+
+\pard\tx900\tx2280\tx3420\tx4560\tx5700\tx6840\tx7980\fi-540\li900\fc0\cf0 1.	Create a subdirectory to work in.  Give it a name such as ``MySpeaker.'' \
+\
+2.	Start up Project Builder.\
+\
+3.	Click on the ``New...'' submenu item under the ``Project'' main menu item.  A ``New Project'' panel will appear.  Click on ``MySpeaker'' in the browser, and then push ``OK''.  This creates the MySpeaker.nib interface in the English.lproj subdirectory, plus other files needed to manage the project.\
+\
+4.	Next click on the Libraries item in the Files browser in Project Builder. Double click on the Libraries suitcase.  An ``Add Libraries'' panel will appear.  Add the library 
+\f2\fs24 libTextToSpeech.a
+\f0\fs28  located in /usr/local/lib.\
+\
+5.	Save the project by selecting the ``Save'' menu item.\
+\
+6.	Start up Interface Builder by double clicking on MySpeaker.nib in the Files browser of Project Builder (under Interfaces).\
+\
+7.	Drag a text field from the Palette and place it on ``My Window.'' Resize and position it to taste.  You should delete the word ``Text'' from the field. \
+\
+8.	Drag a button from the Palette and put it in the same window.  Resize and position it to taste.  Rename the button ``speak.''  If desired, you can also resize and rename the window.\
+\
+9.	Next you need to create a class to control the actions of your application.  To do this, click on the ``Classes'' suitcase in the Interface Builder window in the lower left corner of the screen.  Click on the left-arrow of the browser until ``Object'' appears in the left-hand column.  Then click once on ``Object'' so that nothing is highlighted in the right-hand column.  Drag the pull-down ``Operations'' menu until the mouse is positioned over ``Subclass,'' and then release the mouse button.  This creates a subclass of Object called ``MyObject.''  Rename this to ``Controller'' in the Class Inspector.\
+\
+10.	In the Class Inspector, add an outlet called ``myText,'' and an action called ``speak.''\
+\
+11.	Select the ``Unparse'' item of the Operations pull-down menu. Interface Builder will ask you if you wish to create Controller.h and Controller.m, and if you want to add these files to your project. Answer ``OK'' and ``Yes'' to these questions.\
+\
+12.	Select the ``Instantiate'' item of the Operations pull-down menu.  An icon with the name ``Controller'' will appear in the bottom window. \
+\
+13.	In this same window, control-drag from the icon named ``File's Owner'' to the newly created icon.  The Inspector will change so that a connection can be made between these two objects.  When you click on the ``Connect'' button, ``Controller'' is made the delegate of the application.\
+\
+14.	Control-drag from the ``speak'' button to the ``Controller'' icon.  In the Inspector panel, select the ``speak:'' action in right-hand column of the browser, and then push the ``Connect'' button.  Every time the ``speak'' button is pushed, a ``speak'' message will now be sent to ``Controller.''\
+\
+15.	Control-drag from ``Controller'' to the text field in the main window.  Push the ``Connect'' button in the Inspector panel.  This names the text field ``myText.''\
+\
+16.	Save the work you have done in Interface Builder by selecting the ``Save'' submenu item under the ``File'' menu item.\
+\
+17.	You are now ready to write some Objective C code.  In an editor, open the file 
+\f2\fs24 Controller.m
+\f0\fs28 .  Add these two lines after the first ``import'' statement in the file:\
+\
+
+\pard\tx1440\tx2280\tx3420\tx4560\tx5700\tx6840\tx7980\f2\fs24\fi-540\li900\fc0\cf0 	#import <appkit/appkit.h>  \
+	#import <TextToSpeech/TextToSpeech.h>\
+
+\f0\fs28 \
+
+\pard\tx900\tx2280\tx3420\tx4560\tx5700\tx6840\tx7980\fi-540\li900\fc0\cf0 18.	In the same file, add this code just before the 
+\b speak:
+\b0  method:\
+\
+
+\pard\tx1420\tx2280\tx3420\tx4560\tx5700\tx6840\tx7980\f2\fs24\li900\fc0\cf0 - appDidInit:sender \
+    \{\
+    /*  CONNECT APPLICATION TO TEXT-TO-SPEECH SERVER  */\
+    mySpeaker = [[TextToSpeech alloc] init];\
+    if (mySpeaker == nil) \{\
+        /*  TELL THE USER THAT NO CONNECTION CAN BE MADE  */\
+        NXRunAlertPanel("No Connection Possible",\
+           "Too many clients, or server cannot be started.",\
+           "OK", NULL, NULL);\
+        [NXApp terminate:self];\
+    \}\
+\
+    return self;\
+\}\
+\
+- appWillTerminate:sender\
+\{\
+    /*  FREE UP A CLIENT SLOT  */\
+    [mySpeaker free];\
+\
+    return self;\
+\}
+\fs28 \
+
+\f0 \
+
+\pard\tx900\tx2280\tx3420\tx4560\tx5700\tx6840\tx7980\fi-540\li900\fc0\cf0 	When the application is initialized, the 
+\b appDidInit
+\b0  message is sent to the ``Controller'' object, since it has been made the delegate of the application.  The 
+\b appDidInit:
+\b0  method connects the application to the TextToSpeech Server with the code:\
+\
+
+\pard\tx1440\tx2280\tx3420\tx4560\tx5700\tx6840\tx7980\fi-540\li900\fc0\cf0 	
+\f2\fs24 mySpeaker = [[TextToSpeech alloc] init];\
+
+\pard\tx900\tx2280\tx3420\tx4560\tx5700\tx6840\tx7980\f0\fs28\fi-540\li900\fc0\cf0 \
+	The TextToSpeech Server is actually represented by the ``mySpeaker'' object, so any subsequent messages intended for the Server should be sent to this object.  If the 
+\b init
+\b0  message returns 
+\b nil
+\b0 , this means that no connection can be made to the Server.  In the code above, the application puts up a warning panel and terminates the application whenever this happens.  The 
+\b appWillTerminate:
+\b0  method is needed because an application should always sever its connection with the TextToSpeech Server when the application is about to quit. This frees up a client slot for other applications to use.\
+\
+19.	Add the following line to the 
+\b speak:
+\b0  method in the 
+\f2\fs24 Controller.m
+\f0\fs28  file: \
+\
+
+\pard\tx1440\tx2280\tx3420\tx4560\tx5700\tx6840\tx7980\fi-540\li900\fc0\cf0 	
+\f2\fs24 [mySpeaker speakText:[myText stringValue]];\
+
+\pard\tx900\tx2280\tx3420\tx4560\tx5700\tx6840\tx7980\fi-540\li900\fc0\cf0 \
+
+\f0\fs28 	When the user pushes the ``speak'' button, the text will be retrieved from the text field and then sent to the TextToSpeech Server to be spoken.\
+\
+20.	In the 
+\f2\fs24 Controller.h
+\f0\fs28  file, add the line:\
+\
+
+\pard\tx900\tx1440\tx3420\tx4560\tx5700\tx6840\tx7980\fi-540\li900\fc0\cf0 		
+\f2\fs24 id  mySpeaker;
+\f0\fs28 \
+\
+
+\pard\tx900\tx2280\tx3420\tx4560\tx5700\tx6840\tx7980\fi-540\li900\fc0\cf0 	after the ``myText'' instance variable.  The variable ``mySpeaker'' is where the id of the instantiated TextToSpeech Object is stored.\
+\
+21.	In the same file, add these lines just before the 
+\b speak:
+\b0  method declaration:\
+\
+
+\pard\tx1440\tx2280\tx3420\tx4560\tx5700\tx6840\tx7980\f2\fs24\fi-540\li900\fc0\cf0 	- appDidInit:sender;\
+	- appWillTerminate:sender;\
+
+\f0\fs28 \
+
+\pard\tx900\tx2280\tx3420\tx4560\tx5700\tx6840\tx7980\fi-540\li900\fc0\cf0 22.	Save 
+\f2\fs24 Controller.m
+\f0\fs28  and 
+\f2\fs24 Controller.h
+\f0\fs28  to disk.\
+\
+23.	Compile the application by clicking on the ``Build'' button under the Builder section of Project Builder.  The file 
+\f2\fs24 MySpeaker.app
+\f0\fs28  should be produced.  If you encounter any compile errors, you will have to correct the source code using an editor.\
+\
+24.	Once the application has been successfully compiled, you can run it by double clicking on 
+\f2\fs24 MySpeaker.app
+\f0\fs28  using Workspace Manager, or by clicking on the ``Run'' button in Project Builder.  Type a word or two in the text field, and then push the ``speak'' button.  You should hear the text spoken.  If not, check your work, making sure the code is correct, and that all connections have been properly made.\
+\
+
+\pard\tx1140\tx2280\tx3420\tx4560\tx5700\tx6840\tx7980\fc0\cf0 Note that this application establishes a connection with the TextToSpeech Server when it is started up.  A connection to the Server can be made at any time, but since it takes a second or two (especially if the Server itself needs to be started), it is usually better that the application does this before any real work needs to be done.  Also note that the above application explicitly severs its connection with the Server by sending a  
+\b free
+\b0  message. Although the Server can detect when a client application has terminated, it is bad form for an application to leave a ``dangling'' connection to the Server when it quits.\
+\
+\
+
+\b\fs36 3.3  Adding More Control\
+
+\b0\fs28 \
+In this section we add more control to the application developed above.  First of all, we will add a slider to control the speed of the speech:\
+\
+
+\pard\tx900\tx2280\tx3420\tx4560\tx5700\tx6840\tx7980\fi-540\li900\fc0\cf0 1.	Using Project Builder and Interface Builder, open the project and nib files that were developed in the section above. \
+\
+2.	Drag a slider from the Palette and place it in the main window of the application.  Resize and position it to taste.  Using the Attributes part of the Slider Inspector, set the minimum value to 0.2, the current value to 1.0, and the maximum value to 2.0.\
+\
+3.	Drag a text field from the Palette and place it near the slider. Delete the word ``Text'' from the field, and disable the ``Editable'' and ``Selectable'' options using the TextField Inspector.  We will use this text field to display the value of the slider.\
+\
+4.	If desired, group the slider and text field together using a box, and title the box ``Speed.''\
+\
+5.	We need to add two outlets and one action to the Controller class.  To do this, first click on the ``Controller'' class icon in the window in the bottom left-hand corner.  Then click on the Classes suitcase icon.  The Inspector should now change to show the Class Inspector for the Controller class.  Now add the outlets ``speedSlider'' and ``speedField,'', and the action ``speedSliderMoved.''\
+\
+6.	Click on the Objects suitcase, and control-drag from the ``Controller'' icon to the slider.  Set the connection to ``speedSlider,'' and then push the ``Connect'' button.\
+\
+7.	Control-drag from the ``Controller'' icon to the text field.  Set the connection to ``speedField,'' and then push the ``Connect'' button.\
+\
+8. 	Control-drag from the slider used to control the speed to the ``Controller'' icon.  Set the connection to ``speedSliderMoved:'' and then push the ``Connect'' button.\
+\
+9.	Save your work in Interface Builder by selecting the ``Save'' menu item. \
+\
+10.	Open the 
+\f2\fs24 Controller.h
+\f0\fs28  file with an editor\
+\
+11.	Add these two lines:\
+\
+
+\pard\tx1440\tx2280\tx3420\tx4560\tx5700\tx6840\tx7980\f2\fs24\fi-540\li900\fc0\cf0 	id  speedSlider;\
+	id  speedField;\
+
+\f0\fs28 \
+
+\pard\tx900\tx2280\tx3420\tx4560\tx5700\tx6840\tx7980\fi-540\li900\fc0\cf0 	just after the other instance variables.  These are the new outlets we added above.\
+\
+12.	In the same file, add the line:\
+\
+
+\pard\tx1440\tx2280\tx3420\tx4560\tx5700\tx6840\tx7980\fi-540\li900\fc0\cf0 	
+\f2\fs24 - speedSliderMoved:sender;\
+
+\f0\fs28 \
+
+\pard\tx900\tx2280\tx3420\tx4560\tx5700\tx6840\tx7980\fi-540\li900\fc0\cf0 	just after the 
+\b speak:
+\b0  method.  This is the new action we added above. \
+\
+13.	Save the file 
+\f2\fs24 Controller.h
+\f0\fs28  to disk.\
+\
+14.	Open the 
+\f2\fs24 Controller.m
+\f0\fs28  file with an editor.\
+\
+15.	Add the following lines to the 
+\b appDidInit:
+\b0  method, just before the return statement:\
+\
+
+\f2\fs24 	/*  SET SPEED SLIDER AND FIELD TO USER DEFAULTS  */ [speedSlider setFloatValue:[mySpeaker speed]];\
+	[speedField setFloatValue:[mySpeaker speed]];\
+
+\f0\fs28 \
+	This sets the speed slider and text field to the speed the user has stored in the defaults database.  When a TextToSpeech Object is instantiated (as has just been done in the 
+\b appDidInit:
+\b0  method), this database is automatically used to set the defaults of the object. When our application is started up, the slider and text field will show the correct initial value of the object, because the speed has been has been found by sending the object the 
+\b speed
+\b0  message. \
+\
+16.	Add the following method to the end of 
+\f2\fs24 Controller.m
+\f0\fs28 :\
+\
+
+\f2\fs24 	- speedSliderMoved:sender\
+	\{\
+        /*  GET VALUE FROM SLIDER  */\
+        float value = [sender floatValue];\
+\
+        /*  SET THE FIELD TO THIS VALUE  */\
+        [speedField setFloatValue:value];\
+\
+        /*  IF MOUSE UP, SET THE VOICE TO THIS VALUE  */\
+   	    if ([NXApp currentEvent]->type == NX_LMOUSEUP)\
+           [mySpeaker setSpeed:value];\
+\
+        return self;\
+	\}\
+
+\f0\fs28 \
+	When the slider is moved, this method gets the current value of the slider and sets the field to that value.  When the mouse has stopped dragging, the speed is then sent to the Server.  This avoids unnecessary communication with the Server, and reduces the associated overhead.\
+\
+17.	Save the file 
+\f2\fs24 Controller.m
+\f0\fs28  to disk.\
+\
+18.	Compile the application by building it in Project Builder.  Correct any compiler errors.\
+\
+19.	Test the application by double clicking on ``MySpeaker.app'',  or by clicking on the ``Run'' button in Project Builder.  You should be able to vary the speed of the speech by moving the slider.  If not, check your work.\
+\
+
+\pard\tx1140\tx2280\tx3420\tx4560\tx5700\tx6840\tx7980\fc0\cf0 \
+Controls over volume, pitch, and stereo balance can be implemented in the same way.  You may want to polish the application so that only one or two decimal digits are displayed in the text field, and so that a user can enter a speed value into the text field directly.  An example of these improvements can be seen in the example source code for 
+\i BigMouth
+\i0 .\
+\
+Note that the slider, as implemented above, only sends a message to the TextToSpeech Server when the slider has stopped moving (i.e. when a mouse-up is detected).  This avoids unnecessary communication with the Server, and reduces the overhead associated with inter-task communication.\
+\
+Next we will add pause and continue controls to the application:\
+\
+
+\pard\tx900\tx2280\tx3420\tx4560\tx5700\tx6840\tx7980\fi-540\li900\fc0\cf0 1.	In Interface Builder, add the two actions ``continue'' and ``pause'' to the Controller class.  Do this with the Class Inspector.\
+\
+2.	Drag two ``item'' menu selections from the Menu Palette, and place them in the main menu of the application.  Rename one ``pause'', and the other ``continue.''  If desired, you can also assign keyboard equivalents for each of these.\
+\
+3.	Control-drag from the ``pause'' menu item to the ``Controller'' icon.  Select the ``pause:'' action in the MenuCell Inspector, and then push the ``Connect'' button.\
+\
+4.	Control-drag from the ``continue'' menu item to the ``Controller'' icon.  Select the ``continue:'' action in the MenuCell Inspector, and then push the ``Connect'' button.\
+\
+5.	Save your work in Interface Builder.\
+\
+6.	Add these two method declarations to 
+\f2\fs24 Controller.h
+\f0\fs28 :\
+\
+
+\pard\tx1440\tx2280\tx3420\tx4560\tx5700\tx6840\tx7980\f2\fs24\fi-540\li900\fc0\cf0 	- pause:sender;\
+	- continue:sender;\
+
+\f0\fs28 \
+
+\pard\tx900\tx2280\tx3420\tx4560\tx5700\tx6840\tx7980\fi-540\li900\fc0\cf0 7.	Save the file 
+\f2\fs24 Controller.h
+\f0\fs28  to disk.\
+\
+8.	Add these two methods to 
+\f2\fs24 Controller.m
+\f0\fs28 : \
+\
+
+\f2\fs24 	- pause:sender\
+	\{\
+        [mySpeaker pauseImmediately];\
+        return self;\
+	\}\
+\
+	- continue:sender\
+	\{\
+	    [mySpeaker continue];\
+	    return self;\
+	\}\
+
+\f0\fs28 \
+9.	Save the file 
+\f2\fs24 Controller.m
+\f0\fs28  to disk.\
+\
+10.	Build the application as before.\
+\
+11.	Test the application by entering a fairly long phrase.  You should be able to pause the speech by clicking on the ``pause'' menu item, and resume it by clicking on the ``continue'' menu item.\
+\
+
+\pard\tx1140\tx2280\tx3420\tx4560\tx5700\tx6840\tx7980\fc0\cf0 Other real-time controls can be added in a similar manner.  See the example code for 
+\i BigMouth
+\i0  and 
+\i ServerTest
+\i0 .\
+\
+\
+
+\b\fs36 3.4  Customizing Pronunciations\
+
+\b0\fs28 \
+In this section, we add the means to access custom pronunciations specially created for the application:\
+\
+
+\pard\tx900\tx2280\tx3420\tx4560\tx5700\tx6840\tx7980\fi-540\li900\fc0\cf0 1.	Using Interface Builder, open the application we developed above.\
+\
+2.	Using an editor, open the file 
+\f2\fs24 Controller.m
+\f0\fs28 .\
+\
+3.	Add the following function after the last method in 
+\f2\fs24 Controller.m
+\f0\fs28 : \
+\
+
+\f2\fs24 	void getAppDirectory (char *appDirectory)\
+	\{\
+        FILE *process;\
+        char command[256];\
+        char *suffix;\
+\
+        strcpy (appDirectory,NXArgv[0]);\
+        if (appDirectory[0] == '/') \{\
+            if (suffix = rindex(appDirectory,'/'))\
+            *suffix  = '\\0';\
+        \} else \{\
+            sprintf(command,"which '%s'\\n",NXArgv[0]);\
+            process=popen(command,"r");\
+            fscanf(process,"%s",appDirectory);\
+            pclose(process);\
+            if (suffix = rindex(appDirectory,'/'))\
+                *suffix  = '\\0';\
+            chdir(appDirectory);\
+            getwd(appDirectory);\
+        \}\
+ 	\} \
+
+\f0\fs28 \
+	This function, taken from 
+\i NeXTAnswers 642
+\i0 , returns the full pathname of the directory from which the application has been launched.\
+\
+4.	Add the following declarations to the 
+\b appDidInit:
+\b0  method:\
+\
+
+\pard\tx1440\tx2280\tx3420\tx4560\tx5700\tx6840\tx7980\f2\fs24\fi-540\li900\fc0\cf0 	char appDictPath[1024];\
+	void getAppDirectory();\
+
+\f0\fs28 \
+
+\pard\tx900\tx2280\tx3420\tx4560\tx5700\tx6840\tx7980\fi-540\li900\fc0\cf0 5.	Add the following lines just before the return statement in the 
+\b appDidInit:
+\b0  method:\
+\
+
+\f2\fs24 	/*  SET THE APPLICATION DICTIONARY  */ getAppDirectory(appDictPath); strcat(appDictPath,"/appDictionary.preditor");\
+	[mySpeaker setAppDictPath:appDictPath];\
+
+\f0\fs28 \
+	This sets the path to the Application Dictionary that will be placed in the application's file package.  Note that, in this case, it must be named ``appDictionary.preditor.''\
+\
+6.	Save the file 
+\f2\fs24 Controller.m
+\f0\fs28  to disk.\
+\
+7.	Build the application with ``make install.''  This should create the application ``MySpeaker.app'' and install it in your /Apps directory.\
+\
+8. 	Start the application 
+\i PrEditor
+\i0  by double clicking its icon.  
+\i PrEditor
+\i0  is installed in /LocalApps/TextToSpeech.\
+\
+9.	Create several custom pronunciations.  Be sure to store the pronunciations.  (Documentation for 
+\i PrEditor
+\i0  is displayed by clicking on the ``Help...'' submenu item under ``Info.'')\
+\
+10.	Choose the ``Save As...'' submenu item under the ``Document'' menu item.  The Save panel will appear.  Save the document as ``appDictionary.preditor'' in the ``MySpeaker.app'' directory (i.e. put it in the file package for the MySpeaker application).\
+\
+11.	Test the application by double clicking on ``MySpeaker.app.''  The application should pronounce the custom pronunciations you created with 
+\i PrEditor
+\i0 .  Check this by quitting the application, changing the pronunciations again (be sure to store and save), and relaunching the application.\
+\
+
+\pard\tx1140\tx2280\tx3420\tx4560\tx5700\tx6840\tx7980\fc0\cf0 Your Application Dictionary can contain as many custom pronunciations as you need.  An Application Dictionary is very useful when an application will use specialized terminology, such as medical or foreign words, not found in the Main Dictionary.\
+\
+\
+
+\b\fs36 3.5  Going Further\
+
+\b0\fs28 \
+The above tutorials should provide a basic understanding of how to program using the TextToSpeech Kit.  Of course, many refinements and enhancements are possible.  Special modes of text entry can be added, as can ways of controlling pitch, intonation, stereo balance, and volume.  Special text filters might be useful and can be linked into the system with the 
+\b speakStream:
+\b0  method.  User defaults can be utilized, and a different dictionary order might be appropriate for some applications.\
+\
+The tutorials given above, plus the example code for 
+\i BigMouth
+\i0 , 
+\i ServerTest
+\i0 , and 
+\i TalkingCalculator
+\i0  should serve a guide when you implement text-to-speech in your own applications.  Just how you use the Kit really depends upon the nature of the application under development, so these examples may not be directly applicable. However, they should provide a starting point for further elaboration and experimentation.\
+\
+
+}

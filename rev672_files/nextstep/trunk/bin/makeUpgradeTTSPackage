@@ -1,0 +1,17 @@
+echo "Loading Header Files"
+/NextAdmin/Installer.app/installer_bigtar -cfp TextToSpeech.tar /LocalDeveloper/Headers/TextToSpeech/TextToSpeech.h
+/NextAdmin/Installer.app/installer_bigtar -ufp TextToSpeech.tar /LocalDeveloper/Headers/TextToSpeech/TTS_types.h 
+echo "Loading Libraries"
+/NextAdmin/Installer.app/installer_bigtar -ufp TextToSpeech.tar /usr/local/lib/libTextToSpeech.a 
+echo "Loading Documentation"
+echo "	Programming Interface"
+/NextAdmin/Installer.app/installer_bigtar -ufp TextToSpeech.tar /LocalLibrary/TextToSpeech/documentation/programming_interface_user.ps
+echo "	TextToSpeech Documentation Subdirectory"
+/NextAdmin/Installer.app/installer_bigtar -ufp TextToSpeech.tar /LocalLibrary/TextToSpeech/documentation/TextToSpeech
+echo "Loading Example Code"
+/NextAdmin/Installer.app/installer_bigtar -ufp TextToSpeech.tar /LocalLibrary/TextToSpeech/exampleCode
+echo "Loading Developer Applications"
+echo "	ServerTest"
+/NextAdmin/Installer.app/installer_bigtar -ufp TextToSpeech.tar /LocalApps/TextToSpeech/ServerTest.app
+echo "	TalkingCalculator"
+/NextAdmin/Installer.app/installer_bigtar -ufp TextToSpeech.tar /LocalApps/TextToSpeech/TalkingCalculator.app

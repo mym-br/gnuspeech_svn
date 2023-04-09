@@ -1,0 +1,39 @@
+FirstResponder = {
+    ACTIONS = {
+    };
+    SUPERCLASS = Object;
+};
+Controller = {
+    ACTIONS = {
+	windowWillMiniaturize:;
+	open:;
+	runButtonPushed:;
+	save:;
+	saveAs:;
+	appDidInit:;
+	balanceSliderMoved:;
+	balanceFieldEntered:;
+	showInfo:;
+	volumeSliderMoved:;
+	resetToFile:;
+	volumeFieldEntered:;
+	resetToDefault:;
+    };
+    OUTLETS = {
+	resonantSystem;
+	volumeSlider;
+	balanceSlider;
+	openPanel;
+	volumeField;
+	noiseSource;
+	infoPanel;
+	synthesizer;
+	controlWindow;
+	resetToFileButton;
+	savePanel;
+	glottalSource;
+	throat;
+	balanceField;
+    };
+    SUPERCLASS = Object;
+};

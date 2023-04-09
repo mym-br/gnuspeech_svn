@@ -1,0 +1,24 @@
+AreaCellInspector = {
+    ACTIONS = {
+    };
+    OUTLETS = {
+	borderGraySlider;
+	tagField;
+	backgroundGrayField;
+	grayLevelSlider;
+	backgroundGraySlider;
+	borderedSwitch;
+	activeEdgeMatrix;
+	exampleArea;
+	borderGrayField;
+	controlValuesMatrix;
+	displayOnlySwitch;
+	grayLevelField;
+    };
+    SUPERCLASS = IBInspector;
+};
+FirstResponder = {
+    ACTIONS = {
+    };
+    SUPERCLASS = Object;
+};

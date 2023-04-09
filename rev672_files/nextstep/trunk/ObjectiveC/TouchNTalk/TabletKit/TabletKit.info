@@ -1,0 +1,27 @@
+# The info file for the TabletKit package.
+
+# These are the fields that will be displayed in the Info view.
+Title                  TabletKit
+Version                1.1 November 19, 1995
+Description            The TabletKit facilitates communication between applications and graphics tablets. An API for creation of custom reader bundles for various tablet data formats is also provided. The TabletKit works with NEXTSTEP release 3.2 or higher.
+
+# These fields determine where the installed package will go.
+DefaultLocation        /
+Relocatable            NO
+
+# This field is a pattern that matches the floppy disk labels
+DiskName               TabletKit%d
+
+# This field states whether the package is a NeXTSTEP application
+Application            NO
+
+# User is prompted with this field before deleting the package.
+DeleteWarning          Deleting this package will cause applications which use the TabletKit to stop working.
+
+# This field determines permissions for directories created during installation
+UseUserMask		NO
+
+# This field indicates that some files in the package have more than 100 characters.
+LongFileNames		YES
+
+# end of TabletKit.info

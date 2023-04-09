@@ -1,0 +1,18 @@
+PenDraw
+
+    This application uses the TabletKit to draw in a resizeable view,
+providing open/save support for EPS and TIFF images. Information from
+the TK_EVENT structure allows us to draw a line segment from the
+location of the previous tablet event to that of the current one. The
+view is resizable, and is "mapped" to the size of the tablet (assuming
+default resolution of 500 lpi). To draw, hold down the primary button
+while moving the stylus or cursor. For the SummaSketch III stlyus,
+this button is located on the stylus writing tip.
+
+Note: By default, device file /dev/ttyb is used to communicate with
+the tablet, which assumes you have your tablet attached to serial port
+B. If you have your tablet attached to serial port A then an error
+message indicating PenDraw could not connect to the tablet is
+displayed in the console and PenDraw will not draw anything. Simply
+set the preferences in PenDraw to use /dev/ttya instead of /dev/ttyb.
+

@@ -1,0 +1,225 @@
+head	1.6;
+access;
+symbols;
+locks;
+comment	@ * @;
+
+
+1.6
+date	94.06.03.19.28.24;	author dale;	state Exp;
+branches;
+next	1.5;
+
+1.5
+date	93.07.14.22.11.48;	author dale;	state Exp;
+branches;
+next	1.4;
+
+1.4
+date	93.07.06.00.34.26;	author dale;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	93.06.05.07.37.08;	author dale;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	93.05.30.08.24.27;	author dale;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	93.05.20.06.03.35;	author dale;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.6
+log
+@Changed "LastEditDate" to "Last modified on" within header.
+@
+text
+@/*
+ *    Filename:	SpeakText.h 
+ *    Created :	Thu May 13 12:05:54 1993 
+ *    Author  :	Dale Brisinda
+ *		<dale@@pegasus.cuc.ab.ca>
+ *
+ *    Last modified on "Sun Jul 11 12:15:32 1993"
+ *
+ * $Id: SpeakText.h,v 1.5 1993/07/14 22:11:48 dale Exp $
+ *
+ * $Log: SpeakText.h,v $
+ * Revision 1.5  1993/07/14  22:11:48  dale
+ * *** empty log message ***
+ *
+ * Revision 1.4  1993/07/06  00:34:26  dale
+ * Utilizes TextToSpeech instance (new connection) each time created.
+ *
+ * Revision 1.3  1993/06/05  07:37:08  dale
+ * *** empty log message ***
+ *
+ * Revision 1.2  1993/05/30  08:24:27  dale
+ * *** empty log message ***
+ *
+ * Revision 1.1  1993/05/20  06:03:35  dale
+ * Initial revision
+ *
+ */
+
+@@class TextToSpeech;
+
+/* SpeakText speech modes. */
+#define ST_SPEAK 0
+#define ST_SPELL 1
+
+#import <appkit/appkit.h>
+
+@@interface SpeakText:Text
+{
+    TextToSpeech *speaker;   // TextToSpeech instance
+    int speechMode;          // speak or spell mode?
+}
+
+/* GENERAL METHODS */
+- initFrame:(const NXRect *)frameRect text:(const char *)theText alignment:(int)mode;
+- initFrame:(const NXRect *)frameRect;
+- free;
+
+/* SPEECH METHODS */
+- speakSelection;
+- speakText:(const char *)buffer;
+- speakAll;
+
+/* PRIVATE METHODS */
+- spellText:(const char *)buffer;
+- spellText:(const char *)buffer ofSize:(int)size;
+
+/* RESPONDER METHODS */
+- speakSelection:sender;
+- speakAll:sender;
+
+/* SET METHODS */
+- setSpeaker:theSpeaker;
+- setSpeechMode:(int)mode;
+
+/* QUERY METHODS */
+- speaker;
+- (int)speechMode;
+
+@@end
+@
+
+
+1.5
+log
+@*** empty log message ***
+@
+text
+@d7 1
+a7 1
+ *    LastEditDate was "Sun Jul 11 12:15:32 1993"
+d9 1
+a9 1
+ * $Id: SpeakText.h,v 1.4 1993/07/06 00:34:26 dale Exp $
+d12 3
+@
+
+
+1.4
+log
+@Utilizes TextToSpeech instance (new connection) each time created.
+@
+text
+@d7 1
+a7 1
+ *    LastEditDate was "Mon Jul  5 00:48:20 1993"
+d9 1
+a9 1
+ * $Id: SpeakText.h,v 1.3 1993/06/05 07:37:08 dale Exp $
+d12 3
+d59 1
+@
+
+
+1.3
+log
+@*** empty log message ***
+@
+text
+@d7 1
+a7 1
+ *    LastEditDate was "Sat Jun  5 00:21:33 1993"
+d9 1
+a9 1
+ * $Id: SpeakText.h,v 1.2 1993/05/30 08:24:27 dale Exp $
+d12 3
+d23 2
+d33 2
+a34 2
+    id speaker;        // Speech instance
+    int speechMode;    // speak or spell mode?
+d43 1
+a43 1
+- speakSelection;   // examines speech mode
+d45 3
+a49 2
+- speakAll;
+- spellAll;
+d52 1
+a52 1
+- speakSelection:sender;   // examines speech mode
+a53 1
+- spellAll:sender;
+@
+
+
+1.2
+log
+@*** empty log message ***
+@
+text
+@d7 1
+a7 1
+ *    LastEditDate was "Sun May 30 00:07:57 1993"
+d9 1
+a9 1
+ * $Id: SpeakText.h,v 1.1 1993/05/20 06:03:35 dale Exp $
+d12 3
+d20 4
+d28 1
+a28 1
+    id speaker;        // TextToSpeech Kit instance
+d38 1
+a38 1
+- speakSelection;
+d43 1
+d46 1
+a46 1
+- speakSelection:sender;
+d48 1
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d7 1
+a7 1
+ *    LastEditDate was "Wed May 19 21:58:08 1993"
+d9 1
+a9 1
+ * $Id$
+d11 4
+a14 1
+ * $Log$
+d27 1
+@

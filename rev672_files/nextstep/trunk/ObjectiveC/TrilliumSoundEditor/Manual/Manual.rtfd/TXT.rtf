@@ -1,0 +1,333 @@
+{\rtf0\ansi{\fonttbl\f0\fnil Times-Roman;\f1\ftech Symbol;\f2\fmodern Courier;\f3\fmodern Ohlfs;}
+\paperw17780
+\paperh15460
+\margl1800
+\margr1800
+\pard\tx300\tx6120\f0\b\i0\ulnone\fs28\fc0\cf0 \
+\
+\
+\
+\
+\
+\
+\
+\
+\
+
+\i\qc \
+Trillium Sound Editor (v 0.9)
+\b0\fs24 \
+\
+
+{{\NeXTGraphic42 paste.tiff \width960 \height960
+}
+¬}\pard\tx300\tx6120\f0\b0\i\ulnone\qc\fs24\fc0\cf0 \
+\
+By\
+\
+Craig-Richard Taube-Schock\
+
+\b\i0\fs28 \
+\
+
+\b0\ql \
+\
+\
+\
+\
+\
+\
+Bug reports and suggestions should be sent to:\
+\
+Craig-Richard Taube-Schock\
+c/o Trillium Sound Research Inc.\
+#1500, 112 - 4th Avenue. SW\
+Calgary, Alberta\
+T2P 0H3\
+\
+
+\f1\qc ã
+\f0 Copyright, 1993, Trillium Sound Research Inc.\
+
+\b\ql \
+\
+\
+
+\pard\tx360\tx6120\fc0\cf0 1. Introduction.
+\b0\fs24 \
+\
+	This manual offers a brief description of the 
+\i Trillium Sound Editor
+\i0  program written by Craig-Richard Taube-Schock.  The program is located in 
+\f2\fs20 /LocalApps
+\f0\fs24  and the online version of this document is located in 
+\f2\fs20 /LocalLibrary/TrilliumSoundEditor
+\f0\fs24 . The program and this manual are still under development so existing features as well as planned features will be outlined.  The remainder of this chapter describes some of the philosophies which underlie the design of the program.  It is hoped that understanding the reasoning behind program design will impart to the user an improved ªintuitiveº feel for the interface.  Chapter 2 outlines the sound editor and chapter 3 is devoted to a description of the spectrum display. \
+\
+	This program only runs under NEXTSTEP.  To boot NEXTSTEP, restart the machine and press ªnº when prompted during the bootup process.  Once the boot sequence has completed, log in to your account.  The default account is ªaldenº with the password also set to ªaldenº.  To execute this program, double click the 
+\i TrilliumSoundEditor
+\i0  Icon which looks like:
+\i \
+
+{\qc{\NeXTGraphic1389 370800_paste.tiff \width1280 \height1280
+}
+¬}\pard\tx360\tx6120\f0\b0\i\ulnone\qc\fs24\fc0\cf0 \
+\
+
+\ql 	
+\i0 This icon has been placed in the icon dock (located on the right side of the screen) in the ªaldenº account.  This icon can also be found in the 
+\f2\fs20 /LocalApps
+\f0\fs24  directory in the file browser.\
+\
+
+\b 1.1 Interface Philosophy.
+\b0 \
+\
+	Editing time-domain sound waveforms is not unlike editing other forms of data.  It must be easy for the user to navigate through the information without getting lost within it.  Tools and functions which are specific to the data being examined must be available to the user in an intuitive fashion and feedback must be responsive.  It is with these ideas in mind that the interface was designed.  Because the program is still under development, some parts of the interface are still cumbersome to use.  Problems of this sort are being addressed in the next version.\
+\
+
+{\qc{\NeXTGraphic2176 331594_paste.tiff \width14700 \height2520
+}
+¬}\pard\tx360\tx6120\f0\b0\i0\ulnone\qc\fs24\fc0\cf0 1 sample/pixel\
+
+{{\NeXTGraphic2192 681115_paste.tiff \width14680 \height2540
+}
+¬}\pard\tx360\tx6120\f0\b0\i0\ulnone\qc\fs24\fc0\cf0 2 samples/pixel\
+
+{{\NeXTGraphic2209 509226_paste.tiff \width14680 \height2520
+}
+¬}\pard\tx360\tx6120\f0\b0\i0\ulnone\qc\fs24\fc0\cf0 5 samples per pixe
+\ql \
+
+{\qc{\NeXTGraphic2229 434923_paste.tiff \width14680 \height2520
+}
+¬}\pard\tx360\tx6120\f0\b0\i0\ulnone\qc\fs24\fc0\cf0  7 samples per pixel\
+
+{{\NeXTGraphic2251 924773_paste.tiff \width14680 \height2520
+}
+¬}\pard\tx360\tx6120\f0\b0\i0\ulnone\qc\fs24\fc0\cf0 9 samples per pixel
+\ql \
+
+{\qc{\NeXTGraphic2272 109448_paste.tiff \width14680 \height2540
+}
+¬}\pard\tx360\tx6120\f0\b0\i0\ulnone\qc\fs24\fc0\cf0 12 samples per pixel\
+
+\ql \
+\
+
+\qc Figure 1.1:  Waveform display with different sample group sizes.\
+
+\ql \
+
+\b \
+1.2 Waveform Display.
+\b0 \
+\
+	Displaying a sound waveform is a fairly easy.  However, the display can become more involved if the user wishes to ªzoom-inº to the waveform to see minute detail or wishes to ªzoom-outº to see the overall picture.  Because there is limited screen real-estate, techniques must be developed to ensure that important information is being displayed at all levels of examination.  Drawing each detail of a waveform when the user has zoomed out will increase display time and will clutter the screen with large, blotchy areas of black.  \
+\
+	This problem is solved in the following manner.  The display has a width in pixels and the waveform has a width in samples.  The ideal display would have 1 pixel per sample;  however, because sound files tend to be very large, this is not very practical.  Therefore, to display large sound files, 1 pixel will represent a group of samples.  The value of the group is taken to be the maximum sample within that group.  Figure 1.1 shows how a waveform can be displayed with different sample group sizes. \
+\
+	Figure 1.1 illustrates scaling of the x-axis on the waveform display.  It is also possible to scale the y-axis.  This is performed by multiplying each sample (or group of samples) by a scale value.  
+\i Normalization
+\i0  is the process through which the waveform is analysed to determine which scale multiplier will expand the waveform to make full use of the display.  Figure 1.2 shows a waveform at its original recorded level and after normalization.\
+\
+
+{\qc{\NeXTGraphic3873 804606_paste.tiff \width14680 \height2520
+}
+¬}\pard\tx360\tx6120\f0\b0\i0\ulnone\qc\fs24\fc0\cf0 \
+Figure 1.2: (a) Original Recorded Level\
+\
+
+{{\NeXTGraphic3916 404513_paste.tiff \width14680 \height2500
+}
+¬}\pard\tx360\tx6120\f0\b0\i0\ulnone\qc\fs24\fc0\cf0 \
+Figure 1.2: (b) Normalized level.  \
+
+\ql \
+\
+\
+\
+
+\b\fs28 2. Sound Editor.\
+
+\b0\fs24 \
+
+\b 2.1 Sound Editor Window.
+\b0 \
+\
+	All interaction with time-domain waveforms occurs within the sound editor window.  Figure 2.1 shows the window and many of its features.  It consists of three main views.  They are:  the left channel, the right channel and a stereo view.  Within the left and right channel views is a display of the waveform.  The stereo view shows a normalized view of both waveforms superimposed on two scroll bars.  The purpose of the stereo view is to provide feedback about the entire sound file which is especially useful when the left and right channels are scrolled or zoomed.  At the bottom of the window there are information fields.  The left selection and right selection fields indicate which samples are selected in each channel.  In this example, samples 5810 through 12040 are selected in the left channel and no samples are selected in the right channel.  The gray area in the left channel indicates which samples are selected.  Sound information is also shown at the bottom of the window.  This sound file contains 51061 samples and has a duration of 2.3156 seconds.  The normalize buttons allow the user to normalize the left and right channels separately.. \
+\
+
+{\qc{\NeXTGraphic5165 paste.eps \width10480 \height8240
+}
+¬}\pard\tx360\tx6120\f0\b0\i0\ulnone\qc\fs24\fc0\cf0 \
+Figure 2.1:  Sound Editor Window.\
+\
+
+\b\ql \
+\
+2.2 Loading a sound file.
+\b0 \
+\
+	Sound files can be loaded into the sound editor window by clicking the ªLoad Soundº button on the main menu (shown in figure 2.2).  An open panel will appear.  Once the desired sound file is found within the directory browser, click the ªOkº button.   The request can be cancelled by clicking the ªCancelº button.\
+\
+
+{\qc{\NeXTGraphic5547 886967_paste.tiff \width2960 \height3260
+}
+¬}\pard\tx360\tx6120\f0\b0\i0\ulnone\qc\fs24\fc0\cf0 \
+Figure 2.2:  Load Sound from Main Menu.\
+
+\ql \
+	The sound editor handles both mono and stereo sound files.  Currently, all mono files are loaded into the 
+\b left
+\b0  channel and the right channel remains empty.  Two sound file formats are supported:  16 bit linear at any sampling rate and unsigned 8-bit linear at any sampling rate.  If sound files are not in these formats they can be converted using the 
+\f2 sndconvert
+\f0  facility provided under NEXTSTEP.  See the manual page entry or the NextStep Developer documentation for information about the 
+\f2 sndconvert
+\f0  facility. \
+\
+\
+
+\b 2.3 Selecting samples within a channel.
+\b0 \
+\
+	To select samples within a channel, point to the first sample to be selected.  Single-click the mouse and drag (with the mouse button pressed) to the last sample to be selected.  Selected samples will be highlighted in a gray box.  This process is illustrated in figure 2.3\
+\
+	Sample selection will be improved in the next version of this program.  Currently, selection must be made from left to right and all samples you wish to select must be within the current view.  If you drag past the end of the channel display, the display will not scroll to allow selection of more samples (though it should). \
+
+{\qc{\NeXTGraphic6750 955110_paste.eps \width10500 \height3720
+}
+¬}\pard\tx360\tx6120\f0\b0\i0\ulnone\qc\fs24\fc0\cf0 \
+Figure 2.3: (a) Single Click\
+
+{{\NeXTGraphic6781 480018_paste.eps \width10500 \height3800
+}
+¬}\pard\tx360\tx6120\f0\b0\i0\ulnone\qc\fs24\fc0\cf0 \
+Figure 2.3 (b) Drag to Select\
+
+\ql \
+\
+
+\b 2.4 Scaling left and right channel displays.
+\b0 \
+\
+	Section 1.2 discussed scaling aspects of the waveform display.  Users can zoom-in and out on both the time (x) and amplitude (y) axes.  To scale a channel, double-click within the channel and keep the mouse button pressed.  The mouse cursor will change to the following: \
+
+{\qc{\NeXTGraphic7134 295377_paste.tiff \width320 \height320
+}
+¬}\pard\tx360\tx6120\f0\b0\i0\ulnone\qc\fs24\fc0\cf0 \
+
+\ql This symbol indicates that the channel will be scaled.  To simplify the task of scaling, only one axis may be scaled at one time.  Therefore, to scale the time axis, drag the mouse either to the left or to the right.  When this is done, the mouse cursor will change to the following:\
+
+{\qc{\NeXTGraphic7420 772159_paste.tiff \width320 \height320
+}
+¬}\pard\tx360\tx6120\f0\b0\i0\ulnone\qc\fs24\fc0\cf0 \
+
+\ql To scale the amplitude axis, move the mouse up or down and the cursor will change to:\
+
+{\qc{\NeXTGraphic7508 551964_paste.tiff \width320 \height320
+}
+¬}\pard\tx360\tx6120\f0\b0\i0\ulnone\qc\fs24\fc0\cf0 \
+
+\ql 	Once an axis is chosen for scaling, it will continue to be scaled until the mouse button is released.\
+\
+
+\b 2.5 Scrolling a channel.
+\b0 \
+\
+	When the time axis of a channel is changed (as in figure 1.1), the entire waveform cannot be displayed within the designated viewing area.  Scrolling bars are provided within the sound editor window (figure 2.1) for each channel.  So scroll a channel, click on its corresponding scrolling bar and drag it left or right.  Superimposed on the scrolling bars is a general outline of the entire sound file.  This view provides important feedback about which part of the sound file is being displayed in the channel.\
+\
+\
+\
+\
+
+\b\fs28 3. Spectrum Analysis.
+\b0\fs24 \
+
+\b \
+
+\b0 	A spectrum analysis can be performed on either channel or selected samples within the channels.  To perform an analysis on either the left or right channel, select the ªFFT Left Channelº or ªFFT Right Channelº menu item on the FFT submenu (figure 3.1).  To perform an analysis on a portion of either the left or right channel, select samples using the technique described in section 2.3 and then select either ªFFT Left Selectionº onªFFT Right Selectionº on the FFT submenu.\
+\
+
+{\qc{\NeXTGraphic8657 241398_paste.tiff \width2820 \height2060
+}
+¬}\pard\tx360\tx6120\f0\b0\i0\ulnone\qc\fs24\fc0\cf0 \
+Figure 3.1:  The FFT Submenu.
+\b \
+
+\b0\ql \
+
+\b \
+3.1. Spectrum Display.
+\b0 \
+\
+	When an analysis is request by the user, a spectrum window is displayed on the screen.  When the analysis is complete, the resulting data is displayed within the spectrum window.  The spectrum display (shown in figure 3.2) consists of the following items:  a header which contains information about the analysis; the x-axis (time); the y-axis (frequency), the analysis results and an optional grid.\
+
+{\qc{\NeXTGraphic9115 895384_paste.eps \width9620 \height10620
+}
+¬}\pard\tx360\tx6120\f0\b0\i0\ulnone\qc\fs24\fc0\cf0 \
+Figure 3.2: A Spectrum Window.\
+
+\ql \
+
+\b 3.2. FFT Control Panel.
+\b0 \
+\
+	Sound data information, parameters for the spectrum analysis, and parameters for spectrum display are all located on the FFT control panel.  Specific items on the control panel are described in the following sections.  When a spectrum window is made key (ie, when the users clicks on it) the control panel is updated to reflect the state of the selected spectrum window.  Subsequent analyses can be performed by adjusting the items on the control panel as desired and clicking the ªDo Analysisº button.\
+\
+
+{\qc{\NeXTGraphic9679 428705_paste.tiff \width12080 \height5220
+}
+¬}\pard\tx360\tx6120\f0\b0\i0\ulnone\qc\fs24\fc0\cf0 \
+Figure 3.3: FFT Control Panel.\
+
+\ql \
+3.2.1. Sound information.\
+\
+	Each analysis window has some associated sound data.  Sampling rate, total number of samples and number of windows in the spectrum analysis are displayed in the Sound Information section of the FFT Control Panel (figure 3.4).  These values are not editable.\
+\
+
+{\qc{\NeXTGraphic10000 62909_paste.tiff \width4500 \height2220
+}
+¬}\pard\tx360\tx6120\f0\b0\i0\ulnone\qc\fs24\fc0\cf0 \
+Figure 3.4:  Sound Information on FFT Control Panel.\
+
+\ql \
+3.2.2. Window Size.\
+\
+	The analysis window size and window slide can be adjusted in the Analysis Resolution portion of the FFT Control Panel (Figure 3.5).  The following window sizes (in samples) are supported: 64, 128, 256, 512.  The default window size is 256 samples..  The associated frequency resolution is also displayed. \
+\
+
+{\qc{\NeXTGraphic10385 627851_paste.tiff \width4520 \height2220
+}
+¬}\pard\tx360\tx6120\f0\b0\i0\ulnone\qc\fs24\fc0\cf0 \
+Figure 3.5:  Analysis Resolution. \
+
+\ql \
+3.2.3. Window Slide.\
+\
+The window slide parameter indicates the number of samples the analysis window is moved for each FFT (fast fourier transform).  Window slide can be any number of samples greater than 0.  The time resolution associated with the selected window slide is displayed.\
+\
+3.2.4. Window Shape.\
+\
+	The window shape can be selected via the window shape pop-up menu on the control panel.  Three window shapes are currently supported:  square, Hanning, and Kaiser-Bessel.  The Kaiser-Bessel requires a coefficient which is generally set between 2.0 and 3.0.  Figure 3.6 shows the different window shapes.\
+\
+
+{\qc{\NeXTGraphic11037 178545_paste.eps \width12620 \height7440
+}
+¬}\pard\tx360\tx6120\f0\b0\i0\ulnone\qc\fs24\fc0\cf0 \
+Figure 3.6:  FFT Windows.\
+
+\ql \
+
+\qc \
+
+\ql 3.2.5. Scaling.\
+\
+	The spectrum display plots data in 3-dimensions.  The x-axis shows time, the y-axis shows frequency and the z-axis shows power.  Since the computer screen is a 2 dimensional display, the z-axis is represented by 255 levels of gray.  Power values computed from the FFT are quantized in terms of the 255 gray levels and then displayed on the screen.  Quantization levels can be adjusted by the scaling sliders on the FFT control panel.  FFT values less than the minimum slider will be displayed as white and values greater than the maximum slider will be displayed as black.  Values between the minimum and maximum sliders will be displayed in the corresponding gray level.  Interpolation between minimum and maximum is either linear or logarithmic depending on the selection in the control panel. \
+\
+3.2.6. Grid.\
+\
+	Spectrum output can be displayed with or without a grid.  Both the time and frequency intervals of the grid display can be modified.  The time interval parameter is in milliseconds and the frequency interval is in kilohertz.  The grid display can be enabled or disabled via the switch on the FFT control panel.\
+
+}

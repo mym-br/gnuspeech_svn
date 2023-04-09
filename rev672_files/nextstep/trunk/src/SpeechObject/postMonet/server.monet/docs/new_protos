@@ -1,0 +1,125 @@
+/* Messages.c */
+kern_return_t send_string_message(port_t outPort, port_t replyPort, unsigned int msg_id, unsigned int ident, char *value);
+kern_return_t send_simple_message(port_t outPort, port_t replyPort, int msg_id, int ident);
+kern_return_t send_float_message(port_t outPort, port_t replyPort, int msg_id, int ident, double value);
+kern_return_t send_int_message(port_t outPort, port_t replyPort, int msg_id, int ident, int value);
+kern_return_t receive_simple_message(port_t inPort, struct simple_msg *message);
+kern_return_t receive_float_message(port_t inPort, struct float_msg *message);
+kern_return_t receive_string_message(port_t inPort, struct float_msg *message);
+kern_return_t receive_int_message(port_t inPort, struct int_msg *message);
+
+/* delta_calc.c */
+int init_utterance(void);
+int do_calc(void);
+void update_synth_ptr(void);
+int memory_man(void);
+int finished_calculations(void);
+int pause_calculation(void);
+int continue_synth(void);
+int feed_synthesizer(int block, int last);
+int pause_synth(void);
+int phone_string(char *string);
+int next_phone(char *string, int index, int length, int *continue_index, int *tone_group);
+int parse_up_to(char *string, int index, int high_index, byte *syllable, byte *word, byte *salient, byte *marked);
+int rewrite(char *temp, char *last_phone, byte word);
+int build_events(void);
+int build_foot(int *time, int foot_number);
+int speak_next_message(void);
+int find_next_speak_message(int ident);
+int erase_all_utterances(int ident);
+int calc_chunks(char *string);
+float *parse_groups(int number, struct _iobuf *fp);
+int init_tone_groups(void);
+int print_tone_groups(void);
+int intonation(void);
+int calc_pre_tonic(float *pitch_parameters, int nexttonic, int *pfoot, int *pindex, float *ptargets, float *ptime);
+int calc_tonic(float *pitch_parameters, int *pfoot, int *pindex, float *ptargets, float *ptime);
+int convert_targets_to_deltas(float *ptargets, float *ptime, int pindex);
+int find_tonics(void);
+int find_next_tonic(int pfoot);
+
+/* main.c */
+int main(int argc, char *argv[]);
+
+/* normal_dist.c */
+float gaussian(void);
+
+/* rewrite.c */
+int phone_string(char *string);
+int handle_slash(char *string, int index, byte *marked, byte *salient);
+int look_ahead(char *string, int index);
+
+/* server.c */
+void init_server(void);
+int poll_port(int block);
+void close_port(void);
+
+/* server_handler.c */
+void new_speaker(struct simple_msg *msg_header, int ident);
+void close_speaker(struct simple_msg *msg_header, int ident);
+int set_task_ports(struct int_msg *msg_header, int ident);
+void set_app_dict(struct string_msg *msg_header, int ident);
+void set_user_dict(struct string_msg *msg_header, int ident);
+void setspeed(struct float_msg *msg_header, int ident);
+void setvolume(struct float_msg *msg_header, int ident);
+void set_error_port(struct simple_msg *msg_header, int ident);
+void set_dict_order(struct int_msg *msg_header, int ident);
+void set_escape_char(struct int_msg *msg_header, int ident);
+void set_elasticity(struct int_msg *msg_header, int ident);
+void set_intonation(struct int_msg *msg_header, int ident);
+void set_pitch_offset(struct float_msg *msg_header, int ident);
+void set_balance(struct float_msg *msg_header, int ident);
+void get_app_dict(struct simple_msg *msg_header, int ident);
+void get_user_dict(struct simple_msg *msg_header, int ident);
+void speed(struct simple_msg *msg_header, int ident);
+void volume(struct simple_msg *msg_header, int ident);
+void get_dict_order(struct simple_msg *msg_header, int ident);
+void get_pron(struct string_msg *msg_header, int ident);
+void get_escape_char(struct simple_msg *msg_header, int ident);
+int get_line_pron(struct string_msg *msg_header, int ident);
+int get_elasticity(struct simple_msg *msg_header, int ident);
+int get_intonation(struct simple_msg *msg_header, int ident);
+int get_pitch_offset(struct simple_msg *msg_header, int ident);
+int get_balance(struct simple_msg *msg_header, int ident);
+void pause(struct simple_msg *msg_header, int ident);
+void pauseafterutt(struct simple_msg *msg_header, int ident);
+void scontinue(struct simple_msg *msg_header, int ident);
+void eraseallsound(struct simple_msg *msg_header, int ident);
+void erasecurutt(struct simple_msg *msg_header, int ident);
+void speaktext(struct string_msg *msg_header, int ident);
+void version(struct simple_msg *msg_header, int ident);
+
+/* structs.c */
+int init_all(void);
+int init_messages(void);
+int init_tables(void);
+int init_databases(void);
+int init_events(void);
+int insert_event(int time, float *deltas, float *targets, byte foot, byte syllable, byte word);
+int insert_pevent(int time, double delta);
+int finish_structs(void);
+int new_foot(byte marked, int utterance_type);
+int new_phone(char *token, byte foot, byte syllable, byte word);
+int previous_phone_cat(char *token);
+int regression(void);
+int calc_duration(int from, int to, byte marked, int current_foot);
+float regress_phones(int from, int to, int total_duration, int num_items, byte marked);
+int new_pm(int time, int index);
+int print_pm(void);
+
+/* synthesizer_module.c */
+int spawn_synthesizer_thread(void);
+int start_synthesizer(void);
+void await_request_new_page(int blocking_request, int last_page, void (*ptr_update_function)(void));
+DSPFix24 *new_pad_table(int data_table_size);
+DSPFix24 *new_default_data_table(int data_table_size);
+int nnint(float value);
+void set_bypass(int value, int pos, int *bypass_register);
+int bypass_value(int pos, int *bypass_register);
+void set_resonator_coefficients(float frequency, float bandwidth, float *a, float *b, float *c);
+void set_notch_filter_coefficients(float frequency, float bandwidth, float *a, float *b, float *c, float *d);
+float amplitude(float decibel_level);
+int convert_to_pitch(float frequency);
+float convert_to_frequency(float pitch);
+int current_values_to_table(void);
+

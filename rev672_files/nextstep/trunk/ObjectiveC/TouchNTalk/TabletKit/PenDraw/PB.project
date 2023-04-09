@@ -1,0 +1,26 @@
+INSTALLDIR = "$(HOME)/Apps";
+FILESTABLE = {
+    OTHER_LIBS = (Media_s, NeXT_s, tabletkit);
+    CLASSES = (CanvasControl.m, CanvasView.m, PenDraw.m);
+    OTHER_SOURCES = (Makefile.preamble, Makefile, Makefile.postamble);
+    INTERFACES = (canvasWindow.nib, PenDraw.nib);
+    H_FILES = (CanvasControl.h, CanvasView.h, PenDraw.h);
+    IMAGES = (Crosshair.tiff, Pencil.tiff, PenDraw.tiff);
+    OTHER_LINKED = ();
+    M_FILES = (PenDraw_main.m);
+};
+APPICON = PenDraw.tiff;
+GENERATEMAIN = YES;
+DOCICONFILES = ();
+APPCLASS = Application;
+MAINNIB = PenDraw;
+DOCEXTENSIONS = ();
+PROJECTTYPE = Application;
+PROJECTVERSION = 1.1;
+LOCALIZABLE_FILES = {
+    PenDraw.nib;
+    canvasWindow.nib;
+};
+PROJECTNAME = PenDraw;
+SYSTEMEXTENSIONS = (eps, tiff);
+LANGUAGE = English;

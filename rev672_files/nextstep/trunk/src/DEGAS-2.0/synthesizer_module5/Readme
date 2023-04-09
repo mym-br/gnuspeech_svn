@@ -1,0 +1,31 @@
+February 7th, 1992:	Changed convert_to_pitch() so that it can return
+			fractional pitch.
+
+January 31st, 1992:	Finished Final DMA version.  Synthesizer is
+			reconfigured so that R1-R4 are in order, fricative
+			branch is inserted between R3 and R4, amplitude
+			modulation is performed on noise, and added a nasal
+			branch consisting of a nasal bypass switch, fixed
+			nasal resonator (FNR), and nasal notch filter (NNF).
+
+January 17th, 1992:     Finalized the program, reformatting the hack
+                        described below for 030s and older 040s.  The
+			program now works for ALL NeXT hardware.
+
+October 23, 1991:	Added a hack to provide feedback when testing
+			for problems on older 040 hardware.
+
+July 30th, 1991: 	Added a thread_suspend() and thread_resume(),
+			so that the synthesizer thread is put to sleep
+			when the synthesizer is idle.  This results in
+			a very low system load.  However, when the synthesizer
+			is running, the system CPU time goes to maximum.
+			This is probably due to busy waits on the remaining
+			thread_switch()'s.
+
+June 28th, 1991:	Finished version of synthesizer module, ready
+			for integration.  The code is fully commented
+			and documented.  The synthesizer is fully
+			re-entrant, with its own event loop within its
+			own thread.  The test program "test_synth"
+			displays its capabilities.

@@ -1,0 +1,246 @@
+- Parameter and Symbol look pretty close to identical!
+
+- eliminate MonetList, replace with NSMutableArray.  Or maybe not, since it has an array, but is not an array.
+- probable programming error in original Rule.m:
+        for(i = 0; i< 16; i++)
+        {
+                NXReadTypes(stream, "ii", &j, &k);
+                if (i==(-1))
+    - I think it should be checking "j" for -1 value.
+- Hmm.  Duration form in Rule Parser window, text shifts when selecting it (tabbing into the field.)
+- check that we aren't returning floats/doubles from calls to methods that might return nil;
+- we could filter the rules, showing which ones match a given symbol input.
+
+XML file format changes:
+- MMRule - change "expression-symbols" to "symbol-equations"
+- MMPosture - rename "symbol" to "name"
+- MMPoint - rename "time-expression" to "time-equation"
+
+Done
++ change -makeObjectsPerform: to -makeObjectsPerformSelector:
++ wondering about programming error in BooleanParser
+  + Caused by Openstep conversion scripts
++ odd cases in BooleanParser, addSubExpression:self
+  + it's totally wrong, adding the parser.  Sheesh!
+  + again, caused by Openstep convertion scripts
++ what does it mean to be "native"?
++ correct spelling, change "editting" to "editing"
++ don't call init methods in -initWithCoder:
++ I think -[PointInspector browserHit:] was wrong with:
+                [tempProto findEquation:listIndex andIndex:    index];
+                temp = tempProto;
+                [currentPoint setExpression:temp];
+
+  I think it should be this:
+                temp = [tempProto findEquation:listIndex andIndex:    index];
+                [currentPoint setExpression:temp];
++ there was some really bogus conversion in PhoneInspector.m, in browserHit:, where this:
+	case 1: tempList = [currentPhone parameterList];
+  was converted to this:
+      case 1: [currentPhone parameterList]; tempList = currentPhone;
+  What?!
++ fixed spelling of "parmeters" in Phone init method
++ rename Phone to Posture
++ move the NSRunAlertPanel() call out of SlopeRatio!
+  + and adding points to slopes doesn't quite work properly right now -- another slope doesn't get added?
++ it looks like one Point in "DefaultPrototypes" is bad, with list index of -1, secondary index of 0x5037312 (84112146).
+  + actually it looks like three points.
+  + look at similar code in Rule.m that checks for -1 value.
+x it looks like I'm getting different results when I load MonetBlank.monet twice in a row...
++ stars in rules after phones seems to match, i.e., ch and ch' for "ch*"
+x we could add a column to the rule list to show the total combinations matched.
+x I can't load "Play2.monet".  It looks like there's a point encoded as "di" instead of "ddii".
++ make superclass for FormulaExpression, FormulaTerminal.  Check how this affects archiving.
++ make superclass for BooleanExpression, BooleanTerminal.  Check how this affects archiving.
++ do we need to free the strings that we get from: (2004-08-15)
+    [aDecoder decodeValueOfObjCType:"*" at:&c_string];
+  + be sure to free strings unarchived from typed streams.
+
+2004-11-14:
+- +SpecialView, +PointInspector, +RuleInspector, *IntonationView, +IntonationScrollView, *IntonationPointInspector, EventListView
+
+
+
+
+TODO:
+- if a value is at the default, and then you change the default, do you want all of the instances to change as well?  I think so.
+- phones have a "native" category, which is their name.  This is probably so that the boolean parser can just looks up categories, not categories and phones.
+
+- merge Parameter, Symbol classes
+- remove "native" category
+  - update boolean parser to recognize postures at well
+
+
+
+Notes:
+- bezier paths may need to be on 1/2 pixel coordinates, depending on the line width.
+- when using NSRectFill you need to use integral coordinates.
+- I see that the time formulas should produce monotonically increasing values for times.  Fricatives/Dud12 is an example that doesn't do this.
+  - the values for the special transitions get sorted, and all of the values are sorted by EventList, but I'm not sure how that affects slope ratios.
+
+
+
+2004-03-12:
+x BUG: slope ratio button for diZeroTwelveOne doesn't go all the way to the left.
+  x nor does Diphtong,
+- graph for fTransition is a little odd.  Phantom points?
+  - seems likely.  Stopped/Default is similar, but looks fine.
+- Carre/bLipClosure give a nice example.
+- Fricatives/sOrzFricCharParams is an example of overlapping slope numbers
+
+2004-03-15:
+- Would it be useful to list the timing symbols in order for the TransitionView?
+x inspecting zero points should show "No Inspector", not "Multiple Points Selected"
+x when dragging to select points and no points are selected, the point inspector shows "No Inspector" and "Multiple Points Selected"
+- you shouldn't be able to (try to) set the value for a point that is part of a slope ratio.
+  + try M prefix for remaining object (MMonetModel, MTransitionView, MInspector, ...)
++ Just noticed that "Drift Parmeters" is misspelled in the original Intonation Window.
+- Rename classes
+  + Phone -> MMPosture
+  - NamedList -> MMGroup (where appropriate)
+  + CateogoryNode -> MMCategory
+  + Parameter -> MMParameter
+  - Symbol -> MMParameter
+  + Point(GSMPoint) -> MMPoint
+  + Rule -> MMRule
+  + ProtoEquation -> MMEquation
+  + ProtoTemplate -> MMTransition
+  - GSParser -> MParser
+  + Slope -> MMSlope
+  + SlopeRatio -> MMSlopeRatio
+  + Target -> MMTarget
+
+
+2004-03-18:
+- need to be sure to set model when we add postures.
+
+2004-03-21:
+- maybe try "MA" as the prefix for "Monet App"
+
+2004-03-22:
+- show list of points in transition editor, for easier selection when things go bad (points off screen, multiple points as same place)
+
+2004-03-23:
+x -[NSSString initWithBytes:length:encoding:] not in 10.2.8 SDK, so should be within #if in 10.3 header file.
+- text of NSForm shifts slightly when selected.  This doesn't happen with NSTextFields.
+  - for vertical form.  Single horizontal form doesn't seem to have that problem.
+
+2004-03-24:
+- In the rule manager we could have a column to show the running total combinations that can reach each rule
+  - this would take the total possible combinations, minus all of the ones matched above it.
+  - I think this would be difficult to do.
+- In MMRule, key the transitions and special transitions by name, so we can easily change the order.  (Of course,
+  that makes changing the name a bit more work.)
+- There seems to be Posture Symbols and Rule Symbols
++ working through PhoneList, removing methods
+- move GSXML functions into NSString category
+
+2004-03-30:
++ Change EventLists's intonParms from "double *" into struct or class
++ intonation had range of -20 to 10, event index 32.  This is range of semitone.
+
+2004-03-31:
++ The Diphone/Triphone/Tetraphone radio buttons should be in the Transition Editor, not on the Prototype Manager window. (2004-08-15)
+
+2004-04-01:
++ Replace parameter array with structure for FormulaExpression's -evaluate: method.
+
+2004-04-02:
++ Changing selection in Special Transition Editor doesn't update details.
+
+2004-04-22:
+- Add a verification phase after loading the XML file to make sure all of the postures have the correct references to parameters, meta-paramters, and symbols.
+- make sure we load meta parameters, since diphones doesn't use it.
+
+2004-04-24:
++ try switching to Subversion
+
+2004-05-18:
++ Replace DefaultPrototypes with an XML version of it.
+- note some limitations of current system:
+  + assumes names of equations and transitions are unique across groups, but doesn't enforce it.  Failure upon load.
+  + note parenthesis use in equations
+  - note removal of 0.5 factor from software TRM, and what I think it's there for.
+
+2004-05-20:
+- In the prototype manager, it'll try parsing equations even if an equation isn't selected in the outline view.
+  - not critical, just odd
+- still can't remove equations, transitions, special transitions
+- can't set values in slope ratios, but not obvious from UI
+- adding a point to a slope ratio doesn't properly update the ratios along the bottom, at least for 'Diphone'
+  - that's a problem with the timing being fixed.  Setting it to a value between the two makes it work as expected.
+- can't delete points from a slope ratio
+- Equations/Diphones and Tetraphones don't have an equation
++ showing the special transition editor, loading a new file, and then trying to select points logs lots of stuff
+  + should clear transition when loading new file.
++ can't change comments for special transitions
++ selecting points in the special transition view doesn't seem to change selected equation
++ changing marks in special transition editor doesn't work.
+- when rule numbers don't fit in the width they take up multiple lines.
+
+2004-05-26:
++ remove Id RCS keyword from header files.
+- In the intonation view, I think the (green) vertical lines should match up with the posture names.  Check original.
+
+2004-07-21:
+- In the Rule Manager, limit selectable transitions to one appropriate to the type of the rule.  i.e. diphone vs triphone transitions.
+
+2004-07-31:
+- Combine stressed and unstressed postures into single shared data structure.
+  - Create a tool to load the old typed streams and then generate a v1 xml file.
+  - Then remove the old typedstream stuff.
+  - Create ObjC XML data structure.  Modify this to move between versions.  Then you can run the tool to convert to v1 xml, and then load that in future versions of Monet.
+
+2004-08-02:
+- In MMBooleanParser.m, a ch* will use the ch native category, not the ch' native category, but they probably want it to match both..
++ The Rule Tester lies about the number of tokens consumes (it should be one less than reported).
+
+2004-08-03:
+- We could combine the regular and special parameter graphs, perhaps using a different color.  Might be nice to also show the combined value in a third color.
+  - Some special transitions have small values, which wouldn't be easy to see.  The same problem currencyly exists, and we could use some scaling for that.
+
+2004-08-04:
++ I've noticed that the postures aren't properly placed in the Synthesis window, for rules that consume >1 posture.  Problem with move to structure in EventList.
+
+2004-08-09;
++ With Save Graph Images, store at a location that's easier to get to for novice users than /tmp
+
+2004-08-13:
++ Clear out General:Null special transitions from rules.  For example, see Rule #27. (2004-08-15)
+
+2004-08-15:
++ I've been getting these warnings recently when running the app, before loading diphones.mxml:
+des: [~ 12 ]> /Local/Public/nygard/Products/Monet.app/Contents/MacOS/Monet
+2004-08-15 00:24:29.039 Monet[10261] Exception raised during posting of notification.  Ignored.  exception: *** -[NSCFArray objectAtIndex:]: index (-1) beyond bounds (0)
+*** malloc[10261]: Deallocation of a pointer not malloced: 0xbfffd940; This could be a double free(), or free() called with the middle of an allocated block; Try setting environment variable MallocHelp to see tools to help debug
+*** malloc[10261]: Deallocation of a pointer not malloced: 0xbfffdab0; This could be a double free(), or free() called with the middle of an allocated block; Try setting environment variable MallocHelp to see tools to help debug
+*** malloc[10261]: Deallocation of a pointer not malloced: 0xbfffdd90; This could be a double free(), or free() called with the middle of an allocated block; Try setting environment variable MallocHelp to see tools to help debug
+
+  + This looks like it's in the PostureEditor somewhere.
+
++ search for decodeValueOfObjCType: and make sure they use @encode() (2004-08-15)
+- add checkboxes to rules to enable/disable them?  Would help you to see the effects of a rule without deleting it.
++ alt-clicking to add point in special transition puts point in wrong location, too high. (2004-08-15) Fixed? by sharing more of TransitionView.
+- you should be able to set the free time value for a point in the transition view.
+- need better choice of default point type -- should be able to default to triphone after mark1.
+
+2004-08-16:
++ make sound filename accept "~"
++ show save sheet for synthesizing to sound file
+
+2004-08-19:
++ trying storing dictionary in dbm file, for faster startup tts stuff
+
+2004-08-21:
+- MAIntonationView should autoscroll when necessary when drawing the selection rect.
+  - need model loop and periodic events for this.
+- draw line from beat for each intonation point.
+- add mouse tracking to intonation view.
+- allow direct manipulation of intonation points.
++ Use save panel/sheet when synthesizing to a file.
+- Try tweaking the page breaks when printing the intonation view.  Try to break on rule boundaries.
++ add, remove intonation poitns.
+- could implement cut/paste of intonation points.
+
+2004-08-22:
+- show values out of min-max range in red.  i.e. qssa, qssb for qz are 2, minimum is 10

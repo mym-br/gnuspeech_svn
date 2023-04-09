@@ -1,0 +1,54 @@
+{
+    "## Comment" = "Do NOT change this file, Gorm maintains it";
+    FirstResponder = {
+	Actions = (
+	    "addCategory:",
+	    "addMetaParameter:",
+	    "addParameter:",
+	    "addSymbol:",
+	    "removeCategory:",
+	    "removeMetaParameter:",
+	    "removeParameter:",
+	    "removeSymbol:"
+	);
+	Super = NSObject;
+    };
+    MDataEntryController = {
+	Actions = (
+	    "removeParameter:",
+	    "removeCategory:",
+	    "removeSymbol:",
+	    "addParameter:",
+	    "addSymbol:",
+	    "addMetaParameter:",
+	    "removeMetaParameter:",
+	    "addCategory:"
+	);
+	Outlets = (
+	    removeMetaParameterButtonCell,
+	    removeParameterButtonCell,
+	    metaParameterTableView,
+	    categoryTotalTextField,
+	    parameterTableView,
+	    removeCategoryButtonCell,
+	    metaParameterCommentTextView,
+	    categoryTableView,
+	    symbolTableView,
+	    symbolCommentTextView,
+	    symbolTotalTextField,
+	    metaParameterTotalTextField,
+	    removeSymbolButtonCell,
+	    parameterTotalTextField,
+	    categoryCommentTextView,
+	    parameterCommentTextView
+	);
+	Super = MWindowController;
+    };
+    MWindowController = {
+	Actions = (
+	);
+	Outlets = (
+	);
+	Super = NSWindowController;
+    };
+}

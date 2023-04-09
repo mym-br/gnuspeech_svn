@@ -1,0 +1,79 @@
+#  REVISION INFORMATION  *****************************************************
+#
+#  $Author: rao $
+#  $Date: 2002-03-21 16:49:51 $
+#  $Revision: 1.1 $
+#  $Source: /Users/dalmazio/cvsroot/gnuspeech/trillium/src/AreaPalette/RootInstall,v $
+#  $State: Exp $
+#
+#
+#  $Log: not supported by cvs2svn $
+# Revision 1.1.1.1  1993/09/27  19:34:56  len
+# Initial archiving of AreaPalette source code.
+#
+#
+#*****************************************************************************
+
+
+# These are the files to be installed
+set library = libAreaPalette.a
+set header1 = Area.h
+set header2 = AreaCell.h
+set palette = AreaPalette.palette
+
+# These are where the files are now located
+set localLibDir = ./lib
+set localHeaderDir = ./headerFiles
+set localPaletteDir = ./
+
+# These are where the files are to be installed
+set libDir = /usr/local/lib
+set headerDir = /usr/local/include/Area
+set paletteDir = /LocalDeveloper/Palettes
+
+# The source files
+set srcLibrary = $localLibDir/$library
+set srcHeader1 = $localHeaderDir/$header1
+set srcHeader2 = $localHeaderDir/$header2
+set srcPalette = $localPaletteDir/$palette
+
+# The target files
+set targetLibrary = $libDir/$library
+set targetHeader1 = $headerDir/$header1
+set targetHeader2 = $headerDir/$header2
+set targetPalette = $paletteDir/$palette
+
+
+
+# Install the library
+echo -n "Installing Library ... "
+if ( -e $targetLibrary) /bin/rm -rf $targetLibrary
+/bin/mkdirs -m 755 $libDir
+/bin/cp $srcLibrary $targetLibrary
+/bin/chmod -Rf 644 $targetLibrary
+/usr/etc/chown -Rf root.wheel $targetLibrary
+echo done.
+
+# Install the header files
+echo -n "Installing Header Files ... "
+if ( -e $headerDir) /bin/rm -rf $headerDir
+/bin/mkdirs -m 755 $headerDir
+/bin/cp $srcHeader1 $targetHeader1
+/bin/chmod -Rf 644 $targetHeader1
+/usr/etc/chown -Rf root.wheel $targetHeader1
+/bin/cp $srcHeader2 $targetHeader2
+/bin/chmod -Rf 644 $targetHeader2
+/usr/etc/chown -Rf root.wheel $targetHeader2
+echo done.
+
+# Install the Palette
+echo -n "Installing Palette ... "
+if ( -e $targetPalette) /bin/rm -rf $targetPalette
+/bin/mkdirs -m 755 $paletteDir
+(/bin/tar chf - $srcPalette) | (cd $paletteDir; /bin/tar xf -)
+/usr/etc/chown -Rf root.wheel $targetPalette
+echo done.
+
+# Finished Installation
+echo Completed Installation.
+exit(0)

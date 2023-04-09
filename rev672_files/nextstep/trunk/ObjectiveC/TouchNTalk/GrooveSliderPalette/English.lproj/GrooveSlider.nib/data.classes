@@ -1,0 +1,22 @@
+GrooveSliderCell = {
+    ACTIONS = {
+    };
+    OUTLETS = {
+    };
+    SUPERCLASS = SliderCell;
+};
+GrooveSlider = {
+    SUPERCLASS = Slider;
+};
+FirstResponder = {
+    ACTIONS = {
+    };
+    SUPERCLASS = Object;
+};
+GrooveSliderPalette = {
+    ACTIONS = {
+    };
+    OUTLETS = {
+    };
+    SUPERCLASS = IBPalette;
+};

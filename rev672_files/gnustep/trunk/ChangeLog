@@ -1,0 +1,378 @@
+
+2012-07-25  mymatuda
+
+	* Applications/Monet/MSynthesisController.h
+	  Applications/Synthesizer/
+		Controller.h
+		Controller.m
+	Fixed a wrong name (reported by fmiller at zianet com) and an include.
+
+2012-07-15  mymatuda
+
+	* Frameworks/GnuSpeech/MonetModel/
+		MonetList.h
+		MonetList.m
+		NamedList.h
+		NamedList.m
+	Replaced some unsigned/int types with NSUInteger.
+
+2012-07-10  mymatuda
+
+	* Frameworks/GnuSpeech/Tube/TRMSynthesizer.m
+	  Tools/GnuSpeechCLI/GNUmakefile.preamble
+	Solved the "undefined reference to GSCurrentContext" problem.
+	The cause (NSBeep) was found by fmiller at zianet com.
+
+2011-03-13  mymatuda
+
+	* INSTALL.GNUstep
+	Adjustments.
+
+2011-03-08  mymatuda
+
+	* INSTALL.GNUstep
+	Portaudio v19-svn20071022 selected OSS as default host API, even with no available devices.
+
+	* INSTALL.GNUstep
+	Updated the installation instructions. Contributed by Felipe Castro (fefcas at gmail com)
+	(modified by mymatuda).
+
+	* Frameworks/GnuSpeech/Tube/TRMSynthesizer.m
+	When Portaudio selected a host API with no available devices, a segmentation error ocurred.
+
+2011-03-05  mymatuda
+
+	* Applications/Synthesizer/Controller.m
+	Replaced "false" with "NO".
+	Reported by Felipe Castro (fefcas at gmail com).
+
+2009-07-05  mymatuda
+
+	* Applications/Monet/
+		GNUmakefile
+		MSynthesisController.m
+		MTextToPhone.h (removed)
+		MTextToPhone.m (removed)
+	  Applications/Monet/English.lproj/Synthesis.gorm/objects.gorm
+	  Applications/PreMo/
+		ApplicationDelegate.h ApplicationDelegate.m
+	  Frameworks/GnuSpeech/
+		GNUmakefile
+		GNUmakefile.postamble
+		GnuSpeech.h
+	  Frameworks/GnuSpeech/MonetModel/
+		MMTextToPhone.h MMTextToPhone.m
+	  Frameworks/GnuSpeech/Parsers/
+		GSParser.h GSParser.m
+		MMBooleanExpression.h (moved)
+		MMBooleanExpression.m (moved)
+		MMBooleanNode.h (moved)
+		MMBooleanNode.m (moved)
+		MMBooleanParser.h (moved)
+		MMBooleanParser.m (moved)
+		MMBooleanSymbols.h (moved)
+		MMBooleanTerminal.h (moved)
+		MMBooleanTerminal.m (moved)
+		MMFormulaExpression.h (moved)
+		MMFormulaExpression.m (moved)
+		MMFormulaNode.h (moved)
+		MMFormulaNode.m (moved)
+		MMFormulaParser.h (moved)
+		MMFormulaParser.m (moved)
+		MMFormulaSymbols.h (moved)
+		MMFormulaTerminal.h (moved)
+		MMFormulaTerminal.m (moved)
+		MMFRuleSymbols.h (moved)
+	  Frameworks/GnuSpeech/Parsers/BooleanExpressionParser/
+		MMBooleanExpression.h MMBooleanExpression.m
+		MMBooleanNode.h MMBooleanNode.m
+		MMBooleanParser.h MMBooleanParser.m
+		MMBooleanSymbols.h
+		MMBooleanTerminal.h MMBooleanTerminal.m
+	  Frameworks/GnuSpeech/Parsers/LetterToSound/
+		apply_stress.c apply_stress.h
+		check_word_list.c check_word_list.h
+		clusters.h
+		ends_with.c ends_with.h
+		final_s.c final_s.h
+		ie_to_y.c ie_to_y.h
+		insert_mark.c insert_mark.h
+		isp_trans.c isp_trans.h
+		letter_to_sound.c letter_to_sound.h
+		long_medial_vowels.c long_medial_vowels.h
+		mark_final_e.c mark_final_e.h
+		medial_s.c medial_s.h
+		medial_silent_e.c medial_silent_e.h
+		member.c member.h
+		stresstables.h
+		suffix_list.h
+		suffix.c suffix.h
+		syllabify.c syllabify.h
+		tail.h
+		vowel_before.c vowel_before.h
+		word_to_patphone.c word_to_patphone.h
+	  Frameworks/GnuSpeech/Parsers/MathematicalExpressionParser/
+		MMFormulaExpression.h MMFormulaExpression.m
+		MMFormulaNode.h MMFormulaNode.m
+		MMFormulaParser.h MMFormulaParser.m
+		MMFormulaSymbols.h
+		MMFormulaTerminal.h MMFormulaTerminal.m
+		MMFRuleSymbols.h
+	  Frameworks/GnuSpeech/Parsers/NumberParser/
+		number_parser.c number_parser.h
+		number_pronunciations_english.h
+		number_pronunciations.h
+	  Frameworks/GnuSpeech/Parsers/TextParser/
+		abbreviations.h
+		categories.c categories.h
+		diphone_module.c diphone_module.h
+		evaluate.c evaluate.h
+		NXStream.h NXStream.m
+		parser_module.h parser_module.m
+		phoneDescription.c phoneDescription.h
+		rule.c rule.h
+		streams.h streams.m
+		template.c template.h
+		TTS_types.h
+	  Frameworks/GnuSpeech/TextProcessing/
+		parser_module.m (removed)
+		TTSParser.h TTSParser.m
+	  Tools/GnuSpeechCLI/
+		config.plist
+	  INSTALL.GNUstep
+	[GnuSpeechCLI] Changed intonation settings to more natural-sounding defaults (dbrisinda).
+	Simplified PreMo to use the MMTextToPhone class (dbrisinda).
+	[Monet] Replaced MTextToPhone class with MMTextToPhone class from the GnuSpeech Framework (dbrisinda).
+	Added full support for English text parsing from the original parser module (dbrisinda).
+	Added full support for number parsing from the original number parser (dbrisinda).
+	Added full support for letter-to-sound rules from the orignal letter-to-sound rules (dbrisinda).
+
+2009-05-05  mymatuda
+
+	* Tools/softwareTRM/
+		input
+		Makefile
+	Added a missing line to the file "input", and changed the Makefile (softwareTRM).
+
+	* Tools/softwareTRM/
+		GNUmakefile (removed)
+		GNUmakefile.postamble (removed)
+		TRMSynthesizer.h (removed)
+		TRMSynthesizer.m (removed)
+		tube2.c (removed)
+	  Tools/softwareTRM/softwareTRM.xcode/project.pbxproj (removed)
+	Removed unneeded files (softwareTRM).
+
+2009-05-04  mymatuda
+
+	* Applications/Synthesizer/
+		AnalysisWindow.h
+		Controller.h Controller.m
+		GlottalSource.h GlottalSource.m
+		GPParamView.h GPParamView.m
+		Harmonics.h Harmonics.m
+		PitchScale.h
+		Spectrum.h
+		structs.h
+		tube.c tube.h
+		Waveform.h Waveform.m
+	Renamed structs.h to tube.h.
+
+2009-04-29  mymatuda
+
+	* Applications/Synthesizer/
+		Controller.h Controller.m
+		GlottalSource.m
+		GPParamView.m
+		Harmonics.m
+		Spectrograph.m
+		Spectrum.m
+		structs.h
+		tube.c
+		TubeSection.m
+		VelumSlider.m
+		Waveform.m
+	Synthesizer: Adjustments.
+
+2009-04-28  mymatuda
+
+	* Applications/Synthesizer/
+		Controller.m
+		GlottalSource.m
+		GPParamView.m
+		structs.h
+		tube.c
+	  README.GNUstep
+	Synthesizer: Interpolate some tube parameters.
+
+2009-04-25  mymatuda
+
+	* Applications/Monet/GNUmakefile.preamble
+	  Applications/PreMo/GNUmakefile.preamble
+	  Frameworks/GnuSpeech/GNUmakefile.preamble
+	  Tools/GnuSpeechCLI/GNUmakefile.preamble
+	Moved "-lgdbm -lgdbm_compat" to the makefile of the GnuSpeech Framework.
+
+2009-04-14  mymatuda
+
+	* Applications/Monet/
+		MSynthesisController.h MSynthesisController.m
+	  Applications/Monet/English.lproj/Synthesis.gorm/
+		data.classes
+		objects.gorm
+	Added the phone/postures string text view to the GUI alongside the
+	English text field. Added a "Parse Text" button to the
+	main GUI resembling the same functionality in the PreMo
+	application (dbrisinda).
+
+2009-01-26  mymatuda
+
+	* Tools/GnuSpeechCLI/
+		config.h
+		config.plist
+		GNUmakefile
+		GNUmakefile.postamble
+		gnuspeechcli.sh
+		main.m
+		PhoneToSpeech.h PhoneToSpeech.m
+		TextToPhone.h TextToPhone.m
+		TextToSpeech.h TextToSpeech.m
+	  install.sh
+	  README.GNUstep
+	Use tool bundle.
+
+2009-01-13  mymatuda
+
+	* README.GNUstep
+	Synchronize with the OSX version:
+	Monet now supports regular English text entry instead of the phoneme string /
+	Quick fix for punctuation problems in TTSParser.
+
+	* Applications/Monet/
+		MSynthesisController.h MSynthesisController.m
+	Corrected lingering phoneStringTextField references in the MSynthesisController
+	class after converting from phoneme string to English text entry (dbrisinda).
+
+2009-01-12  mymatuda
+
+	* Frameworks/GnuSpeech/GNUmakefile
+	  Frameworks/GnuSpeech/Tube/
+		audio.c (removed)
+		audio.h (removed)
+		TRMSynthesizer.h TRMSynthesizer.m
+	Use a callback in the audio output code to avoid blocking.
+
+	* Applications/Monet/
+		GNUmakefile
+		GNUmakefile.postamble
+		MSynthesisController.h MSynthesisController.m
+		MTextToPhone.h MTextToPhone.m
+	Synchronize with the OSX version:
+	Monet now supports regular English text entry instead of the phoneme string /
+	Quick fix for punctuation problems in TTSParser.
+
+	* Tools/GnuSpeechCLI/
+		2.0eMainDictionary.dict (removed)
+		GNUmakefile.postamble
+	Use the file 2.0eMainDictionary.dict from Frameworks/GnuSpeech/TextProcessing.
+
+2009-01-11  mymatuda
+
+	* Frameworks/GnuSpeech/
+		GNUmakefile
+		GNUmakefile.preamble
+	  Frameworks/GnuSpeech/Tube/
+		audio.c audio.h
+		TRMSynthesizer.m
+	  INSTALL.GNUstep
+	  README.GNUstep
+	Implemented audio output in the GNUstep version using PortAudio.
+
+2009-01-10  mymatuda
+
+	* Tools/GnuSpeechCLI/
+		2.0eMainDictionary.dict
+		config.h
+		config.plist
+		diphones.mxml
+		GNUmakefile
+		GNUmakefile.preamble
+		gnuspeechcli.sh
+		main.m
+		PhoneToSpeech.h PhoneToSpeech.m
+		TextToPhone.h TextToPhone.m
+		TextToSpeech.h TextToSpeech.m
+	  install.sh
+	  README.GNUstep
+	Created a command-line synth using code from GnuTTSServer.
+
+2009-01-08  mymatuda
+
+	* Applications/Monet/
+		MSynthesisController.h MSynthesisController.m
+	  Applications/Monet/English.lproj/Synthesis.gorm/
+		data.classes
+		objects.gorm
+	The intonation was not working.
+	
+	* COPYING
+	Added a copy of GNU GPLv3.
+
+	* install.sh
+	  README.GNUstep
+	Adjustments.
+
+2009-01-07  mymatuda
+
+	* Applications/Monet/English.lproj/DataEntry.gorm
+	  Applications/Monet/English.lproj/Postures.gorm
+	  Applications/Monet/English.lproj/PrototypeManager.gorm
+	  Applications/Monet/English.lproj/RuleManager.gorm
+	  Applications/Monet/English.lproj/RuleTester.gorm
+	  Applications/Monet/English.lproj/SpecialTransitionEditor.gorm
+	  Applications/Monet/English.lproj/Synthesis.gorm
+	  Applications/Monet/English.lproj/SynthesisParameters.gorm
+	  Applications/Monet/English.lproj/TransitionEditor.gorm
+	Converted from nib to gorm.
+
+	* Applications/Monet/
+		GNUmakefile
+		GNUmakefile.postamble
+		GNUmakefile.preamble
+	  Applications/Monet/Extensions/
+		GNUmakefile
+	  Applications/PreMo/
+		GNUmakefile
+		GNUmakefile.postamble
+		GNUmakefile.preamble
+	  Frameworks/GnuSpeech/
+		GNUmakefile
+		GNUmakefile.postamble
+	  Frameworks/Tube/
+		GNUmakefile
+	  install.sh
+	Adjustments to the GNUstep makefiles.
+
+	* Frameworks/GnuSpeech/Tube/
+		TRMSynthesizer.h TRMSynthesizer.m
+	  Frameworks/Tube/
+		input.c input.h
+		output.c output.h
+		structs.h
+		tube.c tube.h
+	Renamed TRMData to TRMInputData because there is an ObjC class
+	with the same name - TRMData.h.
+
+	* Frameworks/GnuSpeech/TextProcessing/
+		2.0eMainDictionary.dict
+		GSSimplePronunciationDictionary.m
+	Converted the dictionary from the original encoding (cp437/cp850???) to utf-8.
+
+	* Applications/Monet/English.lproj/Synthesis.gorm
+		data.info
+		objects.gorm
+	Set initial tempo and radius multiplier.
+
+	* INSTALL.GNUstep
+	  README.GNUstep
+	Documentation.

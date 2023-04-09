@@ -1,0 +1,29 @@
+FirstResponder = {
+    ACTIONS = {
+    };
+    SUPERCLASS = Object;
+};
+Controller = {
+    ACTIONS = {
+	balanceSliderMoved:;
+	volumeSliderMoved:;
+	frequencySliderMoved:;
+	harmonicsSliderMoved:;
+	rampTimeSliderMoved:;
+	playButtonPushed:;
+    };
+    OUTLETS = {
+	rampTimeSlider;
+	volumeSlider;
+	tone;
+	frequencyField;
+	harmonicsSlider;
+	harmonicsField;
+	volumeField;
+	balanceSlider;
+	rampTimeField;
+	frequencySlider;
+	balanceField;
+    };
+    SUPERCLASS = Object;
+};

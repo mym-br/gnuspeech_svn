@@ -1,0 +1,30 @@
+INSTALLDIR = /LocalApps;
+APPICON = whoapp.tiff;
+GENERATEMAIN = YES;
+DOCICONFILES = ();
+FILESTABLE = {
+    M_FILES = (WhosOnFirst_main.m);
+    OTHER_LINKED = ();
+    H_FILES = (DefaultMgr.h, IconView.h, InfoMgr.h, MailServer.h, myMainObject.h, ProcessManager.h, Talk.h, userMailNode.h);
+    CLASSES = (DefaultMgr.m, IconView.m, InfoMgr.m, MailServer.m, myMainObject.m, ProcessManager.m, Talk.m);
+    IMAGES = (me.tiff);
+    PSW_FILES = ();
+    C_FILES = ();
+    OTHER_RESOURCES = (WhosOnFirst.preditor);
+    OTHER_SOURCES = ();
+    SUBPROJECTS = ();
+    PSWM_FILES = ();
+    SOUNDS = ();
+    OTHER_LIBS = (Media_s, NeXT_s);
+    INTERFACES = (WhosOnFirst.nib);
+};
+APPCLASS = Application;
+MAINNIB = WhosOnFirst;
+DOCEXTENSIONS = ();
+PROJECTTYPE = Application;
+PROJECTVERSION = 1.1;
+LOCALIZABLE_FILES = {
+};
+PROJECTNAME = WhosOnFirst;
+SYSTEMEXTENSIONS = ();
+LANGUAGE = English;

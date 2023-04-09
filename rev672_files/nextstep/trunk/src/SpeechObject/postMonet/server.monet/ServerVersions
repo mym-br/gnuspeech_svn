@@ -1,0 +1,74 @@
+Version f, May 12
+	Speech identifier now communicated through an int message
+
+Version g, May 15
+	Diagnosis now sent by server.
+
+Version h, May 21
+	Implemented intonation control, elasticity control, and balance control.
+
+Version h, May 22
+	Added a HUP signal handler.
+
+Version i, May 
+	Minor fixes
+
+Version j, May 27
+	Added randomize option.
+	Added set_block and get_block to server.
+
+Version k, June 3
+	Will kill all currently running servers when launched.
+	NOTE: in order for servers to be killed, they must have the
+		string "TTS_Server" in argv[0].
+
+Version l, June 10
+	Updated intonation.
+
+Version m, June 15
+	Updated intonation.
+
+Version n, June 16
+	Server is now portable within the file system.  It's portability
+		is contingent on the correct setting of systemPath
+		variable in the defaults database.
+
+		to achieve this, the following functions were modified
+			init_databases()	in structs.c
+			init_dict()		in parser/search.c
+			init_tone_groups()	in delta_calc.c
+			cache_init()		in parser/cache.c
+
+		they are now passed a systemPath parameter.
+
+	Function "pause" in the files server.c and server_handler.c was
+		changed to "server_pause".  The function name "pause()" 
+		conflicted with another function included in the header
+		file <appkit/nextstd.h>
+
+	Reports problems and server startup via NXLogError().
+
+Version o, June 18
+	HUP signal can be sent via the message SERVER_HUP.
+	Itimer is now working.  Every 60 seconds, a SIGALRM is generated.
+		At that time, users processes are checked.  If no one is
+		currently connected to the server with a valid PID, the
+		server kills itself.
+
+Version p, July 6
+	Will now compile for both release 2 and release 3 (pr2) of the
+		operating system.
+
+Version q, July 7
+	Integrates new parser.
+
+Version r, July 9
+	New Object libraries to include dictionary version method.
+	Extra int message sent on SpeakText and LinePronunciation methods.
+	User and App dictionary access routines installed.
+
+Version s, July 13
+	hy and hw rewrites in place.
+	Fixed out-of-line data pointer bug. (Major) (See Messages.c/h)
+	Many small bug fixes
+

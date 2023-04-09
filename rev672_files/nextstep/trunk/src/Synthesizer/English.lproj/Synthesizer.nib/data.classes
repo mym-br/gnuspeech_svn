@@ -1,0 +1,413 @@
+GlottalSource = {
+    ACTIONS = {
+	windowWillMiniaturize:;
+	pitchSliderMoved:;
+	showAmplitudeSwitchPushed:;
+	unitButtonPushed:;
+	waveformTypeSwitchPushed:;
+	riseTimeEntered:;
+	volumeEntered:;
+	breathinessSliderMoved:;
+	pitchEntered:;
+	frequencyEntered:;
+	fallTimeMinEntered:;
+	harmonicsSwitchPushed:;
+	volumeSliderMoved:;
+	fallTimeMaxEntered:;
+	breathinessEntered:;
+    };
+    OUTLETS = {
+	harmonicsView;
+	volumeSlider;
+	showAmplitudeSwitch;
+	pitchMaxField;
+	breathinessField;
+	waveformTypeSwitch;
+	volumeField;
+	harmonicsSwitch;
+	noiseSource;
+	controller;
+	glottalSourceWindow;
+	synthesizer;
+	pitchMinField;
+	breathinessSlider;
+	parameterView;
+	pitchSlider;
+	parameterForm;
+	scaleView;
+	waveshapeView;
+	pitchField;
+	unitButton;
+	frequencyField;
+	parameterPercent;
+    };
+    SUPERCLASS = Object;
+};
+FirstResponder = {
+    ACTIONS = {
+    };
+    SUPERCLASS = Object;
+};
+ResonantSystem = {
+    ACTIONS = {
+	windowWillMiniaturize:;
+	velumSectionMoved:;
+	mouthFilterSliderMoved:;
+	pharynxSectionMoved:;
+	temperatureFieldEntered:;
+	noseFilterFieldEntered:;
+	lengthSliderMoved:;
+	noseFilterSliderMoved:;
+	lengthFieldEntered:;
+	noseSwitchPushed:;
+	nasalSectionMoved:;
+	mouthSwitchPushed:;
+	mouthFilterFieldEntered:;
+	velumMatrixEntered:;
+	lossFactorSliderMoved:;
+	oralSectionMoved:;
+	pharynxMatrixEntered:;
+	temperatureSliderMoved:;
+	oralMatrix2Entered:;
+	oralMatrix1Entered:;
+	apertureMatrixEntered:;
+	lossFactorFieldEntered:;
+	nasalMatrixEntered:;
+    };
+    OUTLETS = {
+	lossFactorSlider;
+	noseFrequencyResponse;
+	lengthField;
+	noseSwitch;
+	mouthFilterField;
+	controlPeriodField;
+	oralMatrix1;
+	mouthFilterSlider;
+	dampingFactorField;
+	noseFilterField;
+	velumMatrix;
+	oralMatrix2;
+	resonantSystemWindow;
+	synthesizer;
+	actualLengthField;
+	throat;
+	pharynxSection1;
+	pharynxSection3;
+	pharynxSection2;
+	temperatureFieldCelsius;
+	temperatureSlider;
+	lossFactorField;
+	nasalSection2;
+	nasalSection3;
+	nasalSection1;
+	pharynxMatrix;
+	lengthSlider;
+	velumSection;
+	mouthSwitch;
+	positionView;
+	mouthFrequencyResponse;
+	noseFilterSlider;
+	nasalSection5;
+	nasalSection4;
+	controller;
+	sampleRateField;
+	temperatureFieldDegree;
+	noiseSource;
+	oralSection1;
+	oralSection2;
+	oralSection3;
+	apertureMatrix;
+	temperatureField;
+	lengthFieldCM;
+	nasalMatrix;
+	oralSection4;
+	oralSection5;
+    };
+    SUPERCLASS = Object;
+};
+ScaleView = {
+    ACTIONS = {
+    };
+    OUTLETS = {
+	foreground;
+	background;
+    };
+    SUPERCLASS = View;
+};
+ParameterEstimation = {
+    ACTIONS = {
+	fixedMatrixEntered:;
+	estimationButtonPushed:;
+	windowWillMiniaturize:;
+	sweepToneFormEntered:;
+	radiiMatrixEntered:;
+	targetMatrixEntered:;
+	estimationFormEntered:;
+    };
+    OUTLETS = {
+	estimationForm;
+	iterationField;
+	parameterEstimationWindow;
+	sweepToneForm;
+	fixedMatrix;
+	estimationButton;
+	targetMatrix;
+	controller;
+	formantMatrix;
+	radiiMatrix;
+    };
+    SUPERCLASS = Object;
+};
+SoundData = {
+    SUPERCLASS = Object;
+};
+SpectrographView = {
+    ACTIONS = {
+    };
+    OUTLETS = {
+	frequencyDisplay;
+	background;
+	crosshairCursor;
+	analysisDataObject;
+	grid;
+	spectrograph;
+    };
+    SUPERCLASS = View;
+};
+HarmonicsView = {
+    ACTIONS = {
+    };
+    OUTLETS = {
+	logGrid;
+	sineSpectrum;
+	glottalPulseSpectrum;
+	linearGrid;
+    };
+    SUPERCLASS = View;
+};
+AnalysisWindow = {
+    SUPERCLASS = Object;
+};
+Throat = {
+    ACTIONS = {
+	cutoffEntered:;
+	cutoffSliderMoved:;
+	windowWillMiniaturize:;
+	volumeEntered:;
+	scaleSwitchPushed:;
+	volumeSliderMoved:;
+    };
+    OUTLETS = {
+	synthesizer;
+	volumeSlider;
+	cutoffSlider;
+	lowpassView;
+	volumeField;
+	throatWindow;
+	resonantSystem;
+	throatMenuItem;
+	cutoffField;
+	controller;
+	scaleSwitch;
+    };
+    SUPERCLASS = Object;
+};
+Analysis = {
+    ACTIONS = {
+	grayLevelSelected:;
+	binSizeSelected:;
+	normalizeSwitchPushed:;
+	windowSelected:;
+	doAnalysisButtonPushed:;
+	windowFormEntered:;
+	magnitudeFormEntered:;
+	updateMatrixPushed:;
+	rateFormEntered:;
+	magnitudeScaleSelected:;
+	spectrumGridPushed:;
+	spectrographGridPushed:;
+    };
+    OUTLETS = {
+	analysisWindow;
+	windowPopUp;
+	normalizeSwitch;
+	rateForm;
+	updateMatrix;
+	windowForm;
+	grayLevelPopUp;
+	soundDataObject;
+	spectrographGridButton;
+	spectrumGridButton;
+	analysisDataObject;
+	synthesizer;
+	magnitudeForm;
+	spectrum;
+	binSizeFrequency;
+	binSizePopUp;
+	spectrograph;
+	magnitudeLabel;
+	doAnalysisButton;
+	rateSecond;
+	magnitudePopUp;
+    };
+    SUPERCLASS = Object;
+};
+Controller = {
+    ACTIONS = {
+	windowWillMiniaturize:;
+	open:;
+	runButtonPushed:;
+	save:;
+	analysisEnabledButtonPushed:;
+	saveAs:;
+	channelsSelected:;
+	appDidInit:;
+	balanceSliderMoved:;
+	balanceFieldEntered:;
+	showInfo:;
+	volumeSliderMoved:;
+	resetToFile:;
+	volumeFieldEntered:;
+	resetToDefault:;
+	appWillTerminate:;
+    };
+    OUTLETS = {
+	balanceField;
+	resonantSystem;
+	volumeSlider;
+	openPanel;
+	volumeField;
+	balanceLabelRight;
+	noiseSource;
+	analysisEnabledButton;
+	balanceLabelLeft;
+	infoPanel;
+	synthesizer;
+	controlWindow;
+	runButton;
+	estimation;
+	resetToFileButton;
+	savePanel;
+	channelsPopUp;
+	glottalSource;
+	balanceSlider;
+	throat;
+	analysis;
+    };
+    SUPERCLASS = Object;
+};
+ApertureView = {
+    ACTIONS = {
+    };
+    OUTLETS = {
+	logScale;
+	foreground;
+	linearScale;
+    };
+    SUPERCLASS = View;
+};
+WaveshapeView = {
+    ACTIONS = {
+    };
+    OUTLETS = {
+	background;
+	foreground;
+    };
+    SUPERCLASS = View;
+};
+Synthesizer = {
+    SUPERCLASS = Object;
+};
+PositionView = {
+    SUPERCLASS = View;
+};
+AnalysisData = {
+    SUPERCLASS = Object;
+};
+NoiseSource = {
+    ACTIONS = {
+	windowWillMiniaturize:;
+	aspirationSliderMoved:;
+	centerFrequencyEntered:;
+	fricationVolumeEntered:;
+	positionEntered:;
+	bandwidthEntered:;
+	fricationVolumeSliderMoved:;
+	bandwidthSliderMoved:;
+	setGlottalVolume:;
+	scaleSwitchPushed:;
+	aspirationEntered:;
+	pulseModulationSwitchPushed:;
+	crossmixOffsetEntered:;
+	centerFrequencySliderMoved:;
+	positionSliderMoved:;
+    };
+    OUTLETS = {
+	fricationVolumeField;
+	resonantSystem;
+	positionField;
+	crossmixOffsetField;
+	pulseModulationSwitch;
+	crossmixView;
+	positionSlider;
+	controller;
+	synthesizer;
+	crossmixOffsetDB;
+	fricationVolumeSlider;
+	aspirationSlider;
+	bandwidthField;
+	centerFrequencyField;
+	noiseSourceWindow;
+	pulsedField;
+	bandpassView;
+	bandwidthSlider;
+	glottalSource;
+	centerFrequencySlider;
+	scaleSwitch;
+	aspirationField;
+	pureField;
+    };
+    SUPERCLASS = Object;
+};
+ParameterView = {
+    SUPERCLASS = View;
+};
+LowpassView = {
+    ACTIONS = {
+    };
+    OUTLETS = {
+	logScale;
+	foreground;
+	linearScale;
+    };
+    SUPERCLASS = View;
+};
+SpectrumView = {
+    ACTIONS = {
+    };
+    OUTLETS = {
+	linearGrid;
+	magnitudeDisplay;
+	linearBackground;
+	crosshairCursor;
+	logBackground;
+	logGrid;
+	frequencyDisplay;
+	spectrum;
+	analysisDataObject;
+    };
+    SUPERCLASS = View;
+};
+BandpassView = {
+    ACTIONS = {
+    };
+    OUTLETS = {
+	logScale;
+	foreground;
+	linearScale;
+    };
+    SUPERCLASS = View;
+};
+CrossmixView = {
+    SUPERCLASS = View;
+};

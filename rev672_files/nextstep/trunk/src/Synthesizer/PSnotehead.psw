@@ -1,0 +1,20 @@
+defineps PSnotehead(float x; float y; float width; float height)
+	/halfheight {height 2 div} def
+	/neghalfheight {halfheight neg} def
+	/halfwidth {width 2 div} def
+	/negwidth {width neg} def
+
+	x halfwidth sub y moveto	% move to left side of note
+
+	0 halfheight 1 sub		% trace top half of note
+	width halfheight 1 add
+	width 0
+	rcurveto
+
+	0 neghalfheight 1 add		% trace bottom half of note
+	negwidth neghalfheight 1 sub
+	negwidth 0
+	rcurveto
+
+	fill				% fill the note
+endps

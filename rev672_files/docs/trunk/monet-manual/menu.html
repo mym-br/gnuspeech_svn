@@ -1,0 +1,177 @@
+<!DOCTYPE HTML PUBLIC *-//W3C//DTD HTML 4.0 Transitional//EN*>
+<HTML>
+
+<HEAD>
+<TITLE>Table of Contents for the MONET speech synthesis engine and parameter editor manual</TITLE>
+
+</HEAD>
+<BODY>
+<CENTER>
+<H2>MONET Manual:<BR>
+Table of Contents</H2>
+</CENTER>
+
+<H43>Manual sections<BR>
+<FONT SIZE=-1>(See below for figures)</FONT></H4>
+
+<A HREF="./monman934.html#summary" TARGET="Right">Summary</A><P>
+<A HREF="./monman934.html#purpose" TARGET="Right">Purpose of the system</A><P>
+<A HREF="./monman934.html#introduction" TARGET="Right">Introduction</A><P>
+<A HREF="./monman934.html#sysoviewetc" TARGET="Right">System overview and rationale</A>
+
+<UL>
+<LI><A HREF="./monman934.html#sysoviewetc" TARGET="Right">Introduction</A>
+<LI><A HREF="./monman934.html#sysoviewcomp" TARGET="Right">Main components, subsystems and databases</A>
+<LI><A HREF="./monman934.html#sysoviewparcomp" TARGET="Right">Parameter computations</A>
+</UL>
+
+<A HREF="./monman934.html#usingsys" TARGET="Right" TARGET="Right">Using the system to view and edit an existing database</A>
+<UL>
+<LI><A HREF="./monman934.html#usingstart" TARGET="Right">Getting started</A>
+<LI><A HREF="./monman934.html#usingstartpanmen" TARGET="Right">Facilities accessed via the Panels Menu</A>
+<LI><A HREF="./monman934.html#usingstartinspect" TARGET="Right">The Inspector Panel</A>
+<LI><A HREF="./monman934.html#usingstartdatent" TARGET="Right">The Data Entry Panel</A>
+<LI><A HREF="./monman934.html#rulbldr" TARGET="Right">The Rule Builder window and associated Inspector Panels</A>
+<UL>
+<LI><A HREF="./monman934.html#rulinspd" TARGET="Right">Inspector Panel during rule selection, showing the pull down menu</A>
+<LI><A HREF="./monman934.html#riequ" TARGET="Right">Inspecting an equation governing a rule duration</A>
+<LI><A HREF="./monman934.html#riparpro" TARGET="Right">Inspecting a Parameter Prototype associated with a rule</A>
+<LI><A HREF="./monman934.html#rulpars" TARGET="Right">Checking which rule applies: the Rule Parser</A>
+</UL>
+<LI><A HREF="./monman934.html#protmanb" TARGET="Right">The Prototype Manager for Equations and Transitions with associated Inspector Panels</A>
+<LI><A HREF="./monman934.html#tranbld" TARGET="Right">The Transition Builder and associated Point Inspector</A>
+<UL>
+<LI><A HREF="./monman934.html#pigi" TARGET="Right">The Point Inspector: examining a point selected from the Transition Builder window</A>
+</UL>
+
+<LI><A HREF="./monman934.html#rlbldreq" TARGET="Right">Relation between the Rule Builder, Equation Prototypes and timing/duration symbols.  How do we know when a given equation is used?</A>
+
+<LI><A HREF="./monman934.html#synwin3" TARGET="Right">Synthesising speech from within MONET</A>
+<UL>
+<LI><A HREF="./monman934.html#intraw2" TARGET="Right">Creating an intonation contour, without smoothing</A>
+<LI><A HREF="./monman934.html#intsmoo2" TARGET="Right">Creating an intonation contour, with smoothing</A>
+<LI><A HREF="./monman934.html#contpan" TARGET="Right">The Synthesiser Control panel (controls static parameters)</A>
+</UL>
+
+</UL>
+
+<A HREF="./monman934.html#docmenu" TARGET="Right">The Document Menu: opening and saving databases</A><P>
+<A HREF="./monman934.html#screenb2" TARGET="Right">The Tube Model Synthesiser GUI</A><P>
+
+<A HREF="./monman934.html#addrul" TARGET="Right">How to add a new rule to the database and manage prototypes using MONET facilities</A><P>
+
+<A HREF="./monman934.html#addpos" TARGET="Right">How to add a new posture to the database using MONET facilities</A><P>
+
+<A HREF="./monman934.html#help" TARGET="Right">Help facilities available</A><P>
+
+<A HREF="./monman934.html#acknowledge" TARGET="Right">Acknowledgements</A><P>
+
+<A HREF="./monman934.html#refs" TARGET="Right">References</A><P>
+
+<A HREF="./monman934.html#appa" TARGET="Right">Appendix A: Posture data for tube model synthesiser -- timings and spectral features</A>
+
+<UL>
+<LI><A HREF="./monman934.html#appanotes" TARGET="Right">Notes on the data</A>
+<LI><A HREF="./monman934.html#apparefs" TARGET="Right">References</A>
+</UL>
+
+<A HREF="./monman934.html#appb" TARGET="Right">Appendix B: Vowel-to-vowel transition and other miscellaneous rewrite rules</A><P>
+
+<A HREF="./monman934.html#appc" TARGET="Right">Appendix C: Some internal notes from target/rule construction September 19th 1994 onwards</A><P>
+
+<A HREF="./monman934.html#appd" TARGET="Right">Appendix D: GNU Free Documentation License</A><P>
+
+<A HREF="./monman934.html#footnotes" TARGET="Right">Footnotes</A>
+
+
+<H4>Figures</H4>
+<A HREF="images/addpos/addpos01.jpg" TARGET="new3">Using the <I>Data Entry</I> panel to add a new posture symbol</A><P>
+<A HREF="images/addpos/addpos02.jpg" TARGET="new3">The <I>Phone Inspector</I> (<I>Parameter Targets</I>) shows the default parameter values assigned to the new posture and allows them to be changed</A><P>
+<A HREF="images/addpos/addpos03.jpg" TARGET="new3">The <I>Phone Inspector</I> (<I>Categories</I>) shows the new posture has been assigned only to its own category by default; it may be inserted into other categories</A><P>
+<A HREF="images/addpos/addpos04.jpg" TARGET="new3">The <I>Phone Inspector</I> (<I>Symbols</I>) shows the default values assigned to the nominal time framework symbols</A><P>
+<A HREF="images/addpos/addpos05.jpg" TARGET="new3">The <I>Phone Inspector</I> (<I>Comment</I>) allows an explanatory note to be added to the new posture's record</A><P>
+<A HREF="images/addpos/addpos06.jpg" TARGET="new3">The default value of parameters "r1" through "r4" are 0.8, 1.5, 1.5 and 1.5 cm respectively</A><P>
+<A HREF="images/addpos/addpos07.jpg" TARGET="new3">New values are entered for parameters by highlighting (clicking) the relevant parameter, entering the new value in the text field, and hitting "Enter".  This also highlights the next parameter in sequence to facilitate updating successive parameters.  The "Set" button does not currently work.  Default values are displayed in bold text.  Other values are displayed in normal text.</A><P>
+<A HREF="images/addpos/addpos08.jpg" TARGET="new3">The new posture is assigned to several categories by double clicking each category name.  Categories may be deleted by double-clicking the category name again.  Assigned categories are displayed in bold text, and re-ordered to the top of the list</A><P>
+<A HREF="images/addpos/addpos09.jpg" TARGET="new3">The default values for the nominal time frame can be changed in the same way as the default parameter values -- enter the new value in the text field and hit "Enter".  Default values are displayed in bold text.  Other values are displayed in normal text.</A><P>
+<A HREF="images/addrul/addrul01.jpg" TARGET="new3">Rule builder: existing rule 1 highlighted</A><P>
+<A HREF="images/addrul/addrul02.jpg" TARGET="new3">Adding new rule: shows error message</A><P>
+<A HREF="images/addrul/addrul03.jpg" TARGET="new3">Rule Inspector-- Equations: showing default rule duration automatically assigned</A><P>
+<A HREF="images/addrul/addrul04.jpg" TARGET="new3">Rule Inspector--Parameter Prototypes showing default Parameter Prorotype assigned for Glottal Volume control</A><P>
+<A HREF="images/addrul/addrul05.jpg" TARGET="new3">Rule Inspector--Comment on the new rule</A><P>
+<A HREF="images/addrul/addrul06.jpg" TARGET="new3">Rule Inspector--General Information, showing rule was put next to last, and a new position has been entered</A><P>
+<A HREF="images/addrul/addrul07a.jpg" TARGET="new3">Rule Inspector --General Information, showing the new rule has been repositioned</A><P>
+<A HREF="images/addrul/addrul08a.jpg" TARGET="new3">Rule Inspector--Parameter Prototype: double clicking the Glottal Volume parameter brings up the Transition Builder</A><P>
+<A HREF="images/addrul/addrul09.jpg" TARGET="new3">The Prototype Manager is brought up and a new category, Tetraphone, is defined</A><P>
+<A HREF="images/addrul/addrul10a.jpg" TARGET="new3">Prototype Manager: a new prototype, GlotVolForEh, is defined</A><P>
+<A HREF="images/addrul/addrul11a.jpg" TARGET="new3">Transition Builder: a point is added by double clicking, its value is set to zero, and its timing is chosen to be "Mark1MinusOne", in the Equation category "BasicDurations"</A><P>
+<A HREF="images/addrul/addrul12.jpg" TARGET="new3">Prototype Manager: existing equation "tetraNineTenth" selected from "Tetraphone Standard" category.  Inspector shows equation and allows it to be altered</A><P>
+<A HREF="images/addrul/addrul13.jpg" TARGET="new3">Prototype Manager: a new category "GnuStandard" has been entered, a new Equation symbol "GnuOne" has been defined/created, and the equation governing the timing this represents has been entered in the Inspector</A><P>
+<A HREF="images/comrul6.jpg" TARGET="new3">Rule Inspector with  comment on rule 6</A><P>
+<A HREF="images/dentcats.jpg" TARGET="new3">Data Entry: Categories</A><P>
+<A HREF="images/dentpars.jpg" TARGET="new3">Data Entry: Parameters</A><P>
+<A HREF="images/dentsyms.jpg" TARGET="new3">Data Entry: Symbols</A><P>
+<A HREF="images/contpan.jpg" TARGET="new3">Control Panel</A><P>
+<A HREF="images/dataent.jpg" TARGET="new3">Data Entry Panel</A><P>
+<A HREF="images/docmenu.jpg" TARGET="new3">Document Menu</A><P>
+<A HREF="images/eqinscom.jpg" TARGET="new3">Equations Inspector Comments selection</A><P>
+<A HREF="images/eqinsuse.jpg" TARGET="new3">Equations Inspector Usage selection</A><P>
+<A HREF="images/eqprouse.jpg" TARGET="new3">Equations Prototype Inspector "Usage"</A><P>
+<A HREF="images/equri.jpg" TARGET="new3">Equation Rule Inspector (rule selected)</A><P>
+<A HREF="images/intraw2.jpg" TARGET="new3">Intonation Contour unsmoothed</A><P>
+<A HREF="images/intraw.jpg" TARGET="new3">(obsolete)</A><P>
+<A HREF="images/intsmoo2.jpg" TARGET="new3">Intonation Contour smoothed</A><P>
+<A HREF="images/maimenu.jpg" TARGET="new3">(obsolete)</A><P>
+<A HREF="images/mainmen.jpg" TARGET="new3">Main Menu</A><P>
+<A HREF="images/monet.jpg" TARGET="new3">The artist</A><P>
+<A HREF="images/palette.jpg" TARGET="new3">The artist's palette</A><P>
+<A HREF="images/panmenu.jpg" TARGET="new3">Panel Menu</A><P>
+<A HREF="images/phinspd.jpg" TARGET="new3">Phone Inspector with pull-down list</A><P>
+<A HREF="images/phinsp.jpg" TARGET="new3">Phone Inspector</A><P>
+<A HREF="images/phones.jpg" TARGET="new3">(obsolete version data entry)</A><P>
+<A HREF="images/phopuldn.jpg" TARGET="new3">Data Entry with pull down</A><P>
+<A HREF="images/pigen.jpg" TARGET="new3">Point Inspector for point on Int. Cont.</A><P>
+<A HREF="images/pigi.jpg" TARGET="new3">(obsolete--same as pigen)</A><P>
+<A HREF="images/pipartgt.jpg" TARGET="new3">Phone Inspector showing param. targets</A><P>
+<A HREF="images/proeqins.jpg" TARGET="new3">Prototype Equation Inspector</A><P>
+<A HREF="images/promaneq.jpg" TARGET="new3">Prototype Manager for equations</A><P>
+<A HREF="images/protman2.jpg" TARGET="new3">Prototype Manager for param. variation</A><P>
+<A HREF="images/protmanb.jpg" TARGET="new3">Both Equations & Transitions Prot Man</A><P>
+<A HREF="images/protman.jpg" TARGET="new3">Prototype Manager for equations (later)</A><P>
+<A HREF="images/r11tdeqf.jpg" TARGET="new3">Prototype Equation Inspector showing rule 11 Rule Duration equation for editing</A><P>
+<A HREF="images/r11tdeq.jpg" TARGET="new3">Equation Prototype Manager showing equation category & symbol for rule 11 Rule Duration</A><P>
+<A HREF="images/r11tdequ.jpg" TARGET="new3">Prototype Equation Inspector with usage of the selected equation in other rules</A><P>
+<A HREF="images/riequ.jpg" TARGET="new3">Equation Rule Inspector (no rule sel)</A><P>
+<A HREF="images/riparpro.jpg" TARGET="new3">Rule Inspector for param prototypes</A><P>
+<A HREF="images/riselrul.jpg" TARGET="new3">As above, rule selected</A><P>
+<A HREF="images/rlbldreq.jpg" TARGET="new3">Rule Builder (rule 11 showing)</A><P>
+<A HREF="images/rulbldr.jpg" TARGET="new3">Rule Builder (rule 6 showing)</A><P>
+<A HREF="images/rulbldrthum.jpg" TARGET="new3">Thumbnail of above</A><P>
+<A HREF="images/rulepars.jpg" TARGET="new3">Rule Parser</A><P>
+<A HREF="images/rulinspd.jpg" TARGET="new3">Rule Inspector with pull down</A><P>
+<A HREF="images/screena.jpg" TARGET="new3">(obsolete)</A><P>
+<A HREF="images/screenathum.jpg" TARGET="new3">(obsolete)</A><P>
+<A HREF="images/screenb.jpg" TARGET="new3">Overview Screen at start up (Fig 1)</A><P>
+<A HREF="images/screenbthum.jpg" TARGET="new3">Thumbnail of above</A><P>
+<A HREF="images/screen.jpg" TARGET="new3">(obsolete)</A><P>
+<A HREF="images/screenthum.jpg" TARGET="new3">(obsolete)</A><P>
+<A HREF="images/servtest.jpg" TARGET="new3">Server Test window</A><P>
+<A HREF="images/synins2.jpg" TARGET="new3">Synthesis of "Test Utterances!" with inspector showing the break up into segments by successive rules -- in context</A><P>
+<A HREF="images/synins.jpg" TARGET="new3">Synthesis of "Test Utterances!" with inspector showing the break up into segments by successive rules -- inspector only</A><P>
+<A HREF="images/synthimg/noisesrc.jpg" TARGET="new3">Synthesiser: Noise Source control</A><P>
+<A HREF="images/synthimg/synthana.jpg" TARGET="new3">Synthesiser: Analysis window</A><P>
+<A HREF="images/synthimg/synthapp.jpg" TARGET="new3">Synthesiser: Screen shot</A><P>
+<A HREF="images/synthimg/synthglt.jpg" TARGET="new3">Synthesiser: Glottal Source control</A><P>
+<A HREF="images/synthimg/synththr.jpg" TARGET="new3">Synthesiser: Throat transmission</A><P>
+<A HREF="images/synwin3.jpg" TARGET="new3">Synthesis Window ("Gnu Speech")</A><P>
+<A HREF="images/tranbld.jpg" TARGET="new3">Transition Builder</A><P>
+<A HREF="images/trprocom.jpg" TARGET="new3">Inspector showing comments on selected transition prototype</A><P>
+<A HREF="images/trprogen.jpg" TARGET="new3">Inspector showing general information on selected transition prototype</A><P>
+
+
+<HR>
+<P>
+Page last updated 02-04-13
+</P>
+</BODY>
+</HTML>

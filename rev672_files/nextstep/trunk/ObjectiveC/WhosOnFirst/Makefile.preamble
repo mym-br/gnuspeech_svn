@@ -1,0 +1,14 @@
+#===========================================================================
+#
+#	If you have Trillium's TextToSpeech Kit, compile with the 
+#	following flags set.  If not, comment out the following 2 lines
+#
+OTHER_CFLAGS = -DSPEECH
+OTHER_LIBS = -lTextToSpeech 
+
+
+#===========================================================================
+#
+#	Use the other_libs below if you wish to test for malloc leaks.
+#
+#OTHER_LIBS = -lTextToSpeech -lMallocDebug

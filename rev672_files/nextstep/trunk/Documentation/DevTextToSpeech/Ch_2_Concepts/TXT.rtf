@@ -1,0 +1,649 @@
+{\rtf0\ansi{\fonttbl\f0\fnil Times-Roman;\f1\fmodern Courier;\f2\fswiss Helvetica;}
+\paperw12240
+\paperh13180
+\margl1800
+\margr1080
+\pard\tx1140\tx2280\tx3420\tx4560\tx5700\tx6840\tx7980\f0\b0\i0\ulnone\fs72\fc0\cf0 Chapter 2\
+\
+
+\fs96 Concepts\
+\
+
+\b\fs36 \
+2.1  Client-Server Structure
+\fs28 \
+
+\b0 \
+The TextToSpeech Kit is implemented using a client-server structure. The 
+\i TTS_Server
+\i0  is an independent Mach task which operates in the background; it is the program that performs the actual conversion of text to speech.  Client applications communicate with the Server so it will speak the desired text, and to control how the text is spoken.\
+\
+The client-server structure has several advantages over an implementation which uses a traditional object library:\
+\
+
+\pard\tx900\tx2280\tx3420\tx4560\tx5700\tx6840\tx7980\b\fi-540\li900\fc0\cf0 ∑
+\b0 	The application avoids linking in a large amount of code, keeping the application to a reasonable size.\
+\
+
+\b ∑
+\b0 	There is no needless duplication of code whenever two or more applications make use of the text-to-speech facility.\
+\
+
+\b ∑
+\b0 	The Server can be updated at any time without affecting the applications which use it.  This means that improvements to the text- to-speech system can be made transparently without recompiling applications.\
+\
+
+\pard\tx1140\tx2280\tx3420\tx4560\tx5700\tx6840\tx7980\fc0\cf0 Applications do not communicate with the Server directly, but indirectly using the Objective C methods of the 
+\i TextToSpeech Object
+\i0 .  When the application instantiates a TextToSpeech Object, it creates a connection to the Server–the application is said to occupy a ``client slot''.  When the Object is freed, the connection is severed, and the client slot can then be used by another application.\
+\
+The Server allows up to 50 clients.  This does not mean that the Server will synthesize 50 voices simultaneously, but that 50 connections can be made to the server at the same time.  See Figure 2.1.  Each connection can be configured differently, so, in effect, 50 different kinds of voices can exist at once.  This also means that a single application can create several connections to the Server by instantiating as many TextToSpeech Objects as needed.  This may be useful when an application needs a different sounding voice for each of several functions.\
+\
+\
+     
+{{\NeXTGraphic1909 paste_0.eps \width6420 \height7240
+}
+¨}\pard\tx1140\tx2280\tx3420\tx4560\tx5700\tx6840\tx7980\f0\b0\i0\ulnone\fs28\fc0\cf0 \
+\
+Figure 2.1: TextToSpeech Server allows up to 50 client connections. Client applications may use several connections simultaneously.\
+\
+\
+The operation of the TextToSpeech Server is transparent to both the programmer and user.  The Server is started up automatically when needed, and terminates itself when it detects that no clients are connected.  Control over any attribute of the Server is accomplished by sending the appropriate message to the TextToSpeech Object.  Each method of the Object performs the necessary intertask communication with the Server.\
+\
+\
+
+\b\fs36 2.2  Operation of the Server
+\fs28 \
+
+\b0 \
+The basic operation of the Server is outlined in Figure 2.2.  The Server has three main Modules, each of which performs a specific task.\
+\
+
+\b\fs32 2.2.1  Parser Module
+\fs28 \
+
+\b0 \
+The Parser Module takes the text supplied by the client application (using the 
+\b speakText:
+\b0  or 
+\b speakStream:
+\b0  methods) and converts it into an equivalent phonetic representation.  The input text is parsed, where possible, into sentences and 
+\i tone groups
+\i0 .  This subdivision is done primarily by examining the punctuation.  Each word or number or symbol within a tone group is converted to a phoneme string which indicates how the word is to be pronounced.  The pronunciation is retrieved from one of five pronunciation knowledge bases.\
+\
+The Parser must also deal with text entered in any of the special text modes.  For example, a word may be marked in 
+\i letter mode
+\i0 , which means the word is to spelled out a letter at a time, or in 
+\i emphasis mode
+\i0 , which means the word is to receive special emphasis by lengthening it and altering its pitch.  The Parser marks the phonetic representation appropriately in these cases.\
+\
+Note that the order in which the pronunciation knowledge bases are searched is under program control, and customized pronunciations for particular words can be entered into the User and Application Dictionaries using the 
+\i PrEditor
+\i0  utility.\
+\
+
+\b\fs32 2.2.2  Parameter Calculation Module\
+
+\b0\fs28 \
+The Parameter Calculation Module takes the phonetic representation produced by the Parser Module and converts it into parameter tracks suitable for the Speech Synthesizer.  The phonemes are converted into diphones or triphones, which are then used to create control data for each parameter of the Synthesizer.  This module also creates an appropriate intonation contour for the utterance, as well as imposing speech rhythm.\
+\
+The user has some control over how the Parameter Calculation Module operates.  For example, the extent and type of intonation can be controlled, as can speaking rate and pitch level.\
+\
+
+\b\fs32 2.2.3  Synthesizer Module\
+
+\b0\fs28 \
+The Synthesizer Module takes parameter control data from the previous module and uses it to synthesize the speech in real-time.  The Synthesizer is a program which runs on the DSP chip.  It physically models the acoustics of the vocal and nasal tracts using articulatory control parameters.  The user can control the synthesizer in various ways, including altering the length of the vocal tract and the breathiness of the glottal source.\
+\
+The output of the DSP chip is a digital signal which is converted by the Digital-to-Analog Converter into an audio signal.  This signal can be heard on the internal loudspeaker (NeXT computers only) or, if connected, on an external audio system.  The DSP and sound hardware is used by the TextToSpeech Kit only when an utterance is being synthesized.  At all other times, the hardware is free for system beeps and other audio output.  Note that the output of the DSP synthesizer can be directed to a sound file instead of real-time output if desired.\
+\
+The synthesizer can also be run on the host CPU instead of the DSP.  This ``software synthesizer'' is very slow, so real-time output is not possible, and output can only be sent to a sound file.  This option is useful for Intel platforms which aren't equipped with a DSP board, but can play sound files through a simple sound card.\
+\
+\
+
+{{\NeXTGraphic5810 server-operation.eps \width8000 \height8440
+}
+¨}\pard\tx1140\tx2280\tx3420\tx4560\tx5700\tx6840\tx7980\f0\b0\i0\ulnone\fs28\fc0\cf0 \
+Figure 2.2:  The basic components of the TextToSpeech Server are the Parser Module, Parameter Calculation Module, and Synthesizer Module.  Knowledge Bases which are accessed by the Server are maintained with the Utilities 
+\i PrEditor
+\i0  and 
+\i MONET
+\i0 .\
+\
+\
+
+\b\fs36 2.3  Text Input\
+
+\b0\fs28 \
+
+\b\fs32 2.3.1 Standard English Text\
+
+\b0\fs28 \
+The TextToSpeech Kit is designed to handle standard English text as its input.  Standard punctuation and capitalization conventions are assumed.  Clear guidelines can be found in 
+\i The Elements of Grammar
+\i0 , by Margaret Shertzer (New York: MacMillan Publishing Company, 1986).\
+\
+The system attempts to speak the text as a person would.  Punctuation is not pronounced, but is used as guide to pronounce the text it marks.  For example, a period that marks the end of sentence is not pronounced, but does indicate that a pause occurs before proceeding to the next sentence.  A question mark behaves similarly, but also indicates that the pitch should rise at the end of the sentence.  Of course, if you wish to pronounce the punctuation marks, you will have to use a special input mode (see below) or pre-parse the text.\
+\
+The following list summarizes the punctuation conventions used by the TextToSpeech Kit:\
+\
+
+\pard\tx900\tx2280\tx3420\tx4560\tx5700\tx6840\tx7980\fi-540\li900\fc0\cf0 1.	Only characters in the standard 128-character ASCII set are recognized.  All others are converted to blanks.\
+\
+2.	Only ``printing characters'' (
+\f1\fs24 040
+\f0\fs28  to 
+\f1\fs24 0176
+\f0\fs28 ) and the escape character (which is user-definable) of the ASCII set are used. All other ``control characters'' are converted to blanks.\
+\
+3.	Periods, question marks, and exclamation points are usually considered punctuation which ends a sentence, and a long pause is inserted after each.  These punctuation marks may also be used in other contexts where they do not mark the end of a sentence (see below), and thus will not cause the insertion of a pause.\
+\
+4.	Commas, colons, and semicolons are usually considered punctuation which separate phrases within a sentence.  A short pause is inserted after each comma, and a somewhat longer pause is inserted after the colon and semicolon.  Commas and colons may appear in other contexts where they do not mark phrase endings (see below), and thus won't cause the insertion of a pause.\
+\
+5.	Words containing an apostrophe are handled appropriately.  The contraction or possessive is pronounced, but the apostrophe itself is not. \
+\
+6.	Single and double quotation marks are not pronounced.\
+\
+7.	Dashes (
+\f1\fs24 --
+\f0\fs28  or 
+\f1\fs24 ---
+\f0\fs28 ) are not pronounced, but do insert a pause. \
+\
+8.	Parentheses and square brackets are not pronounced, but will cause pauses to be inserted if they delimit parenthetical words or phrases.\
+\
+9.	Ellipsis dots (3 periods with optional spaces) are not pronounced, and do not insert a pause.\
+\
+10.	Hyphenated words are treated as two separate words unless the hyphenation is at the end of the line, in which case the hyphenated parts are joined together.  The hyphen is not pronounced in either case.\
+\
+11.	Forward slashes are not pronounced.  Constructions such as ``high/low'', or ``he/she'' are treated as two separate words.\
+	\
+12.	The following punctuation marks are treated as symbols if they appear unconnected to any other characters, and are explicitly pronounced:\
+\
+
+\pard\tx1440\tx2280\tx3420\tx4560\tx5700\tx6840\tx7980\fi-560\li1460\fc0\cf0 (a)	
+\f1\fs24 &
+\f0\fs28 	``and''\
+(b)	
+\f1\fs24 +
+\f0\fs28 	``plus''\
+(c)	
+\f1\fs24 <
+\f0\fs28 	``is less than''\
+(d)	
+\f1\fs24 >
+\f0\fs28 	``is greater than''\
+(e)	
+\f1\fs24 =
+\f0\fs28 	``equals''\
+(f)	
+\f1\fs24 -
+\f0\fs28 	``minus''\
+(g)	
+\f1\fs24 @
+\f0\fs28 	``at''\
+\
+
+\pard\tx900\tx2280\tx3420\tx4560\tx5700\tx6840\tx7980\fi-540\li900\fc0\cf0 13.	The following punctuation can be used with numbers, causing them to be pronounced in the appropriate way:\
+\
+
+\pard\tx1440\tx2280\tx3420\tx4560\tx5700\tx6840\tx7980\fi-560\li1460\fc0\cf0 (a)	The period in decimal numbers.\
+(b)	The comma in numbers such as 
+\f1\fs24 1,456
+\f0\fs28 .\
+(c)	The colon in clock times such as 
+\f1\fs24 10:23
+\f0\fs28 .\
+(d)	The hyphen to indicate negative quantities, and in telephone numbers. \
+(e)	The plus sign to indicate positive quantities.\
+(f)	Parentheses in telephone numbers such as 
+\f1\fs24 (345)555-1234
+\f0\fs28 .\
+(g)	The forward slash in fractions such as 
+\f1\fs24 4/3
+\f0\fs28 .\
+(h)	The dollar sign.\
+(i)	The percent sign.\
+\
+
+\pard\tx900\tx2280\tx3420\tx4560\tx5700\tx6840\tx7980\fi-540\li900\fc0\cf0 14.	The following punctuation marks are always converted to blanks, unless in letter mode: \
+ \
+	 
+\f1     
+\fs24 #  *  \\  ^  _  |  ~  \{  \}  (!)  (?)
+\fs28  
+\f0 \
+	\
+	The punctuation 
+\f1\fs24 (!)
+\f0\fs28  and 
+\f1\fs24 (?)
+\f0\fs28  is used occasionally to express irony or sarcasm. \
+\
+
+\pard\tx1140\tx2280\tx3420\tx4560\tx5700\tx6840\tx7980\fc0\cf0 Some characters perform more than one function, depending upon context.  For instance, the period can be used to mark the end of a sentence, as part of ellipsis dots, to indicate a decimal number, or to delimit an abbreviation (see below).  The hyphen can be used to split words over two lines, to hyphenate two words, as part of a dash, to indicate a negative quantity, as part of a telephone number, or to act as the minus sign symbol.  The Server's parser is sophisticated enough to recognize all these cases.\
+\
+Common unambiguous abbreviations are always expanded to their full equivalent, so a phrase like ``Prof. John Smith, Sr.'' is pronounced as ``Professor John Smith, Senior''.  Single letters followed by a period are pronounced as in letter mode.  For example, the phrase ``David J. Brown'' is pronounced as ``David `jay' Brown''.  Note that many abbreviations are not recognized by the system because they can expand to two or more different words.  In these cases, the period is treated as the end of a sentence, and the abbreviation is pronounced without expansion.\
+\
+When every letter of a word is capitalized, the word is pronounced one letter at a time as, for example, in the sentence ``He gave the CIA's files to the NBC network chief.'' The system will also pronounce this correctly if the capitalized words are punctuated with periods, as in ``C.I.A.''  and ``N.B.C.''  (Current practice is to omit the periods in such cases.)  Some capitalized words, such as NATO or UNICEF, are not pronounced one letter at a time, but with a word-like pronunciation instead.\
+\
+
+\b\fs32 2.3.2  Parsing of Numbers\
+
+\b0\fs28 \
+Any contiguous string which contains a digit is handled by the number parser.  The number parser will pronounce the following cases correctly:\
+\
+
+\b\fi-540\li540 Cardinal numbers.  
+\b0 Numbers up to 10
+\fs22\up8 63
+\fs28\up0  (vigintillion) are pronounced with the proper triad name; numbers longer than this are pronounced one numeral at a time.  For example, 
+\f1\fs24 1547630
+\f0\fs28  is pronounced ``one million <pause> five hundred and forty-seven thousand <pause> six hundred and thirty.''  Cardinal numbers can have commas every three digits.  For example, 
+\f1\fs24 23,567
+\f0\fs28  is pronounced ``twenty-three thousand <pause> five hundred and sixty-seven.'' \
+\
+
+\b Ordinal numbers.
+\b0   Ordinal numbers up to 10
+\fs22\up8 63
+\fs28\up0  are pronounced correctly, provided the proper suffix (-st, -nd, or -th) is given.  E.g.  
+\f1\fs24 101st
+\f0\fs28  is pronounced ``one hundred and first.''\
+\
+
+\b Positive and negative numbers.
+\b0  A 
+\f1\fs24 +
+\f0\fs28  or 
+\f1\fs24 -
+\f0\fs28  sign can be placed before all numbers, except before telephone numbers, clock times, or years.  For example,
+\f1  
+\fs24 -34
+\f0\fs28  is pronounced ``negative thirty-four.''\
+\
+
+\b Decimal numbers.
+\b0   All numbers with a decimal point are pronounced.  For example, 
+\f1\fs24 +34.234
+\f0\fs28  is pronounced ``positive thirty-four point two three four.''\
+\
+
+\b Percent.
+\b0   If a 
+\f1\fs24 %
+\f0\fs28  sign is placed after the number, the word ``percent'' is also pronounced.  E.g. 
+\f1\fs24 2.45%
+\f0\fs28  is pronounced ``two point four five percent.'' \
+\
+
+\b Simple fractions.
+\b0   Numbers in the form 
+\i integer/integer
+\i0  are pronounced as fractions.  Each integer must not contain commas or decimals.  Any 
+\f1\fs24 +
+\f0\fs28  or 
+\f1\fs24 -
+\f0\fs28  sign must precede the first integer, and any 
+\f1\fs24 %
+\f0\fs28  sign must follow the last integer.  E.g. 
+\f1\fs24 -3/4%
+\f0\fs28  is pronounced ``negative three quarters percent.'' \
+\
+
+\b Dollars and cents.
+\b0   Dollars and cents are pronounced correctly if the 
+\f1\fs24 $
+\f0\fs28  sign is placed before the number.  An optional 
+\f1\fs24 +
+\f0\fs28  or 
+\f1\fs24 -
+\f0\fs28  sign may precede the dollar sign.  For example, 
+\f1\fs24 -$2.01
+\f0\fs28  is pronounced ``negative two dollars and one cent.''\
+\
+
+\b Telephone numbers.
+\b0   The number parser recognizes the following types of North American telephone numbers and pronounces them appropriately: \
+\
+
+\pard\tx1440\tx2280\tx3420\tx4560\tx5700\tx6840\tx7980\fi-560\li1460\fc0\cf0 ∑	7 digit code.  E.g. 
+\f1\fs24 555-2345
+\f0\fs28  is pronounced ``five five five <pause> two three four five.''\
+\
+∑	10 digit code.  E.g. 
+\f1\fs24 203-555-2345
+\f0\fs28  is pronounced ``two zero three <pause> five five five <pause> two three four five.'' \
+\
+∑	11 digit code.  E.g. 
+\f1\fs24 1-800-555-2345
+\f0\fs28  is pronounced ``one eight hundred <pause> five five five <pause> two three four five.''\
+\
+
+\pard\tx1140\tx2280\tx3420\tx4560\tx5700\tx6840\tx7980\b\fi-540\li540\fc0\cf0 Clock times.
+\b0   The number parser correctly pronounces both normal and military time. For example, 
+\f1\fs24 9:31
+\f0\fs28  is pronounced ``nine thirty-one,'' and 
+\f1\fs24 08:00
+\f0\fs28  is pronounced ``oh eight hundred.''  Seconds are also recognized.  For example, 
+\f1\fs24 10:23:14
+\f0\fs28  is pronounced ``ten twenty-three and 14 seconds.''  Non-military times on the hour have o'clock appended.  E.g. 
+\f1\fs24 9:00
+\f0\fs28  is pronounced ``nine o'clock,'' but 
+\f1\fs24 14:00
+\f0\fs28  is pronounced ``fourteen hundred.''\
+\
+
+\b Years.  
+\b0 Integers from 1000 to 1999 are pronounced as two pairs.  For example, 
+\f1\fs24 1906
+\f0\fs28  is pronounced ``nineteen oh six,'' not ``one thousand nine hundred and six.''  If the second pronunciation is preferred, a comma should be inserted after the first digit, as in 
+\f1\fs24 1,906
+\f0\fs28 .\
+\
+
+\b Mixed characters.
+\b0   If a word contains digits and other non-numeric characters mixed together in a format not described above, it will be pronounced one character at a time.\
+
+\fi0\li0 \
+\
+
+\b\fs32 2.3.3  Special Input Modes\
+
+\b0\fs28 \
+Special Input Modes allow the programmer to have text pronounced in special ways.  
+\i Letter mode
+\i0  indicates that the marked text (including blanks) is to be pronounced one letter at a time.  
+\i Emphasis mode
+\i0  is used to emphasize particular words or phrases.  
+\i Silence mode
+\i0  allows the programmer to insert arbitrary lengths of silence into the text.\
+\
+The programmer must embed an escape code to indicate the beginning or end of a mode.  The escape codes are always three characters long, and have the following format:\
+\
+
+\b 	ESC
+\b0  
+\i modeSymbol
+\i0  
+\i modeMarker\
+\
+
+\i0 The 
+\b ESC
+\b0  character (hexadecimal 
+\f1\fs24 1B
+\f0\fs28 ) indicates the beginning of an embedded escape code.  It can be redefined by the programmer to any ASCII value (except NULL), if desired.\
+\
+The escape character must always be followed by 2 characters. The 
+\i modeSymbol
+\i0  is a character which indicates which mode is being invoked.  The available modes and their 
+\i modeSymbols
+\i0  are:\
+\
+
+\b 	Mode		Symbo
+\b0 l\
+	Letter		l or L\
+	Emphasis		e or E\
+	Silence		s or S\
+\
+The 
+\i modeMarker
+\i0  is a single character which indicates the beginning or end of a mode.  The letters 
+\b b
+\b0  or 
+\b B
+\b0  indicate the beginning of the mode, while the letters 
+\b e
+\b0  or 
+\b E
+\b0  indicate the end of the mode.\
+\
+Escape codes should never be embedded in the middle of a word.  Escape codes can be nested, if desired.  An error code is returned if the nesting is improperly done.\
+\
+Letter mode causes one or more words or symbols to be spelled out one character at a time, rather than pronounced as a word.  For example, if you wanted the words ``fare'' and ``fair'' to be pronounced a letter at a time in the following sentence, the escape codes would be embedded as shown:\
+\
+
+\f1\fs24\li360 He meant the word ESC-LBfairESC-LE, not ESC-LBfareESC-LE.
+\f0  \
+
+\fs28\li0 \
+Any amount of text can be put into letter mode.  Once in letter mode you must leave it explicitly using the ESC-le code.  The letter mode escape codes should never be placed in the middle of a word, since a word must be either solely spelled or spoken.\
+\
+Letter mode is useful for spelling out unpronounceable strings.  Data files or program source files, for example, often contain text which is not standard English.  Since strings like 
+\f1\fs24 */
+\f0\fs28  or 
+\f1\fs24 1C4A3F
+\f0\fs28  are obviously unpronounceable as words, they should be sent to the TextToSpeech Object in letter mode.  Letter mode is also useful when a number is to be pronounced one digit at a time, rather than as would be normally done.  For example, 
+\f1\fs24\li360 ESC-lb547ESC-le
+\f0\fs28  \
+
+\li0 would be pronounced as ``five four seven'' in letter mode, but ``five hundred and forty-seven'' otherwise.\
+\
+Emphasis mode is used to emphasize particular words or phrases in an utterance.  The emphasized word or phrase receives special stress, usually by making it longer, louder, and higher in pitch.  The TextToSpeech system creates the emphasis automatically, and connects the emphasized parts naturally with the rest of the words of the utterance.  Note that the emphasis escape code cannot be placed in the middle of a word because only the whole word can be emphasized; partial emphasis of a word is not allowed.\
+\
+Emphasis is often implied in text when a word is italicized or underlined.  It is usually applied to a word which normally does not receive emphasis in a sentence---by placing the stress on that word the meaning of the utterance may be altered.  For example, placing emphasis on the word ``was'' changes the normal declarative meaning of the following sentence, and implies that what was once true is no longer so:\
+\
+
+\f1\fs24\li360 It ESC-eb was ESC-ee a nice place.\
+
+\f0\fs28\li0 \
+Silence mode may be used by the programmer to insert silence between words.  The amount of silence is specified in seconds or fractions of seconds with a decimal number.  The specified length of silence will be rounded to the nearest 10th of a second, since that is the resolution of control.  One must remember that silence is automatically inserted between words wherever a pause will naturally occur, such as after a period or comma.  Silence mode should not be used to replace such naturally occurring pauses, but rather to specify arbitrary\
+lengths of silence between words or utterances.  If silence mode is used where there would normally be a pause, then that pause is discarded and the length of the pause becomes that which is specified with the embedded escape code.  Silence mode cannot be used in the middle of a word; pauses are allowed between words only.\
+\
+Silence is specified by embedding the escape code 
+\f1\fs24 ESC-sb
+\f0\fs28  
+\i time
+\i0  between words.  For example the text:\
+
+\f1\fs24 \
+
+\li360 You said what?  ESC-sb 3.0 What?
+\f0\fs28 \
+
+\li0 \
+has a 3 second silence inserted between the repetition of the words ``what''.  Normally there would be a short pause after the question mark, but in this case the pause is arbitrarily specified by the programmer.\
+\
+The 
+\f1\fs24 ESC-se
+\f0\fs28  escape code is not necessary after the time, but can be inserted if desired to be consistent with letter and emphasis modes.  Remember that the time values assigned using the silence mode are ASCII character representations of an integer or real number, not the integer or real data type itself.  This is because the time value must be embedded within a character string.
+\b\fs32 \
+\
+2.3.4  When is Pre-parsing Necessary?\
+
+\b0\fs28 \
+Pre-parsing is necessary whenever the text to be spoken it is not standard English.  For example, program source code, documents containing technical jargon, UNIX commands, etc., do not follow the conventions of standard English, and thus must be pre-processed appropriately to produce the desired speech.  The nature of this pre-parsing depends on the type of text, and often upon several different contexts within that text.  Consequently, no universal parser exists which can handle every possible situation.  The TextToSpeech Kit provides the most basic parsing possible given that it does not know the context of the text it is converting.  It is the responsibility of the application developer to pre-parse the text when necessary, since only he or she will know what sort of text is to be handled.\
+\
+As an example, consider how one might ``speak'' a C program file.  It obviously is not standard English, so the conventions described above are not appropriate to render it into speech.  The programmer must write a special ``filter'' to convert the file into a text which represents how a person might actually speak the file.  This filtered text would then be sent to the TextToSpeech Object to be heard.  The filter, in this case, would be quite complex, so we cannot describe it fully here.  An obvious place to start is with comments.  Each 
+\f1\fs24 /*
+\f0\fs28  would be converted to ``begin comment'', and each 
+\f1\fs24 */
+\f0\fs28  to ``end comment'', and the comment itself would probably be passed straight through without any changes.  Punctuation might have to be inserted by the filter so that there are appropriate pauses.\
+\
+The 
+\b speakStream:
+\b0  method of the TextToSpeech Object is designed so that incorporating filters into an application is easy.  A memory stream is ideal for handling the input and output of a filter, since it allocates memory as needed.  This is important, since a filter may expand, by a large factor, symbols and cryptic text into full English descriptions.  A chain of filters could be created, the output of one feeding the input of the next.  The output of the last filter would, of course, be fed into the 
+\b speakStream:
+\b0  method of the Object. See Figure 2.3.\
+\
+       
+{{\NeXTGraphic21905 paste_2.eps \width7340 \height2800
+}
+¨}\pard\tx1140\tx2280\tx3420\tx4560\tx5700\tx6840\tx7980\f0\b0\i0\ulnone\fs28\fc0\cf0 \
+\
+Figure 2.3:  A chain of text filters can be devised to handle particular kinds of input text.\
+\
+
+\b\fs32 \
+2.3.5  Languages Other Than English\
+
+\b0\fs28 \
+The TextToSpeech Kit is expressly designed to render the English language in the best way possible.  The main pronouncing dictionary, number parser, and letter-to-sound rules are all English-based, as are the phonemes, intonation, and rhythm patterns.  To speak another language properly, all these elements would have to be redesigned and reimplemented.\
+\
+A limited approximation of another language is possible if the user supplies the pronunciations of foreign words in the Application or User pronunciation dictionaries.  The 40 phonemes of English used in the system match many of the phonemes of other languages, although the match is not exact in some cases.  Some phonemes found in other languages are not included in the present system, so not all foreign words can be pronounced properly.  However, a fairly good approximation can be found in most instances.\
+\
+\
+
+\b\fs36 2.4  Controlling the Speech in Real-Time\
+
+\b0\fs28 \
+Once the text to be spoken has been entered into the system using the 
+\b speakText:
+\b0  or 
+\b speakStream:
+\b0  methods, control returns immediately to the calling routine.  The speech is synthesized in the background and will normally continue until the entire utterance has been spoken.  Since the speech is performed by a separate Mach task, the client application can do other things as the speech is being produced.  Several new utterances can be queued up to speak while old utterances are being synthesized, from several client applications if necessary.\
+\
+The speech can be paused at any time by sending a 
+\b pauseImmediately
+\b0  message to the TextToSpeech Object, and resumed by sending a 
+\b continue
+\b0  message.  There is a slight delay when pausing since, by virtue of the NeXT's architecture, the sound is pipelined as it is synthesized.  Once paused, more utterances can be queued up if desired.  The speech can also be paused at the end of the current utterance by using the 
+\b pauseAfterCurrentUtterance
+\b0  method.  When a 
+\b continue
+\b0  message is sent, any remaining utterances will then be synthesized.\
+\
+If you wish to stop all speech output without the possibility of resuming, you should send an 
+\b eraseAllSound
+\b0  message to the TextToSpeech Object.  This message can be sent in either the paused or unpaused state.  All queued up utterances are erased, which allows immediate entry of new utterances.  The 
+\b eraseCurrentUtterance
+\b0  erases only the currently speaking utterance, which means queued utterances will then speak immediately.  If this message is sent while in a paused state, the pause which is associated with the current utterance is also erased, so any subsequent utterances will be heard immediately.\
+\
+\
+
+\b\fs36 2.5  Controlling Speech Quality\
+
+\b0\fs28 \
+
+\b\fs32 2.5.1  The Articulatory Speech Synthesizer
+\b0\fs28 \
+\
+The TextToSpeech Kit uses a new and innovative speech synthesizer that directly simulates the acoustic properties of the human vocal and nasal tracts.  The chief advantage of this 
+\i articulatory synthesis
+\i0  technique is the naturalness of the resulting voice quality.  Since the synthesizer directly models the human vocal apparatus, seven or eight formants (resonances) are always naturally produced at their proper frequencies.  In contrast, ``source-filter'' synthesizers have three or four variable-frequency formants, and the higher formants, if any, are usually fixed in frequency.  For this reason, the older technology will always produce speech which sounds ``robotic'' and unnatural.  Other problems abound.  Nasal sounds are notoriously poor using traditional synthesizers, since they are usually simulated (with varying degrees of success) with notch filters and other kludges.  The articulatory synthesizer, on the other hand, physically models the nasal tract, so it is straightforward to produce accurate and natural-sounding nasals.\
+\
+Unlike ``Klatt-style'' speech synthesizers, it is very easy to create a variety of voice types with the articulatory synthesizer:  one simply specifies values for the parameters which describe the physical characteristics of the person producing the speech.  For example, to synthesize the voice of a large female with a rather low pitch who has smoked for 30 years, one might specify a vocal\
+tract length of 16 centimeters, a median pitch of middle C, and a large amount of ``breathiness''.  A child's voice might be specified with a vocal tract length of 13 centimeters, a median pitch of E above middle C, and almost no breathiness.  Of course, an almost infinite number of combinations are possible, each of which can be prescribed intuitively by the user or programmer, and easily produced by the synthesizer.\
+\
+The difference between male, female, and child voices is due mainly to two factors:  vocal tract length and median pitch.  These two parameters are not directly set in the TextToSpeech Kit, but are adjusted or ``offset'' from baseline values arbitrarily determined for each voice type.  These baseline values are summarized here:\
+\
+
+\pard\tx1260\tx2880\tx4500\tx6120\tx7740\i\fc0\cf0 	Male
+\i0 	
+\i Female
+\i0 	
+\i Large Child
+\i0 	
+\i Small Child
+\i0 	
+\i Baby
+\i0 \
+length	17.5	15.0	12.5	10.0	7.5 \
+pitch	±12.0	0.0	2.5	5.0	7.5 \
+
+\pard\tx1140\tx2280\tx3420\tx4560\tx5700\tx6840\tx7980\fc0\cf0 \
+The vocal tract length is given in centimeters, and the median pitch is given in semitones, with 0 equal to middle C.  The vocal tract length tends to vary with the height of the person, so, as a rule, men have longer vocal tracts than women, who have longer vocal tracts than children.  The pitch of the voice depends primarily upon the size of the vocal cords.  Males who have reached puberty have considerably longer vocal cords than women or children, so their voices are roughly an octave (12 semitones) lower.  Of course, the pitch of the voice rises and falls over a large range when speaking or singing, so the values above are ``median'' or average pitch levels.\
+\
+The user or programmer specifies the voice type with the 
+\b setVoiceType:
+\b0  method.  This sets the median pitch and vocal tract length to the values listed above.  If desired, the user ``offsets'' from the baseline values using the 
+\b setPitchOffset:
+\b0  and  
+\b setVocalTractLengthOffset:
+\b0  methods.  For example, if the user sets the voice type to female, the pitch offset to 1.5, and the vocal tract length offset to ±0.5, the resulting median pitch will be 1.5, and the vocal tract length 14.5 centimeters.  These offsets are retained when the voice type changes.  For example, if the female voice type above is changed to a male voice, but the offsets are not altered, the resulting median pitch will be ±10.5, and the vocal tract length 17.0 centimeters.  In a sense, these two voices ``correspond'' to each other, since they are both slightly shorter, and pitched somewhat higher, than the ``average'' male or female voice.\
+\
+
+\b\fs32 2.5.2  Limitations Due to Hardware Speed
+\b0\fs28 \
+\
+The articulatory speech synthesizer is extremely compute intensive, since it physically models the propagation of sound pressure waves through the vocal and nasal tracts, sampling both in time and space. It uses a variable internal sample rate to simulate vocal tracts of different length (note, however, that the output sample rate is at one of the standard rates, either 22050 or 44100 Hz.).  Shorter vocal tract lengths use higher sample rates, which means that more computation is required.  Although the DSP is a very fast dedicated coprocessor, it is not fast enough to synthesize speech in real time with vocal tract lengths shorter than 15.9 centimeters on NeXT computers, and shorter than 16.6 centimeters on platforms equipped with the Turtle Beach MultiSound DSP card.  If the user attempts to synthesize speech in real time below these limits, an error code is returned and the synthesis is not done.\
+\
+Of course, the user always has the option of synthesizing to file, and playing back that file at a later time.  Vocal tract lengths as short as 7.95 centimeters can be used with the DSP synthesizer. There is one restriction, though.  If the vocal tract length is set below 15.9 centimeters, only the 44100 Hz. output sample rate can be used.  If the user attempts to synthesize to file using the lower rate, an error code is returned, but the file is generated at the higher sample rate.\
+\
+The user also has the option of using the ``software synthesizer''.  This runs on the main CPU (i.e. it doesn't use the DSP), and therefore is extremely slow.  It can only be used to synthesize to file, but it has the advantage that the vocal tract can be any length, and there is no restriction on which output sample rate can be used.  The speech quality is slightly higher, since a variable-shaped glottal pulse is used, and control parameter information is interpolated at the sample rate.  The software synthesizer may be useful on machines that aren't equipped with a DSP card, but expect long waits when producing sound files.\
+\
+
+\b\fs32 2.5.3  Methods to Control Speech Quality\
+
+\b0\fs28 \
+The TextToSpeech Kit provides comprehensive control over several aspects of the speech quality.  The messages which control the speech quality can be sent at any time, but their effect will not be heard until the end of the sentence currently being spoken.  This is so because the control parameters for the speech are calculated one sentence at a time.  Detailed descriptions of each of the speech quality methods can be found in Chapter 5.\
+\
+As noted above, the programmer uses the 
+\b setVoiceType:
+\b0 , 
+\b setPitchOffset:
+\b0 , and  
+\b setVocalTractLength:
+\b0  methods to to set the median pitch and vocal tract length of the voice.  These methods tend to have the largest effect upon speech quality.  The voice type can be set to male, female, large child, small child, or baby.  Median pitch can be raised or lowered 12 semitones (one octave).  Of course, if intonation is enabled, the pitch of the voice will vary around the center pitch.  The vocal tract can be lengthened or shortened as much as 3 centimeters.  These offsets are retained whenever the voice type is changed.  Note that shorter vocal tract lengths cannot be produced in real time, and that there are some restrictions when using the DSP to synthesize to file.  See Section 2.5.2 above, and the method descriptions in Chapter 5.\
+\
+The 
+\b setBreathiness:
+\b0  method determines how much ``noise'' is introduced into the glottal source (the vocal cords).  A value of 0 indicates that no breathiness is to be added, and the resulting voice quality sounds ``pure''.  As more breathiness is added (to a maximum of 10), the voice becomes ``rougher'' in quality, or more hoarse.\
+\
+The volume of the synthesized voice can be controlled independently of the keyboard volume controls using the 
+\b setVolume:
+\b0  method.  The volume has a range of 0 to 60 decibels, although the volume should normally never be set to less than about 48 dB.\
+\
+The stereo balance of the synthesized voice can set using the 
+\b setBalance:
+\b0  method.  The sound will appear at the left speaker if set to ±1.0, at the right speaker when set to +1.0, and midway between the two speakers when set to 0.0.  Of course, the voice can be placed anywhere between these points in the stereo field by using the appropriate value within the range ±1.0 to +1.0.  Note that a change of balance will only be heard if the output has been set to 2 channels.  The method 
+\b setNumberChannels:
+\b0  allows the user to hear either mono or stereo output.  A mono setting is useful when synthesizing to file, since the resulting sound file will be half as large as that done with 2 channels.\
+\
+Changing the speaking rate of the voice is accomplished by sending a 
+\b setSpeed:
+\b0  message to the TextToSpeech Object.  Its argument is a speed factor:  when set to 2.0, the speed of the speech is twice the normal rate; when set to 0.5, the speed is one half the normal rate.  The allowable range is from 0.2 to 2.0.\
+\
+The type and extent of speech intonation can be controlled with the 
+\b setIntonation:
+\b0  method by setting particular bits of its argument.  If ``micro-intonation'' is specified, variations in pitch due to air pressure differences (associated with events such as stops and plosives) and larynx height changes will be added to the speech. ``Macro-intonation'' is the variation of pitch due to syllable stress, phrase type, and other supra-segmental effects.  It is the parameter with the greatest effect over the pitch, and helps to give speech its meaning.  ``Declination'' is the gradual drop in pitch that naturally occurs as the lungs run out of air.  If the ``randomize'' bit is set, slight random variations are added to the macro-intonation.  This helps the speech sound less monotonous.\
+\
+\
+\
+
+\b\fs36 2.6  Customizing Pronunciations\
+
+\b0\fs28 \
+Although the Main Dictionary provides accurate pronunciations for an enormous number of words, it may not contain pronunciations for some specialized terms, newly coined words, misspelled words, surnames, or place names.  The utility 
+\i PrEditor
+\i0  is designed to allow the user or application developer to create User and Application Dictionaries that contain customized pronunciations.  These dictionaries are usually placed before the Main Dictionary in the search order, so that any pronunciations they contain will override or supplement the pronunciations found in the Main Dictionary.\
+\
+The default dictionary search order is:\
+\
+
+\pard\tx900\tx2280\tx3420\tx4560\tx5700\tx6840\tx7980\fi-540\li900\fc0\cf0 1.	Number Parser algorithm,\
+\
+2.	User Dictionary,\
+\
+3.	Application Dictionary,\
+\
+4.	Main Dictionary, and\
+\
+5.	Letter-to-Sound algorithm.\
+\
+
+\pard\tx1140\tx2280\tx3420\tx4560\tx5700\tx6840\tx7980\fc0\cf0 This order can be changed with the 
+\b setDictionaryOrder:
+\b0  method. However, unless there is a good reason to change the search order, the default is usually preferred since it allows User and Application Dictionaries to override the Main Dictionary.  The Number Parser should be kept first in the search order so that it immediately catches any numbers; the other dictionaries cannot handle numbers very effectively.  The Letter-to-Sound algorithm is usually kept last in the search order since the pronunciations it provides, though usually acceptable, are not as as good as the hand-edited pronunciations found in the other dictionaries.  It can be thought of as a ``catch-all'' which provides pronunciations when none of the other dictionaries can do so.\
+\
+The User Dictionary is created by a user and stored on a per-account basis.  The path to this dictionary is stored in the user's default database.  When an application instantiates a TextToSpeech Object, this path is used as a pointer to the User Dictionary. The path to the User Dictionary is usually never explicitly set by an application, but the method
+\b  setUserDictPath:
+\b0  is provided for the rare case where the programmer needs control of this.\
+\
+The Application Dictionary is created by the application developer when it is known that the application will use specialized words not present in the Main Dictionary.  The developer is responsible for creating and maintaining the dictionary (using 
+\i PrEditor
+\i0 ), and for linking the dictionary to the application using the 
+\b setAppDictPath:
+\b0  method.  The Application Dictionary is usually kept in the application's file package.\
+\
+
+\i PrEditor
+\i0  is supplied with both the User and Developer TextToSpeech Kits so that both users and developers can create customized pronunciations.  It is located in /LocalApps/TextToSpeech.  
+\i PrEditor 
+\i0 contains extensive online documentation which can be printed out.\
+\
+\
+
+}

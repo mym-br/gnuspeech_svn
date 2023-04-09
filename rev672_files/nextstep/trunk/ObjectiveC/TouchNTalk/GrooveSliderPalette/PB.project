@@ -1,0 +1,20 @@
+DOCICONFILES = ();
+LOCALIZABLE_FILES = {
+    GrooveSlider.nib;
+};
+LANGUAGE = English;
+PROJECTVERSION = 1.1;
+INSTALLDIR = /NextDeveloper/Palettes;
+PROJECTTYPE = Palette;
+PROJECTNAME = GrooveSlider;
+GENERATEMAIN = YES;
+MAINNIB = GroovePalette;
+DOCEXTENSIONS = ();
+FILESTABLE = {
+    CLASSES = (GrooveSlider.m, GrooveSliderCell.m, GrooveSliderPalette.m);
+    OTHER_RESOURCES = (palette.table);
+    OTHER_SOURCES = (Makefile, Makefile.postamble, Makefile.preamble);
+    H_FILES = (GrooveSlider.h, GrooveSliderCell.h, GrooveSliderPalette.h);
+    INTERFACES = (GrooveSlider.nib);
+    IMAGES = (GrooveSlider.tiff);
+};

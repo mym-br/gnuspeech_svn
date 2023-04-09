@@ -1,0 +1,228 @@
+
+#import <math.h>
+#import "FFTView.h"
+
+@implementation FFTView
+
+- initFrame:(const NXRect *)frameRect
+{
+  [super initFrame:frameRect];
+
+  image = [[NXImage alloc] initSize:&frameRect->size];
+  if (![image useDrawMethod:@selector(theDrawing:) inObject:self])
+    printf("[image useDrawMethod:inObject:] failed.\n");
+
+  lr = [image lastRepresentation];
+  [lr setNumColors:1];
+  [lr setAlpha:NO];
+  [lr setBitsPerSample:8];
+
+  [self setFlipped:NO];
+
+  timeFont = [Font newFont:"Helvetica" size:8.0 matrix:NX_IDENTITYMATRIX];
+  if (timeFont == nil)
+    printf("FFTView - initFrame: font junk failed.\n");
+
+  pixelWidth = 2;
+
+  return self;
+}
+
+- drawSelf:(const NXRect *)rects :(int)rectCount
+{
+  static int i = 0;
+  NXPoint myPoint = {0.0, 49.0};
+  float x, t;
+  char buf[20];
+
+  /*
+   *  The compositing is definately displaying the image one pixel
+   *  higher than it should!
+   */
+
+  /*
+   *  HEAP HEAP HEAP HEAP HEAP HEAP HEAP HEAP HEAP HEAP HEAP HEAP HEAP
+   *
+   *  If the coordinates are flipped, drawing from point 0.0, 0.0
+   *  won't show anything in the view.  You must set the y coordinate
+   *  to the height.  Flipped coordinates don't seem to work with the
+   *  image anyways, it's still upside down.
+   *
+   *  HEAP HEAP HEAP HEAP HEAP HEAP HEAP HEAP HEAP HEAP HEAP HEAP HEAP
+   */
+
+  /*if ([image composite:NX_SOVER toPoint:&myPoint] == nil)
+    printf("compositing failed(%d).\n",i++);*/
+  myPoint.x = NX_X(rects);
+  if ([image composite:NX_SOVER fromRect:rects toPoint:&myPoint] == nil)
+    printf("compositing failed(%d).\n",i++);
+
+  /*
+   *  Let's not be foolish here and overwrite the bottom row of the FFT.
+   *  Why even draw at all?  To erase underneath the test, dummy!
+   */
+  PSsetgray(NX_WHITE);
+  PSrectfill(0.0, 0.0, NX_WIDTH(&bounds), 49.0);
+
+  PSsetgray(NX_BLACK);
+  PSmoveto(0.0, 49.0);
+  PSlineto(NX_WIDTH(&bounds), 49.0);
+  PSstroke();
+
+  /*
+   *  Not always reliable to use the bounds to calculate the time...
+   */
+
+  PSsetgray(NX_BLACK);
+  [timeFont set];
+  t = 0.0;
+  x = 0.0;
+  while (x < [fft numberOfWindows]*pixelWidth)
+    {
+      x = t / [fft windowSlide] * [fft samplingRate] * pixelWidth;
+      PSmoveto(x, 49.0);
+      PSlineto(x, 44.0);
+      PSstroke();
+      PSmoveto(x, 30.0);
+      sprintf(buf, "%.2f", t);
+      PSshow(buf);
+      t += 0.25;
+    }
+
+  return self;
+}
+
+- free
+{
+  printf("FFTView - free\n");
+
+  if (bm)
+    free(bm);
+
+  return [super free];
+}
+
+- theDrawing:sender
+{
+  unsigned char *data[] = {bm, 0, 0, 0, 0};
+  NXRect rect;
+
+  /*printf("MyView - theDrawing:\n");*/
+
+  /*PSsetgray(NX_BLACK);
+  PSmoveto(10.0, 100.0);
+  PSlineto(250.0, 10.0);
+  PSstroke();*/
+
+  if (bm)
+    {
+      NXSetRect(&rect, 0.0, 0.0, (float)bmWidth, (float)bmHeight);
+      NXDrawBitmap(&rect, bmWidth, bmHeight, 8, 1, 8, bmWidth, NO, NO, NX_OneIsBlackColorSpace, data);
+    }
+
+  return self;
+}
+
+- updateBitmap:sender
+{
+  float *fp;
+  int l, m, n, w;
+  int floatsInWindow = [fft binSize] / 2;
+  int height = 512 / [fft binSize];
+  unsigned char *p;
+  unsigned char g;
+  float max = 1.0;  /* since we're dividing... */
+  /*float ftmp;*/
+
+  fp = [fft data];
+  for (l=0; l<[fft numberOfWindows] * floatsInWindow; l++)
+    {
+      if (max < *fp)
+	max = *fp;
+      fp++;
+    }
+
+  bzero(bm, bml);
+
+  fp = [fft data];
+  for (l=0; l<[fft numberOfWindows]; l++)
+    {
+      /* should this be *254? */
+      p = bm + 255*bmWidth + pixelWidth*l;
+      for (m=0; m<floatsInWindow; m++)
+        {
+	  g = (*fp>1.0) ? 127 : *fp*127;
+          /*if (*fp > 1.0) g = 255;else g = *fp * 255;*/
+
+          for (n=0; n<height; n++)
+            {
+	      for (w=0; w<pixelWidth; w++)
+		*(p+w) = g;
+              /**p = *(p+1) = g;*/
+              p -= bmWidth;
+            }
+          fp++;
+        }
+    }
+
+  [image recache];
+  [self display];
+
+  return self;
+}
+
+- recache:sender
+{
+  [image recache];
+  [self display];
+
+  return self;
+}
+
+- setFFT:anFFT
+{
+  NXSize aSize;
+
+  fft = anFFT;
+  if (bm)
+    free(bm);
+
+  bmWidth = pixelWidth * [fft numberOfWindows];
+  bmHeight = 256;
+  bml = bmWidth * bmHeight;
+
+  bm = (unsigned char *)malloc(bml);
+  if (bm == NULL)
+    printf("Malloc failed in initFrame:\n");
+  bzero(bm, bml);
+  [self sizeTo:(float)bmWidth:(float)bmHeight+50.0];
+  aSize.width = (float)bmWidth;
+  aSize.height = (float)bmHeight;
+
+  [lr setPixelsWide:bmWidth];
+  [lr setPixelsHigh:bmHeight];
+  [lr setSize:&aSize];
+  [image setSize:&aSize];
+
+  [self updateBitmap:self];
+
+  return self;
+}
+
+- (int)pixelWidth
+{
+  return pixelWidth;
+}
+
+- setPixelWidth:(int)aWidth
+{
+  if (aWidth != pixelWidth)
+    {
+      pixelWidth = aWidth;
+      [self setFFT:fft];
+    }
+  return self;
+}
+
+@end
+

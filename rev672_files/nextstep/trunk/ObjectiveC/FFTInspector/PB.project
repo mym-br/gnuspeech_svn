@@ -1,0 +1,16 @@
+LANGUAGE = English;
+FILESTABLE = {
+    OTHER_SOURCES = (bundle.registry, Makefile, Makefile.preamble);
+    H_FILES = (FFT.h, FFTInspector.h);
+    INTERFACES = (FFTInspector.nib);
+    CLASSES = (FFT.m, FFTInspector.m);
+};
+LOCALIZABLE_FILES = {
+    FFTInspector.nib;
+};
+PROJECTVERSION = 1.1;
+PROJECTTYPE = Bundle;
+PROJECTNAME = FFTInspector;
+DOCEXTENSIONS = ();
+GENERATEMAIN = YES;
+DOCICONFILES = ();

@@ -1,0 +1,322 @@
+#*
+#*    Filename:	AATOC
+#*    Created :	Mon Jun  8 21:26:06 1992 
+#*    Author  :	Vince DeMarco
+#*		<vince@whatnxt.cuc.ab.ca>
+#*    LastEditDate was "Tue Jun  9 01:07:06 1992"
+#*
+#*    $Id: AATOC,v 1.1 2002-03-21 16:49:51 rao Exp $
+#*
+#*    $Log: not supported by cvs2svn $
+# Revision 2.1  1992/06/10  13:45:02  vince
+# Initial Revision
+#
+#*
+
+ AATOC				This file.
+
+ ChangeLog			List of changes made to files in this
+				directory, this file should be
+				maintained using emacs. Simply type
+				Control-X 4 in the emacs buffer. Make
+				sure your current-working directory is
+				the directory containing the ChangeLog
+				file where you wish to make additions to.
+
+ CustSlider.[hm]		A custom slider object that allows a
+				slider to continuous and
+				non-continuous all at the same time.
+				This is acomplished though the
+				CustSliderCell class (Described Below)
+
+ CustSliderCell.[hm]		The Cell class for CustSlider, this
+				class basically overides the
+				tractMouse:inRect:ofView: method of
+				the SliderCell, what happens is that
+				the standare tractMouse:inRect:ofView:
+				is called then when it returns, i
+				simply call [controlView sendAction:
+				action2 to:target2]; which will send
+				action2 to target2. (the action to be
+				carried out when the mousebutton is
+				released at the end of tracking.
+
+ Delete.tiff			Tiff file for the Delete Word Button
+				in its non depressed form.
+
+ DeleteH.tiff			Tiff file for the Delete Word Button
+				in its depressed form.
+
+ Document.nib			Interface Builder nib file, this file
+				contains the document window for each
+				document that is opened or created in
+				preditor. The position of the window
+				in IB becomes the default position of
+				the window in the application.
+
+ EnglishText.[hm]		This is the textDelegate for the
+				textfield in Document.nib where the
+				user entered the word to store in the
+				PrEditor dictionary.  The charEditor
+				for the EnglishText field is defined
+				here. 
+				
+ Help.[hm]			Help Object. More files can be added
+				by making modifications to
+				browser:fillMatrix:inColumn and in
+				showHelpFile: 
+ 
+ Help.nib			Interface builder nib file for the
+				Help window.  The minimum size and
+				default position are defined when the
+				window is created in interface
+				builder. If you wish to change these
+				simply open this file in IB.  The code
+				doesn't need to be changed.
+
+ IB.proj			Interface Builder Project file
+
+ Info.nib			nib file for the Info Panel.
+
+ InfoMgr.[hm]			Object that loads the info Panel when
+				necessary and also fills in the info
+				in the panel, like PrEditor Version
+				and server version, along with
+				PrEditor compile time.
+
+ Inspector.nib			nib file for the settings panel. This
+				is still called an Inspector because
+				when i wrote the code, i was going to
+				make the panel behave more like an
+				inspector then a preferences or
+				settings panel.
+
+ InspectorMgr.[hm]		The Settings Panel controller object,
+				this object creates the panels
+				contents, manages the switching views,
+				and gives other objects within the
+				application the ablity to query the
+				panel for its contents.
+
+ KeyboardController.[hm]	Object that controls the keyboard
+				found in the document window. This
+				object shifts the keys, and enables
+				and disables the keyboard when
+				required. It also provides methods to
+				switch the font.
+				
+ KeyboardText.[hm]		The textDelegate for the TextField
+				where the user enters the prounciation
+				of a word. The character filter is
+				defined within this file.  This object
+				is also responsible for telling the
+				KeyboardController object to
+				pressKey:, shiftUp: shiftDown: or
+				toggleShift:. 
+
+ Makefile			Makefile generated and maintained by
+				IB.
+
+ Makefile.dependencies		Makefile dependencies list.
+
+ Makefile.postamble		Rules to create the emacs TAGS files.
+
+ Makefile.preamble		Set up CFLAGS and LDFLAGS. The LDFLAGS
+				stuff is done to insert the
+				documentation for preditor in the
+				__RTF segment of the PrEditor Executable.
+
+ MyText.[hm]			My Custom text object. This object
+				overides the standard text objects
+				keyDown:, mouseDown: and flagsChanged:
+				methods, by sending a message to the
+				text objects delegate letting it know
+				that a keydown, mouse event or the
+				keyboard flags haved changed message.
+				This object is made to poseAs: the
+				standard appkit text object.  This is
+				done in the + new method of the
+				PrEditorApp object.
+				For the flagsChanged message to
+				actually do something the window where
+				the text object is located must be
+				sent a message like this:
+				[documentWindow	addToEventMask:NX_SHIFTMASK]; 
+
+ NiftyMatrix.[hm]		The NiftyMatrix Object my Jason Adams,
+				this has been heavily modified my me
+				to make it more efficient. This is
+				used to allow the user to move items
+				in a matrix with the mouse.
+
+ NiftyMatrixCat.[hm]		A category of NiftyMatrix, to allow
+				unique insertion of items into a
+				matrix. I don't really make good use
+				of this in PrEditor currently but will
+				in the future.
+
+ NiftyMatrixCell.[hm]		The Cell object used in the
+				NiftyMatrix, this is a standard
+				SelectionCell other than it can toggle
+				the contents of a cell, IE change the
+				color from gray to black. and it gives
+				the ablity to lock a cell, so the
+				toggling does not work.
+
+ Pics.tiff			A tiff contining the tiffs used in the
+				delete word, speak word, and store
+				word buttons. In this tiff all of the
+				images have transparent backgrounds
+				and have not been composited on
+				anything. 
+				
+ PrDict.[hm]			The Object that maintains the PrEditor
+				Dictionary, this object knows nothing
+				about the format of the entries in the
+				dictionary it only knows that they are
+				composed of a key (the word) and data
+				(the prounciation).  A method is also
+				provided called valueAtPos: which will
+				return the nth item in the dictionary.
+				This is usefull in browsers and such.
+				PrEditor dictionaries are actually
+				archived versions of this object.
+
+ PrDictViewer.[hm]		This Object manages the contents
+				viewer window.  The document can send
+				this object a message to let it know
+				that the contents of the dictionary
+				have changed and that it should reload
+				the words.
+
+ PrDictViewer.nib		nib file that holds the browser used
+				to display the contents of the current
+				preditor dictionary.
+
+ PrDocumentation/		PrEditor Documentation dictionary.
+
+ PrEditor.iconheader		iconheader file maintained by IB.
+
+ PrEditor.nib			PrEditor main nib file, this file
+				contains only the main menu. 
+
+ PrEditorApp.[hm]		The Application Objected used by
+				preditor. I have subclassed the
+				Application object for 1 reason. This
+				is on only object that is guaranteed
+				to get a free message.  The PrefMgr
+				object must be freed before PrEditor
+				Exits or an extra slot will get used
+				up in TTS_Server. This object opens
+				new documents, but most imporantly it
+				allows the PrEditorDocuemtn Object
+				access to the InspectorMgr and the
+				PrDictViewer object, by simply calling
+				[NXApp inspectorPanel] /* Inspector Panel */
+				[NXApp wordList]       /* PrDict Object   */
+
+ PrEditorDocument.[hm]		This the most important object in
+				PrEditor and also the largest. It
+				essentually maintains the Document and
+				does the querying to the TT_Server.
+
+ PrEditor_main.m		main()
+
+ PrefMgr.[hm]			This object maintains the users
+				interface to the default system. and
+				it maintains the inspector style
+				interface found in the preferences window.
+
+ PrefMgr.nib			This nib file contains the
+				Text-to-Speech Preferences window.
+
+ Shift.tiff			The Shift Key, in its non depressed state
+ ShiftH.tiff			The Shift Key, in its depressed state
+
+ Speak.tiff			The tiff image used in the Speak Word
+				button in its non depressed state
+ SpeakH.tiff			The tiff image used in the Speak Word
+				button in its depressed state
+
+ Speech.[hm]			Categories of the TextToSpeechObject,
+				this category adds the following
+				methods setDictOrder:,
+				speakLiteralMode:
+				getPronunciation:dict:.
+				If you need to change the defaults for
+				the literal mode (mode begin and end)
+				etc look in the file Speech.h for the
+				following defines.
+				ESC,START_MODE, and END_MODE.
+
+ Store.tiff			Tiff image for the Store Word button
+				in non depressed state.
+ StoreH.tiff			Tiff image for the Store Word button
+				in depressed state.
+
+ TAGS				etags file for emacs.
+
+ TextFieldCat.[hm]		Category for the TextField Object
+				TextKeys) that implements the new
+				categories that I added to the Text Object.
+
+ app.tiff			The tiff file for the PrEditor
+				application.
+
+ book.tiff			A tiff file of the book used in the
+				Delete.tiff and DeleteH.tiff files.
+
+ conversion.[ch]		A set of c routines that convert to
+				and from PrEditors pronuciation
+				representation to that used by the
+				TTS_Server. 
+
+ dict.tiff			The tiff file for a .preditor file
+ dictInUse.tiff			The tiff file for a .preditor+ file
+				This isn't being used at all.
+
+ hash.[ch]			a c routine generated by gperf
+				that when giving a word like Adverb,
+				Article etc will return the
+				appropriate code. These codes are
+				defined in the header file
+				word_types.h. 
+
+ help.tiff			Tiff file for the miniturized Help
+				Window.
+
+ left.tiff			Tiff file of a speaker pointing left.
+
+ max.tiff			Tiff file of a speaker at full volume
+ min.tiff			Tiff file of a speaker at min volume
+
+ objc-debug.h			Some objective C debuging macros.
+				These macros are only defined when the
+				cpp #define DEBUG is defined.
+
+ phone_conversion.h		A list of the TTS format phone strings
+				and there PrEditor equivalent
+				characters.
+
+ preditorDict/			The Preditor Dictionary Access
+				routines for the TTS_Server
+ 
+ preditor_logo.tiff		The PrEditor logo in a tiff file, this
+				is simply the words PrEditor in the
+				Lithos Font. The letters look like
+				they are comming out of the page in 3D.
+
+ right.tiff			Tiff file of a speaker pointing left.
+
+ word_types.h			A list of the word types and there
+				equivalent character codes, ie noun is
+				'a'. there are two codes for UNKNOWN
+				'j' and '?' this is because the server
+				still used '?' for unknown, but will
+				used 'j' for unknown at some latter
+				date. 
+
+ words				gperf code used to generate the hash.c
+				file. gperf -D -t -C -a -G words. The
+				file that gerf generated was modified
+				to make it look nicer and work.

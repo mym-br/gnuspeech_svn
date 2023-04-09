@@ -1,0 +1,18 @@
+#*
+#*    Filename:	Makefile.postamble 
+#*    Created :	Tue Jun  2 10:17:02 1992 
+#*    Author  :	Vince DeMarco
+#*		<vince@whatnxt.cuc.ab.ca>
+#*    LastEditDate was "Tue Jun  2 10:17:04 1992"
+#*
+#*    $Id: Makefile.postamble,v 1.1 2002-03-21 16:49:48 rao Exp $
+#*
+#*    $Log: not supported by cvs2svn $
+# Revision 1.0  1992/06/09  05:25:27  vince
+# Initial revision
+#
+#*
+
+
+install::
+	tar cf - InstallScript | (cd $(DSTROOT)$(INSTALLDIR)/$(NAME).app/; tar xfp -)

@@ -1,0 +1,16 @@
+#! /bin/sh
+
+#
+# TouchNTalk.post_install
+#
+
+echo
+echo "        Making local bin link to publish utility ..."
+if [ -d /LocalApps/TouchNTalk.app ] ; then \
+	mkdirs /usr/local/bin ; \
+	/bin/rm -f /usr/local/bin/publish ; \
+	ln -s /LocalApps/TouchNTalk.app/Publish /usr/local/bin/publish ; \
+elif [ -d ~/Apps/TouchNTalk.app ] ; then \
+	/bin/rm -f ~/Unix/bin/publish ; \
+	ln -s ~/Apps/TouchNTalk.app/Publish ~/Unix/bin/publish ; \
+fi ;

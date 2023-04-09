@@ -1,0 +1,18 @@
+say "Loading System"
+echo "Loading system and fonts"
+/NextAdmin/Installer.app/installer_bigtar -cfp TextToSpeech.tar /LocalLibrary/TextToSpeech/system /LocalLibrary/Fonts/Phonetica.font /LocalLibrary/Fonts/Lexical.font /LocalLibrary/Fonts/Trillium-Phonetic.font /LocalLibrary/TextToSpeech/.dir.tiff
+
+say "Loading Documentation" ; echo "Loading Documentation"
+/NextAdmin/Installer.app/installer_bigtar -rfp TextToSpeech.tar /LocalLibrary/TextToSpeech/documentation/User_Kit_Manual.rtfd
+
+say "Loading Speech Applications and Device Driver"
+echo "Loading Speech Applications and Device Driver"
+mv /LocalApps/TextToSpeech/ServerTest.app /Temp
+/NextAdmin/Installer.app/installer_bigtar -rfp TextToSpeech.tar /LocalApps/TextToSpeech /LocalLibrary/Devices
+mv /Temp/ServerTest.app /LocalApps/TextToSpeech
+
+say "Loading say and Tube Module"
+echo "Loading say and tube module"
+/NextAdmin/Installer.app/installer_bigtar -rfp TextToSpeech.tar /usr/local/bin/say /usr/local/man/man1/say.1 /usr/local/bin/tube
+
+say "User TextToSpeech tar file completed."

@@ -1,0 +1,17 @@
+FirstResponder = {
+    ACTIONS = {
+    };
+    SUPERCLASS = Object;
+};
+myController = {
+    ACTIONS = {
+	decryptButton:;
+	decrypt:;
+    };
+    OUTLETS = {
+	password;
+	hostid;
+	decryptButton;
+    };
+    SUPERCLASS = Object;
+};

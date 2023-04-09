@@ -1,0 +1,5 @@
+
+ADDITIONAL_GUI_LIBS += -lGnuSpeech -lGnuSpeechTube
+
+# We want to get all the warnings...
+ADDITIONAL_OBJCFLAGS = -Wall

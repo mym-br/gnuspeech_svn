@@ -1,0 +1,22 @@
+TabletKit 1.1 Installation
+
+    To install the TabletKit, you will need to log in as root. If you
+don't know the root password for the computer you are using, you will
+need to have your system administrator install the TabletKit for you.
+
+   If the TabletKit has previously been installed on your system, or
+you are upgrading, uninstall (compress) the previous version using
+Installer.app and move it to a safe location for later retrieval in
+case the need arises.
+
+NOTE: The licensed and demo distributions of the TabletKit are
+identical in all respects, except the demo version does not contain
+the libraries necessary for compiling applications utilizing the
+TabletKit API.
+
+WARNING: Do not attempt to install 'hppa' or 'sparc' versions of the
+TabletKit on NeXT Mach OS release 3.2. The installation requires
+rebuilding of TabletKit library table of contents, and ranlib/libtool
+in OS release 3.2 cannot handle fat libraries containing 'sparc' and
+'hppa' object code.
+

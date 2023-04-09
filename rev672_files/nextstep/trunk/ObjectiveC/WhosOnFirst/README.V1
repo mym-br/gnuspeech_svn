@@ -1,0 +1,49 @@
+Greetings..
+
+	This is a simple program I wrote so that I could learn 
+how to display Icons on the screen.  It's not GREAT code.  I actually
+wrote my own linked list handing routines instead of using the 
+objective C ones...  I was so intent on figuring out icons, I didn't
+want to bother looking at the List Object :-).  Maybe next version.
+
+Structure
+
+	Each icon is a window.  The window has no minuaturize or
+close buttons so the content view is basically the icon.  The 
+contentView of the window is an instance of IconView.  IconView 
+simply implements the drawself, init, and set instance variable 
+methods (nothing too special).  The whole thing is very little 
+code and it should be pretty easy to figure out.  I have alread 
+received lots of responses about this program so it looks like I'll
+be adding some enhancements in the near future.
+
+Workings
+
+	A c function (called who) is called every 5 seconds using
+the DPS timed entry call.  This function performs the following 
+tasks:
+
+	Maps /etc/utmp file into memory.
+
+	Checks all entries against its own linked list.
+		If entry exists, that entry is marked.
+		If entry does not exist, it is set up and entered
+		 into the list.
+
+	All entries in the linked list which are no longer in the
+	 /etc/utmp file are removed from the list, objects freed, etc.
+
+	Icons are displayed as the list is traversed.
+
+	Closes memory mapping.
+
+NOTE: Thanks to Jayson Adams whose ALTDOCK program helped me to 
+	understand how Icons "work".
+
+Please send any questions or comments to me at:
+
+	schock@flip.cpsc.ucalgary.ca
+
+Enjoy the program and Code.
+ 
+Craig

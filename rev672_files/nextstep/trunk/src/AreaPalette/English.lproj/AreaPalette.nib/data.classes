@@ -1,0 +1,22 @@
+AreaPalette = {
+    SUPERCLASS = IBPalette;
+};
+Area = {
+    ACTIONS = {
+    };
+    OUTLETS = {
+    };
+    SUPERCLASS = Control;
+};
+FirstResponder = {
+    ACTIONS = {
+    };
+    SUPERCLASS = Object;
+};
+AreaCell = {
+    ACTIONS = {
+    };
+    OUTLETS = {
+    };
+    SUPERCLASS = ActionCell;
+};

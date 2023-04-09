@@ -1,0 +1,716 @@
+head	1.5;
+access;
+symbols;
+locks;
+comment	@ * @;
+
+
+1.5
+date	94.06.03.19.28.24;	author dale;	state Exp;
+branches;
+next	1.4;
+
+1.4
+date	93.09.04.17.49.02;	author dale;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	93.08.24.02.08.33;	author dale;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	93.07.23.07.32.18;	author dale;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	93.07.14.22.11.48;	author dale;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.5
+log
+@Changed "LastEditDate" to "Last modified on" within header.
+@
+text
+@/*
+ *    Filename:	ActionText.m 
+ *    Created :	Sun Jul 11 13:03:04 1993 
+ *    Author  :	Dale Brisinda
+ *		<dale@@pegasus.cuc.ab.ca>
+ *
+ *    Last modified on "Thu Sep  2 17:38:44 1993"
+ *
+ * $Id: ActionText.m,v 1.4 1993/09/04 17:49:02 dale Exp $
+ *
+ * $Log: ActionText.m,v $
+ * Revision 1.4  1993/09/04  17:49:02  dale
+ * *** empty log message ***
+ *
+ * Revision 1.3  1993/08/24  02:08:33  dale
+ * *** empty log message ***
+ *
+ * Revision 1.2  1993/07/23  07:32:18  dale
+ * *** empty log message ***
+ *
+ * Revision 1.1  1993/07/14  22:11:48  dale
+ * Initial revision
+ *
+ */
+
+#import "ActionText.h"
+
+/* User cursor image name. */
+#define USER_CURSOR_IMAGE "UserCursor.tiff"
+
+/* General macros. */
+#define DIFF(a,b) (ABS((a) - (b)))
+
+/* Vertical retrace intervals per second. Yields approx. 0.014 event intervals. If the real vertical
+ * retrace interval or the 0.014 event interval is different, this will not make much difference. This
+ * value is simply used to adjust the value returned from NXClickTime, so that we can compare the time
+ * elasped between a right mouse down and right mouse up with the NXClickTime for double click 
+ * recognition. Therefore, we only recognize single clicks if the time between these 2 events is
+ * within the double click time defined in Preferences. This allows the value to be changed.
+ */
+#define VRETRACE_PSEC 68
+
+@@implementation ActionText
+
+/* This method is the designated initializer for the class. We load the user cursor image, and set
+ * the target/action instance variables to nil values. Returns self.
+ */
+- initFrame:(const NXRect *)frameRect text:(const char *)theText alignment:(int)mode
+{
+    [super initFrame:frameRect text:theText alignment:mode];
+
+    // get handle to event status driver
+    if (!(eventHandle = NXOpenEventStatus())) {
+	NXLogError("Unable to open event status driver.");
+    }
+
+    // initialize targets and actions
+    mouseDownTarget = mouseDragTarget = mouseUpTarget = singleClickTarget = doubleClickTarget = nil;
+    mouseDownAction = mouseDragAction = mouseUpAction = singleClickAction = doubleClickAction = 
+	(SEL)nil;
+
+    // char width initialization
+    charWidth = (int)ceil((double)[[self font] getWidthOf:"O"]);
+
+    // initalize user cursor
+    userCursorOnScreen = NO;
+    userCursor = [NXImage findImageNamed:USER_CURSOR_IMAGE];
+    return self;
+}
+
+- initFrame:(const NXRect *)frameRect
+{
+    return [self initFrame:frameRect text:NULL alignment:NX_LEFTALIGNED];
+}
+
+- free
+{
+    NXCloseEventStatus(eventHandle);
+    return [super free];
+}
+
+
+/* OVERRIDEN RESPONDER METHODS */
+
+
+/* Override to add functionality which handles right mouse button click/key down events during
+ * mouse dragging activity. The application event queue is examined for these additional events. If
+ * they are found, the appropriate actions are taken via target/action methodology as defined by the
+ * caller. Note that the terms "left" and "right" are a matter of convention, and "left" always refers
+ * to the primary mouse button (depending on left or right-handedness). We assume the mouse buttons
+ * have been differentiated. We also draw a user cursor at the point of the mouse cursor when the 
+ * primary mouse button is depressed. This cursor follows the mouse around while the mouse is being 
+ * dragged. Returns self when the primary mouse button is released.
+ *
+ * Note that there is an interesting NeXTSTEP feature/bug in the event driver system. If the mouse
+ * buttons are differentiated, and we rapidly click the left mouse button followed by the right mouse
+ * button, the event driver system SHOULD set the number of clicks for the right mouse down event to
+ * 1, but instead it sets the number of clicks to 2, which is clearly incorrect. Because of this
+ * feature, the code here is made much more complex, since we have to do some of our own event
+ * processing to make sure single and double clicks are handled correctly in special cases such as 
+ * that mentioned above.
+ */
+- mouseDown:(NXEvent *)theEvent
+{
+    NXPoint lastPoint, currentPoint;            // for continuing to track the mouse
+    NXEvent *nextEvent, *tempEvent, eventPtr;   // handles to various events
+    NXEvent firstRMouseDownEvent;               // holds point for first right mouse down
+    BOOL doubleClick = NO;                      // is event a double click?
+    BOOL firstRMouseUp = YES;                   // is event first right mouse up?
+    BOOL validClickSpace = YES;                 // is single-click click space still valid?
+    int rightMouseDown = 0;                     // holds the number of successive right mouse downs
+    NXSize area;                                // holds single-click click 
+    int lastLine, lastCol, oldMask;
+
+    // set the window mask to allow left mouse drag events
+    oldMask = [window addToEventMask:NX_LMOUSEDRAGGEDMASK];
+
+    nextEvent = theEvent;
+    currentPoint = theEvent->location;
+
+    // convert location from window base coordinates to our coordinates
+    [self convertPoint:&currentPoint fromView:nil];
+
+    // get user cursor line and column
+    [self convertPoint:&currentPoint toLine:&userCursorLine col:&userCursorCol];
+    lastLine = userCursorLine; lastCol = userCursorCol;
+
+    // set up drawing context and draw user cursor
+    [self lockFocus];
+    PSsetinstance(YES);         // turn on instance drawing
+
+    // Allow any caller which creates new instances for drawing via PSnewinstance() determine if the
+    // user cursor should be redrawn, since calls to PSnewinstance() will erase all previous instance
+    // drawing. An example would be blinking-cursor drawing in timed-entries. They would require to
+    // create new instances via PSnewinstance() to erase all previous instance drawing, and would 
+    // therefore require to know if the user cursor should be redrawn as a result of the 
+    // PSnewinstance() invocation (this is exactly the case in the Page subclass).
+    userCursorOnScreen = YES;
+    [self showUserCursorAt:userCursorLine :userCursorCol];
+
+    // send mouseDownAction on mouse down
+    [self sendAction:mouseDownAction to:mouseDownTarget];
+
+    while (nextEvent->type != NX_LMOUSEUP) {   // main event processing loop
+	nextEvent = [NXApp getNextEvent:(NX_LMOUSEUPMASK |
+					 NX_LMOUSEDRAGGEDMASK |
+//					 NX_KEYDOWNMASK |
+//					 NX_KEYUPMASK |
+					 NX_RMOUSEDOWNMASK |
+					 NX_RMOUSEUPMASK)];
+
+	// update last and current point
+	lastPoint = currentPoint;
+	currentPoint = nextEvent->location;
+
+	// convert location from window base coordinates to our coordinates
+	[self convertPoint:&currentPoint fromView:nil];
+
+	switch (nextEvent->type) {
+	  case NX_LMOUSEDRAGGED:
+	    [self convertPoint:&currentPoint toLine:&userCursorLine col:&userCursorCol];
+	    if (lastLine != userCursorLine || lastCol != userCursorCol) {   // only draw if @@ new loc.
+		lastLine = userCursorLine; lastCol = userCursorCol;
+		PSnewinstance();   // erase all instance drawing, so previous user cursor disappears
+		[self showUserCursorAt:userCursorLine :userCursorCol];
+		[self sendAction:mouseDragAction to:mouseDragTarget];
+	    }
+
+	    // Check the click space for single clicks during dragging. Now, if the user presses
+	    // the right mouse button, drags the mouse, and returns to the location of the first
+	    // right mouse down, then releases the right mouse button, we will detect that the
+	    // click space between the mouse dragged locations and the first right mouse down
+	    // location is outside the valid click space. As a result, the single click should not
+	    // be recognized. See the documentation under "case: NX_RMOUSEUP" for more details.
+	    
+	    // This may seem kind of convoluted (because it is) but if rightMouseDown is not equal
+	    // to 0 then it CURRENTLY hold the number of right mouse downs that have occurred in
+	    // rapid succession LESS ONE. We anticipated the next mouse down in "case
+	    // NX_RMOUSEDOWN". This is due to the NeXTSTEP event system feature mentioned
+	    // throughout.
+	    
+	    if (rightMouseDown == 2 &&
+		(DIFF(nextEvent->location.x, firstRMouseDownEvent.location.x) > area.width ||
+		 DIFF(nextEvent->location.y, firstRMouseDownEvent.location.y) > area.height)) {
+		
+		validClickSpace = NO;
+	    }
+	    break;
+
+	  case NX_RMOUSEDOWN:
+
+	    // If the event structure field data.mouse.click == 1, then just ignore it, since so
+	    // far it is considered a single click, and will be identified when the corresponding
+	    // right mouse up occurs. Note that if the event structure field data.mouse.click ==
+	    // 2, then the corresponding right mouse up event is yet to come. When it does come,
+	    // the event structure field data.mouse.click will == 2 (or 1 if there was a delay in
+	    // letting the right mouse button up). We therefore need to indicate that the next
+	    // mouse up received should be thrown away, since it no longer serves a purpose. When
+	    // the right mouse up does occur, examining the variable doubleClick will allow case
+	    // NX_RMOUSEUP to determine if it should process the event or throw it away. Also, the
+	    // rightMouseDown check disallows a double click resulting from the first left mouse
+	    // down followed by a right mouse down in rapid succession.
+
+	    // remember first right mouse down event for checking click space, and click time, and
+	    // assume valid click space initially
+	    firstRMouseDownEvent = *nextEvent;
+	    validClickSpace = YES;
+
+	    if (rightMouseDown) {   // must have at least one right mouse down (NeXTSTEP feature)
+		if (nextEvent->data.mouse.click == 2 || (nextEvent->data.mouse.click == 3 && 
+							 rightMouseDown == 2)) {
+		    [self sendAction:doubleClickAction to:doubleClickTarget];
+		    rightMouseDown = (rightMouseDown > 2 ? rightMouseDown : 3);
+		    doubleClick = YES;
+		} else if (nextEvent->data.mouse.click > 2) {   // disguise so single click is not
+		    doubleClick = YES;                          // recognized since > 2 clicks
+		}
+	    } else {   // for second occurrence of NX_MOUSEDOWN (anticipation)
+		rightMouseDown = 2;
+	    }
+	    break;
+
+	  case NX_RMOUSEUP:
+
+	    // If doubleClick is true, then this right mouse up was part of a double click that
+	    // has already been processed. Therefore, just ignore the event, and reset the
+	    // doubleClick variable to NO.
+
+	    if (doubleClick) {
+		doubleClick = NO;
+		break;
+	    }
+
+	    // If the event structure field data.mouse.click == 2, then this is the right mouse up
+	    // which matches the right mouse down which previously resulted in a double click. We
+	    // just ignore it, since it no longer serves a purpose. Note that this event could
+	    // also be the first right mouse up, but may register with # clicks == 2 since its
+	    // corresponding right mouse down occurred immediately after the first left mouse down
+	    // which initiated the tracking session (NeXTSTEP feature). In this later case the 
+	    // event should trigger the action for a single click.
+
+	    if (nextEvent->data.mouse.click < 2 || firstRMouseUp) {
+
+		// If a right mouse down does not occur within the required time OR a right mouse
+		// down DOES occur within the required time, but the event structure field
+		// data.mouse.click == 1, then we know we currently have a single click. Even
+		// though we have a single click, we still need to check that the click is valid
+		// based on the single-click click space. If the click space is valid then we
+		// have a valid single click. If any of the above conditions are not satisfied,
+		// then we just leave the event in the queue, since we have a double mouse click,
+		// which will be handled in the case NX_RMOUSEDOWN.
+
+		// Note, normal click-space detection is handled by the NeXTSTEP event system for
+		// events where the number of clicks is greater than 1. Here, we must handle it
+		// ourselves since we act on the UP click rather than the DOWN click for single
+		// click events, in order to be able to detect and act on double clicks INSTEAD.
+		// The NeXTSTEP event system strings these click detections together, so that a
+		// triple click, for example, is composed of a triple, double, and single click
+		// -- and all are acted upon, in the order they are encountered. This is different
+		// from what we require, and is the reason why we check the click space for single
+		// clicks.
+
+		tempEvent = [NXApp peekNextEvent:(NX_RMOUSEDOWNMASK) 
+				   into:&eventPtr
+				   waitFor:NXClickTime(eventHandle) 
+				   threshold:NX_MODALRESPTHRESHOLD];
+		if (!tempEvent || tempEvent->data.mouse.click == 1) {
+
+		    // we have a single click, but check click space and click time
+		    if (validClickSpace &&
+			DIFF(nextEvent->location.x, firstRMouseDownEvent.location.x) <= area.width &&
+			DIFF(nextEvent->location.y, firstRMouseDownEvent.location.y) <= area.height &&
+			DIFF(nextEvent->time, firstRMouseDownEvent.time) <=
+			(long)(NXClickTime(eventHandle) * VRETRACE_PSEC)) {
+
+			// single click is valid since it is within click space
+			[self sendAction:singleClickAction to:singleClickTarget];
+		    }
+		}
+	    }
+	    firstRMouseUp = NO;
+	    break;
+
+	  case NX_KEYDOWN:
+	    // later
+	    break;
+
+	  case NX_KEYUP:
+	    // later
+	    break;
+
+	  case NX_LMOUSEUP:
+	    [self sendAction:mouseUpAction to:mouseUpTarget];		    
+	    break;
+
+	  default:
+	    break;
+	}
+    }
+    userCursorOnScreen = NO;   // user cursor should no longer appear on screen since left mouse up
+    PSnewinstance();           // erase instance drawing so user cursor disappears
+    PSsetinstance(NO);         // turn off instance drawing
+    [self unlockFocus];
+    [window setEventMask:oldMask];
+    return self;
+}
+
+
+/* CURSOR RELATED METHODS */
+
+
+/* Converts a point within the text view's coordinated system to a line and column equivalent. Returns
+ * self.
+ */
+- convertPoint:(NXPoint *)aPoint toLine:(int *)line col:(int *)col
+{
+    NXCoord lMgn, rMgn, tMgn, bMgn;
+
+    [self getMarginLeft:&lMgn right:&rMgn top:&tMgn bottom:&bMgn];
+    *line = (aPoint->y - bounds.origin.y - tMgn) / [self lineHeight] + 1;
+    *col = (aPoint->x - bounds.origin.x - lMgn) / charWidth + 1;
+    return self;
+}
+
+/* Shows the user cursor at the specified location. Returns self. */
+- showUserCursorAt:(int)line :(int)col
+{
+    NXCoord lMgn, rMgn, tMgn, bMgn;
+    NXPoint userCursorLoc;
+
+    [self getMarginLeft:&lMgn right:&rMgn top:&tMgn bottom:&bMgn];
+    userCursorLoc.x = (col - 1) * charWidth + lMgn + bounds.origin.x;
+    userCursorLoc.y = line * [self lineHeight] + tMgn + bounds.origin.y;
+    [userCursor composite:NX_SOVER toPoint:&userCursorLoc];
+
+    // set userCursorLine and userCursorCol instance variables
+    userCursorLine = line;
+    userCursorCol = col;
+
+    return self;
+}
+
+/* Shows the user cursor at the last shown line and column ONLY if userCursorOnScreen is YES. We draw
+ * the user cursor at the locations specified in the instance variables userCursorLine, and 
+ * userCursorCol. Returns self.
+ */
+- showUserCursor
+{
+    NXPoint userCursorLoc;
+    NXCoord lMgn, rMgn, tMgn, bMgn;
+
+    if (userCursorOnScreen) {   // only draw if the user cursor is supposed to be on screen
+	[self getMarginLeft:&lMgn right:&rMgn top:&tMgn bottom:&bMgn];
+	userCursorLoc.x = (userCursorCol - 1) * charWidth + lMgn + bounds.origin.x;
+	userCursorLoc.y = userCursorLine * [self lineHeight] + tMgn + bounds.origin.y;
+	[userCursor composite:NX_SOVER toPoint:&userCursorLoc];	
+    }
+    return self;
+}
+
+/* PERFORM ACTION METHODS */
+
+
+/* Sends a sendAction:to:from: message to NXApp, which in turn sends a message to theTarget to perform
+ * theAction. sendAction:to:from: adds the ActionText (or calling subclass) as theAction's only 
+ * argument. If theAction is NULL, no message is sent. If theTarget is nil, NXApp looks for an object 
+ * that can respond to the message by following the responder chain, as detailed in the Class 
+ * Description of Control. Returns nil if no object that responds to theAction could be found; 
+ * otherwise returns self.
+ */
+- sendAction:(SEL)theAction to:theTarget
+{
+    if (theAction != (SEL)0) {   // send the action
+	[NXApp sendAction:theAction to:theTarget from:self];
+    }
+    return self;
+}
+
+
+/* TARGET/ACTION METHODS */
+
+
+- setMouseDownTarget:anObject action:(SEL)anAction
+{
+    mouseDownTarget = anObject;
+    mouseDownAction = anAction;
+    return self;
+}
+
+- setMouseDragTarget:anObject action:(SEL)anAction
+{
+    mouseDragTarget = anObject;
+    mouseDragAction = anAction;
+    return self;
+}
+
+- setMouseUpTarget:anObject action:(SEL)anAction
+{
+    mouseUpTarget = anObject;
+    mouseUpAction = anAction;
+    return self;
+}
+
+- setSingleClickTarget:anObject action:(SEL)anAction
+{
+    singleClickTarget = anObject;
+    singleClickAction = anAction;
+    return self;
+}
+
+- setDoubleClickTarget:anObject action:(SEL)anAction
+{
+    doubleClickTarget = anObject;
+    doubleClickAction = anAction;
+    return self;
+}
+
+- mouseDownTarget
+{
+    return mouseDownTarget;
+}
+
+- (SEL)mouseDownAction
+{
+    return mouseDownAction;
+}
+
+- mouseDragTarget
+{
+    return mouseDragTarget;
+}
+
+- (SEL)mouseDragAction
+{
+    return mouseDragAction;
+}
+
+- mouseUpTarget
+{
+    return mouseUpTarget;
+}
+
+- (SEL)mouseUpAction
+{
+    return mouseUpAction;
+}
+
+- singleClickTarget
+{
+    return singleClickTarget;
+}
+
+- (SEL)singleClickAction
+{
+    return singleClickAction;
+}
+
+- doubleClickTarget
+{
+    return doubleClickTarget;
+}
+
+- (SEL)doubleClickAction
+{
+    return doubleClickAction;
+}
+
+
+/* SET METHODS */
+
+
+- setUserCursorLine:(int)line
+{
+    userCursorLine = line;
+    return self;
+}
+
+- setUserCursorCol:(int)col
+{
+    userCursorCol = col;
+    return self;
+}
+
+- setUserCursorOnScreen:(BOOL)flag
+{
+    userCursorOnScreen = flag;
+    return self;
+}
+
+
+/* QUERY METHODS */
+
+
+- (NXCoord)charWidth
+{
+    return charWidth;
+}
+
+/* If the user cursor is not currently on screen this method returns it's last known line. */
+- (int)userCursorLine
+{
+    return userCursorLine;
+}
+
+/* If the user cursor is not currently on screen this method returns it's last known column. */
+- (int)userCursorCol
+{
+    return userCursorCol;
+}
+
+- (BOOL)userCursorOnScreen
+{
+    return userCursorOnScreen;
+}
+
+@@end
+@
+
+
+1.4
+log
+@*** empty log message ***
+@
+text
+@d7 1
+a7 1
+ *    LastEditDate was "Thu Sep  2 17:38:44 1993"
+d9 1
+a9 1
+ * $Id: ActionText.m,v 1.3 1993/08/24 02:08:33 dale Exp $
+d12 3
+@
+
+
+1.3
+log
+@*** empty log message ***
+@
+text
+@d7 1
+a7 1
+ *    LastEditDate was "Fri Jul 23 12:44:42 1993"
+d9 1
+a9 1
+ * $Id: ActionText.m,v 1.2 1993/07/23 07:32:18 dale Exp $
+d12 3
+d28 12
+d102 8
+a109 5
+    NXPoint lastPoint, currentPoint;
+    NXEvent *nextEvent, *tempEvent, eventPtr;
+    BOOL doubleClick = NO;
+    BOOL firstRMouseUp = YES;
+    int rightMouseDown = 0;
+d165 20
+d190 3
+a192 3
+	    // far it is considered a single click, and will be identified when the corresponding 
+	    // right mouse up occurs. Note that if the event structure field data.mouse.click == 
+	    // 2, then the corresponding right mouse up event is yet to come. When it does come, 
+d198 1
+a198 1
+	    // rightMouseDown check disallows a double click resulting from the first left mouse 
+d201 5
+d215 1
+a215 1
+	    } else {   // for second occurrence of NX_MOUSEDOWN
+d242 17
+a258 4
+		// down DOES occur within the required time, but the event structure field 
+		// data.mouse.click == 1, then we have s single click. If these conditions are not
+		// satisfied, then we just leave the event in the queue, since we have a double 
+		// mouse click, which will be handled in the case NX_RMOUSEDOWN.
+d264 12
+a275 2
+		if (!tempEvent || tempEvent->data.mouse.click == 1) {   // we have a single click
+		    [self sendAction:singleClickAction to:singleClickTarget];
+@
+
+
+1.2
+log
+@*** empty log message ***
+@
+text
+@d7 1
+a7 1
+ *    LastEditDate was "Wed Jul 14 18:07:02 1993"
+d9 1
+a9 1
+ * $Id: ActionText.m,v 1.1 1993/07/14 22:11:48 dale Exp $
+d12 3
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d7 1
+a7 1
+ *    LastEditDate was "Tue Jul 13 16:04:32 1993"
+d9 1
+a9 1
+ * $Id$
+d11 4
+a14 1
+ * $Log$
+d89 1
+a89 1
+    int lastRow, lastCol, oldMask;
+d100 3
+a102 3
+    // get user cursor row and column
+    [self convertPoint:&currentPoint toRow:&userCursorRow col:&userCursorCol];
+    lastRow = userCursorRow; lastCol = userCursorCol;
+d115 1
+a115 1
+    [self showUserCursorAt:userCursorRow :userCursorCol];
+d117 1
+a117 1
+    // send mouseDownAction on mouse down and action for drag
+a118 1
+    [self sendAction:mouseDragAction to:mouseDragTarget];
+d137 3
+a139 3
+	    [self convertPoint:&currentPoint toRow:&userCursorRow col:&userCursorCol];
+	    if (lastRow != userCursorRow || lastCol != userCursorCol) {   // only draw if @@ new loc.
+		lastRow = userCursorRow; lastCol = userCursorCol;
+d141 1
+a141 1
+		[self showUserCursorAt:userCursorRow :userCursorCol];
+d146 2
+d240 1
+a240 1
+/* Converts a point within the text view's coordinated system to a row and column equivalent. Returns
+d243 1
+a243 1
+- convertPoint:(NXPoint *)aPoint toRow:(int *)row col:(int *)col
+d248 1
+a248 1
+    *row = (aPoint->y - bounds.origin.y - tMgn) / [self lineHeight] + 1;
+d254 1
+a254 1
+- showUserCursorAt:(int)row :(int)col
+d261 1
+a261 1
+    userCursorLoc.y = row * [self lineHeight] + tMgn + bounds.origin.y;
+d264 2
+a265 2
+    // set userCursorRow and userCursorCol instance variables
+    userCursorRow = row;
+d271 2
+a272 2
+/* Shows the user cursor at the last shown row and column ONLY if userCursorOnScreen is YES. We draw
+ * the user cursor at the locations specified in the instance variables userCursorRow, and 
+d283 1
+a283 1
+	userCursorLoc.y = userCursorRow * [self lineHeight] + tMgn + bounds.origin.y;
+d400 1
+a400 1
+- setUserCursorRow:(int)row
+d402 1
+a402 1
+    userCursorRow = row;
+d427 2
+a428 2
+/* If the user cursor is not currently on screen this method returns it's last known row. */
+- (int)userCursorRow
+d430 1
+a430 1
+    return userCursorRow;
+@

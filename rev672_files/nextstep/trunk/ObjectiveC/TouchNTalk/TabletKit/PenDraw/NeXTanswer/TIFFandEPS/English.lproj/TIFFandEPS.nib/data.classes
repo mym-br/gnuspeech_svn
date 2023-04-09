@@ -1,0 +1,40 @@
+ImageReader = {
+    ACTIONS = {
+	openRequest:;
+	selectCompression:;
+	saveRequest:;
+	selectFormat:;
+    };
+    OUTLETS = {
+	JPEGlabel;
+	compressionType;
+	DPIvalue;
+	accessoryWindow;
+	JPEGvalue;
+	formatMatrix;
+	DPIpopup;
+    };
+    SUPERCLASS = Object;
+};
+FirstResponder = {
+    ACTIONS = {
+    };
+    SUPERCLASS = Object;
+};
+ImageView = {
+    OUTLETS = {
+	epsImage;
+    };
+    SUPERCLASS = View;
+};
+PopAndForm = {
+    ACTIONS = {
+	newValue:;
+	enableForm:;
+    };
+    OUTLETS = {
+	popup;
+	formcell;
+    };
+    SUPERCLASS = Object;
+};

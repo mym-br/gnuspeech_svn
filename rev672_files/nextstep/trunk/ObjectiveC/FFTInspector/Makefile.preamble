@@ -1,0 +1,5 @@
+#BUNDLELDFLAGS = -x -sectcreate __ICON __header bundle.registry
+BUNDLELDFLAGS = -sectcreate __ICON __header bundle.registry
+OTHER_PRODUCT_DEPENDS = bundle.registry
+#this should work, but doesn't
+#OTHER_LDFLAGS = -x

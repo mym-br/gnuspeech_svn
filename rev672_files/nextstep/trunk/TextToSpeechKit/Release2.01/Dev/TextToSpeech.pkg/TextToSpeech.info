@@ -1,0 +1,9 @@
+Title		Developer TextToSpeech Kit.
+Version		Release 2.01
+Description	Developer Text-To-Speech system for the NeXT and Intel Computers by Trillium Sound Research Inc.
+DefaultLocation /
+DiskName	TextToSpeech#%d
+Relocatable	NO
+Application	NO
+LongFileNames	YES
+UseUserMask	NO

@@ -1,0 +1,523 @@
+{\rtf0\ansi{\fonttbl\f0\fnil Times-Roman;\f2\fmodern Courier;\f1\fmodern Ohlfs;}
+\paperw12240
+\paperh15380
+\margl1800
+\margr1800
+\pard\tx1140\tx2280\tx3420\tx4560\tx5700\tx6840\tx7980\f0\b0\i0\ulnone\fs72\fc0\cf0 Chapter 4\
+\
+
+\fs96 Class Summary\
+\
+
+\fs28 \
+
+\b\fs36 TextToSpeech\
+
+\b0\fs28 \
+Inherits from:		Object\
+Declared in:                  	<TextToSpeech/TextToSpeech.h>\
+Library:                    	libTextToSpeech.a  \
+\
+\
+
+\b\fs36 4.1  Instance Variables\
+
+\b0\fs28 \
+
+\i Inherited from Object
+\i0 	Class	isa;\
+
+\i Declared in TextToSpeech
+\i0 	int	SpeechIdentifier;\
+			float	serverVersionNumber;\
+			port_t	outPort;\
+			port_t	localPort;\
+			task_t	serverTaskPort;\
+			float	sampleRate;\
+			int	channels;\
+			float	balance;\
+			float	speed;\
+			int	intonation;\
+			int	voiceType;\
+			float	pitchOffset;\
+			float	vtlOffset;\
+			float	breathiness;\
+			float	volume;\
+			short	*dictionaryOrder;\
+			char	*appDictPath;\
+			char	*userDictPath;\
+			char	escapeCharacter;\
+			int	block;\
+			int	softwareSynthesizer;\
+			char	*version;\
+			char	*dictVersion;\
+			char	*tts_p;\
+			char	*tts_lp;\
+			char	*streamMem;\
+			char	*localBuffer;\
+\
+\
+Note:  These instance variables are private to the TextToSpeech class and cannot be directly changed by any subclass.  Since these variables are copies of values in the Server, subclasses should set and get these values by sending the proper message to super, which either sets or retrieves the values in the TTS_Server task.\
+\
+\
+
+\b\fs36 4.2  Method Types\
+
+\b0\fs28 \
+
+\b\fs32 4.2.1  Creating and Freeing the Object\
+
+\b0\fs28 \
+
+\b + alloc
+\b0 \
+
+\b + allocFromZone:
+\b0 (NXZone *)
+\i zone
+\i0 \
+
+\b ± init
+\b0 \
+
+\b ± free
+\b0 \
+\
+
+\b\fs32 4.2.2  Voice Quality Methods\
+
+\b0\fs28 \
+± (tts_error_t)
+\b setOutputSampleRate:
+\b0 (float)
+\i rateValue
+\b\i0 \
+
+\b0 ± (float)
+\b outputSampleRate\
+
+\b0 ± (tts_error_t)
+\b setNumberChannels:
+\b0 (int)
+\i channelsValue
+\b\i0 \
+
+\b0 ± (int)
+\b numberChannels\
+± 
+\b0 (tts_error_t)
+\b setBalance:
+\b0 (float)
+\i balanceValue
+\i0 \
+
+\b ± 
+\b0 (float)
+\b balance\
+±
+\b0  (tts_error_t)
+\b setSpeed:
+\b0 (float)
+\i speedValue
+\i0 \
+
+\b ± 
+\b0 (float)
+\b speed
+\b0 \
+
+\b ±
+\b0  (tts_error_t)
+\b setIntonation:
+\b0 (int)
+\i intonationMask
+\i0 \
+
+\b ± 
+\b0 (int)
+\b intonation
+\b0 \
+
+\b ± 
+\b0 (tts_error_t)
+\b setVoiceType:
+\b0 (int)
+\i voiceType
+\i0 \
+
+\b ± 
+\b0 (int)
+\b voiceType
+\b0 \
+
+\b ± 
+\b0 (tts_error_t)s
+\b etPitchOffset:
+\b0 (float)
+\i offsetValue
+\i0 \
+
+\b ± 
+\b0 (float)
+\b pitchOffset\
+
+\b0 ± (tts_error_t)
+\b setVocalTractLengthOffset:
+\b0 (float)
+\i offsetValue
+\b\i0 \
+
+\b0 ± (float)
+\b vocalTractLengthOffset\
+
+\b0 ± (tts_error_t)
+\b setBreathiness:
+\b0 (float)
+\i breathinessValue
+\b\i0 \
+
+\b0 ± (float)
+\b breathiness;
+\b0 \
+
+\b ± 
+\b0 (tts_error_t)
+\b setVolume:
+\b0 (float)
+\i volumeLevel
+\i0 \
+
+\b ± 
+\b0 (float)
+\b volume
+\b0 \
+\
+
+\b\fs32 4.2.3  Dictionary Control Methods\
+
+\b0\fs28 \
+
+\b ± 
+\b0 (tts_error_t)
+\b setDictionaryOrder:
+\b0 (const short *)
+\i order
+\i0 \
+
+\b ± 
+\b0 (const short *)
+\b dictionaryOrder
+\b0 \
+
+\b ± 
+\b0 (tts_error_t)
+\b setAppDictPath:
+\b0 (const char *)
+\i path
+\i0 \
+
+\b ± 
+\b0 (const char *)
+\b appDictPath
+\b0 \
+
+\b ± 
+\b0 (tts_error_t)
+\b setUserDictPath:
+\b0 (const char *)
+\i path
+\i0 \
+
+\b ± 
+\b0 (const char *)
+\b userDictPath
+\b0 \
+\
+
+\b\fs32 4.2.4  Text Input Methods\
+
+\b0\fs28 \
+
+\b ± 
+\b0 (tts_error_t)
+\b speakText:
+\b0 (const char *)
+\i text\
+± 
+\i0 (tts_error_t)
+\b speakText:
+\b0 (const char *)
+\i text 
+\b\i0 toFile:
+\b0 (const char *)
+\i path
+\i0 \
+
+\b ± 
+\b0 (tts_error_t)
+\b speakStream:
+\b0 (NXStream *)
+\i stream
+\i0 \
+
+\b ± 
+\b0 (tts_error_t)
+\b speakStream:
+\b0 (NXStream *)
+\i stream
+\b\i0 \
+                           toFile:
+\b0 (const char *)
+\i path
+\b\i0 \
+± 
+\b0 (tts_error_t)
+\b setEscapeCharacter:
+\b0 (char)
+\i character
+\i0 \
+
+\b ± 
+\b0 (char)
+\b escapeCharacter
+\b0 \
+
+\b ± 
+\b0 (tts_error_t)
+\b setBlock:
+\b0 (BOOL)
+\i flag
+\i0 \
+
+\b ± 
+\b0 (BOOL)
+\b block\
+
+\b0 ± (tts_error_t)
+\b setSoftwareSynthesizer:
+\b0 (BOOL)
+\i flag
+\b\i0 \
+
+\b0 ± (BOOL)
+\b softwareSynthesizer
+\b0 \
+\
+
+\b\fs32 4.2.5  Real-Time Methods\
+
+\b0\fs28 \
+
+\b ± 
+\b0 (tts_error_t)
+\b pauseImmediately
+\b0 \
+
+\b ± 
+\b0 (tts_error_t)
+\b pauseAfterCurrentUtterance
+\b0 \
+
+\b ± 
+\b0 (tts_error_t)
+\b continue
+\b0 \
+
+\b ± 
+\b0 (tts_error_t)
+\b eraseAllSound
+\b0 \
+
+\b ± 
+\b0 (tts_error_t)
+\b eraseCurrentUtterance
+\b0 \
+\
+
+\b\fs32 4.2.6  Version Query Methods\
+
+\b0\fs28 \
+
+\b ± 
+\b0 (const char *)
+\b serverVersion
+\b0 \
+
+\b ± 
+\b0 (const char *)
+\b dictionaryVersion
+\b0 \
+\
+
+\b\fs32 4.2.7  Error Reporting Methods\
+
+\b0\fs28 \
+
+\b ± 
+\b0 (const char *)
+\b errorMessage:
+\b0 (tts_error_t)
+\i errorNumber
+\i0 \
+\
+
+\b\fs32 4.2.8  Archiving Methods\
+
+\b0\fs28 \
+
+\b ± read:
+\b0 (NXTypedStream *)
+\i stream
+\i0 \
+
+\b ± write:
+\b0 (NXTypedStream *)
+\i stream
+\i0 \
+
+\b ± awake
+\b0 \
+\
+\
+
+\b\fs36 4.3  Constants and Defined Types\
+
+\b0\fs28 \
+
+\f2\fs24 /*  Error return typedef  */\
+typedef int tts_error_t;\
+\
+\
+/*  Error Return Codes from the TextToSpeech Object  */\
+#define TTS_SERVER_HUNG                 (-2)\
+#define TTS_SERVER_RESTARTED            (-1)\
+#define TTS_OK                          0\
+#define TTS_OUT_OF_RANGE                1\
+#define TTS_SPEAK_QUEUE_FULL            2\
+#define TTS_PARSE_ERROR                 3\
+#define TTS_ALREADY_PAUSED              4\
+#define TTS_UTTERANCE_ERASED            5\
+#define TTS_NO_UTTERANCE                6\
+#define TTS_NO_FILE                     7\
+#define TTS_WARNING                     8\
+#define TTS_ILLEGAL_STREAM              9\
+#define TTS_INVALID_PATH                10\
+#define TTS_OBSOLETE_SERVER             11\
+#define TTS_DSP_TOO_SLOW                12\
+#define TTS_SAMPLE_RATE_TOO_LOW         13\
+\
+\
+/*  Output Sample Rate Definitions  */\
+#define TTS_SAMPLE_RATE_LOW             22050.0\
+#define TTS_SAMPLE_RATE_HIGH            44100.0\
+#define TTS_SAMPLE_RATE_DEF             22050.0\
+\
+\
+/*  Number Channels Definitions  */\
+#define TTS_CHANNELS_1                  1\
+#define TTS_CHANNELS_2                  2\
+#define TTS_CHANNELS_DEF                2\
+\
+\
+/*  Stereo Balance Definitions  */\
+#define TTS_BALANCE_MIN                 (-1.0)\
+#define TTS_BALANCE_MAX                 1.0\
+#define TTS_BALANCE_DEF                 0.0\
+#define TTS_BALANCE_LEFT                (-1.0)\
+#define TTS_BALANCE_RIGHT               1.0\
+#define TTS_BALANCE_CENTER              0.0\
+\
+\
+/*  Speed Control Definitions  */\
+#define TTS_SPEED_MIN                   0.2\
+#define TTS_SPEED_MAX                   2.0\
+#define TTS_SPEED_DEF                   1.0\
+#define TTS_SPEED_FAST                  1.5\
+#define TTS_SPEED_NORMAL                1.0\
+#define TTS_SPEED_SLOW                  0.5\
+\
+\
+/*  Intonation Definitions  */\
+#define TTS_INTONATION_DEF              0x1f\
+#define TTS_INTONATION_NONE             0x00\
+#define TTS_INTONATION_MICRO            0x01\
+#define TTS_INTONATION_MACRO            0x02\
+#define TTS_INTONATION_DECLIN           0x04\
+#define TTS_INTONATION_CREAK            0x08\
+#define TTS_INTONATION_RANDOMIZE        0x10\
+#define TTS_INTONATION_ALL              0x1f\
+\
+\
+/*  Voice Type Definitions  */\
+#define TTS_VOICE_TYPE_DEF              0\
+#define TTS_VOICE_TYPE_MALE             0\
+#define TTS_VOICE_TYPE_FEMALE           1\
+#define TTS_VOICE_TYPE_LARGE_CHILD      2\
+#define TTS_VOICE_TYPE_SMALL_CHILD      3\
+#define TTS_VOICE_TYPE_BABY             4\
+\
+\
+/*  Pitch Offset Definitions  */\
+#define TTS_PITCH_OFFSET_MIN            (-12.0)\
+#define TTS_PITCH_OFFSET_MAX            12.0\
+#define TTS_PITCH_OFFSET_DEF            0.0\
+\
+\
+/*  Vocal Tract Length Offset Definitions  */\
+#define TTS_VTL_OFFSET_MIN              (-3.0)\
+#define TTS_VTL_OFFSET_MAX              3.0\
+#define TTS_VTL_OFFSET_DEF              0.0\
+\
+\
+/*  Breathiness Definitions  */\
+#define TTS_BREATHINESS_MIN             0.0\
+#define TTS_BREATHINESS_MAX             10.0\
+#define TTS_BREATHINESS_DEF             0.5\
+\
+\
+/*  Volume Level Definitions  */\
+#define TTS_VOLUME_MIN                  0.0\
+#define TTS_VOLUME_MAX                  60.0\
+#define TTS_VOLUME_DEF                  60.0\
+#define TTS_VOLUME_LOUD                 60.0\
+#define TTS_VOLUME_MEDIUM               54.0\
+#define TTS_VOLUME_SOFT                 48.0\
+#define TTS_VOLUME_OFF                  0.0\
+\
+\
+/*  Dictionary Ordering Definitions  */\
+#define TTS_EMPTY                       0\
+#define TTS_NUMBER_PARSER               1\
+#define TTS_USER_DICTIONARY             2\
+#define TTS_APPLICATION_DICTIONARY      3\
+#define TTS_MAIN_DICTIONARY             4\
+#define TTS_LETTER_TO_SOUND             5\
+\
+\
+/*  Escape Character Definition  */\
+#define TTS_ESCAPE_CHARACTER_DEF        0x1B\
+\
+\
+/*  TTS NXDefaults Definitions  */\
+#define TTS_NXDEFAULT_OWNER             "TextToSpeech"\
+#define TTS_NXDEFAULT_SAMPLE_RATE       "sampleRate"\
+#define TTS_NXDEFAULT_CHANNELS          "channels"\
+#define TTS_NXDEFAULT_BALANCE           "balance"\
+#define TTS_NXDEFAULT_SPEED             "speed"\
+#define TTS_NXDEFAULT_INTONATION        "intonation"\
+#define TTS_NXDEFAULT_VOICE_TYPE        "voiceType"\
+#define TTS_NXDEFAULT_PITCH_OFFSET      "pitchOffset"\
+#define TTS_NXDEFAULT_VTL_OFFSET        "vtlOffset"\
+#define TTS_NXDEFAULT_BREATHINESS       "breathiness"\
+#define TTS_NXDEFAULT_VOLUME            "volume"\
+#define TTS_NXDEFAULT_USER_DICT_PATH    "userDictPath"\
+\
+\
+/*  TTS Defines for server access  */\
+#define TTS_NXDEFAULT_ROOT_USER         "root"\
+#define TTS_NXDEFAULT_SYSTEM_PATH       "systemPath"\
+#define TTS_SERVER_NAME                 "TTS_Server"\
+#define TTS_CLIENT_SLOTS_MAX            50\
+\
+
+}

@@ -1,0 +1,24 @@
+# The info file for the GrooveSlider package.
+
+# These are the fields that will be displayed in the Info view.
+Title                  GrooveSlider
+Version                0.1 July 25, 1994
+Description            The GrooveSlider consists of a groove slider palette and library. The groove slider differs from the basic NEXTSTEP slider in that slider state values are not important. Rather, the net change between two arbitrary positions is used to specify the amount of movement.
+
+# These fields determine where the installed package will go.
+DefaultLocation        /
+Relocatable            NO
+
+# This field is a pattern that matches the floppy disk labels
+DiskName               GrooveSlider%d
+
+# This field states whether the package is a NeXTSTEP application
+Application            NO
+
+# User is prompted with this field before deleting the package.
+DeleteWarning          Deleting this package will cause applications which use the GrooveSlider palette and library to stop working.
+
+# This field determines permissions for directories created during installation
+UseUserMask		NO
+
+# end of GrooveSlider.info

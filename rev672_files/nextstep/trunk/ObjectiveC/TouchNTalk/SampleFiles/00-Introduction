@@ -1,0 +1,463 @@
+Release 3.2  Copyright ã1993 by NeXT Computer, Inc.  All Rights Reserved.
+
+
+
+
+Introduction
+
+
+
+
+
+
+
+
+This manual describes the application programming interface (API) for the NEXTSTEPädevelopment environment.  It's part of a collection of manuals called the NEXTSTEP Developer's Library, which offer assistance to developers creating applications for NEXTSTEP computers.  Some of the other manuals in the library are listed on the back cover.
+
+The two volumes of the General Reference provide detailed descriptions of all the NEXTSTEP software kits and of all the classes, functions, operators, and other programming elements that make up the API.  The first volume covers the root Object class, Application Kitä, and other common classes and functions.  The second volume covers more specialized kits, like Database Kitä, and 3D Graphics Kitä.  Most programmers will use the Application Kit and one or more of the other kits, depending on the kind of application they're developing.
+
+The information in these volumes is supplemented by on-line release notes (in the /NextLibrary/Documentation/NextDev/ReleaseNotes directory) that you can access through the Digital Librarian application.  The release notes provide last-minute information about the latest release of the software.
+
+The Mach operating system is documented in another Developer's Library manual, NEXTSTEP Operating System Software.  For the most part, you don't have to be familiar with Mach to use the Application Kit and other software documented here.
+
+However, this manual does assume that you're familiar with the NEXTSTEP user interface, with the C programming language, and with the Objective C extensions to C.  Objective C is documented in NEXTSTEP Object-Oriented Programming and Objective C.  The user interface is described and explained in NEXTSTEP User Interface Guidelines.
+
+
+
+
+
+
+Using Documented API
+
+
+The API described in this manual provides all the functionality you need to make full use of NEXTSTEP software.  If you have questions about using the API, this documentation and the NeXT Technical Support Department can help you use it correctly.  If a feature in the API doesn't work as described, it's considered a bug which NeXT will work to fix.  If API features change in future releases, these changes will be described in on-line release notes and printed documentation.
+
+Undocumented features are not part of the API.  If you use undocumented features, you run several risks.  First, your application may be unreliable, because undocumented features won't work the way you expect them to in all cases.  Second, NeXT Technical Support can't provide full assistance in fixing problems that arise, other than to recommend that you use documented API.  Finally, your application may be incompatible with future releases, since undocumented features can and will change without notice.
+
+
+
+
+
+
+Precompiled Header Files
+
+
+Throughout this manual, you'll find cross references to the header files where NEXTSTEP API is declared.  All these header files are located in subdirectories of the /NextDeveloper/Headers directory.
+
+When programming, you typically import the header files that declare the API you're using.  For example, to use the NXBrowser class, you'd import NXBrowser.h:
+
+#import <appkit/NXBrowser.h>
+
+However, for most of NEXTSTEP API, there's a simpler and more efficient path.  Some of the software kits have a master header file that imports all the other header files required by that kit.  Matched to the master header file is a parsed and precompiled version of all the header files it directly or indirectly includes.  By importing the master file, you get the header files in their precompiled form.  This saves the compiler several steps, and a great deal of time.  It's much more efficient than importing individual header files for each part of the API you use.
+
+The following table lists the master files that correspond to precompiled versions of the header files.
+
+Header File	Contents
+appkit/appkit.h	Application Kit, Sound Kitä, all the common classes, and most of the common functions
+
+3Dkit/3Dkit.h	3D Graphics Kit
+
+dbkit/dbkit.h	Database Kit
+
+All three of these files also include the root Object class (through the normal process of Objective C inheritance).
+
+
+
+
+
+
+How the Manual Is Organized
+
+
+Each chapter of the General Reference is devoted to a separate software kit or a separate group of functionally related classes and functions.  The chapters are:
+
+·	Chapter 1, ªRoot Class,º describes the Object class, the class that stands at the root of almost all Objective C inheritance hierarchies.  It's the one class that all other classes inherit from and the class that all NEXTSTEP software kits are based upon.
+
+·	Chapter 2, ªApplication Kit,º describes the basic software for writing interactive applicationsÐapplications that use windows, draw on the screen, and respond to user actions on the keyboard and mouse.  The Application Kit contains the fundamental building blocks for the NEXTSTEP user interface.
+
+·	Chapter 3, ªCommon Classes and Functions,º describes an assortment of classes and functions that aid applications in managing data and resources.  These facilities are used by a wide variety of applications and range from storage allocators and hashing routines to error handling and language localization aids.
+
+·	Chapter 4, ªDatabase Kit,º describes a software kit that enables applications to communicate with database servers, such as those provided by Oracle or Sybase, using a high-level entity-relationship model.  The kit provides record management, buffering, and modeling services, as well as user-interface objects for displaying and editing data.
+
+·	Chapter 5, ªDisplay PostScriptâ,º describes the NEXTSTEP implementation of the Display PostScript Client Library.  The Client Library is mainly documented by Adobe Systems, Inc. (see ªSuggested Readingº at the end of Volume 2), but NEXTSTEP has extended the Library in various ways.  This chapter documents those extensions.
+
+·	Chapter 6, ªDistributed Objects,º describes how Objective C messages can be sent between remote objectsÐobjects in different tasks or in different threads of the same task.  A distributed objects architecture makes it possible to have different applications cooperate on a single project at run time or to split an application into various independent processes.
+
+·	Chapter 7, ªIndexing Kitä,º describes a set of tools for manipulating large or small amounts of dataÐespecially for retrieving data items, based on their contents, from a large store.  Among other things, the Indexing Kit can be used to build flat-file databases or to create applications (like Digital Librarianä) that search for text in collections of files or database records.
+
+·	Chapter 8, ªInterface Builderä,º describes the programming interface to Interface Builder, the application that enables you to design an application graphically on-screen.  The chapter shows how to use this API to augment Interface Builder's standard set of tools.  You can create loadable palettes containing your own custom objects and provide custom inspectors and editors for these objects.  With this API, you'll be able to adapt Interface Builder to any number of highly specific uses.  For a tutorial on creating a simple loadable palette and inspector, see the NEXTSTEP Development Tools and Techniques manual.
+
+·	Chapter 9, ªMach Kitä,º describes an Objective C interface to a part of the Mach operating system.  A portion of this interface is used by the distributed objects architecture documented in Chapter 6.
+
+·	Chapter 10, ªMIDI,º describes the functions that control the MIDI (Musical Instrument Digital Interface) device driver.  The device driver manages the flow of MIDI data to and from an external device, such as a synthesizer, digital piano, or another computer.
+
+·	Chapter 11, ªNetInfo Kitä,º describes a software kit that's used to build network management applications.
+
+·	Chapter 12, ªNetworks: NovellâNetWareâ,º contains information on using Novell NetWare to connect NEXTSTEP machines.
+
+·	Chapter 13, ªPhone Kitä,º has been removed; the Phone Kit is no longer a supported product.
+
+·	Chapter 14, ªPreferences,º describes the programming interface to the Preferences application. With this interface, you can add new display modules to the application and thus extend the choices that Preferences presents to the user.
+
+·	Chapter 15, ªRun-Time System,º describes the run-time system for the Objective C language.  For the most part, you don't have to be concerned with the API documented in this chapter unless you're developing interfaces to the run-time system other than Objective C.  However, some run-time functions may be generally useful within Objective C programs.
+
+·	Chapter 16, ªSound,º describes the Sound Kit and sound functions that permit applications to record, play, display, and manipulate sounds.  It also includes the API to the sound driver.
+
+·	Chapter 17, ª3D Graphics Kit,º describes an Objective C interface for using Interactive RenderManä.  The 3D Graphics Kit works within the drawing context provided by the Application Kit, but sets up its own compatible context for rendering, manipulating, and allowing users to manipulate three-dimensional images.
+
+·	Chapter 18, ªVideo Class,º describes the NXLiveVideoView class.  An NXLiveVideoView can display live video images on-screen and record images for video display.
+
+·	Chapter 19, ªWorkspace Managerä,º describes how you can augment Workspace Manager's standard set of contents inspectors with those of your own creation.  For example, Workspace Manager comes with inspectors that show the contents of files in Rich Text Formatâ(RTF) and Tag Image File Format (TIFF), but doesn't necessarily provide inspectors for the data formats you'll be using in the application you write.  Using the API and techniques described in this chapter, you can create content inspectors for those formats.
+
+·	Appendix A, ªData Formats,º describes the standard data formats supported by NEXTSTEP.  These formats permit different applications to exchange data through the pasteboard.
+
+·	Appendix B, ªDefault Parameters,º lists the standard default parameters that affect NEXTSTEP software.  Most default parameters record user preferencesÐfor example, what font to use in menus.  Some make hidden behavior visibleÐfor example, by recording all PostScript output to the Window ServerÐand are therefore useful during debugging.  Default parameters are read and written using functions documented in Chapter 3.
+
+·	Appendix C, ªKeyboard Event information,º describes the keyboard codes for NEXTSTEP encoding.
+
+·	Appendix D, ªSystem Bitmaps,º shows the bitmap images that are available with the system.
+
+·	Appendix E, ªDetails of the DSP,º lists technical information about the DSP (digital signal processor).
+
+
+
+
+
+
+How the Chapters Are Organized
+
+
+Each chapter begins by listing three pieces of information of chapter-wide significance:
+
+Library:	The library that contains all the software described in the chapter.  An ª_sº at the end of the library name indicates that the library is shared.  Code from a shared library isn't incorporated into your program.  Instead, the library is mapped into the address space of your application when your application runs.
+
+Header File Directory:	The directory or directories where the API described in the chapter is declared.
+
+Import:	The header file that, directly or indirectly, includes all the header files required for using the kit.  By importing this one header file, you get precompiled versions of all the header files it includes.  This dramatically reduces the time required to compile an application.  See ªPrecompiled Header Filesº above.
+
+After these three headings, the chapter is divided into a few standard sections:
+
+
+
+Introduction
+
+The introduction gives a broad overview of the software documented in the chapter.  It describes the facilities available in the kit and how the various pieces fit together.  It may also contain information about how to use particular methods and functions.
+
+
+
+Classes
+
+This section contains a full specification for each class defined in the kit.  Classes are presented alphabetically.  The structure of a class specification is described under ªClassesº below.
+
+
+
+Protocols
+
+This section describes both formal protocols (those declared using the @protocol directive) and informal ones (those declared as categories).  Protocol specifications resemble class specifications and are described under ªProtocolsº below.
+
+
+
+Functions
+
+Functions (and macros resembling functions) are documented next.  The format for function descriptions is explained under ªFunctionsº below.
+
+
+
+Types and Constants
+
+This section describes the defined types, symbolic constants, enumerations, structures, unions, and global variables that are provided as part of the kit.  This API supports the classes and functions defined in the kit.  See ªTypes and Constantsº below for a description of the formats.
+
+
+
+Other Features
+
+If a kit has features that are not fully documented in the preceding sections, this section has notes explaining them.  For example, the Application Kit chapter includes notes on how to advertise a service.
+
+
+
+
+
+Classes
+
+
+Information about a class is presented under the following headings shown in bold.  The text accompanying each bold item describes the content of that particular section of the class specification.
+
+
+Inherits From:	The inheritance hierarchy for the class.  For example:
+
+	Panel  :  Window  :  Responder  :  Object
+
+	The first class listed (Panel, in this example) is the class's superclass.  The last class listed is always Object, the root of all NEXTSTEP inheritance hierarchies.  The classes between show the chain of inheritance from Object to the superclass.  (This particular example shows the inheritance hierarchy for the Menu class of the Application Kit.)
+
+Conforms To:	The formal protocols that the class conforms to.  These include both protocols the class adopts and those it inherits from other adopting classes.  If inherited, the name of the adopting class in given in parentheses.  For example:
+
+	IXPostingExchange
+IXPostingOperations
+IXCursorPositioning (IXBTreeCursor)
+
+	(This particular example is from the IXPostingCursor class, a subclass of IXBTreeCursor in the Indexing Kit.)
+
+Declared In:	The header file that declares the class interface.  For example:
+
+	video/NXLiveVideoView.h
+
+	(This example is from the NXLiveVideoView class, which is declared in the video subdirectory of /NextDeveloper/Headers.)
+
+
+
+Class Description
+
+This section gives a general description of the class.  It explains how the class fits into the overall design of the kit and how your application can make use of it.  A class description often has information relevant to the way particular methods should be used.
+
+
+
+Instance Variables
+
+This section shows the instance variables declared for the class (exclusive of any private instance variables).  For example, here are the instance variables declared in the List common class:
+
+id *dataPtr;
+unsigned int numElements;
+unsigned int maxElements;
+
+It then gives a short explanation for each variable.
+
+dataPtr 	The data managed by the List object (the array of objects).
+
+numElements 	The actual number of objects in the array.
+
+maxElements 	The total number of objects that can fit in currently allocated memory.
+
+Instance variables that are for the internal use of the class are neither listed nor explained.  These internal variables all begin with an underscore (ª_º) to prevent collisions with names that you might choose for instance variables in a subclass you define, or they are marked @private in the interface file.
+
+
+
+Adopted Protocols
+
+If the class adopts any protocols, the names of the methods declared in the protocols are listed next.  These methods are normally not documented elsewhere in the class specification.  Refer to the protocol specification for a complete description of these methods, their arguments, and their return types.
+
+
+
+Method Types
+
+Next, the methods the class declares and implements are listed by name and grouped by type.  For example, methods used to draw are listed separately from methods used to handle events.  This directory includes all the principal methods defined in the class (except those declared in adopted protocols) and a few that are inherited from other classes.  Inherited methods are followed by the name of the class where they're defined; they're included in the directory to let you know which inherited methods you might commonly use with instances of the class and where to look for a description of those methods.
+
+
+
+Class Methods
+Instance Methods
+
+A detailed description of each method defined in the class follows the classification by type.  Methods that are used by class objects are presented first followed by methods that are used by instances.  The descriptions within each group are ordered alphabetically by method name.
+
+Each description begins with the syntax of the method's arguments and return values, continues with an explanation of the method, and ends, where appropriate, with a list of other related methods.  Where a related method is defined in another class, it's followed by the name of the other class within parentheses.  For example, here's a method description from the Window class:
+
+gState
+- (int)gState
+
+Returns the PostScript graphics state object associated with the Window.
+
+See also:  - gState (View)
+
+Internal methods used to implement the class aren't listed in the specification.  Since you shouldn't override any of these methods, or use them in a message, they're excluded from both the method directory and the method descriptions.  However, you may encounter them when looking at the call stack of your program from within the debugger.  A private method is easily recognizable by the underscore (ª_º) that begins its name.
+
+
+
+Methods Implemented by the Delegate
+
+If a class lets you define another objectÐa delegateÐthat can intercede on behalf of instances of the class, the methods that the delegate can implement are described in a separate section.  These are not methods defined in the class; rather, they're methods that you can define to respond to messages sent from instances of the class.
+
+If you define one of these methods, the delegate will receive automatic messages to perform it at the appropriate time.  For example, if you define a windowDidBecomeKey: method for a Window's delegate, the delegate will receive windowDidBecomeKey: messages whenever the Window becomes the key window.  Messages are sent only if you define a method that can respond.
+
+In essence, this section documents an informal protocol.  But because these methods are so closely tied to the behavior of a particular class, they're documented with the class rather than in the ªProtocolsº section.
+
+Some class specifications have separate sections with titles such as ªMethods Implemented by the Superviewº or ªMethods Implemented by the Owner.º  These are also informal protocols.  They document methods that can or must be implemented to receive messages on behalf of instances of the class.
+
+
+
+
+
+Protocols
+
+The protocols section documents both formal and informal protocols.  Formal protocols are those that are declared using the @protocol compiler directive.  They can be formally adopted and implemented by a class and tested by sending an object a conformsTo: message.
+
+Some formal protocols are adopted and implemented by classes in the NEXTSTEP software kits.  However, many formal protocols are declared by a kit, but not implemented by it.  They list methods that you can implement to respond to kit-generated messages.
+
+A few formal protocols are implemented by a kit, but not by a class that's part of the documented API.  Rather, the protocol is implemented by an anonymous object that the kit supplies.  The protocol lets you know what messages you can send to the object.
+
+Like formal protocols, informal protocols declare a list of methods that others are invited to implement.  If an informal protocol is closely associated with one particular classÐfor example, the list of methods implemented by the delegateÐit's documented in the class description.  Informal protocols associated with more than one class, or not associated with any particular class, are documented with the formal protocols in this section.
+
+Protocol information is organized into many of the same sections as described above for a class specification.  But protocols are not classes and therefore differ somewhat in the kind of information provided.  The sections of a protocol specification are shown in bold below:
+
+Adopted By:	A list of the NEXTSTEP classes that adopt the protocol.  Many protocols declare methods that applications must implement and so are not adopted by any NEXTSTEP classes.
+
+	Some protocols are implemented by anonymous objects (instances of an unknown class); the protocol is the only information available about what messages the object can respond to.  Protocols that have an implementation available through an anonymous object generally don't have to be reimplemented by other classes.
+
+Incorporates:	Other protocols that the protocol being described incorporates by reference.  One protocol incorporates others by listing them within angle brackets:
+
+@protocol biathlon <skiing, shooting>
+
+	The protocol specification doesn't describe methods declared in incorporated protocols.  See the specification for the incorporated protocol for a description of its methods.
+
+An informal protocol can't be formally adopted by a class and it can't formally incorporate another protocol.  So its description begins with information about the category where it's declared:
+
+Category Of:	The class that the category belongs to.  Informal protocols are typically declared as categories of the Object class.  This gives them the widest possible scope.
+
+Both formal and informal protocols include a cross reference to a header file in /NextDeveloper/Headers: 
+
+Declared In:	The header file where the protocol is declared.
+
+Following this introductory information, the protocol specification is divided into only a small number of sections:
+
+
+
+Protocol Description
+Category Description
+
+First, there's a short description of the protocol (or the category of an informal protocol).  This description includes information on the purpose of the protocol and whether or not you might need to implement it.
+
+
+
+Method Types
+
+If the protocol includes enough methods to warrant it, they're divided by type and presented just as the methods of a class are.
+
+
+
+Class Methods
+Instance Methods
+
+The main part of a protocol specification is the description of the methods it declares.  Since these methods aren't necessarily implemented, the descriptions focus on the intent of the method.  If the protocol is adopted by any NEXTSTEP classes, there may also be notes on how particular classes implement the methods.
+
+
+
+
+
+Functions
+
+Related functions are grouped together and the groups are arranged alphabetically by the name of the first function in each.  There are cross references so that you can look up any function and find the group where it's documented.
+
+The description of each function group is divided into a number of standard sections:
+
+
+	SUMMARY	A brief description of the purpose of the functions.
+
+
+	DECLARED IN	The header file where the functions are declared.  If the header file is included in a master header file that has been precompiled, it's always more efficient to import the master file than to directly import the header file that declares the functions.  If there is a master header file, it's listed at the beginning of the chapter under ªImport.º
+
+
+	SYNOPSIS	A prototype of the functions, showing their names, return types, argument types, and calling sequence.
+
+
+	DESCRIPTION	A description of the functions and how to use them.
+
+
+If relevant, the following sections may also be present:
+
+
+	EXAMPLES	Example code showing how the functions are used.
+
+
+	RETURN	A statement or restatement of what each function returns.
+
+
+	EXCEPTIONS	The exceptions that the functions might potentially raise.
+
+
+	SEE ALSO	References to other functions or to other parts of the NEXTSTEP API.
+
+
+
+
+
+Types and Constants
+
+The ªTypes and Constantsº section is divided into the following parts:
+
+
+
+Defined Types
+
+Types that are defined with the typedef compiler directive.
+
+
+
+Symbolic Constants
+
+Constants that are defined with the #define preprocessor directive.  Function-like macros are documented in the ªFunctionsº section.
+
+
+
+Enumerations
+
+Constants that are defined with enum, excluding those that are members of a defined type.
+
+
+
+Structures
+
+Structures and unions, excluding those that are defined types.
+
+
+
+Globals
+
+Global variables.
+
+
+
+Within these subsections, each element of the API is presented in a way reminiscent of the function descriptions:
+
+
+	DECLARED IN	The header file where the type, constant, structure, or global variable is declared.
+
+
+	SYNOPSIS	The declaration of the type, enumerated constants, structure, or global variable, or a table listing symbolic constants.  Private fields of a structureÐthose that begin with an underscoreÐare not shown.  Fields of a structure that are shown but are not in bold should not be accessed or modified in application code.
+
+
+	DESCRIPTION	A description of each part of the public API.
+
+
+	SEE ALSO	References to other parts of the API
+
+
+
+
+
+
+Conventions
+
+
+Where this manual discusses functions, methods, or other programming elements, it makes special use of ellipsis, square brackets [ ], and bold and italic fonts.
+
+Bold denotes words or characters that are to be taken literally (typed as they appear).  Italic denotes words that represent something else or can be varied.  For example, the syntax
+
+print expression
+
+means that you follow the word print with any expression.
+
+Square brackets [ ] mean that the enclosed elements are optional, except when the brackets are bold [ ], in which case they're to be taken literally.  The exceptions are few and will be clear from the context.  For example,
+
+pointer [filename]
+
+means that you specify a pointer with or without a file name after it, but
+
+[receiver message]
+
+means that you specify a receiver and a message enclosed in square brackets.
+
+Ellipsis (...) indicates that the previous element may be repeated.  For example:
+
+Syntax	Allows
+pointer ...	One or more pointers
+
+pointer [, pointer] ...	One or more pointers separated by commas
+
+pointer [filename ...]	A pointer optionally followed by one or more file names
+
+pointer [, filename] ...	A pointer optionally followed by a comma and one or more file names separated by commas
+
+
+
+
+
+
+

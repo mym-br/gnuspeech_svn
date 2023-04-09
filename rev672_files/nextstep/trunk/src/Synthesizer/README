@@ -1,0 +1,100 @@
+/*  REVISION INFORMATION  *****************************************************
+
+$Author: rao $
+$Date: 2002-03-21 16:49:54 $
+$Revision: 1.1 $
+$Source: /Users/dalmazio/cvsroot/gnuspeech/trillium/src/Synthesizer/README,v $
+$State: Exp $
+
+
+$Log: not supported by cvs2svn $
+# Revision 1.9  1994/10/20  22:41:05  len
+# Adjusted the output volume upwards, and made 1 channel output the same as
+# stereo output with the balance at 0.0.
+#
+# Revision 1.8  1994/10/04  18:37:30  len
+# Changed nose and mouth aperture filter coefficients, so now specified
+# as Hz values (which scale appropriately as the tube length changes), rather
+# than arbitrary coefficient values (which don't scale).
+#
+# Revision 1.7  1994/10/03  18:14:02  len
+# Altered some routines that use r3 and r4, so that they are now consistent
+# with the same routines in the tube_module.
+#
+# Revision 1.6  1994/09/26  22:02:01  len
+# Optimized crossmix calculations.
+#
+# Revision 1.5  1994/09/19  03:05:24  len
+# Resectioned the TRM to 10 sections in 8 regions.  Also
+# changed friction injection to be continous from sections
+# 3 to 10.
+#
+# Revision 1.4  1994/09/13  21:42:30  len
+# Folded in optimizations made in synthesizer.asm.
+#
+# Revision 1.3  1994/07/13  03:39:56  len
+# Added Mono/Stereo sound output option and changed file format.
+#
+# Revision 1.2  1994/06/17  21:06:25  len
+# Fixed a bug which occasionally led to interrupted sound out.
+#
+# Revision 1.1.1.1  1994/05/20  00:21:40  len
+# Initial archive of TRM interactive Synthesizer.
+#
+
+******************************************************************************/
+
+VERSION:		v1	Original production version.
+			v2	Fixed interrupted sound out bug.
+			v3	Added Stereo/Mono option.
+			v4	Folded in optimizations from synthesizer.asm
+			v5	10 section version.
+			v6	Optimized crossmix calculation.
+			v7	Harmonized with tube_module.
+			v8	Normalized nose & mouth aperture coefficients.
+			v9	Adjusted the output volume and balance.
+
+******************************************************************************/
+
+
+HISTORY:
+
+October 20th, 1994:	Adjusted the output volume upwards, and made 1 channel
+			output the same as stereo output with the balance
+			at 0.0.
+
+October 4th, 1994:	Normalized the nose and mouth aperture filter
+			coefficients, so now specified in Hz (which scales
+			appropriately as the tube length changes), rather
+			than an arbitrary coefficient value.
+
+October 3rd, 1994:	Changed some routines which use r3 and r4, to be
+			consistent with the same routines in tube_module.
+
+September 26th, 1994:	Moved calculation of crossmix and anti-crossmix values
+			to output loop.
+
+September 18th, 1994:	Resectioned the TRM so that it now has 8 regions
+			composed of 10 section.  Also has continuous frication
+			injection from sections 3 to 10.  
+
+September 13th, 1994:	Folded in optimizations made in synthesizer.asm
+			(from the tube_module).  The minimum tube length
+			now is about 12.8 cm.   
+
+July 12th, 1994:	Added an option to choose 1 or 2 output channels.
+			Also changed the file format to include the number
+			of channels and the control rate (not used in the
+			interactive synthesizer), plus added a file version
+			number to the beginning of the file.  The file
+			version number will allow future revisions of the
+			application to read old file formats.
+
+June 17th, 1994:	Fixed a bug which caused the sound out to fail
+			occasionally in synchronous dma output mode.  Now,
+			interactive data is not sent to the DSP while output
+			occurs.
+
+May 19th, 1994:		Finished the interactive version of the Tube Resonance
+			Model Synthesizer.  Arranged files for archiving into
+			CVS.

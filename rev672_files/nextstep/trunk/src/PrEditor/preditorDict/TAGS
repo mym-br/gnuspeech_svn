@@ -1,0 +1,28 @@
+
+PrDict.m,32
+static void quicksort(136,2856
+
+preditorDict.m,133
+void preditor_close_dict(68,1672
+char *preditor_get_entry(73,1756
+int preditor_open_dict(28,537
+void preditor_print_dict(94,2235
+
+conversion.c,261
+#define DELIMITER(23,426
+void PrToTTS(133,2869
+char *PreditorToTTS(122,2626
+char *TTSToPreditor(184,4058
+static inline int findPreditor(95,2059
+static inline int findTTS(110,2369
+int main(453,10042
+char *pronunciation(395,9148
+char *word_type(430,9697
+
+PrDict.h,25
+} wordHashStruct;26,506
+
+preditorDict.h,23
+} preditorDict;25,638
+
+conversion.h,0

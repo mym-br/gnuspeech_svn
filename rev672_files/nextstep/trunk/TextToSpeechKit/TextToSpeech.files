@@ -1,0 +1,34 @@
+/LocalLibrary/TextToSpeech
+
+total 5
+drwxr-xr-x  5 root        1024 Jul 23  1992 ./
+drwxr-xr-x  6 root        1024 Nov 19 10:16 ../
+drwxr-xr-x  3 root        1024 Dec  8 13:09 documentation/		** NOT WITH USER KIT **
+drwxr-xr-x  5 root        1024 Jan 21 09:36 exampleCode/		** NOT WITH USER KIT **
+drwxr-xr-x  2 root        1024 Jan 21 09:45 system/
+
+/LocalApps/TextToSpeech
+
+drwxr-xr-x  3 root        1024 Jan 20 21:37 BigMouth.app/
+-rwxr-xr-x  1 root      172032 Sep  5  1992 PrEditor*
+drwxr-xr-x  3 root        1024 Jan 21 09:49 ServerTest.app/		** NOT WITH USER KIT **
+drwxr-xr-x  3 root        1024 Jan 19 08:21 SpeechManager.app/
+drwxr-xr-x  2 root        1024 Sep  5  1992 TTS_Install.app/
+drwxr-xr-x  3 root        1024 Jan 21 09:50 TalkingCalculator.app/	** NOT WITH USER KIT **
+drwxr-xr-x  4 root        1024 Jan 21 10:04 WhosOnFirst.app/
+
+/usr/local/lib
+
+-rw-r--r--  1 root       72508 Dec  8 08:27 libTextToSpeech.a		** NOT WITH USER KIT **
+
+/usr/local/include/TextToSpeech
+
+-rw-r--r--  1 root        4117 Dec  8 08:23 TTS_types.h			** NOT WITH USER KIT **
+-rw-r--r--  1 root        2996 Dec  8 08:23 TextToSpeech.h		** NOT WITH USER KIT **
+
+/LocalLibrary/Fonts
+
+drwxr-xr-x  2 root        1024 Jul 23  1992 Phonetica.font/
+drwxr-xr-x  2 root        1024 Jul 23  1992 Trillium-Phonetic.font/
+
+

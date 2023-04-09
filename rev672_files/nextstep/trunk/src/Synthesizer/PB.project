@@ -1,0 +1,108 @@
+{
+    APPCLASS = NSApplication; 
+    FILESTABLE = {
+        CLASSES = (
+            Analysis.m, 
+            AnalysisData.m, 
+            AnalysisWindow.m, 
+            ApertureView.m, 
+            BandpassView.m, 
+            Controller.m, 
+            CrossmixView.m, 
+            GlottalSource.m, 
+            HarmonicsView.m, 
+            LowpassView.m, 
+            NoiseSource.m, 
+            ParameterEstimation.m, 
+            ParameterView.m, 
+            PositionView.m, 
+            ResonantSystem.m, 
+            ScaleView.m, 
+            SoundData.m, 
+            SpectrographView.m, 
+            SpectrumView.m, 
+            Synthesizer.m, 
+            Throat.m, 
+            WaveshapeView.m
+        ); 
+        C_FILES = (); 
+        H_FILES = (
+            Analysis.h, 
+            AnalysisData.h, 
+            AnalysisWindow.h, 
+            ApertureView.h, 
+            BandpassView.h, 
+            Controller.h, 
+            conversion.h, 
+            CrossmixView.h, 
+            dsp_control.h, 
+            fft.h, 
+            GlottalSource.h, 
+            HarmonicsView.h, 
+            log2.h, 
+            LowpassView.h, 
+            NoiseSource.h, 
+            oversampling_filter.h, 
+            ParameterEstimation.h, 
+            ParameterView.h, 
+            PositionView.h, 
+            ResonantSystem.h, 
+            ScaleView.h, 
+            SoundData.h, 
+            SpectrographView.h, 
+            SpectrumView.h, 
+            sr_conversion.h, 
+            Synthesizer.h, 
+            Throat.h, 
+            WaveshapeView.h
+        ); 
+        IMAGES = (
+            crosshairCursor.tiff, 
+            downArrow.tiff, 
+            info.tiff, 
+            rarrow.tiff, 
+            run.tiff, 
+            stop.tiff, 
+            Synthesizer.tiff, 
+            SynthPatch.tiff
+        ); 
+        INTERFACES = (info.nib, Synthesizer.nib); 
+        M_FILES = (); 
+        OTHER_LIBS = (dsp, Media_s, NeXT_s, AreaPalette); 
+        OTHER_LINKED = (
+            PSdownarrow.psw, 
+            PSglottalpulse.psw, 
+            PSnotehead.psw, 
+            PSpulseparameter.psw, 
+            PSrectangle.psw, 
+            PSsharp.psw, 
+            PSsine.psw, 
+            PSuparrow.psw, 
+            log2.c, 
+            fft.c, 
+            dsp_control.c, 
+            conversion.c, 
+            oversampling_filter.c, 
+            sr_conversion.c, 
+            Synthesizer_main.m
+        ); 
+        OTHER_SOURCES = (Makefile); 
+        PSW_FILES = (); 
+    }; 
+    GENERATEMAIN = YES; 
+    LANGUAGE = English; 
+    LOCALIZABLE_FILES = {Synthesizer.nib = Synthesizer.nib; info.nib = info.nib; }; 
+    MAKEFILEDIR = "$(NEXT_ROOT)/NextDeveloper/Makefiles/pb_makefiles"; 
+    NEXTSTEP_APPICON = Synthesizer.tiff; 
+    NEXTSTEP_DOCUMENTEXTENSIONS = ({Extension = trm; Image = SynthPatch.tiff; }); 
+    NEXTSTEP_INSTALLDIR = "$(HOME)/Apps"; 
+    NEXTSTEP_MAINNIB = Synthesizer; 
+    PDO_UNIX_INSTALLDIR = "$(HOME)/Apps"; 
+    PDO_UNIX_MAINNIB = Synthesizer; 
+    PROJECTNAME = Synthesizer; 
+    PROJECTTYPE = Application; 
+    PROJECTVERSION = 2.6; 
+    SYSTEMEXTENSIONS = (); 
+    WINDOWS_INSTALLDIR = "$(HOME)/Apps"; 
+    WINDOWS_MAINNIB = Synthesizer; 
+}

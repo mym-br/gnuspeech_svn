@@ -1,0 +1,107 @@
+/*  REVISION INFORMATION  *****************************************************
+
+$Author: rao $
+$Date: 2002-03-21 16:49:54 $
+$Revision: 1.1 $
+$Source: /Users/dalmazio/cvsroot/gnuspeech/trillium/src/SpeechObject/preMonet/server/synthesizer_module/README,v $
+$State: Exp $
+
+******************************************************************************/
+
+VERSION:		v5	Original production version.
+			v5a	Added ability to send sound to file.
+			v6	Moved calculatation of amplitudes and resonator
+				coefficients to the DSP from the host.
+			v7      Fixed to work under NS 3.2.
+			v8	Single-threaded version.
+
+******************************************************************************/
+
+
+HISTORY:
+
+December 14th, 1993:	Rewrote the module so it uses only a single thread.
+			This reduces latency, avoids the overhead associated
+			with thread switching, and allows the priority level
+			of the whole task to be manipulated.  Sound out is
+			still interrupted occassionally, which suggests that
+			the snddriver or DMA may need more cpu cycles.  A
+			PREFILL_SIZE of 6 seems to be adequate in most
+			situations.
+
+December 13th, 1993:	Changed all kernel thread calls to cthread calls.
+			This allows the module to work under NS 3.2, but adds
+			a bit of latency.
+
+November 30th, 1993:	Fixed a bug in DSP code.  Created the scaled_volume
+			function, which checks volume ranges before scaling
+			them to a fractional number.
+
+November 29th, 1993:	Moved the calculation of amplitudes and resonator
+			filter coefficients to the DSP from the host.  This
+			means that the host merely scales the dB values so
+			that it is sent to the DSP as a fractional value.
+			The host now sends the center frequency and bandwidths
+			for each resonator directly to the DSP after being
+			divided by the sample rate (these values are
+			fractional).
+
+November25th, 1993:	Merged version 5a to version 5.  This adds the
+			ability to write the sound directly to file.  Also,
+			Craig's additions to synthesizer_module.c were broken
+			out into a separate file.  This file is not compiled
+			with the current Makefile, since it is technically
+			not part of the Synthesizer Module, but part of Craig's
+			code in TTS_Server.
+
+November25th, 1993:	Rearranged source and make files so that the directory
+			could be archived using CVS.
+
+July 23rd, 1993:	Added means to write samples from DSP to file.  The sample
+			stream is redirected to the host (instead of the DAC), and
+			collected in an NXMemory stream.  Once all samples are
+			cached, a header plus the data are written to file.  Pad
+			pages are sent between each chunk so that silence occurs
+			between sentences.  This silence occurs naturally when
+			sending to the DAC, since system overhead between chunks
+			takes up about 3/4 second.
+
+July 9th, 1992:         Reversed the stereo balance in synthesizer.asm.
+			Changed await_write_done_message() in synthesizer_module.c
+			so that the server exits when the sound driver fails to
+			return a message after a short time out.  This is not the
+			best solution---ideally the server should put itself in
+			a reset state so that it can again respond to messages
+			from clients.
+
+February 7th, 1992:	Changed convert_to_pitch() so that it can return
+			fractional pitch.
+
+January 31st, 1992:	Finished Final DMA version.  Synthesizer is
+			reconfigured so that R1-R4 are in order, fricative
+			branch is inserted between R3 and R4, amplitude
+			modulation is performed on noise, and added a nasal
+			branch consisting of a nasal bypass switch, fixed
+			nasal resonator (FNR), and nasal notch filter (NNF).
+
+January 17th, 1992:     Finalized the program, reformatting the hack
+                        described below for 030s and older 040s.  The
+			program now works for ALL NeXT hardware.
+
+October 23, 1991:	Added a hack to provide feedback when testing
+			for problems on older 040 hardware.
+
+July 30th, 1991: 	Added a thread_suspend() and thread_resume(),
+			so that the synthesizer thread is put to sleep
+			when the synthesizer is idle.  This results in
+			a very low system load.  However, when the synthesizer
+			is running, the system CPU time goes to maximum.
+			This is probably due to busy waits on the remaining
+			thread_switch()'s.
+
+June 28th, 1991:	Finished version of synthesizer module, ready
+			for integration.  The code is fully commented
+			and documented.  The synthesizer is fully
+			re-entrant, with its own event loop within its
+			own thread.  The test program "test_synth"
+			displays its capabilities.

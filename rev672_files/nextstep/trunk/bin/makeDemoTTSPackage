@@ -1,0 +1,16 @@
+mv /LocalLibrary/TextToSpeech/system/SerialNumber /tmp
+
+echo "Loading say"
+/NextAdmin/Installer.app/installer_bigtar -cfp TextToSpeech.tar /usr/local/bin/say
+echo "Loading Speech Applications"
+echo "	SpeechRegistrar"
+/NextAdmin/Installer.app/installer_bigtar -ufp TextToSpeech.tar /LocalApps/TextToSpeech/SpeechRegistrar.app
+echo "	BigMouth"
+/NextAdmin/Installer.app/installer_bigtar -ufp TextToSpeech.tar /LocalApps/TextToSpeech/BigMouth.app /LocalApps/TextToSpeech/.dir.tiff
+echo "Loading System"
+/NextAdmin/Installer.app/installer_bigtar -ufp TextToSpeech.tar /LocalLibrary/TextToSpeech/system /LocalLibrary/Devices
+
+mv /tmp/SerialNumber /LocalLibrary/TextToSpeech/system/SerialNumber
+
+
+

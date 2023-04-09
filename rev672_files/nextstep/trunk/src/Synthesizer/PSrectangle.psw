@@ -1,0 +1,13 @@
+defineps PSrectangle(float x; float y; float width; float height;
+	             float linewidth; float graylevel)
+
+	graylevel setgray		% set graylevel and linewidth
+	linewidth setlinewidth
+
+	x y moveto			% draw the rectangle
+	width 0 rlineto
+	0 height rlineto
+	width neg 0 rlineto
+	closepath
+	stroke
+endps

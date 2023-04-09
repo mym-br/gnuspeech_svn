@@ -1,0 +1,3 @@
+cc -o genpass genpass.c munge.c -s -object
+cc -o TTSEncrypt TTSEncrypt.c buffer.c -s -object
+cc -o TTSDecrypt TTSDecrypt.c buffer.c munge.c -s -object

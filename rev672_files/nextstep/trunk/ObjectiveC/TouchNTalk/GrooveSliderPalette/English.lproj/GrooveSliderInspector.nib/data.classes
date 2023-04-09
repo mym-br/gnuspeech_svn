@@ -1,0 +1,28 @@
+MouseUpConnector = {
+    ACTIONS = {
+    };
+    OUTLETS = {
+    };
+    SUPERCLASS = Connector;
+};
+GrooveSliderInspector = {
+    ACTIONS = {
+    };
+    OUTLETS = {
+    };
+    SUPERCLASS = IBInspector;
+};
+FirstResponder = {
+    ACTIONS = {
+    };
+    SUPERCLASS = Object;
+};
+Connector = {
+    ACTIONS = {
+    };
+    OUTLETS = {
+	destination;
+	source;
+    };
+    SUPERCLASS = Object;
+};

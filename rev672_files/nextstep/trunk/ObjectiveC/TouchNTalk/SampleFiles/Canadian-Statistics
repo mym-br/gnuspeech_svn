@@ -1,0 +1,18 @@
+
+			     Canadian Statistics
+			     -------------------
+
+This is a sample table of data which contains various cities, their population,
+altitudes, and their average summer and winter temperatures.
+
+City		Population	Altitude	   Temperature
+						Summer	   Winter
+
+Calgary		750,000		1,430		22	   -14
+Edmonton	850,000		850		20	   -17
+Vancouver	1,600,700	71		21	   3
+Toronto		2,100,050	450		25	   -5
+Montreal	1,500,100	350		23	   -9
+St. John's	350,500		58		19	   1
+Halifax		104,000		45		21	   2
+Osooyos		35,700		-78		29	   10

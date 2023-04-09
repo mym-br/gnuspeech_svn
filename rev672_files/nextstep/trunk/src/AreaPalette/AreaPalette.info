@@ -1,0 +1,6 @@
+Title		Area Palette
+Version		1.0  September 26th, 1993
+Description	A flexible control which can be incorporated into IB.
+DefaultLocation	/
+Relocatable	NO
+DiskName	AreaPalette

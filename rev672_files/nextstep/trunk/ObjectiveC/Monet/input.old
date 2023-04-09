@@ -1,0 +1,14 @@
+2         // control rate
+32        // temperature in celsius degrees
+13.5      // nominal tube length in cm
+512       // wave table length in samples
+0.40      // glottal pulse rise time (tp)
+0.12      // glottal pulse fall time min (tnMin)
+0.35      // glottal pulse fall time max (tnMax)
+0.03      // breathiness (as factor * noise)
+42.0      // crossmix offset (in db)
+0.02      // loss at each scattering junction
+6.0       // maximum mouth radius
+-0.75     // throat lowpass filter cutoff
+6.0       // throat signal volume (in db)
+1.35     1.7     1.7     1.3     .9      // fixed nose radii

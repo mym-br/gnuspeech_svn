@@ -1,0 +1,262 @@
+PrototypeManager = {
+    ACTIONS = {
+	appDidInit:;
+	remove:;
+	browserDoubleHit:;
+	rename:;
+	browserHit:;
+	add:;
+	addCategory:;
+	setEquations:;
+	browser:;
+	setTransitions:;
+	setSpecial:;
+    };
+    OUTLETS = {
+	selectedOutput;
+	browserSelector;
+	protoBrowser;
+	removeButton;
+	newButton;
+	inputTextField;
+	controller;
+	outputBox;
+    };
+    SUPERCLASS = Object;
+};
+MyController = {
+    ACTIONS = {
+	importTRMData:;
+	displayInspectorWindow:;
+	savePrototypes:;
+	loadPrototypes:;
+	displayInfoPanel:;
+	archiveToDisk:;
+	printData:;
+	readFromDisk:;
+	openFile:;
+	appDidInit:;
+    };
+    OUTLETS = {
+	prototypeManager;
+	intonationView;
+	specialTransitionBuilder;
+	ruleManagerWindow;
+	synthParmWindow;
+	transitionBuilder;
+	dataBrowser;
+	infoPanel;
+	specialWindow;
+	transitionWindow;
+	defaultManager;
+	inspectorController;
+	ruleManager;
+	eventListView;
+	stringParser;
+	ruleParserWindow;
+	phonesWindow;
+	prototypeWindow;
+	synthesisWindow;
+    };
+    SUPERCLASS = Object;
+};
+FirstResponder = {
+    ACTIONS = {
+    };
+    SUPERCLASS = Object;
+};
+TransitionView = {
+    ACTIONS = {
+	groupInSlopeRatio:;
+	appDidInit:;
+	delete:;
+    };
+    OUTLETS = {
+	controller;
+	displayParameters;
+    };
+    SUPERCLASS = View;
+};
+IntonationView = {
+    ACTIONS = {
+	loadContour:;
+	saveIntonationContour:;
+	appDidInit:;
+	loadContourAndUtterance:;
+    };
+    OUTLETS = {
+	smoothing;
+	controller;
+	utterance;
+    };
+    SUPERCLASS = View;
+};
+SpecialView = {
+    ACTIONS = {
+	appDidInit:;
+	delete:;
+    };
+    OUTLETS = {
+	controller;
+	displayParameters;
+	selectedPoint;
+    };
+    SUPERCLASS = View;
+};
+DefaultMgr = {
+    ACTIONS = {
+    };
+    OUTLETS = {
+    };
+    SUPERCLASS = Object;
+};
+EventListView = {
+    ACTIONS = {
+	appDidInit:;
+	itemsChanged:;
+    };
+    OUTLETS = {
+	niftyMatrix;
+	niftyMatrixScrollView;
+	controller;
+	mouseTimeField;
+	mouseValueField;
+    };
+    SUPERCLASS = View;
+};
+RuleManager = {
+    ACTIONS = {
+	setExpression3:;
+	add:;
+	setExpression2:;
+	setExpression1:;
+	appDidInit:;
+	remove:;
+	setExpression4:;
+	browser:;
+	parseRule:;
+	browserDoubleHit:;
+	rename:;
+	browserHit:;
+    };
+    OUTLETS = {
+	errorTextField;
+	phone1;
+	matchBrowser1;
+	phone3;
+	consumedTokens;
+	matchBrowser3;
+	controller;
+	possibleCombinations;
+	ruleScrollView;
+	matchBrowser4;
+	durationOutput;
+	expressionFields;
+	phone4;
+	ruleOutput;
+	matchBrowser2;
+	phone2;
+	ruleMatrix;
+    };
+    SUPERCLASS = Object;
+};
+BrowserManager = {
+    ACTIONS = {
+	appDidInit:;
+	remove:;
+	browserDoubleHit:;
+	rename:;
+	browserHit:;
+	add:;
+	setCurrentList:;
+	cut:;
+	paste:;
+	browser:;
+	copy:;
+    };
+    OUTLETS = {
+	nameField;
+	browser;
+	renameButton;
+	popUpList;
+	removeButton;
+	controller;
+	addButton;
+    };
+    SUPERCLASS = Responder;
+};
+NiftyMatrix = {
+    ACTIONS = {
+    };
+    OUTLETS = {
+	activeCell;
+    };
+    SUPERCLASS = Matrix;
+};
+StringParser = {
+    ACTIONS = {
+	saveDefaults:;
+	automaticIntonation:;
+	parseStringButton:;
+	appDidInit:;
+	synthesizeWithSoftware:;
+    };
+    OUTLETS = {
+	intonationView;
+	pitchMean;
+	tnMin;
+	mouthCoef;
+	intonParmsField;
+	n5;
+	masterVolume;
+	n4;
+	tp;
+	stereoMono;
+	driftCutoffField;
+	n3;
+	balance;
+	n2;
+	n1;
+	stringTextField;
+	intonationSystem;
+	throatCutoff;
+	radiusMultiplyField;
+	noseCoef;
+	parametersStore;
+	smoothIntonationSwitch;
+	length;
+	mixOffset;
+	eventListView;
+	tnMax;
+	samplingRate;
+	intonationMatrix;
+	fileFlag;
+	apScale;
+	waveform;
+	filenameField;
+	breathiness;
+	driftDeviationField;
+	tempoField;
+	throatVolume;
+	lossFactor;
+	temperature;
+	modulation;
+    };
+    SUPERCLASS = Object;
+};
+IntonationScrollView = {
+    ACTIONS = {
+	loadContour:;
+	printPSCode:;
+	saveIntonationContour:;
+	appDidInit:;
+	loadContourAndUtterance:;
+    };
+    OUTLETS = {
+	smoothing;
+	scaleView;
+	controller;
+	utterance;
+    };
+    SUPERCLASS = ScrollView;
+};

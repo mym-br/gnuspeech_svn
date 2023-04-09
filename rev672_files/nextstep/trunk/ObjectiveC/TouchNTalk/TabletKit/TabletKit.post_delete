@@ -1,0 +1,25 @@
+#! /bin/sh
+
+#
+# TabletKit.post_delete only works as root.
+#
+
+echo
+
+echo -n "        Deleting /LocalDeveloper/Examples/TabletKit ... "
+/bin/rm -rf /LocalDeveloper/Examples/TabletKit
+echo "OK."
+
+echo -n "        Deleting /LocalLibrary/TabletReaders/SummaMMBinaryReader ... "
+/bin/rm -rf /LocalLibrary/TabletReaders/SummaMMBinaryReader.bundle
+echo "OK."
+
+echo -n "        Deleting /LocalLibrary/TabletReaders/SummaUIOFBinaryReader ... "
+/bin/rm -rf /LocalLibrary/TabletReaders/SummaUIOFBinaryReader.bundle
+echo "OK."
+
+echo -n "        Deleting /usr/local/lib/libtabletkit.a ... "
+/bin/rm -f /usr/local/lib/libtabletkit.a
+echo "OK."
+
+echo    "    ... done."

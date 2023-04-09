@@ -1,0 +1,250 @@
+Thu Jul  9 11:30:02 1992  Leonard Manzara  (len at localhost)
+
+	* Changed Speech.m to conform to new input standards for the
+	TTS Object.  Changed literal mode to raw mode, fixed some
+	escape characters, and made sure that raw mode entry was properly
+	marked.
+
+Tue Jun  9 04:16:45 1992  Vince DeMarco  (vince@whatnxt.cuc.ab.ca)
+
+	* Version 2.0.1
+
+	====== NO CHANGE HERE SIMPLY A REMINDER TO MYSELF FOR LATTER ======
+	* Program will be frozen in rcs. Under the name V2-0-1. The old
+	version has been refrozen as V2-0-0. This VX-X-X is just a
+	symbolic name, for my benfit. This makes it easier to checkout a
+	particular version of the entire program, without having to know
+	the version of each individual file in RCS.
+	So now to check out V2-0-0 simply do co -rV2-0-0 RCS/* and you
+	have it. or to check in everything as V2-0-1 simply do a ci
+	-rV2-0-1 *.
+
+Sat Jun  6 14:07:01 1992  Vince DeMarco  (vince@whatnxt.cuc.ab.ca)
+
+	* MyText now also implements flagsDidChange: and the delegate
+	method textFlagsDidChange:flags:keyCode: before these messages get
+	sent you must add NX_SHIFTMASK to the window's EventMask. This is
+	the window where the TextObject is being used.
+
+	    PrEditor now will shift the keyboard either of the shift keys
+	    are pressed, or ShiftLock is enabled.  When the keyboard is
+	    reenabled the KeyboardController Object will check the state
+	    of the AlphaLock key and set the visual display appropriately.
+
+Thu Jun  4 01:03:16 1992  Vince DeMarco  (vince@whatnxt.cuc.ab.ca)
+
+	* The Filter Functions in EnglishText and KeyboardText now check
+	the flags if the COMMAND KEY was pressed along with a letter the
+	default filterfunciton is called and what ever it returns is
+	returned by the custom filter function.  This is done because the
+	charCode for Command-D is the same as that for D.
+
+	* Finally got feed up with those stupid TextFieldCells that I
+	made. What i have done now is:
+
+	      - Created a subclass of Text called MyText, in the
+	      Application new method, get MyText to pose as the standard
+	      text object.  MyText implements two new text delegation
+	      methods:
+	      		- textDidGetKey:textObject charCode: (unsigned short
+			int )charCode
+			
+				This one will send a message to the
+				delegate whenever a key is pressed in the
+				text object.  charCode containes the
+				character code of the key that was pressed.
+
+			- textDidMouseDown:textObject
+
+				When ever a mouse down event occurs in the
+				textObject the delegate will be notified
+				of the event.
+		
+		- Added some categories to TextField so that it
+		understands the newly added Categories (TextKeys) Category
+		defined in TextFieldCat.[hm] 
+
+		- EnglishText.[hm] and KeyboardText.[hm] are now
+		subclasses of Object.  They are no longer subclasses of
+		TextField. Now they are simply textDelegates of the
+		appropriate TextField.  EnglishText is a textDelegate of
+		the TextField where the word is entered. KeyboardText is
+		the textDelegate of the field where the Pronuncations are
+		entered. 
+
+		In both EnglishText and Keyboard text, you will notice an
+		instance variable called oldCharFilter which holds the
+		original character filter function, although this is
+		getting set, it is currently not being used to reset the
+		old filter function.  This instance variable oldCharFilter
+		is present for future expansion.
+
+Tue Jun  2 15:04:54 1992  Vince DeMarco  (vince@whatnxt.cuc.ab.ca)
+
+	* Small Bug in PrDictViewer Object (PrDictViewer.m file) in the
+	method loadDict:
+
+	  Workaround, the method loadColumnZero will only Get called when
+	there are no  mainWindows up on the screen, ie dictionary == nil
+	when this happens we explicitly get the browser to reload it self.
+	What will happen is that the current contents of the browser will
+	get completely removed, this is needed because, the browser values
+	are set with setStringValueNoCopy, so when the current dictionary
+	is removed, so are pointers from the Browser into memory for the
+	strings. An alternative fix would be in the method
+	browser:loadCell:atRow:inColumn: change the setStringValueNoCopy:
+	to setStringValue:
+
+
+Wed May 27 15:32:49 1992  Vince DeMarco  (vince@whatnxt.cuc.ab.ca)
+
+	* A new object has been created called CustomSlider and
+	CustomSliderCell. What it does is gives you a slider that is will
+	behave like a normal slider while the Knob is being moved (it will
+	send continuous messages to the target) until the mouse has lifted
+	up (mouseUp event) then a message (only 1) will get send to
+	target2.
+
+	This gives a slider that can be both continuous and noncontinuous
+	at the sametime.
+	
+
+Tue May 26 18:23:44 1992  Vince DeMarco  (vince@whatnxt.cuc.ab.ca)
+
+	* Fixed a bug in PrefMgr.m, where the cursor rects for the
+	TextFields didn't get updated properly. That is the Insertion
+	Cursor would be visible over top a button.  I forgot to set the
+	currentView and as a consequence didn't remove the old view from
+	it's subview.  All fixed now. (Change made to PrefMgr.m)
+
+	* This Bug Has been fixed
+		Sometimes the Contents Viewer Window pops up but it is
+		larger than it should be, if this persits change the calls
+		to move and size the panel from sizeWindow:: moveTo:: to
+		placeWindow: or placeWindowAndDisplay: 
+	What it was, was that i saved the position of the Help window in
+	the default value for the Contents Viewer.  (Change made to Help.m)
+
+	* Before the window is displayed now in initFromFile: the
+	updateFont method is called in PrEditorDocument.m.  That way the
+	keyboard will ALWAYS Be displaying the correct font instead of
+	displaying Helvetica for a while until the user makes the current
+	window the active window.
+
+	* There was a bug when no entry was found in the defaults database
+	for the default font, instead of setting the default font to
+	trillium-phonetic it set it to helvetica.  This has been fixed
+	now. 
+	In InspectorMgr.m
+	(const char *)fontName
+
+Fri May 22 22:39:38 1992  Vince DeMarco  (vince@whatnxt.cuc.ab.ca)
+
+	* The current Version of PrEditor (frozen in the RCS Files) is
+	2.0, as soon as Len and David are finished Alpha Testing it, it
+	will get frozen again at version 2.0.1.  My plan is to use the
+	last numeral to indicate bug fixes in the current version. the
+	first number will indicate major improvements, the second will
+	indicate minor improvements (whatever that happens to mean) and
+	the last will indicate bug fixes.
+
+	* The program seems stable now, Although Wierd things seem to be
+	happening occasionally. Like:
+
+		A word stored in the dictionary without a type (I have put
+		some code in the pronunciation() call to help cope with
+		this possiblity)
+
+		Sometimes the Contents Viewer Window pops up but it is
+		larger than it should be, if this persits change the calls
+		to move and size the panel from sizeWindow:: moveTo:: to
+		placeWindow: or placeWindowAndDisplay: 
+
+	* The PrDict Object now uses a ChildZone to hold the stuff for the
+	valueAtPos: method call.  In the valueAtPos: method in PrDict, i
+	don't bother checking if the NXZoneCreate calls can actually
+	create a zone, because if they can't, this means that there is no
+	memory on the system.  Therefore it isn't even possible to put up
+	an error panel notifying the user, so letting the program seg
+	fault is okay in this case.
+
+	* All of the NiftyMatrixies in the program, IE the Word Type and
+	the Dictionary Order now do not have a disabled scroller along
+	side them, it looks much better now.
+
+	* NiftyMatrixCell now uses the textObject already provided to
+	display the text, instead of the stuff Jayson Adams did.
+	(Actually Jayson on the Net said that the stuff that he did was
+	inefficient which is the main reason why i changed it)
+
+	* NiftyMatrix now uses only one copy of the cacheWindows which are
+	shared by all instances of the Object.
+
+	* When the user quites the Application without closing all of
+	the windows, PrEditor now will close all connections to the
+	speech server.  It previously was only doing this when the
+	user closed a window.
+
+Tue May 19 17:54:14 1992  Vince DeMarco  (vince@whatnxt.cuc.ab.ca)
+
+	* Everything seems to be finished, now.  (to the code anyways) I
+	am now considering PrEditor finished. (Ignoring Bug reports, for
+	now) 
+
+Fri May  8 18:57:08 1992  Vince DeMarco  (vince@whatnxt.cuc.ab.ca)
+
+	* Extensive changes made to:
+		InspectorMgr.[hm]
+		PrDictViewer.[hm]
+		PrEditorDocument.[hm]
+		PrefMgr.[hm]
+		Help.[hm]
+	Essentually everything.
+
+Tue May  5 13:55:36 1992  Vince DeMarco  (vince@whatnxt.cuc.ab.ca)
+
+	* Added object to list current contents of dictionary file
+	(PrDictViewer.nib PrDictViewer.[hm])
+
+Fri May  1 17:59:52 1992  Vince DeMarco  (vince@whatnxt.cuc.ab.ca)
+
+	* More changes to PrEditorDocument.m mainly in validateCommand:
+	the menu options under the Edit menu option, will now only be
+	activated if a word or pronunciation have been entered in the
+	fields (phonField and englishField)
+	(Edited PrEditorDocument.m)
+
+	* Made the Help window not "Visible at Launch Time"
+	(Edited Help.nib)
+
+Thu Apr 30 17:51:01 1992  Vince DeMarco  (vince@whatnxt.cuc.ab.ca)
+
+	* Made the font size in the pronunciation field 20 pt instead
+	(Edited PrEditorDocument.m and Document.nib)
+
+Wed Apr 29 17:33:04 1992  Vince DeMarco  (vince@whatnxt.cuc.ab.ca)
+
+	* Bug fixed in InspectorMgr.m in method
+	- (const char *)fontName
+
+Mon Apr  6 19:09:20 1992  Vince DeMarco  (vince@whatnxt.cuc.ab.ca)
+
+	* Program given to Trillium (Finally version frozen in RCS)
+
+Sat Jan 18 15:41:32 1992  Vince DeMarco  (vince@whatnxt.cuc.ab.ca)
+
+	* ChangeLog File created for PrEditor v2.00
+
+$Id: ChangeLog,v 1.1 2002-03-21 16:49:51 rao Exp $
+
+$Log: not supported by cvs2svn $
+# Revision 2.2  92/07/09  11:32:44  len
+# Added changes to Speech.m to log.
+# 
+# Revision 2.1  1992/06/10  13:49:02  vince
+# *** empty log message ***
+#
+# Revision 2.0  1992/04/08  03:43:23  vince
+# Initial-Release
+#
+

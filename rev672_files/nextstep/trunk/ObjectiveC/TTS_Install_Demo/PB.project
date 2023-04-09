@@ -1,0 +1,30 @@
+INSTALLDIR = "$(HOME)/Apps";
+APPICON = app.tiff;
+GENERATEMAIN = YES;
+DOCICONFILES = ();
+FILESTABLE = {
+    M_FILES = (TTS_Install_Demo_main.m);
+    OTHER_LINKED = ();
+    H_FILES = (Controller.h, DirPanel.h);
+    CLASSES = (Controller.m, DirPanel.m);
+    IMAGES = ();
+    PSW_FILES = ();
+    C_FILES = ();
+    OTHER_SOURCES = (InstallScript);
+    SUBPROJECTS = ();
+    PSWM_FILES = ();
+    SOUNDS = ();
+    OTHER_LIBS = (Media_s, NeXT_s);
+    INTERFACES = (TTS_Install_Demo.nib);
+};
+APPCLASS = Application;
+DOCEXTENSIONS = ();
+MAINNIB = TTS_Install_Demo;
+PROJECTTYPE = Application;
+LOCALIZABLE_FILES = {
+    TTS_Install_Demo.nib;
+};
+PROJECTVERSION = 1.1;
+PROJECTNAME = TTS_Install_Demo;
+SYSTEMEXTENSIONS = ();
+LANGUAGE = English;

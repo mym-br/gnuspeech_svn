@@ -1,0 +1,21 @@
+#*
+#*    Filename:	Makefile.postamble 
+#*    Created :	Sun Feb 23 11:48:51 1992 
+#*    Author  :	Vince DeMarco
+#*		<vince@whatnxt.cuc.ab.ca>
+#*
+#*
+#* LastEditDate "Tue Apr  7 21:36:07 1992"
+#*
+#* $Log: not supported by cvs2svn $
+# Revision 2.0  1992/04/08  03:43:23  vince
+# Initial-Release
+#
+#*
+
+
+
+ETAGS = etags 
+
+TAGS : $(CLASSES) $(MFILES) $(CFILES) $(HFILES)
+	$(ETAGS) -tw $(CLASSES) $(MFILES) $(CFILES) $(HFILES)

@@ -1,0 +1,35 @@
+FirstResponder = {
+    ACTIONS = {
+    };
+    SUPERCLASS = Object;
+};
+MyController = {
+    ACTIONS = {
+	appDidInit:;
+	newPriority:;
+	setValues:;
+	restartServer:;
+	newPrefillText:;
+	newTimeQuantum:;
+	newPolicy:;
+	newTimeQuantumText:;
+	newPrefill:;
+    };
+    OUTLETS = {
+	connectPanel;
+	killSwitch;
+	machPrioritySlider;
+	silencePrefillSlider;
+	serverVersionText;
+	silencePrefillField;
+	machPriorityField;
+	schedulingPolicyMatrix;
+	compiledVersionText;
+	timeQuantumField;
+	mySpeech;
+	serverPIDText;
+	dictionaryVersionText;
+	timeQuantumSlider;
+    };
+    SUPERCLASS = Object;
+};

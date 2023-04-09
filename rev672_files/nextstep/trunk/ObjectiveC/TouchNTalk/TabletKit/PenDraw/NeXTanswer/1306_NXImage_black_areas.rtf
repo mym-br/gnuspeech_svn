@@ -1,0 +1,32 @@
+{\rtf0\ansi{\fonttbl\f2\fswiss Helvetica;}
+\paperw11760
+\paperh7800
+\margl120
+\margr120
+{\colortbl;\red0\green0\blue0;}
+\pard\tx520\tx1060\tx1600\tx2120\tx2660\tx3200\tx3720\tx4260\tx4800\tx5320\f2\b0\i0\ulnone\fs24\li400\fc1\cf1 Q: I'm using NXImage to display a PostScript or TIFF file. When I display it on a color system, the image doesn't look right--there are large black areas.\
+\
+A: Probably your image has transparency in it. The image was rendered into an NXImage and then composited onto the screen using 
+\b NX_COPY
+\b0  . Since 
+\b NX_COPY
+\b0  produces an exact copy of the bits from the source, transparent areas in the NXImage were copied onto the screen. On the monochrome MegaPixel display, these transparent areas expose to white, to emulate the way a sheet of paper might behave. NeXT's color devices act more like video devices, and they expose to black. \
+\
+In order to avoid exposing the underlying device's representation of transparent, you should fill in the background and composite the NXImage using 
+\b NX_SOVER
+\b0  :\
+\
+- drawSelf:(NXRect *)rects :(int)rectCount\
+\
+NXPoint pt = 0.0, 0.0;\
+\
+NXSetColor(NX_COLORWHITE);\
+NXRectFill(rects);\
+[anImage composite: NX_SOVER toPoint: &pt];\
+return self;\
+\
+\
+QA743\
+\
+Valid for 2.0, 3.0
+}

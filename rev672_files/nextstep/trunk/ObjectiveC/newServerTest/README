@@ -1,0 +1,60 @@
+Hi Craig:
+
+The set of files in this directory are used to make the client side
+of the server.  The server will have to be altered for these routines
+to work:
+
+1) I've made some changes to SpeechMessages.h.  The numbering of the messages
+   has been changed, so any modules which refers to this header file will have
+   to be recompiled.  Also note that I've changed some of the #defines to be
+   more self-consistent:
+
+      SETSPEED => SET_SPEED
+      SETVOLUME => SET_VOLUME
+      SPEED => GET_SPEED
+      VOLUME => GET_VOLUME
+
+2) Once the client is connected to the server, after getting the appropriate
+   SpeechIdentifier, the client now exchanges task_port ids with the server
+   (using a newly defined int_msg).  This must be fixed on the server side
+   or the client will exit.
+
+3) The client will now launch the server with the kill arguments when
+   appropriate.  The kill arguments are -k <old server task #>.
+   If you don't put in the code to kill the old servers, then zombies
+   are left hanging about.
+
+4) The "hidden" methods are now put into a separate Category, called
+   TextToSpeechPlus.  Two libraries will have to be built:
+
+      libTextToSpeech.a
+      libTextToSpeechPlus.a
+
+   There are now two corresponding header files:
+
+      TextToSpeech.h
+      TextToSpeechPlus.h
+
+   Of course, only programs like PrEditor will get to use the Plus
+   library and header file;  the public will only get the plain
+   TextToSpeech stuff.  To compile the Plus library, simply have
+   your Makefile also compile the TextToSpeechPlus.m file.
+
+
+
+I've not been able to test the relaunching of the server in kill mode;
+this can only be done when you've got that code implemented in the server.
+I have tested the relaunch sequence when the server has been killed, or
+when the server has been killed and started by some other process (in
+this case, I did it by hand).  It seems to work fine.
+
+I haven't tested archiving and unarchiving of the TTS Object---this is easiest
+to test once the library has been built, and the server is almost fully
+functional.
+
+We need to thoroughly test the exchange of messages, especially since
+I've put your casts onto one line instead of two.  All but pronunciation:::
+seem to work OK with the old server I have.  I'm concerned, also, about
+the range of the SpeechIdentifier that is returned.
+
+Len

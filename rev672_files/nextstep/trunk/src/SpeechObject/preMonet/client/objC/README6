@@ -1,0 +1,10 @@
+Fixed start up code so that client waits somewhat longer before giving
+up on the server.
+
+Shortened most message timeouts to 3 seconds.
+
+speakText: and linePronunciation: methods now await an immediate acknowledge
+from the server (int message) with a 3 second timeout.  The message from after
+the parse stage in the server now has a timeout of 30 seconds.
+
+Added the dictionaryVersion method.

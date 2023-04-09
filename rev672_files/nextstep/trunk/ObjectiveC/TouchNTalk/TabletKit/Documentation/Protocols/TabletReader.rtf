@@ -1,0 +1,162 @@
+{\rtf0\ansi{\fonttbl\f0\fnil Times-Roman;\f1\ftech Symbol;\f2\fswiss Helvetica;\f3\fmodern Courier;}
+\paperw14740
+\paperh12720
+\margl120
+\margr0
+{\colortbl;\red0\green0\blue0;}
+\f0\b0\i0\ulnone\ql\fs24\fi0\li0\gray0\fc0\cf0\up0\dn0 Release 1.1  Copyright 
+\f1 ã
+\f0 1995 by Dale Brisinda.  All Rights Reserved.\
+\
+
+\pard\tx2480\tx2860\tx3240\fs16\li2100\fc0\cf0 \
+
+\fs28 \
+
+\fs16 \
+
+\fs28 \
+
+\fs16 \
+
+\pard\f2\b\fs56\li2100\fc1\cf1 TabletReader\
+
+\fs16\fc0\cf0 \
+\
+\
+\
+\
+
+\pard\tx4880\fs28\fi-2780\li4880\fc0\cf0 Adopted By:	
+\f0\b0 principal class of all custom tablet reader bundles\
+
+\fs16 \
+
+\f2\b\fs28 Declared In:	
+\f0\b0 tabletKit/TabletReader.h\
+
+\fs16 \
+
+\pard\f2\b\li1360\fc0\cf0 \
+\
+\
+\
+
+\fs36 Protocol Description\
+
+\fs16 \
+
+\pard\tx2480\tx2860\tx3240\f0\b0\fs28\li2100\fc0\cf0 This protocol must be implemented by the principal class in a bundle that is to provide tablet device reading capabilities for specific tablet data formats. The resulting bundle must reside in one of the following directories in order to be properly recognized:\
+\
+		·	~/Library/TabletReaders\
+		·	/LocalLibrary/TabletReaders\
+		·	/NextLibrary/TabletReaders\
+\
+where ~ represents the user's home directory. These directories are searched in the above order by an instance of the TabletDriver class when an attempt is made to load a specified TabletReader bundle. If the same bundle exists in more that one of the above directories, then the first one encountered is loaded, and the principal class for that bundle is instantiated. The principal class is defined as the class that adopts the TabletReader protocol, and is linked first in the bundle. In order to ensure that this class is in fact linked first, the class conforming to the TabletReader protocol must appear before any other class in the classes listing of Project Builder. Control-drag to rearrange the class ordering, and thus the order in which classes are compiled and linked. For examples on how to create custom TabletReader bundles for specific tablet data formats, see the example bundles in 
+\b /LocalDeveloper/Examples/TabletKit
+\b0 .\
+
+\fs16 \
+
+\pard\f2\b\li1360\fc0\cf0 \
+\
+\
+\
+
+\fs36 Instance Methods\
+
+\fs16 \
+
+\fs28\fi-380\li2480 convertDataAtTabletFD:toLocation:identifier:proximity:pressure:angle:button\
+
+\pard\tx6140\tx9660\tx10180\f1\b0\fi-760\li3240\fc0\cf0 -
+\f0  
+\b convertDataAtTabletFD:
+\b0 (int)
+\i tabletFD
+\b\i0  \
+
+\fi0 l
+\fi-760 ocation:
+\b0 (NXPoint *)
+\i location
+\fi0 \
+
+\b\i0 identifier
+\fi-760 :
+\b0 (
+\fi0 short *
+\fi-760 )
+\i\fi0 identifier
+\pard\b\i0\fi-760\li3240\fc0\cf0 \
+
+\pard\tx6140\tx9660\tx10180\li3240\fc0\cf0 proximity
+\fi-760 :
+\b0 (
+\fi0 short
+\fi-760  *)
+\i\fi0 proximity
+\pard\b\i0\fi-760\li3240\fc0\cf0 \
+
+\pard\tx6140\tx9660\tx10180\li3240\fc0\cf0 pressure
+\fi-760 :
+\b0 (
+\fi0 short
+\fi-760  *)
+\i\fi0 pressure
+\pard\b\i0\fi-760\li3240\fc0\cf0 \
+
+\pard\tx6140\tx9660\tx10180\li3240\fc0\cf0 angle
+\fi-760 :
+\b0 (
+\fi0 short
+\fi-760  *)
+\i\fi0 angle
+\pard\b\i0\fi-760\li3240\fc0\cf0 \
+
+\pard\tx6140\tx9660\tx10180\li3240\fc0\cf0 button
+\fi-760 :
+\b0 (
+\fi0 short
+\fi-760  *)
+\i\fi0 button
+\pard\b\i0\fi-760\li3240\fc0\cf0 \
+
+\pard\tx2480\tx2860\tx3240\b0\fs16\li2100\fc0\cf0 \
+
+\fs28 This method must read and convert the data at the file descriptor 
+\i tabletFD. 
+\i0 The converted information must be stored in the arguments passed by reference. 
+\i location
+\i0  must contain the (x, y) location of the stylus or cursor. 
+\i identifier
+\i0  must contain an identifier associated with the attached tablet. It is useful in a multi-tablet configuration to distinguish between events generated from one tablet versus another. 
+\i proximity
+\i0  must contain whether or not the stylus or cursor is in proximity of the tablet. A value of 0 indicates the stylus or cursor is out of proximity and has been raised off the tablet. A value of 1 indicates the stylus or cursor is within proximity and is in contact with the tablet. 
+\i pressure
+\i0  must contain how much downward force is applied to the stylus. Pressure values range from 0 to 255 where 0 represents no pressure, and 255 represents full pressure.  
+\i angle
+\i0  must contain the angle the stylus makes with the tablet surface. The values range from 0 to 90 degrees, where 0 degrees indicates the stylus is horizontal to the tablet surface, and 90 degrees indicates the stylus is perpendicular to the tablet surface. Finally, 
+\i button
+\i0  must contain the value of  the button that was pressed on the stylus or cursor. The various button values are defined in the TabletDriver class.\
+\
+It is important to note that a TabletDriver instance sets read calls to the tablet file descriptor to be non-blocking. Therefore, the read function call returns immediately whether or not data was successfully read. This method should continue reading and processing tablet data until a complete data packet is read. When all elements of a single packet have been read, the method should return 
+\b self
+\b0  which results in the packet information in the method arguments being posted in the form of an application-defined 
+\b NXEvent
+\b0 . In the case that data is unsuccessfully read, the method should immediately return 
+\b nil
+\b0 . A return value of
+\b  nil 
+\b0 does not signify an error, but indicates to the TabletDriver class instance that no more events can be generated since there is no more data at the tablet file descriptor.\
+\
+
+\b Note:
+\b0  If the attached tablet does not support various features such as providing stylus angle or stylus pressure information, then these fields should be ignored. Default values are placed in all fields prior to invocation of this method. If the tablet 
+\i does
+\i0  support the above features, then those fields should be overwritten with the appropriate values. \
+
+\pard\f2\b\fs16\li1360\fc0\cf0 \
+\
+
+}

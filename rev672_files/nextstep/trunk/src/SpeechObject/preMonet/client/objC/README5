@@ -1,0 +1,5 @@
+Changed the client code so that restarting the server with the kill
+option does not use the "-k" and "pid" command line arguments.  These
+arguments are not needed with version k of the server.
+
+Also cleaned up defaults registration code (using STRINGIFY macro).

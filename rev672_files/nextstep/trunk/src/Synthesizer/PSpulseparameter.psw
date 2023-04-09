@@ -1,0 +1,56 @@
+defineps PSpulseparameter(float x; float y; float width; float height;
+	                  float riseTime; float fallTimeMin; float fallTimeMax)
+
+	/tp {x riseTime 100 div width mul add} def
+	/tnMin {tp fallTimeMin 100 div width mul add} def
+	/tnMax {tp fallTimeMax 100 div width mul add} def
+	/maxx {x width add} def
+	/maxy {y height add} def
+
+	/square {dup mul} def
+	/cube {dup dup mul mul} def
+
+	/ltgray {2 3 div} def
+	/dkgray {1 3 div} def
+	/black {0} def
+
+	% FALL PROCEDURES
+	/dx {tp sub exch tp sub exch div} def
+	/fallfunction {dx square neg 1 add height mul y add} def
+	/minfall {dup tnMin fallfunction lineto} def
+	/maxfall {dup tnMax fallfunction lineto} def
+
+	% RISE PROCEDURES
+	/ddx {x sub exch x sub exch div} def
+	/risefunction {ddx dup cube 2 neg mul exch square 3 mul
+	               add height mul y add} def
+	/rise {dup tp risefunction lineto} def
+
+
+	1 setlinewidth				% draw vertical lines
+	ltgray setgray
+	tp y moveto
+	0 height rlineto
+	tnMin y moveto
+	0 height rlineto
+	tnMax y moveto
+	0 height rlineto
+	stroke
+
+	dkgray setgray				% draw tnmax fall
+	tp maxy moveto
+	tp 1 add 1 tnMax 1 sub {maxfall} for
+	tnMax y lineto
+	maxx y lineto
+	stroke
+
+	black setgray				% draw rise
+	x y moveto
+	x 1 add 1 tp {rise} for
+
+	tp maxy lineto				% draw min fall
+	tp 1 add 1 tnMin 1 sub {minfall} for
+	tnMin y lineto
+	maxx y lineto
+	stroke
+endps

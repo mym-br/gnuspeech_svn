@@ -1,0 +1,37 @@
+{\rtf0\ansi{\fonttbl\f2\fswiss Helvetica;}
+\paperw11760
+\paperh7800
+\margl120
+\margr120
+{\colortbl;\red0\green0\blue0;}
+\pard\tx520\tx1060\tx1600\tx2120\tx2660\tx3200\tx3720\tx4260\tx4800\tx5320\f2\b0\i0\ulnone\fs24\li400\fc1\cf1 Q: My application is a simple paint program. The user opens a TIFF image, then scribbles into it, and finally saves the new image as a TIFF file. However, the changes made by the user aren't saved into the TIFF file--it contains the original image. Why?\
+\
+A: This occurs if you open the TIFF file like this:\
+\
+image = [[NXImage alloc] initFromFile:fileName];\
+\
+NXImage will have two representations--the file, and the cache. NXImage will treat the cache as a transitory image, and the file as its "best representation." The cache is the off-screen window to which the user's scribbles are drawn. When asked to write out the image, NXImage writes out its best representation of the image--which is the actual TIFF file residing on disk--thus ignoring completely the changes made to the image. To get around this you must fake out NXImage by forcing the cache to be the best representation of the image.\
+\
+The following code snippet illustrates what you must do:\
+\
+/* When the user opens the image */\
+rep = [[NXBitmapImageRep alloc] initFromFile:fileName];\
+[rep getSize:&imageSize];\
+\
+image = [[NXImage alloc] initSize:&imageSize];\
+\
+if ([image useCacheWithDepth:d] && [image lockFocus]) \
+[rep draw];\
+[image unlockFocus];\
+\
+[rep free];\
+\
+This code sample initialized an NXBitmapImageRep from the file containing the opened image. The NXImage is initialized from this representation. Now the NXImage does not have a file which can serve as its best representation--it only has the cache. Thus when you tell NXImage to 
+\b writeTIFF:
+\b0  the cache with all of the user's scribbles is written out properly.\
+\
+QA786\
+\
+Valid for 1.0, 2.0, 3.0\
+
+}

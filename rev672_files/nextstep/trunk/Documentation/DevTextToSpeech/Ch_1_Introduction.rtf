@@ -1,0 +1,155 @@
+{\rtf0\ansi{\fonttbl\f0\fnil Times-Roman;\f1\fmodern Ohlfs;}
+\paperw12240
+\paperh14140
+\margl1800
+\margr1080
+\pard\tx1140\tx2280\tx3420\tx4560\tx5700\tx6840\tx7980\f0\b0\i0\ulnone\fs72\fc0\cf0 Chapter 1\
+\
+
+\fs96 Introduction\
+\
+
+\fs28 \
+
+\b\fs36 1.1  Why Text-to-Speech?\
+
+\b0\fs28 \
+One may ask why the TextToSpeech Kit is needed.  The obvious answer is\
+that it allows your computer to talk.  Most feedback from computers occurs visually, with some tactile and simple auditory feedback.  Giving your computer the ability to talk allows the user to interact with it in new ways, reinforcing visual information or providing an alternative to it.\
+\
+Another compelling reason for text-to-speech is to provide a powerful new tool for developers of applications.  Unrestricted text-to-speech conversion will be of special interest to programmers working with: integrated mail systems; teaching software; aids for the disabled; telephone access to databases; appointment systems requiring automated reminders to clients and patients; and any application where voice generated from arbitrary text provides a useful new modality. Imagine text editors which can speak the file you just typed in, or games with spoken messages, or educational software such as pronunciation dictionaries for languages or dialects.  Almost every application can benefit from text-to-speech, and many as yet unimagined applications will arise once this capability is widely available.\
+\
+Text-to-speech is also important at the system level of the computer.  It is a natural extension to the Workspace Manager, moving along the same path towards a natural and intuitive interface with the computer.\
+\
+Finally, text-to-speech allows computer access for the visually impaired.  Presently, the blind are excluded from using most computers because of the technology's high dependence on visual feedback.  When text-to-speech is properly coordinated with speech recognition, a completely new mode of interaction with computers will be created, benefitting not only the handicapped but all computer users in general.\
+\
+\
+
+\b\fs36 1.2  What is the TextToSpeech Kit?\
+
+\b0 \
+
+\fs28 The TextToSpeech Kit is a collection of applications, programs, libraries, and documentation which allows the developer to incorporate text-to-speech capability into an application.  The Developer TextToSpeech Kit contains the following items:\
+\
+
+\pard\tx720\tx2280\tx3420\tx4560\tx5700\tx6840\tx7980\b\fi-360\li720\fc0\cf0 ·
+\b0 	
+\b TextToSpeech Server.
+\b0   The TextToSpeech Server and its associated\
+	databases do the actual conversion of text to speech, running as an\
+	independent task in the background.  The databases include a large\
+	main dictionary, which provides accurate pronunciations for nearly\
+	70,000 words.  The Server and databases are installed in\
+	/LocalLibrary/TextToSpeech/system.\
+
+\b \
+·	Client Libraries.  
+\b0 The TextToSpeech Object provides client access to the TextToSpeech Server, using Objective C conventions.  The library libTextToSpeech.a is located in /usr/local/lib.  Header files are installed in /LocalDeveloper/Headers/TextToSpeech.\
+\
+
+\b ·	PrEditor.
+\b0   
+\i PrEditor
+\i0  (from 
+\b Pr
+\b0 onunciation 
+\b Editor
+\b0 ) is an application that allows developers and end users to create and maintain supplementary pronouncing dictionaries, customized to their needs.  
+\i PrEditor
+\i0  is located in /LocalApps/TextToSpeech.\
+\
+
+\b ·	SpeechManager
+\b0 .  
+\i SpeechManager
+\i0  provides the ability to customize the execution characteristics of the TextToSpeech Server for any given system.  Your system administrator uses this application to tune the Server if speech output ``chatters'' or suffers from frequent interruptions. It is installed in /LocalApps/TextToSpeech.\
+\
+
+\b ·	BigMouth.
+\b0   
+\i BigMouth
+\i0  is an application which provides a text-to-speech service to other applications.  It is installed in /LocalApps/TextTo-\
+	Speech.\
+\
+
+\b ·	ServerTest.
+\b0   
+\i ServerTes
+\i0 t is an application which makes all the Server's methods available for testing and experimentation through a simple graphical interface.  It is located in /LocalApps/TextToSpeech.\
+\
+·	
+\b WhosOnFirst
+\b0 . An application that generates voice alerts for system activity, including application launches and remote logins.  It is included in /LocalApps/TextToSpeech.\
+\
+·	
+\b say
+\b0 .  A command line interface to the TextToSpeech system, which can be used from a terminal or in shell scripts.  
+\i say
+\i0  is installed in /user/local/bin.\
+\
+
+\b ·	Documentation.
+\b0   Complete developer documentation is provided, with reference material and tutorials.  Laser-printable copies are provided, as well as fully indexed RTF documentation for Digital Librarian.  The documentation is located in /LocalLibrary/TextToSpeech/documentation.\
+\
+
+\b ·	Example Code.
+\b0   Complete source code for
+\i  BigMouth
+\i0  and 
+\i ServerTest
+\i0  is provided.  These should provide useful examples to developers when they incorporate text-to-speech capabilities into their own applications.  The source code is installed in /LocalLibrary/TextToSpeech/exampleCode.\
+\
+
+\b ·	Fonts
+\b0 .  Three specially developed fonts, 
+\i Lexical
+\i0 ,  
+\i Phonetica
+\i0 , and 
+\i Trillium-Phonetic
+\i0  are included to enable phonetic editing of pronunciations with 
+\i PrEditor
+\i0 .  These fonts are installed in /LocalLibrary/Fonts.\
+\
+
+\b ·	Device Driver.
+\b0   A device driver for the Turtle Beach MultiSound DSP card is provided for Intel computers.\
+\
+
+\pard\tx1140\tx2280\tx3420\tx4560\tx5700\tx6840\tx7980\fc0\cf0 The TextToSpeech User Kit contains the following items:\
+
+\pard\tx720\tx2280\tx3420\tx4560\tx5700\tx6840\tx7980\fi-360\li720\fc0\cf0 \
+
+\b ·	TextToSpeech Server\
+·	PrEditor\
+·	SpeechManager\
+·	BigMouth\
+·	WhosOnFirst\
+·	say\
+·	Fonts\
+·	Device Driver\
+
+\b0 \
+
+\pard\tx1140\tx2280\tx3420\tx4560\tx5700\tx6840\tx7980\fc0\cf0 The User Kit is intended to provide the basic functionality needed to run applications developed with the TextToSpeech Developer Kit.  The end user is thus spared the expense of purchasing unnecessary Kit components.\
+\
+\
+
+\b\fs36 1.3  Support for Intel Platforms\
+\
+
+\b0\fs28 In addition to supporting NeXT Computers, the TextToSpeech Kit will now also work on Intel platforms running NEXTSTEP if equipped with the Turtle Beach MultiSound DSP/Sound card.  An enhanced Music Kit driver for this card is bundled with the TextToSpeech Kit, and must be installed before running the TextToSpeech software.  This driver is a superset of the stock Music Kit driver provided by CCRMA, so all Music Kit functionality is retained.  Note, however, that the standard Music Kit driver does not support the TextToSpeech Kit.  Trillium Sound Research and CCRMA are cooperating to provide a unified Music Kit driver in the future.\
+\
+The TextToSpeech Kit now supports a ``software'' speech synthesizer that doesn't use the DSP.  This synthesizer runs on the host CPU and outputs sound samples to file.  It is far too slow to operate in real-time, but it may be useful for Intel machines which aren't equipped with a DSP board but do have the capability to play sound files through a simple (i.e. non-DSP) sound card.\
+\
+\
+
+\b\fs36 1.4  Organization of this Manual\
+
+\b0 \
+
+\fs28 Chapter 2 gives an overview of the concepts needed to understand most parts of the TextToSpeech Kit.  Chapter 3 provides several tutorial examples of how to program with the Kit, with detailed step-by-step instructions. Chapters 4 and 5 are detailed references for the TextToSpeech class.  They should be referred to whenever a comprehensive technical description of any of the class methods or instance variables is needed.\
+\
+\
+
+}

@@ -1,0 +1,42 @@
+defineps PSglottalpulse(float x; float y; float width; float height;
+                        float amplitude; float scale; float riseTime;
+                        float fallTimeMin; float fallTimeMax)
+	/tp {x riseTime 100 div width mul add} def
+	/tnMin {tp fallTimeMin 100 div width mul add} def
+	/tnMax {tp fallTimeMax 100 div width mul add} def
+	/tndelta {tnMax tnMin sub} def
+	/tn {tnMax tndelta amplitude mul sub} def
+
+	/maxx {x width add} def
+	/maxy {y height add} def
+	/midy {height 2 div x add} def
+	/angle {x sub width div 360 mul} def
+
+	/square {dup mul} def
+	/cube {dup dup mul mul} def
+
+	% RISE PROCEDURES
+	/ddx {x sub exch x sub exch div} def
+	/risefunction {ddx dup cube 2 neg mul exch square 3 mul
+	               add height mul 2 div scale mul midy add} def
+	/rise {dup tp risefunction lineto} def
+
+	% FALL PROCEDURES
+	/dx {tp sub exch tp sub exch div} def
+	/fallfunction {dx square neg 1 add height mul 2 div scale mul
+	               midy add} def
+	/fall {dup tn fallfunction lineto} def
+
+
+	1 setlinewidth			% set linewidth and gray level
+	0 setgray
+
+	x midy moveto			% draw rise
+	x 1 add 1 tp {rise} for
+
+	tp height 2 div scale mul midy add lineto	% draw fall
+	tp 1 add 1 tn 1 sub {fall} for
+	tn midy lineto
+	maxx midy lineto
+	stroke
+endps

@@ -1,0 +1,6 @@
+Message: speak
+Port: BigMouth
+Menu Item: Speak with BigMouth
+Key Equivalent: -
+Send Type: NXAsciiPboardType
+Send Type: NXFilenamePboardType

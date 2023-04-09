@@ -1,0 +1,133 @@
+{
+    "## Comment" = "Do NOT change this file, Gorm maintains it";
+    EventListView = {
+	Actions = (
+	);
+	Outlets = (
+	    mouseValueField,
+	    mouseTimeField
+	);
+	Super = NSView;
+    };
+    FirstResponder = {
+	Actions = (
+	    "addTextString:",
+	    "fileTypeDidChange:",
+	    "generateContour:",
+	    "generateGraphImages:",
+	    "loadContour:",
+	    "loadContourAndUtterance:",
+	    "parseText:",
+	    "openIntonationContour:",
+	    "printDocument:",
+	    "saveIntonationContour:",
+	    "setBeatOffset:",
+	    "setHertz:",
+	    "setSemitone:",
+	    "setSlope:",
+	    "showIntonationParameterWindow:",
+	    "showIntonationWindow:",
+	    "synthesizeToFile:",
+	    "synthesizeWithContour:",
+	    "synthesizeWithSoftware:",
+	    "updateDrift:",
+	    "updateMacroIntonation:",
+	    "updateMicroIntonation:",
+	    "updateSmoothIntonation:"
+	);
+	Super = NSObject;
+    };
+    MAIntonationScrollView = {
+	Actions = (
+	);
+	Outlets = (
+	    scaleView
+	);
+	Super = NSScrollView;
+    };
+    MAIntonationView = {
+	Actions = (
+	    "loadContour:",
+	    "saveIntonationContour:",
+	    "loadContourAndUtterance:"
+	);
+	Outlets = (
+	    utterance,
+	    controller,
+	    smoothing
+	);
+	Super = NSView;
+    };
+    MExtendedTableView = {
+	Actions = (
+	);
+	Outlets = (
+	);
+	Super = NSTableView;
+    };
+    MSynthesisController = {
+	Actions = (
+	    "synthesizeToFile:",
+	    "printDocument:",
+	    "synthesizeWithContour:",
+	    "generateGraphImages:",
+	    "runPageLayout:",
+	    "fileTypeDidChange:",
+	    "saveIntonationContour:",
+	    "updateSmoothIntonation:",
+	    "synthesizeWithSoftware:",
+	    "addTextString:",
+	    "openIntonationContour:",
+	    "updateDrift:",
+	    "updateMicroIntonation:",
+	    "setSlope:",
+	    "updateMacroIntonation:",
+	    "setSemitone:",
+	    "showIntonationParameterWindow:",
+	    "setBeatOffset:",
+	    "setHertz:",
+	    "generateContour:",
+	    "showIntonationWindow:",
+	    "parseText:"
+	);
+	Outlets = (
+	    intonationMatrix,
+	    intonationRuleTableView,
+	    intonationWindow,
+	    smoothIntonationSwitch,
+	    semitoneTextField,
+	    driftDeviationField,
+	    eventListView,
+	    intonationView,
+	    driftCutoffField,
+	    parametersStore,
+	    intonationParameterWindow,
+	    radiusMultiplyField,
+	    eventTableView,
+	    tempoField,
+	    intonParmsField,
+	    hertzTextField,
+	    parameterTableView,
+	    textStringTextField,
+	    slopeTextField,
+	    savePanelAccessoryView,
+	    beatTextField,
+	    absTimeTextField,
+	    fileTypePopUpButton,
+	    beatOffsetTextField,
+	    intonationSwitch,
+	    macroIntonationSwitch,
+	    microIntonationSwitch,
+	    driftSwitch,
+	    phoneStringTextView
+	);
+	Super = MWindowController;
+    };
+    MWindowController = {
+	Actions = (
+	);
+	Outlets = (
+	);
+	Super = NSWindowController;
+    };
+}

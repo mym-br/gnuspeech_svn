@@ -1,0 +1,19 @@
+Controller = {
+    ACTIONS = {
+	setFontLocation:;
+	appDidInit:;
+	accept:;
+	setServerLocation:;
+    };
+    OUTLETS = {
+	serverLocationField;
+	fontLocationField;
+	acceptButton;
+    };
+    SUPERCLASS = Object;
+};
+FirstResponder = {
+    ACTIONS = {
+    };
+    SUPERCLASS = Object;
+};

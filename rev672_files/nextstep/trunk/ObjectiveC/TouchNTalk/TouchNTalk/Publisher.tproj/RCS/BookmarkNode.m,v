@@ -1,0 +1,258 @@
+head	1.5;
+access;
+symbols;
+locks;
+comment	@ * @;
+
+
+1.5
+date	94.06.03.19.28.24;	author dale;	state Exp;
+branches;
+next	1.4;
+
+1.4
+date	93.06.04.20.57.48;	author dale;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	93.06.04.07.18.00;	author dale;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	93.06.01.08.03.24;	author dale;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	93.05.30.08.24.27;	author dale;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.5
+log
+@Changed "LastEditDate" to "Last modified on" within header.
+@
+text
+@/*
+ *    Filename:	BookmarkNode.m 
+ *    Created :	Sat May 29 22:42:12 1993 
+ *    Author  :	Dale Brisinda
+ *		<dale@@pegasus.cuc.ab.ca>
+ *
+ *    Last modified on "Fri Jun  4 11:55:29 1993"
+ *
+ * $Id: BookmarkNode.m,v 1.4 1993/06/04 20:57:48 dale Exp $
+ *
+ * $Log: BookmarkNode.m,v $
+ * Revision 1.4  1993/06/04  20:57:48  dale
+ * *** empty log message ***
+ *
+ * Revision 1.3  1993/06/04  07:18:00  dale
+ * *** empty log message ***
+ *
+ * Revision 1.2  1993/06/01  08:03:24  dale
+ * *** empty log message ***
+ *
+ * Revision 1.1  1993/05/30  08:24:27  dale
+ * Initial revision
+ *
+ */
+
+#import "BookmarkNode.h"
+
+@@implementation BookmarkNode
+
+- init
+{
+    [super init];
+    return self;
+}
+
+- free
+{
+    return [super free];
+}
+
+- awake
+{
+    [super awake];
+    /* class-specific initialization */
+    return self;
+}
+
+- read:(NXTypedStream *)typedStream
+{
+    [super read:typedStream];
+    /* class-specific unarchiving code */
+    NXReadArray(typedStream, "c", 256, &name);
+    NXReadTypes(typedStream, "i", &pageNumber);
+    return self;
+}
+
+- write:(NXTypedStream *)typedStream
+{
+    [super write:typedStream];
+    /* class-specific archiving code */
+    NXWriteArray(typedStream, "c", 256, name);
+    NXWriteTypes(typedStream, "i", &pageNumber);
+    return self;
+}
+
+/* Sets the bookmark name by making a local COPY of the NULL terminated name string. Bookmark names 
+ * must be less than 256 characters. Returns self.
+ */
+- setName:(const char *)bookmarkName
+{
+    strcpy(name, bookmarkName);
+    return self;
+}
+
+- setPageNumber:(int)pageNum
+{
+    pageNumber = pageNum;
+    return self;
+}
+
+- (const char *)name
+{
+    return name;
+}
+
+- (int)pageNumber
+{
+    return pageNumber;
+}
+
+@@end
+@
+
+
+1.4
+log
+@*** empty log message ***
+@
+text
+@d7 1
+a7 1
+ *    LastEditDate was "Fri Jun  4 11:55:29 1993"
+d9 1
+a9 1
+ * $Id: BookmarkNode.m,v 1.3 1993/06/04 07:18:00 dale Exp $
+d12 3
+@
+
+
+1.3
+log
+@*** empty log message ***
+@
+text
+@d7 1
+a7 1
+ *    LastEditDate was "Fri Jun  4 00:10:00 1993"
+d9 1
+a9 1
+ * $Id: BookmarkNode.m,v 1.2 1993/06/01 08:03:24 dale Exp $
+d12 3
+d49 1
+a49 1
+    NXReadArray(typedStream, "c", 256, &bookmarkName);
+d58 1
+a58 1
+    NXWriteArray(typedStream, "c", 256, bookmarkName);
+d66 1
+a66 1
+- setBookmarkName:(const char *)name
+d68 1
+a68 1
+    strcpy(bookmarkName, name);
+d78 1
+a78 1
+- (const char *)bookmarkName
+d80 1
+a80 1
+    return bookmarkName;
+@
+
+
+1.2
+log
+@*** empty log message ***
+@
+text
+@d7 1
+a7 1
+ *    LastEditDate was "Sun May 30 14:26:00 1993"
+d9 1
+a9 1
+ * $Id: BookmarkNode.m,v 1.1 1993/05/30 08:24:27 dale Exp $
+d12 3
+d46 2
+a47 1
+    NXReadArray(typedStream, "c", 256, &bookmark);
+d55 2
+a56 1
+    NXWriteArray(typedStream, "c", 256, bookmark);
+d60 4
+a63 9
+/* Sets the bookmark name by making a local COPY of the NULL terminated name string. Returns self. */
+- setBookmark:(const char *)name
+{
+    strcpy(bookmark, name);
+    return self;
+}
+
+/* Override so start == end. Returns self. */
+- setStart:(int)aValue
+d65 1
+a65 1
+    start = end = aValue;
+d69 1
+a69 2
+/* Overide to have no effect. Returns self. */
+- setEnd:(int)aValue
+d71 1
+d75 1
+a75 1
+- (const char *)bookmark
+d77 1
+a77 1
+    return bookmark;
+d80 1
+a80 2
+/* Override to always return 1 rather than arbitary value. */
+- (int)length
+d82 1
+a82 1
+    return 1;
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d7 1
+a7 1
+ *    LastEditDate was "Sat May 29 23:03:31 1993"
+d9 1
+a9 1
+ * $Id$
+d11 4
+a14 1
+ * $Log$
+d17 1
+a17 1
+#import "PageNode.h"
+a23 1
+    bookmark[0] = (char)0;
+d85 2
+@

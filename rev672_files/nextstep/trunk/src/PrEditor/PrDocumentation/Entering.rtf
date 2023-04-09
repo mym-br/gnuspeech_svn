@@ -1,0 +1,62 @@
+{\rtf0\ansi{\fonttbl\f0\fswiss Helvetica;\f1\fmodern Ohlfs;}
+\paperw11600
+\paperh9760
+\margl0
+\margr20
+\pard\tx1080\tx1260\f0\b\i0\ulnone\fs28\li200\fc0\cf0 Entering and Editing Pronunciations\
+
+\b0\fs24 \
+
+\b Opening a Dictionary\
+
+\b0 Before you can enter or edit pronunciations you must open an existing dictionary, or create a new one.  To open an existing dictionary, choose Document in the main menu, and then choose Open.  An Open Panel will appear, allowing you to choose a PrEditor dictionary anywhere in the file hierarchy.  A new window will appear, with the dictionary's name in the title bar.  PrEditor dictionaries always have the .preditor suffix.\
+\
+To create a new dictionary, choose Document in the main menu, and then choose New.  A new window will appear with the name "Untitled" in the title bar.  You can set the name to anything you want by choosing any of the Save options in the Document submenu.\
+\
+PrEditor allows you to work on several dictionaries at one time.  Simply choose Open or New to open or create another dictionary.  Each dictionary is represented by its own window.\
+\
+
+\b Inspecting the Contents of a Dictionary\
+
+\b0 You can inspect the contents of an opened dictionary by using the Dictionary Contents panel.  This panel is automatically updated when you store or delete an entry, or when you change to another dictionary.  When you click on a particular word in this list, the word and its pronunciation are put into the main display.  Double clicking on the word causes it to be spoken.\
+\
+
+\b Entering a New Word\
+
+\b0 To enter a new word and its pronunciation, first type the English representation of the word in the Word field.  PrEditor only allows you to type lower case letters here.  At this point you can simply click on the Pronunciation field and enter the word's pronunciation.  However, if you press <Return>, or choose Get Pronunciation in the Edit submenu, a pronunciation will be suggested and put into the Pronunciation field.\
+\
+PrEditor searches through these four dictionaries for suggested pronunciations:\
+\
+	∑	Current Dictionary\
+	∑	User Dictionary (if it has been set)\
+	∑	Main Dictionary\
+	∑	Letter To Sound Rules (actually an algorithm)\
+\
+You can change the search order simply by dragging an item up or down in the Dictionary Search Order browser, in the Settings panel.  A dictionary can be left out of the search order by double clicking on it–the browser item will then be greyed out;  however, the Letter To Sound Rules cannot be removed from the search order.  The default order can be recalled by clicking on  the Revert button.\
+\
+
+\b Editing Pronunciations\
+
+\b0 The pronunciation for a word can be entered from scratch, or created by editing a suggested pronunciation.  You will need to choose the phonetic representation most comfortable for you by selecting it in the Phonetic Alphabet section of the Settings panel.  A pronunciation is created by typing the appropriate phonetic symbols into the Pronunciation field, or by clicking with the mouse directly on the keyboard display.  Remember that the <Shift> key shows the other symbols not already seen.  Also, don't forget to put in periods to separate syllables, and quotation marks to indicate stress.  See the Pronunciation Guide for more details.\
+\
+You can listen to the pronunciation at any time simply by clicking on the Speak button, or by choosing the Speak Current Word item in the Edit submenu.  A word will not be spoken if the pronunciation is in the wrong format (usually because a stress symbol is not at the beginning of a syllable, or because there are too many stress symbols or periods).  Double clicking on any word in the Current Dictionary Contents panel will also cause the word to be spoken.\
+\
+
+\b Parts of Speech\
+
+\b0 When creating an entry for a pronunciation dictionary, you should also indicate what part or parts of speech the word functions as.  This information is used in the TextToSpeech server to synthesize more natural sounding rhythm and intonation.  To indicate that a word functions as a particular part of speech, simply double click on the appropriate item in the Parts of Speech browser in the main display–the enabled item will appear in black lettering.  If the word can function as more than one part of speech, simply enable each item that is appropriate.  You should put multiple parts of speech in order, from the most commonly used to the least commonly used.  This is done by dragging the browser items up or down until the desired order is achieved.  If you don't know what part of speech to use, then don't  enable any item;  the part of speech will be recorded in the dictionary as "unknown".\
+\
+
+\b Storing or Deleting Entries\
+
+\b0 Once you are satisfied with a word's pronunciation, and have indicated its part of speech, you can store the entry in the dictionary.  This is done by clicking on the store button, or by choosing the Store Current Word item in the Edit submenu.  PrEditor will warn you if you have overwritten an old entry.\
+\
+You can delete an entry from a dictionary by typing the word in the Word field, and then clicking on the Delete button or choosing the Delete Current Word item in the Edit submenu.  PrEditor will warn you if you try to delete an entry that isn't in the dictionary.\
+\
+
+\b Saving Your Work\
+
+\b0 Be sure to save your work!  Use the Save item in the Document submenu to save the state of the dictionary you are currently working on.  If you want to save the dictionary under a different name, then choose the Save As item;  a Save panel will appear, allowing you to save the dictionary with any name in any part of the file hierarchy.  If you are working on multiple dictionaries, it may be convenient to use the Save All menu item.\
+\
+
+}

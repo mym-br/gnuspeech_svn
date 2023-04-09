@@ -1,0 +1,604 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		    (C) 1994 Trillium Sound Research Inc.
+
+		       TouchNTalk User Reference Manual
+
+				      by
+
+				Dale Brisinda
+
+			       October 19, 1994
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Table of Contents
+
+List of Tables and Illustrations ...........................................  3
+
+1  Introduction ............................................................  4
+2  Soft Functions ..........................................................  4
+   2.1  Help ...............................................................  4
+   2.2  Open ...............................................................  4
+   2.3  Save ...............................................................  5
+   2.4  Close ..............................................................  5
+   2.5  Page ...............................................................  5
+   2.6  Shell ..............................................................  5
+   2.7  Windows ............................................................  5
+   2.8  Holo Set ...........................................................  5
+   2.9  Speech Mode ........................................................  6
+   2.10 Configuration ......................................................  6
+3  Left Holophrasts ........................................................  6
+4  Page Turning ............................................................  6
+5  Locating Pages ..........................................................  7
+6  Bookmark Management .....................................................  7
+   6.1  Adding Bookmarks ...................................................  7
+   6.2  Removing and Renaming Bookmarks ....................................  7
+   6.3  Locating Bookmarks .................................................  7
+7  Horizontal and Vertical Scrolling .......................................  8
+8  Cursor Location .........................................................  8
+9  Tactile Document Display ................................................  9
+10 System Interaction Line .................................................  9
+11 Document Publishing .....................................................  9
+
+   References .............................................................. 10
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+List of Tables and Illustrations
+
+Figure 1. Soft Function Panel ..............................................  4
+Figure 2. Open Document Window	............................................  5
+Figure 3. Document Selection Window ........................................  5
+Figure 4. Configuration Panel ..............................................  6
+Figure 5. Annotated Regions of Textured Pad ................................  6
+Figure 6. Bookmark Addition Panel ..........................................  7
+Figure 7. Bookmark Removal and Renaming Panel ..............................  7
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1 Introduction
+
+    TouchNTalk is a document browsing system for the visually impaired. The
+system includes a visual display, a pseudo-display, and a document publishing
+facility.
+
+    The visual display allows sighted users to interact with the system
+through a traditional mouse and keyboard interface. Since the visual display
+corresponds directly to the pseudo-display, it serves as an alternate form of
+interaction for sighted and partly visually impaired users. Furthermore, it is
+helpful in aiding individuals who teach others how to use the system.
+
+    The pseudo-display allows visually impaired users to interact with the
+system through the use of a digitizing tablet, textured pad, stylus, and
+text-to-speech translation system. Various functions are invoked by moving the
+stylus through grooves and clicking one of the available buttons. The document
+publishing facility allows text documents to be converted into a format
+understood by TouchNTalk. Both on-the-fly and off-line publishing of text
+documents are supported. Document publishing is a relatively quick process, so
+on-the-fly publishing is a feasible alternative if disk space is at a premium,
+or if a pre-published version of the document is unavailable.
+
+    This manual describes the various functions of TouchNTalk and how they are
+invoked. These functions will be described in terms of the pseudo-display
+interface. The same functions can be invoked from the visual display by using
+the mouse as the input device. This is accomplished by dragging in a
+particular area and clicking the right mouse button the required number of
+times (in rapid succession). Tapping the stylus on the tablet shall be
+referred to as a single click, while depression of the barrel button on the
+side of the stylus will be referred to as a double or second click. 
+
+2 Soft Functions
+
+    Soft functions are located in the left most vertical groove of the
+display. Moving the stylus or mouse within the soft function groove causes a
+beep to be emitted when a soft function is encountered, followed by the spoken
+name of the soft function. Clicking in the soft function groove selects the
+soft function adjacent the stylus or mouse. Clicking in the soft function
+groove a second time, selecting the same soft function as previously, results
+in the cancellation of the soft function. This only applies to soft functions
+which display a control window, such as open, and windows. The visual
+representation of the soft function groove is shown in Figure 1.
+
+2.1 Help
+
+    The help facility consists of an on-line version of the current document.
+It primarily serves as a reference document for visually impaired users who
+already know the basics of the system.
+
+2.2 Open
+
+    The open soft function allows users to open files located anywhere in the
+file system. When selected, it displays an open document window to display the
+contents of the currently active directory (shown in Figure 2). The current
+opened directory is the same as that which is currently active in the visual
+NEXTSTEP open panel. Information in the tactile document display (the main
+document area) of the pseudo-display is organized such that the current
+directory path appears on the first line of the open document, followed by a
+block of child directory names, and a block of file names. Arbitrary
+directories in the current directory path on the first line of the open
+document, can be opened by double clicking on the appropriate directory name.
+
+			Figure 1. Soft Function Panel.
+
+    The directory name and file name blocks are preceded by a title indicating
+the start of the directory name and file name blocks, respectively. In the
+event there are no child directories, the directory block will contain a
+single line of text indicating no directories are present. Similarly, if there
+are no files, the file block will contain a single line of text indicating no
+files are present.
+
+    Directories of the file system can be opened by double clicking on the
+directory name in the tactile document display. Files can be opened by double
+clicking on the desired file. Opening directories and files always results in
+a displayed and spoken message indicating the name of the new directory or the
+name of the new active document.
+
+    Each line containing a directory or file includes various pieces of
+information, beginning with the name of the directory or file, followed by the
+last modification time, size, owner and UNIX file permissions.
+
+2.3 Save
+
+    The save soft function is currently unsupported. Future versions of
+TouchNTalk will include an editing facility for composing and saving documents
+for later retrieval.
+                    
+		       Figure 2. Open Document Window.
+
+2.4 Close
+
+    The close soft function closes the currently active document window. The
+next document as maintained by the NEXTSTEP Windows palette is made active. A
+message is displayed and spoken indicating the name of the new active
+document. Closing document windows results in a spoken message indicating the
+document window has been closed.
+
+2.5 Page
+
+    The page soft function simply displays and speaks a message indicating the
+number of the page currently being viewed.
+
+2.6 Shell
+
+    The shell soft function is currently unsupported. Future support of this
+feature will allow the user to interact with the underlying operating system.
+This feature is an extension of the currently unsupported editing facility.
+
+2.7 Windows
+
+    The windows soft function allows users to select between various open
+documents. When selected, it displays a document selection window that
+contains a list of all the currently open documents (shown in Figure 3). Each
+line of the document contains the document number and the full document path
+name. Documents can be selected by double clicking on the line of the document
+name. In doing so, the window control document is automatically closed, and
+the requested document becomes active. Activating new documents always results
+in a displayed and spoken message indicating a new document has become active.
+
+		     Figure 3. Document Selection Window.
+
+2.8 Holo Set
+
+    A holophrast is a groove which represents material of a particular type in
+a condensed form as nodes. The four vertical grooves on the left side of the
+display are the left holophrast grooves. Each groove represents different
+textual material in condensed form. Two holo sets are currently supported. The
+first (from left to right) represents titles, paragraphs, sentences, and
+phrases. The second represents parenthetical expressions, double quoted
+expressions, single quoted expressions, and line/columns for tabular data.
+Selecting the holo set soft function switches between the above two holo sets.
+More information on the use of these holophrast grooves appears in a
+subsequent section. Every document keeps a record of its currently active holo
+set.
+
+2.9 Speech Mode
+
+    The speech mode soft function allows the user to toggle between speak and
+spell mode when selected. Spell mode spells everything that is selected in the
+tactile document display, while speak mode speaks everything selected. The
+system interaction line (SIL) is always in speak mode. Every document keeps
+its own record of the currently active speech mode.
+
+2.10 Configuration
+
+    The configure soft function allows users to configure the tablet so it can
+be used with TouchNTalk. Since the textured surface may be removed and
+reattached at any time, there must be a way to tell TouchNTalk where on the
+tablet surface the various grooves are located in order for various gestures
+to be recognized. This is achieved by specifying the bounding box for every
+major area of the tablet. Specifying a bounding box involves clicking in the
+corner of each major area of the tablet as requested by the system. The
+configuration panel (shown in Figure 4) displays the same instructions as
+those spoken by the system.
+
+			Figure 4. Configuration Panel.
+
+    The system guides the user through the entire configuration process. The
+user only need follow the visual and/or spoken instructions and should know
+the names of the major areas of the textured pad as shown in Figure 5. The
+user can cancel the configuration process at any time by pressing the button
+on the barrel of the stylus. This process only needs to be done once, since
+the required bounding box information is saved to disk. When TouchNTalk is
+launched for the first time, tablet configuration will be invoked
+automatically.
+
+3 Left Holophrasts
+
+    The vertical left holophrast grooves allow users to locate particular
+nodes of text. Moving the stylus or mouse within a holophrast groove will
+highlight a node when the stylus is adjacent the line at which the node begins
+or ends. A beep is emitted when the start of a node is encountered, and a
+lower pitched beep is emitted when the end of a node is encountered. If
+multiple nodes exist on a single line, the first node is highlighted. Clicking
+the stylus or mouse speaks the highlighted node. Subsequent clicks highlights
+the next node on the line and speaks it. Each click emits a beep indicating a
+new node has been located. When no more nodes exist on the current line, a
+tone is generated indicating there are no more nodes. Subsequent clicks cycle
+through the nodes on the line again.
+
+		 Figure 5. Annotated Regions of Textured Pad.
+
+    If the node crosses a page boundary, a message is displayed and spoken
+indicating this is the case. The message is spoken after the contents of the
+node have been spoken when the node spans the bottom of the current page.
+Conversely,  the message is spoken before the contents of the node have been
+spoken when the node spans the top of the current page. If the highlighted
+node spans several lines, clicking anywhere adjacent the node will speak it.
+Double clicking in a left holophrast groove will cause the type of the
+holophrast (phrase, sentence, paragraph, etc.) to be spoken.
+
+4 Page Turning
+
+    Selecting the previous page button in the upper left of the display will
+cause the previous page of the document to be displayed. The corresponding
+action for the stylus is a click in the upper left indented rectangle of the
+tablet. Selecting the next page button in the upper right of the display will
+cause the next page of the document to be displayed. The corresponding action
+for the stylus is a click stroke in the upper right indented rectangle of the
+tablet. A beep is emitted if turning the page is not possible due to being at
+the front or end of a document.
+
+5  Locating Pages
+
+    The topmost horizontal groove is the page locator groove. The groove acts
+as a page holophrast containing all the pages of the document. The leftmost
+side of the page locator groove represents page one, while the rightmost side
+of the groove represents the largest page number for the document. Moving the
+stylus or cursor within this groove will emit a tone which increases in pitch
+as the distance to the current page also increases. When a tone is no longer
+generated, the stylus or mouse is on the current page. Single clicking the
+stylus or cursor at this time will bring up the bookmark insertion panel
+(described in the next section). Single clicking anywhere else in the page
+locator groove will open the document to the associated page. The SIL will
+contain the current page number when a new page is activated, although it will
+not be spoken since the page locator tone will still be active.
+
+6 Bookmark Management
+
+    Bookmark management involves handling the addition, removal, and location
+of bookmarks within a document. Clicking the stylus or mouse in the page
+locator groove (at the current page) will bring up a panel for bookmark
+management. The system is intelligent enough to know whether a bookmark is to
+be inserted, removed, or changed and will supply the user with the appropriate
+options (both visually and orally) based on the current circumstances.
+
+6.1 Adding Bookmarks
+
+    When the bookmark panel for adding bookmarks appears, (shown in Figure 6)
+if a bookmark for the current page does not already exist, the possible
+options for adding a bookmark are displayed and spoken. Pressing the enter or
+carriage return key immediately accepts the default bookmark name. Otherwise,
+a custom bookmark name should be typed followed by a carriage return. The
+bookmark is then added for the current page. A message indicating the bookmark
+has been added is then displayed in the SIL and spoken.
+
+		      Figure 6. Bookmark Addition Panel.
+
+6.2 Removing and Renaming Bookmarks
+
+    When the bookmark panel for removing or renaming bookmarks appears (shown
+in Figure 7) if a bookmark for the current page already exists, the possible
+options for removing or renaming the bookmark are displayed and spoken.
+Pressing the carriage return key immediately accepts the current bookmark
+name, leaving it unchanged. Pressing the delete key followed by a carriage
+return removes the bookmark from the current page. Otherwise, a name should be
+typed followed by a carriage return in order to change the name of the
+bookmark. In all cases a message is displayed in the SIL and spoken,
+indicating the final result.
+
+		Figure 7. Bookmark Removal and Renaming Panel.
+
+6.3 Locating Bookmarks
+
+    Locating bookmarks is an important part of bookmark management. The second
+groove from the top is the bookmark locator groove. This groove acts as a
+bookmark holophrast containing all the bookmarks in the document. Moving the
+stylus or cursor within this groove will emit a beep when a bookmark is
+located. Clicking at this location will speak the name of the bookmark. Double
+clicking at this location will open the document to the page of this bookmark.
+There are as many bookmark slots as there are pages in the document. If a
+bookmark does not exist for a particular page no beep is emitted.
+
+7 Horizontal and Vertical Scrolling
+
+    To correctly understand scrolling behavior one should imagine a window
+being moved in the direction of the stylus or mouse for the current document
+page. This is consistent with how document scrolling devices work in
+traditional graphical user interfaces.
+
+    The horizontal window scroll groove is the third horizontal groove from
+the top. Moving the stylus or mouse in this groove will scroll the window
+horizontally by the number of columns moved in the appropriate direction. A
+message indicating how many columns scrolled is displayed and spoken when the
+stylus is raised out of the groove. If we were only able to scroll part of the
+amount, a message indicating the partial amount scrolled is displayed and
+spoken. Since scrolling is cumulative, we can therefore scroll left and right
+and the page will be scrolled the net amount. If the net amount is zero, a
+message indicating there was no scroll is spoken and displayed in the SIL.
+
+    The vertical window scroll groove is the right most vertical groove on the
+display. All that applies to the horizontal scroll groove also applies to the
+vertical scroll groove, except we scroll in the upwards and downwards
+directions, indicating the number of lines actually scrolled.
+
+8 Cursor Location
+
+    There are currently three cursors in TouchNTalk, the user cursor, the
+system cursor, and the mark. The user cursor appears at the current location
+of the stylus or mouse within the tactile document display or SIL. This cursor
+is for the benefit of the sighted user allowing him/her to see where in the
+tactile document display or SIL the visually impaired user is working.
+
+    The system cursor location is remembered by the system as its last marked
+working location. The system cursor will also be used as the location at which
+text entry will occur when an editing facility is in place.
+
+    The mark is used for remembering the previous system cursor location when
+the system cursor is moved to another location. The system cursor can be moved
+to the location of the user cursor by double clicking the stylus or mouse in
+the tactile document display. In addition, the mark is then moved to the old
+location of the system cursor. The mark therefore follows the system cursor as
+it is moved to new locations.
+
+    The vertical groove at the right side of the display closest to the
+tactile document display is the system cursor locator, and serves to locate
+the system cursor. Moving the stylus or cursor within this groove will emit a
+tone which increases in pitch as the distance to the line containing the
+system cursor also increases. When a tone is no longer generated, the stylus
+or mouse is adjacent the line containing the system cursor. If the tone cannot
+be silenced, then the system cursor is not currently visible. Clicking
+anywhere in the cursor locator groove will bring up the page with the system
+cursor centered in the display so that it is visible.
+
+    Once the line containing the system cursor has been located as described
+above, double clicking at the current location in the cursor locator groove
+places TouchNTalk into cursor location mode. The user may now locate the exact
+position of the system cursor by moving out of the cursor locator groove into
+the adjacent horizontal groove in the tactile document display. Since
+TouchNTalk is now in cursor location mode, moving along the horizontal groove
+in the tactile document display functions similar to the cursor locator
+groove. A tone is emitted, increasing in pitch as the distance to the column
+containing the system cursor also increases. When a tone is no longer
+generated, the stylus or mouse is in the exact location of the system cursor.
+Clicking the stylus swaps the system cursor and the mark, and is useful when
+the user wishes to locate the mark. Since only the system cursor can be
+located, swapping the system  cursor and mark provides us with a consistent
+method for locating the mark. Lifting the stylus clear of the tablet, or
+moving into another groove while in cursor location mode, returns TouchNTalk
+into normal browsing mode.
+
+9 Tactile Document Display
+
+    The tactile document display includes all horizontal grooves below the
+topmost 3 lines and above the bottommost line. The area covered by these
+grooves is the document viewing area. Moving the stylus or mouse in this area
+speaks the textual elements encountered according to the soft function speech
+mode previously discussed. Words, characters, and whitespace are considered to
+be the basic textual elements.
+
+    When whitespace is encountered a beep is emitted. Single clicking repeats
+the last spoken textual element encountered, whether it is a word or
+whitespace. Double clicking moves the system cursor to the location of the
+stylus or mouse where the user cursor currently resides and a message
+indicating the new position of the system cursor is displayed and spoken. This
+does not apply when control documents such as selecting windows or opening
+documents are active since double clicking is then used to select the desired
+item.
+
+10 System Interaction Line
+
+    The system interaction line (SIL) is the bottommost  horizontal groove on
+the display. All system messages are sent to the SIL to be displayed and
+spoken. In addition, the SIL always contains the most recent system message.
+Moving the cursor or stylus in the SIL speaks the textual elements encountered
+in the same fashion as in the tactile document display area. The system
+messages spoken and sent to the SIL are at a slightly lower pitch than normal
+browsing speech to allow the user to distinguish between the two types of
+speech. Single clicking in the SIL repeats the last spoken textual element
+encountered, whether it is a word or whitespace. Double clicking in the SIL
+speaks its entire contents. Since there is no vertical or horizontal scrolling
+behavior for the SIL, double clicking is the only way to read all of the text
+if the last system message sent is sufficiently long as to be truncated at the
+end of the groove.
+
+11 Document Publishing
+
+    Document publishing involves the process of breaking up ascii text
+document into various nodes which allows the document to be examined within
+TouchNTalk. There are currently two document publishing methods available. The
+first method is completely transparent to the user and occurs when the user
+opens any ascii text file from within TouchNTalk. The ascii text file is
+loaded and published for immediate browsing.
+
+    The second method is through the command line utility publish. This
+utility takes as arguments an optional line wrapping length specification, an
+optional tabstop specification, and the name of the ascii text file to
+publish. The utility generates a published version of the ascii text file and
+places the new file in the current directory under the same name as the
+original file with a .tnt extension appended. The line wrapping length
+specification allows the user to specify the maximum allowable line length in
+a document. This can be useful in cases where a document has running
+paragraphs or other characteristics that would normally make viewing
+difficult. The main reason for the optional tabstop specification is to allow
+the user to specify how tabs should be converted to spaces. This feature is
+necessary in order to simplify problems associated with accurate selection of
+textual elements within the tactile document display. If the user does not
+supply a tabstop specification, a common tabstop specification is used by
+default. The primary advantage in using the command line utility to
+pre-publish a set of ascii text files is a reduced load time for the resulting
+documents. This is especially true for extremely large ascii text files.
+
+
+
+
+References
+
+D. R. Hill and C. Grieb, "Substitution for a Restricted Visual Channel in
+Multimodal Computer-Human Dialogue," IEEE Transactions on Systems, Man, and
+Cybernetics, vol. 18, no. 2, March/April 1988.
+
+S.W. Maloff, "Touch 'n Talk Users' Reference,"  unpublished, 1988.
+
+S.W. Maloff, "Touch 'n Talk Implementation,"  unpublished, 1989.
+
+M. Kornell, "The NeXT Touch 'n Talk," unpublished, 1991.

@@ -1,0 +1,9 @@
+
+ADDITIONAL_INCLUDE_DIRS += -I./Extensions -I./Compatibility
+
+ADDITIONAL_GUI_LIBS += -lMonetExtensions -lGnuSpeech -lGnuSpeechTube
+
+ADDITIONAL_LIB_DIRS += -L./Extensions/$(GNUSTEP_OBJ_DIR)
+
+# We want to get all the warnings... 
+ADDITIONAL_OBJCFLAGS = -Wall

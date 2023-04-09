@@ -1,0 +1,344 @@
+NodeList = {
+    ACTIONS = {
+    };
+    OUTLETS = {
+    };
+    SUPERCLASS = List;
+};
+TactileText = {
+    ACTIONS = {
+    };
+    OUTLETS = {
+    };
+    SUPERCLASS = ActionText;
+};
+SpeakText = {
+    ACTIONS = {
+	speakSelection:;
+	speakAll:;
+    };
+    OUTLETS = {
+    };
+    SUPERCLASS = Text;
+};
+FirstResponder = {
+    ACTIONS = {
+	speakSelection:;
+	speakAll:;
+    };
+    SUPERCLASS = Object;
+};
+TNTServer = {
+    ACTIONS = {
+    };
+    OUTLETS = {
+	pageLocatorSlider;
+	vertPageScrollSlider;
+	openTitle;
+	shellTitle;
+	speechModeTitle;
+	prevPageButton;
+	bookmarkHoloSlider;
+	leftHolo1Slider;
+	helpTitle;
+	leftHolo2Slider;
+	nextPageButton;
+	holoSetTitle;
+	windowsTitle;
+	closeTitle;
+	leftHolo4Slider;
+	saveTitle;
+	leftHolo3Slider;
+	sil;
+	softFunctionSlider;
+	softTitleMatrix;
+	pageTitle;
+	horizPageScrollSlider;
+	cursorLocatorSlider;
+	tactileDisplay;
+	configureTitle;
+    };
+    SUPERCLASS = Object;
+};
+PageNode = {
+    ACTIONS = {
+    };
+    OUTLETS = {
+	bookmark;
+    };
+    SUPERCLASS = Node;
+};
+SIL = {
+    ACTIONS = {
+    };
+    OUTLETS = {
+	tactileSpeaker;
+	silText;
+    };
+    SUPERCLASS = ScrollView;
+};
+TouchNTalk = {
+    ACTIONS = {
+	appWillTerminate:;
+	setTopLeftHoloOffset:;
+	open:;
+	setTaskPriority:;
+	softFunctionUp:;
+	appDidInit:;
+	setTopRightAreaOffset:;
+	configureCancel:;
+	setBottomLeftHoloOffset:;
+	setBottomRightAreaOffset:;
+	sendTabletCommands:;
+	setTTYBaudRate:;
+	new:;
+	setEventCoalescing:;
+	softFunctionSelect:;
+	saveAll:;
+	softFunctionDown:;
+	softFunctionActive:;
+	speakInfoPanel:;
+    };
+    OUTLETS = {
+	activeSoftTitle;
+	tabletSurface;
+	fileListingTable;
+	saveCell;
+	openPanel;
+	silSpeaker;
+	docWindowList;
+	newCell;
+	previousTNTControl;
+	openCell;
+	gestureExpert;
+	documentSubmenuCell;
+	tabletDriver;
+	eventGenerator;
+	tntControl;
+	revertToSavedCell;
+	closeCell;
+	prioritySlider;
+	savePanel;
+	saveAsCell;
+	saveAllCell;
+	priorityText;
+    };
+    SUPERCLASS = TNTServer;
+};
+TactileDisplay = {
+    ACTIONS = {
+	bookmarkHoloSelect:;
+	bookmarkHoloActive:;
+	vertPageScrollUp:;
+	pageLocatorActive:;
+	cursorLocatorUp:;
+	pageLocatorSelect:;
+	leftHolo4Active:;
+	addChangeRemoveBookmark:;
+	leftHolo4Preview:;
+	leftHolo3Active:;
+	cancelBookmark:;
+	bookmarkHoloUp:;
+	leftHolo2Preview:;
+	cursorLocatorSelect:;
+	horizPageScrollDown:;
+	pageForward:;
+	leftHolo2Active:;
+	vertPageScrollActive:;
+	bookmarkHoloDoubleSelect:;
+	leftHoloSelect:;
+	leftHolo1Preview:;
+	leftHolo3Preview:;
+	cursorLocatorActive:;
+	pageLocatorUp:;
+	pageBackward:;
+	leftHolo1Active:;
+	leftHoloUp:;
+	horizPageScrollUp:;
+	horizPageScrollActive:;
+	vertPageScrollDown:;
+    };
+    OUTLETS = {
+	pageLocatorSlider;
+	nodeList;
+	vertPageScrollSlider;
+	endSeriesSound;
+	tntControl;
+	startNodeSound;
+	nameField;
+	prevPageButton;
+	document;
+	activePage;
+	endNodeSound;
+	bookmarkHoloSlider;
+	lastNodeHighlighted;
+	leftHolo1Slider;
+	leftHolo2Slider;
+	nextPageButton;
+	leftHolo4Slider;
+	sil;
+	leftHolo3Slider;
+	bookmarkPanel;
+	softFunctionSlider;
+	tactileSpeaker;
+	tone;
+	instructionsTitle;
+	horizPageScrollSlider;
+	cursorLocatorSlider;
+    };
+    SUPERCLASS = ScrollView;
+};
+Node = {
+    ACTIONS = {
+    };
+    OUTLETS = {
+    };
+    SUPERCLASS = Object;
+};
+TabletSurface = {
+    ACTIONS = {
+    };
+    OUTLETS = {
+	nextArea;
+	rightArea;
+	prevArea;
+	cancelButton;
+	configurePanel;
+	xCurrentField;
+	silArea;
+	tactileArea;
+	yCurrentTitle;
+	yClickField;
+	xClickField;
+	leftHolo;
+	topHolo;
+	yClickTitle;
+	xClickTitle;
+	xCurrentTitle;
+	speaker;
+	locationTitle;
+	softArea;
+	yCurrentField;
+	regionTitle;
+    };
+    SUPERCLASS = Object;
+};
+Tone = {
+    ACTIONS = {
+    };
+    OUTLETS = {
+	offNote;
+	updateNote;
+	onNote;
+	instrument;
+	orchestra;
+    };
+    SUPERCLASS = Object;
+};
+Publisher = {
+    ACTIONS = {
+    };
+    OUTLETS = {
+    };
+    SUPERCLASS = Object;
+};
+ActionText = {
+    ACTIONS = {
+    };
+    OUTLETS = {
+	mouseUpTarget;
+	mouseDownTarget;
+	userCursor;
+	mouseDragTarget;
+	singleClickTarget;
+	doubleClickTarget;
+    };
+    SUPERCLASS = SpeakText;
+};
+Page = {
+    ACTIONS = {
+    };
+    OUTLETS = {
+	masterDocument;
+	systemCursor;
+	pageNode;
+	mark;
+    };
+    SUPERCLASS = TactileText;
+};
+TNTControl = {
+    ACTIONS = {
+	windowDidResignMain:;
+	print:;
+	silMouseUp:;
+	save:;
+	saveAs:;
+	silSelect:;
+	activePageDoubleSelect:;
+	silDoubleSelect:;
+	activePageDrag:;
+	activePageMouseUp:;
+	windowDidResignKey:;
+	silDrag:;
+	windowDidBecomeMain:;
+	windowDidBecomeKey:;
+	activePageSelect:;
+	windowWillClose:;
+    };
+    OUTLETS = {
+	prevPageButton;
+	fileListingTable;
+	leftHolo3Slider;
+	openPanel;
+	leftHolo2Slider;
+	leftHolo4Slider;
+	docWindowList;
+	bookmarkHoloSlider;
+	windowContentView;
+	horizPageScrollSlider;
+	tactileDisplay;
+	nextPageButton;
+	vertPageScrollSlider;
+	cursorLocatorSlider;
+	filesOwner;
+	window;
+	savePanel;
+	sil;
+	pageLocatorSlider;
+	leftHolo1Slider;
+    };
+    SUPERCLASS = Object;
+};
+BookmarkNode = {
+    ACTIONS = {
+    };
+    OUTLETS = {
+    };
+    SUPERCLASS = Object;
+};
+Document = {
+    ACTIONS = {
+    };
+    OUTLETS = {
+	titleNodeList;
+	parenNodeList;
+	singleQuoteNodeList;
+	bookmarkNodeList;
+	phraseNodeList;
+	sentenceNodeList;
+	lineColumnNodeList;
+	pageNodeList;
+	paragraphNodeList;
+	doubleQuoteNodeList;
+	activePage;
+	text;
+    };
+    SUPERCLASS = Object;
+};
+SILText = {
+    ACTIONS = {
+    };
+    OUTLETS = {
+    };
+    SUPERCLASS = ActionText;
+};

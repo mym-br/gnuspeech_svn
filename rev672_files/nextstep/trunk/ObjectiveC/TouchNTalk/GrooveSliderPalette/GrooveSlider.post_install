@@ -1,0 +1,10 @@
+#! /bin/sh
+
+#
+# GrooveSlider.post_install only works as root.
+#
+
+echo
+echo "        Rebuilding library table of contents ..."
+ranlib /LocalDeveloper/Libraries/libGrooveSlider.a
+ln -s /LocalDeveloper/Libraries/libGrooveSlider.a /usr/local/lib/libGrooveSlider.a

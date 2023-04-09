@@ -1,0 +1,57 @@
+================================================================================
+Hello all...
+
+	Thanks to all who e-mailed me with questions/comments and suggestions
+	about this program.  I've implemented some of the suggestions that 
+	I received. 
+
+	I've fixed the Memory leak that was present in the previous version.
+	I've tested this version with MallocDebug and there seems to be no 
+	more memory leaks.  (Where is some wood to knock on? :-)
+
+	I've added speech synthesis to this program using the Trillium Sound
+	Research Inc. TextToSpeech Kit.  If you do not have the TextToSpeech
+	Kit, you can comment out the flags in the Makefile.preamble file. 
+	If you wish to obtain information about the TextToSpeech Kit, 
+	you can contact Trillium at:
+
+		Client Inquiries
+		Trillium Sound Research Inc.
+		1500, 112-4th Ave. S.W.
+		Calgary, Alberta,   Canada
+		T2P 0H3
+
+		     (403) 284-9278
+		Fax: (403) 282-6778
+
+--------------------------------------------------------------------------------
+
+Notes:
+
+(This spiel is for my own protection)
+
+	The author of this software will not be responsible for any damages, 
+	consequential or inconsequential, resulting from the use of this 
+	software.  It is provided "as is" with no additional warranty, expressed
+	or implied, beyond what is specifically stated in this document.
+
+	Phew!  Try saying that in one breath!  :-)
+
+	You may copy this program, give it to your friends, etc provided 
+	that all notices remain in tact.  You may use the source code.  If you 
+	modify this program, I would like some info on the changes to that I 
+	can keep WhosOnFirst "up to date". 
+
+	This program is provided free of charge.  Being a starving student,
+	however, I would not turn away any gratuity you might send to me.  If 
+	you like the program, a	small amount of $20 (or whatever), sent to the 
+	following address, would be greatly appreciated:
+
+	Craig-Richard Schock
+	2519, 16th St. NW. 
+	Calgary, Alberta
+	Canada
+	T2M 3R3
+
+Thanks in advance and I hope you enjoy the program.
+================================================================================

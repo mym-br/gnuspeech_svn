@@ -1,0 +1,16 @@
+FILESTABLE = {
+    OTHER_SOURCES = (Makefile.preamble, Makefile, Makefile.postamble);
+    M_FILES = (Publisher_main.m);
+    OTHER_LIBS = (TextToSpeech, Media_s, NeXT_s);
+    H_FILES = (ActionText.h, BookmarkNode.h, Document.h, Node.h, Page.h, PageNode.h, SpeakText.h, TactileSpeaker.h, TactileText.h, TNTDefinitions.h);
+    OTHER_LINKED = ();
+    CLASSES = (ActionText.m, BookmarkNode.m, Document.m, Node.m, Page.m, PageNode.m, SpeakText.m, TactileSpeaker.m, TactileText.m);
+};
+LOCALIZABLE_FILES = {
+};
+LANGUAGE = English;
+PROJECTVERSION = 1.1;
+PROJECTTYPE = Tool;
+PROJECTNAME = Publisher;
+GENERATEMAIN = YES;
+DOCICONFILES = ();

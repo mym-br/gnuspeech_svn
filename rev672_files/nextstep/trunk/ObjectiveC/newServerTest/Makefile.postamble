@@ -1,0 +1,81 @@
+#  This postamble created to automate the making of libraries
+#  and header file subdirectory for the TextToSpeech system.
+#  Use "make libraries" to create the object libraries.
+#  Use "make header" to create a subdirectory of needed header files.
+#  Do a clean "make all" to guarantee that the libraries will be correct.
+
+
+#  names of libraries
+LIB1_NAME= libTextToSpeech.a
+LIB2_NAME= libTextToSpeechPlus.a
+
+#  name of library subdirectory
+LIB_DIR= lib
+
+#  source files to be compiled into libraries
+SRC1_NAME= TextToSpeech
+SRC2_NAME= TextToSpeechPlus
+SRC3_NAME= Messages
+
+
+libraries:: $(LIB_DIR) $(LIB_DIR)/$(LIB1_NAME) $(LIB_DIR)/$(LIB2_NAME)
+
+$(LIB_DIR):
+	mkdirs $@
+
+$(LIB_DIR)/$(LIB1_NAME): $(OFILE_DIR)/$(SRC1_NAME).o $(OFILE_DIR)/$(SRC3_NAME).o
+	rm -f $@
+	ld -r $(OFILE_DIR)/$(SRC1_NAME).o $(OFILE_DIR)/$(SRC3_NAME).o -o $@
+
+$(LIB_DIR)/$(LIB2_NAME): $(OFILE_DIR)/$(SRC1_NAME).o $(OFILE_DIR)/$(SRC2_NAME).o \
+		$(OFILE_DIR)/$(SRC3_NAME).o
+	rm -f $@
+	ld -r $(OFILE_DIR)/$(SRC1_NAME).o $(OFILE_DIR)/$(SRC2_NAME).o \
+		$(OFILE_DIR)/$(SRC3_NAME).o -o $@
+
+$(OFILE_DIR)/$(SRC1_NAME).o: $(SRC1_NAME).m $(SRC1_NAME).h TTS_types.h \
+		SpeechMessages.h MessageStructs.h Messages.h
+	make all
+
+$(OFILE_DIR)/$(SRC2_NAME).o: $(SRC2_NAME).m $(SRC2_NAME).h TTS_types.h TextToSpeech.h \
+		SpeechMessages.h MessageStructs.h Messages.h
+	make all
+
+$(OFILE_DIR)/$(SRC3_NAME).o: $(SRC3_NAME).c $(SRC3_NAME).h MessageStructs.h
+	make all
+
+
+#  header files for the libraries
+HEADER1_NAME= TextToSpeech.h
+HEADER2_NAME= TextToSpeechPlus.h
+HEADER3_NAME= TTS_types.h
+
+#  name of header subdirectory
+HEADER_DIR= headerFiles
+
+header:: $(HEADER_DIR) $(HEADER_DIR)/$(HEADER1_NAME) \
+	 $(HEADER_DIR)/$(HEADER2_NAME) $(HEADER_DIR)/$(HEADER3_NAME)
+
+$(HEADER_DIR):
+	mkdirs $@
+
+$(HEADER_DIR)/$(HEADER1_NAME): $(HEADER1_NAME)
+	sed s+\"TTS_types.h\"+\<TextToSpeech/TTS_types.h\>+g < $(HEADER1_NAME) > $@
+
+$(HEADER_DIR)/$(HEADER2_NAME): $(HEADER2_NAME)
+	sed s+\"TextToSpeech.h\"+\<TextToSpeech/TextToSpeech.h\>+g < $(HEADER2_NAME) > $@
+
+$(HEADER_DIR)/$(HEADER3_NAME): $(HEADER3_NAME)
+	cp $(HEADER3_NAME) $@
+
+$(HEADER1_NAME):
+	@echo 'Missing $(HEADER1_NAME)'
+	@exit 1;
+
+$(HEADER2_NAME):
+	@echo 'Missing $(HEADER2_NAME)'
+	@exit 1;
+
+$(HEADER3_NAME):
+	@echo 'Missing $(HEADER3_NAME)'
+	@exit 1;

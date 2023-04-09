@@ -1,0 +1,56 @@
+                      Hartman Technica
+
+        Preliminary Comments on Trillium Sound Editor
+
+                      26 October 1993
+
+
+These comments are in no particular order, and certainly not
+priority order.
+
+1. This is an excellent tool for visual signal analysis.
+
+2. In the FFT control panel, it would be helpful if the Analysis
+Resolution and Number of windows changed immediately to reflect
+a change in window size.
+
+3. In the FFT control panel, it would be useful if the window
+slide were defaulted to a constant fraction (initially 50%) of
+the window size.
+
+4.  In the FFT control panel the scaling is limited to a maximum
+of 20, which is too low: it should limit (and default) to the
+highest output value seen. 
+
+5. In the FFT control panel the window slide needs four digits.
+
+6.  Particularly in the light of the extended computation times,
+and associated slow user feedback, it is hard to use the zoom
+facility to examine closely a given section of the input. Could
+faster feedback be arranged, possibly on a placebo basis?
+
+In this regard, it may never be useful to select or examine
+different channels on different time scales.
+
+7.  A "Stop Processing" button in the FFT control panel, always
+active, would save a lot of time when control errors are made on
+a large segment of signal. 
+
+8. It would be pleasant to be able to set a default state for
+the FFT controle to suit the task in hand, and have this state
+appear at start up.
+
+*9. The ability to scale the frequency axis of the FFT to examine
+any small subset of frequencies (e.g 500-1500 Hz at a sample
+rate of 44100 Hz) would be very useful.
+
+10.  If a control setting exceeds the display capability of the
+program, it would be useful to notify the user immediately, and
+not perform the (possibly lengthy) calculations involved to no
+avail. 
+
+11. I will provide C code for a more efficient FFT next week:
+this may help reduce calculation times.
+
+
+Rick Jenkins                               Calgary, October 1993

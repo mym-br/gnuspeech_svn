@@ -1,0 +1,35 @@
+INSTALLDIR = "$(HOME)/Apps";
+APPICON = mouth.tiff;
+GENERATEMAIN = YES;
+DOCICONFILES = ();
+FILESTABLE = {
+    M_FILES = (BigMouth_main.m);
+    OTHER_LINKED = ();
+    H_FILES = (BigMouth.h, DragView.h, Info.h, Preferences.h, Scratchpad.h);
+    CLASSES = (BigMouth.m, DragView.m, Info.m, Preferences.m, Scratchpad.m);
+    IMAGES = (infoLogo.tiff, infoLogoH.tiff, mouth.tiff);
+    PSW_FILES = ();
+    C_FILES = ();
+    OTHER_RESOURCES = (Help);
+    OTHER_SOURCES = ();
+    SUBPROJECTS = ();
+    PSWM_FILES = ();
+    SOUNDS = ();
+    OTHER_LIBS = (TextToSpeech, Media_s, NeXT_s, Indexing_s);
+    INTERFACES = (BigMouth.nib, info.nib, preferences.nib, scratchpad.nib);
+};
+APPCLASS = BigMouth;
+MAINNIB = BigMouth;
+DOCEXTENSIONS = ();
+PROJECTTYPE = Application;
+PROJECTVERSION = 1.1;
+LOCALIZABLE_FILES = {
+    Help;
+    scratchpad.nib;
+    info.nib;
+    BigMouth.nib;
+    preferences.nib;
+};
+PROJECTNAME = BigMouth;
+SYSTEMEXTENSIONS = ();
+LANGUAGE = English;

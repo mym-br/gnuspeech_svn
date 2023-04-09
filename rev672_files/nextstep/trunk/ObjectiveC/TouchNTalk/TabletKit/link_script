@@ -1,0 +1,24 @@
+#! /bin/sh
+
+#
+# Only works as root.
+#
+
+if [ "`whoami`" != "root" ] ; then
+        echo "TabletKit linking must be done as root." ;
+        exit 1 ;
+fi ;
+
+/bin/rm -f /LocalDeveloper/Headers/tabletkit/TabletDriver.h
+/bin/rm -f /LocalDeveloper/Headers/tabletkit/TabletReader.h
+/bin/rm -f /LocalDeveloper/Headers/tabletkit/tabletkit.h
+/bin/rm -f /LocalDeveloper/Libraries/libtabletkit.a
+/bin/rm -f /usr/local/lib/libtabletkit.a
+
+/bin/ln -s /Users/dale/Projects/TabletKit/TabletDriver.h /LocalDeveloper/Headers/tabletkit/TabletDriver.h
+/bin/ln -s /Users/dale/Projects/TabletKit/TabletReader.h /LocalDeveloper/Headers/tabletkit/TabletReader.h
+/bin/ln -s /Users/dale/Projects/TabletKit/tabletkit.h /LocalDeveloper/Headers/tabletkit/tabletkit.h
+/bin/ln -s /Users/dale/Projects/TabletKit/libtabletkit.a /LocalDeveloper/Libraries/libtabletkit.a
+/bin/ln -s /LocalDeveloper/Libraries/libtabletkit.a /usr/local/lib/libtabletkit.a
+
+exit 0 ;

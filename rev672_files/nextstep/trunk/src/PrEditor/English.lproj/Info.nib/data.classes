@@ -1,0 +1,21 @@
+InfoMgr = {
+    ACTIONS = {
+	windowDidBecomeKey:;
+	info:;
+	windowWillClose:;
+    };
+    OUTLETS = {
+	compileDate;
+	serverVersion;
+	appIconButton;
+	preditorVersion;
+	infoPanel;
+	compileTime;
+    };
+    SUPERCLASS = Object;
+};
+FirstResponder = {
+    ACTIONS = {
+    };
+    SUPERCLASS = Object;
+};

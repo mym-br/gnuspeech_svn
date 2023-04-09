@@ -1,0 +1,30 @@
+INSTALLDIR = "$(HOME)/Apps";
+APPICON = icon.tiff;
+GENERATEMAIN = YES;
+DOCICONFILES = ();
+FILESTABLE = {
+    M_FILES = (ServerTest_main.m);
+    OTHER_LINKED = ();
+    H_FILES = (Messages.h, MessageStructs.h, SpeechMessages.h, TTS_types.h, Controller.h, TextToSpeech.h, TextToSpeechPlus.h);
+    CLASSES = (Controller.m, TextToSpeech.m, TextToSpeechPlus.m);
+    IMAGES = (icon.tiff, infoLogo.tiff);
+    PSW_FILES = ();
+    C_FILES = (Messages.c);
+    OTHER_RESOURCES = ();
+    OTHER_SOURCES = ();
+    SUBPROJECTS = ();
+    PSWM_FILES = ();
+    SOUNDS = (dspfft16.snd);
+    OTHER_LIBS = (Media_s, NeXT_s);
+    INTERFACES = (ServerTest.nib);
+};
+APPCLASS = Application;
+MAINNIB = ServerTest;
+DOCEXTENSIONS = ();
+PROJECTTYPE = Application;
+LOCALIZABLE_FILES = {
+};
+PROJECTVERSION = 1.1;
+PROJECTNAME = ServerTest;
+SYSTEMEXTENSIONS = ();
+LANGUAGE = English;

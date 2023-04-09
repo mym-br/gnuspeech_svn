@@ -1,0 +1,8 @@
+Class = AreaPalette;			/* (a subclass of IBPalette) */
+NibFile = AreaPalette;			/* (a nib file name) */
+Icon = AreaPalette;			/* (a tiff/eps file name) */
+ExportClasses = (Area, AreaCell);	/* (a list of class names) */
+ExportImages = (bottom, left, leftAndRight,
+	right, top, topAndBottom, valuesDisplay);
+					/* (a list of icon names) */
+/* ExportSounds = ();			(a list of sound names) */

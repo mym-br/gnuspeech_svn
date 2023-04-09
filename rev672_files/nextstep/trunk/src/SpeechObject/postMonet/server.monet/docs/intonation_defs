@@ -1,0 +1,38 @@
+Hi Geoff.
+
+	Here is list of some of the symbols I will need embedded
+into the phoneme list.  Because this is fairly new, please keep the
+system open to additions and alterations of symbols.  These symbols 
+are similar to the Halliday intonation conventions.
+
+Symbol		Meaning
+/_		Foot boundary
+//		Tone group boundary
+/* 		Beginning of tonic foot
+/0		statement
+/1		exclaimation
+/2		question
+/3		continuation
+
+/N		beginning of noun phrase
+/n		ending of noun phrase
+/V		beginning of verb phrase
+/v		ending of verb phrase
+/P		beginning of prepositional phrase
+/p		ending of prepositional phrase
+
+/t#		word tag and its integer value (#=integer)
+/s#		silence and duration in seconds (#=float)
+
+The following are not yet fully defined or are not as important as the
+others:
+
+/a		arbitrary pitch movement.  We discussed this as
+		"this is a good place to put a non-tonic pitch
+		movement."  
+/e		marking the beginning of eclitic segments
+/r		marking the beginning of proclitic segments (note:
+			the 'p' was already in use)
+
+If you have any questions, suggestions or see any gaping holes, please 
+let me know (by mail or whatever).

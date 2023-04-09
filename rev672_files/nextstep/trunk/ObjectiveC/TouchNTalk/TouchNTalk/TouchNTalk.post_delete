@@ -1,0 +1,13 @@
+#! /bin/sh
+
+#
+# TouchNTalk.post_delete
+#
+
+echo
+echo "        Deleting local bin link to publish utility ..."
+if [ -d /LocalApps/TouchNTalk.app ] ; then \
+	/bin/rm -f /usr/local/bin/publish ; \
+elif [ -d ~/Apps/TouchNTalk.app ] ; then \
+	/bin/rm -f ~/Unix/bin/publish ; \
+fi ;

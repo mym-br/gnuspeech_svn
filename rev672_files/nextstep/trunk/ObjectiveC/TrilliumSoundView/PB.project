@@ -1,0 +1,23 @@
+INSTALLDIR = "$(HOME)/Apps";
+GENERATEMAIN = YES;
+FILESTABLE = {
+    OTHER_LIBS = (Media_s, NeXT_s);
+    CLASSES = (TSRSoundView.m);
+    OTHER_SOURCES = (Makefile.preamble, Makefile, Makefile.postamble);
+    H_FILES = (TSRSoundView.h);
+    INTERFACES = (TrilliumSoundView.nib);
+    OTHER_LINKED = ();
+    M_FILES = (TrilliumSoundView_main.m);
+};
+DOCICONFILES = ();
+APPCLASS = Application;
+DOCEXTENSIONS = ();
+MAINNIB = TrilliumSoundView;
+PROJECTTYPE = Application;
+PROJECTVERSION = 1.1;
+LOCALIZABLE_FILES = {
+    TrilliumSoundView.nib;
+};
+PROJECTNAME = TrilliumSoundView;
+SYSTEMEXTENSIONS = ();
+LANGUAGE = English;

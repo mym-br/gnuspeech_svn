@@ -1,0 +1,9 @@
+say "Loading Documentation and Example Code"
+echo "Loading Documentation and Example Code"
+/NextAdmin/Installer.app/installer_bigtar -cfp TextToSpeech.tar /LocalLibrary/TextToSpeech/documentation /LocalLibrary/TextToSpeech/exampleCode
+say "Loading Header Files and libraries" ; echo "Loading Header Files"
+/NextAdmin/Installer.app/installer_bigtar -rfp TextToSpeech.tar /LocalDeveloper/Headers/TextToSpeech/TextToSpeech.h /LocalDeveloper/Headers/TextToSpeech/TTS_types.h /usr/local/lib/libTextToSpeech.a 
+say "Loading ServerTest"
+echo "Loading ServerTest"
+/NextAdmin/Installer.app/installer_bigtar -rfp TextToSpeech.tar /LocalApps/TextToSpeech/ServerTest.app
+say "Developer TextToSpeech tar file completed."

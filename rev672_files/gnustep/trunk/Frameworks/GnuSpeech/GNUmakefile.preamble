@@ -1,0 +1,2 @@
+
+LIBRARIES_DEPEND_UPON = -lportaudio -lgdbm -lgdbm_compat

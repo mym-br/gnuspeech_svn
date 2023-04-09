@@ -1,0 +1,23 @@
+Categories.o : Categories.h Template.h PhoneDescription.h Rule.h Generate.h \
+  reserved_symbol.h 
+FileManager.o : FileManager.h Template.h Categories.h PhoneDescription.h \
+  Rule.h Generate.h Synthesize.h synthesizer_module.h 
+Generate.o : Generate.h Template.h FileManager.h Rule.h 
+NXImageView.o : NXImageView.h 
+PhoneDescription.o : PhoneDescription.h Template.h Categories.h Rule.h \
+  Generate.h 
+Rule.o : Rule.h Generate.h Template.h Categories.h PhoneDescription.h \
+  TransitionView.h SpecialEventView.h parse.h evaluate.h 
+SpecialEventView.o : SpecialEventView.h Rule.h Generate.h 
+Synthesize.o : Synthesize.h Rule.h Generate.h synthesizer_module.h \
+  Template.h PhoneDescription.h TileScrollView.h 
+Template.o : Template.h Categories.h PhoneDescription.h Rule.h Generate.h \
+  FileManager.h Synthesize.h synthesizer_module.h reserved_symbol.h 
+TileScrollView.o : TileScrollView.h Template.h Synthesize.h Rule.h \
+  Generate.h synthesizer_module.h PhoneDescription.h NXImageView.h 
+TransitionView.o : TransitionView.h Rule.h Generate.h 
+degas_main.o : 
+evaluate.o : Rule.h Generate.h evaluate.h 
+parse.o : Rule.h Generate.h parse.h 
+reserved_symbol.o : reserved_symbol.h 
+synthesizer_module.o : synthesizer_module.h dspcore.h 

@@ -1,0 +1,53 @@
+{\rtf0\ansi{\fonttbl\f2\fswiss Helvetica;}
+\paperw11760
+\paperh7800
+\margl120
+\margr120
+{\colortbl;\red0\green0\blue0;}
+\pard\tx520\tx1060\tx1600\tx2120\tx2660\tx3200\tx3720\tx4260\tx4800\tx5320\f2\b0\i0\ulnone\fs24\li400\fc1\cf1 Q: I'm writing an application which can open either EPS or TIFF images using the NXImage class. How can I determine what kind of file I've opened without hacking the file name?\
+
+\i \
+
+\i0 A: You can use the isKindOf: method from the Object class:\
+\
+id myNXImage, myImageRep;\
+\
+myNXImage = [[NXImage alloc] initFromFile: fileName];\
+myImageRep = [myNXImage lastRepresentation];\
+if ([myImageRep isKindOf: [NXBitmapImageRep class]])\
+\
+/* then I'm a TIFF file! */\
+\
+else if ([myImageRep isKindOf: [NXEPSImageRep class]])\
+\
+/* then I'm an EPS file! */\
+\
+\
+The key here is that the NXImage instance itself does not understand EPS or TIFF information per se. NXImage manages the 
+\i representation
+\i0  classes (one NXImage may have multiple representations) which do understand EPS and TIFF information.\
+\
+Of course, it is reasonable to extract this information from the fileName as well. The following code snippet can be used to do this: \
+\
+\
+char *fileType = rindex(fileName, '.');\
+\
+if (!fileType) \
+\
+/* then I'm not an appropriate file! */\
+\
+else if (!strcmp(fileType, ".tiff")) \
+\
+/* then I'm a TIFF file! */;\
+\
+else if (!strcmp(fileType, ".eps")) \
+\
+/* then I'm an EPS file! */\
+\
+\
+\
+QA687\
+\
+Valid for 2.0, 3.0\
+
+}

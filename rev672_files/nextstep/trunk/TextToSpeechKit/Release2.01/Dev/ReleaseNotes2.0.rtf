@@ -1,0 +1,260 @@
+{\rtf0\ansi{\fonttbl\f0\fnil Times-Roman;\f1\fmodern Ohlfs;}
+\paperw12220
+\paperh13460
+\margl1780
+\margr1080
+\pard\tx1140\tx2280\tx3420\tx4560\tx5700\tx6840\tx7980\tx8640\tx9360\f0\b0\i0\ulnone\fs72\fc0\cf0 Release Notes for Version 2.0\
+\
+
+\fs96 TextToSpeech Kit\
+
+\b\fs36 \
+
+\b0\fs28 \
+\
+\
+Version 2.0 of the TextToSpeech Kit is a major upgrade from Version 1.07.  The largest change has been the incorporation of the new 
+\i articulatory speech synthesizer
+\i0  into the TextToSpeech Server.  Unlike competing systems which still use formant synthesizers, the articulatory speech synthesizer directly models the acoustic properties of the human vocal and nasal tracts.  The result is a very natural speech quality, and the ability to scale between vocal tracts of varying lengths, i.e. the ability to switch between male, female and child voices with the change of only two parameters.  As far as we know, no other company or research group has successfully implemented a real-time digital articulatory text-to-speech systemÐwe are proud to have made this breakthrough on the NeXT computer for the NEXTSTEP community.\
+\
+We have made important advances in other areas as well.  The sub-system which creates intonation contours has been completely redesigned, and is based on a powerful new paradigm which yields very natural pitch variation.  You will notice that the voice rises and falls where expected, and that emphasized words fit in naturally with the rest of the utterance.  The underlying control system has also been improved, incorporating the ability to deal with triphones and tetraphones, and adding much finer rhythmic control.  The result is a much improved ``segmental-level'' control over the synthesis, yielding better intelligibility and naturalness.\
+\
+Finally, we now also support Intel computers running NEXTSTEP equipped with the Turtle Beach MultiSound DSP/Sound board.  A driver for this device is bundled with the KitÐit is an enhancement of the Music Kit driver provided by CCRMA, and is fully compatible with all Music Kit applications.\
+\
+
+\b\fs36 \
+New Features\
+
+\b0\fs28 \
+
+\pard\tx360\tx2280\tx3420\tx4560\tx5700\tx6840\tx7980\tx8640\tx9360\fi-360\li360\fc0\cf0 ·
+\b\fs36 	
+\b0\fs28 State-of-the-Art
+\i  
+\i0 articulatory speech synthesizer.\
+·	Infinite variety of voice types, achieved by scaling the vocal tract length, varying median pitch, and specifying the amount of ``breathiness.''  Male, female and child voices are now all possible.\
+·	Improved intonation contours.\
+·	Improved segmental-level synthesis, yielding better intelligibility and naturalness.\
+·	Support for Intel computers equipped with the Turtle Beach MultiSound DSP/Sound card.  A Music Kit-compatible device driver is provided, and must be installed before running the TextToSpeech Kit.\
+
+\pard\tx1140\tx2280\tx3420\tx4560\tx5700\tx6840\tx7980\tx8640\tx9360\b\fs36\fc0\cf0 \
+\
+Other Changes\
+
+\b0\fs28 \
+
+\pard\tx360\tx2280\tx3420\tx4560\tx5700\tx6840\tx7980\tx8640\tx9360\fi-360\li360\fc0\cf0 ·
+\b\fs36 	
+\b0\i\fs28 BigMouth.app 
+\i0 and
+\i  PrEditor.app 
+\i0 have been updated to provide control over the new parameters of the articulatory speech synthesizer, including breathiness, voice type, and vocal tract length.\
+·	
+\i WhosOnFirst.app
+\i0  can now announce when applications have been launched and terminated with Workspace Manger, and will summarize what mail is waiting for you when first launched.\
+·	New methods have been added to the 
+\i TextToSpeech Object
+\i0  to allow control over features of the articulatory synthesizer.  The ``elasticity'' methods found in Versions 1.0 and 1.07 are now obsolete, and have been removed.\
+·	Arbitrary lengths of silence can be inserted into text with the new Silence mode, using any of the 
+\b speak...
+\b0  methods.\
+·	The API for the 
+\i TextToSpeech Object
+\i0  has been cleaned up.  All instance variables are now private to the class, which means subclasses must use instance methods to access them.  Also, all planned-but-never-implemented methods have been removed from the class interface and the class documentation.\
+·	A ``software synthesizer'' which runs on the host CPU instead of the the DSP has been added to the system.  This synthesizer is extremely slow and can only be used to synthesize to file.  This may be useful for Intel systems that don't have a DSP board, but can play back .snd files through a simple sound card.  The software synthesizer is accessible only in the Developer Kit.\
+·	 The User and Developer Kit documentation has been revised to reflect the changes introduced in Version 2.0.\
+
+\pard\tx1140\tx2280\tx3420\tx4560\tx5700\tx6840\tx7980\tx8640\tx9360\b\fs36\fc0\cf0 \
+\
+Known Problems\
+
+\b0\fs28 \
+
+\pard\tx360\tx2280\tx3420\tx4560\tx5700\tx6840\tx7980\tx8640\tx9360\fi-360\li360\fc0\cf0 ·
+\b\fs36 	
+\b0\fs28 Due to limitations of hardware speed, it is not possible to synthesize voices in real time with vocal tract lengths under 15.9 centimeters on NeXT computers, and under 16.6 centimeters on Intel computers equipped with the MultiSound DSP board.  Effectively, this means that only male and larger female voices can be heard in real time with the present hardware.  We are working to overcome these limitations, but a full range of voice types will probably only be possible with improvements in hardware performance.  Of course, you can always synthesize to file and play back the sound laterÐthe full range of voices is available in this manner.\
+·	When using the DSP to synthesize to file, voices which use a vocal tract length of between 7.95 and 15.9 centimeters must use the 44100 Hz output sample rate.  If you attempt this synthesis with the 22050 Hz output sample rate, the file will be produced, but at the higher sample rate.\
+·	You cannot use the DSP to synthesize voices (to file) with vocal tract lengths under 7.95 centimeters.  You can use the software synthesizer to do so, without any restrictions in output sample rate.  Note that a vocal tract length under 7.95 centimeters is extremely short, corresponding to a small infant, and isn't useful in most situations.\
+·	The relative balance between voiced sounds (vowels) and fricatives (most consonants) of the software synthesizer does not exactly match the balance of the real-time DSP synthesizer.  The resulting speech quality is thus somewhat worse than desired.\
+·	Changing the default emphasis of an utterance (using emphasis mode in any of the 
+\b speak...
+\b0  methods) sometimes produces unnatural-sounding intonation contours.\
+·	The pause, continue and stop real-time controls are somewhat more sluggish than in past releases.  This is due to an increased computational load created by the new system, and likely can't be improved until faster hardware becomes available.\
+
+\pard\tx1140\tx2280\tx3420\tx4560\tx5700\tx6840\tx7980\tx8640\tx9360\b\fs36\fc0\cf0 \
+
+\b0\fs32 \
+
+\b\fs36 Tips for Using the System\
+
+\pard\tx720\tx2280\tx3420\tx4560\tx5700\tx6840\tx7980\tx8640\tx9360\fs28\fi-360\li720\fc0\cf0 \
+·	
+\b0 For better sound quality, use an external audio system.  The loudspeaker in the NeXT computer monitor can make the synthesized voice sound ``tinny'' since it has a rather poor frequency response.\
+\
+
+\b ·	
+\b0 Minimize fan noise by locating the cube or workstation away from the audio sound source.  Fan noise tends to mask important components of the synthesized speech.\
+
+\b \
+·
+\b0 	Customize the voice quality (speed, pitch, etc.) and save it in your defaults database.  This can be done in 
+\i BigMouth's
+\i0  Preferences Panel, or in 
+\i PrEditor's
+\i0  TextToSpeech Preferences panel.\
+\
+
+\b ·
+\b0 	Use 
+\i PrEditor
+\i0  to override pronunciations for words not pronounced correctly in the other system dictionaries.  Be sure to set the path to the User Dictionary with 
+\i PrEditor's
+\i0  TextToSpeech Preferences panel.\
+\
+
+\b ·	
+\b0 You may have to reformat non-standard text input to have it pronounced properly.  Remember that words which are completely upper case are pronounced one letter at a time.\
+\
+·	If you get interruptions in sound output or a ``crackling'' quality in the synthesized speech, use the 
+\i SpeechManager
+\i0  application to tune the system.  We have found that heavily loaded systems and color machines may have problems with DMA transfers of data to the DSP, and 
+\i SpeechManager
+\i0  can be used to correct the problem.\
+\
+\
+
+\pard\tx1140\tx2280\tx3420\tx4560\tx5700\tx6840\tx7980\tx8640\tx9360\b\fs36\fc0\cf0 Your Feedback\
+
+\b0\fs28 \
+We welcome all comments, suggestions, and bug reports.  You can contact us at:\
+	Trillium Sound Research Inc.\
+	1500, 112 ± 4th Avenue S.W.\
+	Calgary, Alberta, Canada\
+	T2P 0H3\
+\
+	(403) 284-9278\
+	(403) 282-6778 (fax)\
+	TTSInfo@trillium.ab.ca\
+
+\pard\tx1140\tx2280\tx3420\tx4560\tx5700\tx6840\tx7980\qc\fc0\cf0 \
+ 
+\i\fs20 TextToSpeech Kit
+\i0 , 
+\i PrEditor
+\i0 , and 
+\i BigMouth
+\i0  are trademarks of Trillium Sound Research Inc.\
+
+\fs28  
+\i\fs20 NeXT
+\i0 , and 
+\i NeXTSTEP
+\i0  are trademarks of NeXT Computer, Inc.\
+
+\pard\tx1140\tx2280\tx3420\tx4560\tx5700\tx6840\tx7980\tx8640\tx9360\fs96\fc0\cf0 \
+\
+
+\fs28 \
+\
+
+\fs72 Release Notes for Version 1.07\
+
+\fs28 \
+\
+\
+This is primarily a maintenance release, although we have enhanced some parts of the Kit.  If you are running NEXTSTEP 3.2, you must install Version 1.07 of the TextToSpeech Kit, since Version 1.0 breaks under the new operating system.  Version 1.07 also works with NS 3.0 and 3.1, but will not work under 2.xÐuse Version 1.0 if you are still working with the old operating system.\
+\
+\
+
+\b\fs36 Bug Fixes\
+
+\pard\tx360\tx2280\tx3420\tx4560\tx5700\tx6840\tx7980\tx8640\tx9360\b0\fs28\fi-360\li360\fc0\cf0 \
+·
+\b\fs36 	
+\b0\fs28 Now works with NEXTSTEP 3.2\
+·	Interruptions to speech output are eliminated (use 
+\i SpeechManager
+\i0  if you are still having problems with this).\
+·	Speaking to file no longer causes missing segments in the next utterance that is spoken directly to the sound output hardware.\
+·	In Version 1.0, a command line program which invoked the TextToSpeech Server would be killed when the Server shut down (usually after about a minute).  This bug has now been eliminated.\
+·	The Lexical font (bundled for use in 
+\i PrEditor
+\i0 ) has been changed so that it no longer causes the NS 3.1 and 3.2 versions of 
+\i buildafmdir
+\i0  to produce a segmentation fault (which, in turn, caused 
+\i TTS_Install
+\i0  to crash).  NeXT will release a fixed version of 
+\i buildafmdir
+\i0  in the next release of NEXTSTEP.\
+
+\b\fs36 \
+
+\pard\tx1140\tx2280\tx3420\tx4560\tx5700\tx6840\tx7980\tx8640\tx9360\fc0\cf0 \
+Improvements in Performance\
+\
+
+\pard\tx360\tx2280\tx3420\tx4560\tx5700\tx6840\tx7980\tx8640\tx9360\b0\fs28\fi-360\li360\fc0\cf0 ·
+\b\fs36 	
+\b0\fs28 The TextToSpeech Server now consumes about 50% less CPU cycles.  This was achieved by making the Server single-threaded, and by pushing more of the computational load onto the DSP.\
+
+\pard\tx1140\tx2280\tx3420\tx4560\tx5700\tx6840\tx7980\tx8640\tx9360\b\fs36\fc0\cf0 \
+
+\b0\fs28 \
+
+\b\fs36 Added Features\
+
+\pard\tx360\tx2280\tx3420\tx4560\tx5700\tx6840\tx7980\tx8640\tx9360\b0\fs28\fi-360\li360\fc0\cf0 \
+·
+\b\fs36 	
+\b0\i\fs28 SpeechManager
+\i0  ± This new application can be used to tune the performance of the TextToSpeech Server.  It is installed in /LocalApps/TextToSpeech, and must be run by root.  We have found that heavily loaded systems and color machines may have problems with DMA transfers of data to the DSP, resulting in a ªcracklingº quality to the speech, or even more severe interruptions to speech output.  
+\i SpeechManager
+\i0  can be used to eliminate this problem.\
+·	
+\i say
+\i0  ± This is a command line program interface to the speech system.  It will speak the words following the command (terminated by a carriage return), or the text from standard input (terminated by eof or control-c).  It is installed in /usr/local/bin.\
+·	
+\i WhosOnFirst
+\i0  ± This is an application which ªannouncesº when other users log on or off your computer.  It is located in /LocalApps/TextToSpeech.\
+·	
+\i SpeakText:toFile: 
+\i0 and
+\i  SpeakStream:toFile:
+\i0   methods have been added to the TextToSpeech class.  This allows developers to convert text to speech and save the speech output to a sound file.\
+
+\pard\tx1140\tx2280\tx3420\tx4560\tx5700\tx6840\tx7980\tx8640\tx9360\fc0\cf0 \
+\
+
+\b\fs36 Other Changes\
+
+\pard\tx360\tx2280\tx3420\tx4560\tx5700\tx6840\tx7980\tx8640\tx9360\b0\fs28\fi-360\li360\fc0\cf0 \
+·
+\b\fs36 	
+\b0\i\fs28 BigMouth
+\i0  has been completely rewritten.  It will now also speak files, either by dragging in the file's icon into a file well or 
+\i BigMouth's
+\i0  application icon, or by invoking 
+\i BigMouth
+\i0  from the Services Menu.  Help and Preferences are now available, and the main menu has been reorganized.  Source code is still included in /LocalLibrary/TextToSpeech/exampleCode.\
+·	The example code for 
+\i TalkingCalculator
+\i0  and 
+\i ServerTest 
+\i0 has been changed so it compiles cleanly with the 3.x Project Builder and Interface Builder.\
+·	The TextToSpeech header files have been moved from /usr/local/include to /LocalDeveloper/Headers, in keeping with NeXT's new file structure.\
+·	The User and Developer Kit documentation has been revised to reflect the changes introduced in Version 1.07.\
+
+\pard\tx1140\tx2280\tx3420\tx4560\tx5700\tx6840\tx7980\tx8640\tx9360\fc0\cf0 \
+\
+
+\b\fs36 Known Problems\
+\
+
+\pard\tx360\tx2280\tx3420\tx4560\tx5700\tx6840\tx7980\tx8640\tx9360\b0\fs28\fi-360\li360\fc0\cf0 ·
+\b\fs36 	
+\b0\fs28 None known.  Please report any problems to us. \
+
+\pard\tx1340\tx2680\tx4020\tx5360\tx6720\tx8060\tx9400\tx10740\tx12080\tx13440\fc0\cf0 \
+\
+
+}

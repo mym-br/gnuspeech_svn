@@ -1,0 +1,14 @@
+LANGUAGE = English;
+FILESTABLE = {
+    OTHER_SOURCES = (Makefile.preamble, Makefile, Makefile.postamble);
+    H_FILES = (SummaUIOFBinaryReader.h);
+    CLASSES = (SummaUIOFBinaryReader.m);
+};
+LOCALIZABLE_FILES = {
+};
+PROJECTVERSION = 1.1;
+PROJECTTYPE = Bundle;
+PROJECTNAME = SummaUIOFBinaryReader;
+GENERATEMAIN = YES;
+DOCEXTENSIONS = ();
+DOCICONFILES = ();

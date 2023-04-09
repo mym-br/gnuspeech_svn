@@ -1,0 +1,84 @@
+#  This postamble created to automate the making of the library
+#  and header file subdirectory for the Area palette.
+#  These are created when 'make palette' is invoked.
+#  Also, the cvs.postamble is also included from here.
+
+
+
+#  Source files to be compiled into libraries
+SRC1_NAME= Area
+SRC2_NAME= AreaCell
+
+#  Include files for the library
+HEADER1_NAME= $(SRC1_NAME).h
+HEADER2_NAME= $(SRC2_NAME).h
+
+#  Name of header subdirectory
+HEADER_DIR= headerFiles
+
+#  Name of the library subdirectory
+LIB_DIR= lib
+
+#  Names of the library
+LIB_NAME= lib$(NAME).a
+
+#  This removes the library and header directories on a 'make clean'
+OTHER_GARBAGE= $(LIB_DIR) $(HEADER_DIR)
+
+
+#  This extends 'make palette' so that the library
+#  and header files are also created.
+palette::
+	@(evaled_rc_archs="$(RC_ARCHS)"; \
+	obj_dir=`echo $$evaled_rc_archs | sed 's/ /_/g'`_obj ; \
+	$(MAKE) library header "OFILE_DIR = $(OBJROOT)/$$obj_dir" )
+
+
+
+#  These rules create the library and library subdirectory
+library:: $(LIB_DIR) $(LIB_DIR)/$(LIB_NAME)
+
+$(LIB_DIR):
+	mkdirs $@
+
+$(LIB_DIR)/$(LIB_NAME): $(OFILE_DIR)/$(SRC1_NAME).o $(OFILE_DIR)/$(SRC2_NAME).o
+	$(RM) -f $@
+	ld -r $(OFILE_DIR)/$(SRC1_NAME).o $(OFILE_DIR)/$(SRC2_NAME).o -o $@
+
+$(OFILE_DIR)/$(SRC1_NAME).o: $(SRC1_NAME).m $(SRC1_NAME).h
+	@make all
+
+$(OFILE_DIR)/$(SRC2_NAME).o: $(SRC2_NAME).m $(SRC2_NAME).h
+	@make all
+
+
+
+#  These rules create the header files and header subdirectory
+header:: $(HEADER_DIR) $(HEADER_DIR)/$(HEADER1_NAME) \
+	 $(HEADER_DIR)/$(HEADER2_NAME)
+
+$(HEADER_DIR):
+	mkdirs $@
+
+$(HEADER_DIR)/$(HEADER1_NAME): $(HEADER1_NAME)
+	$(RM) -f $@
+	cp $(HEADER1_NAME) $@
+
+$(HEADER_DIR)/$(HEADER2_NAME): $(HEADER2_NAME)
+	$(RM) -f $@
+	cp $(HEADER2_NAME) $@
+
+$(HEADER1_NAME):
+	@$(ECHO) 'Missing $(HEADER1_NAME)'
+	@exit 1;
+
+$(HEADER2_NAME):
+	@$(ECHO) 'Missing $(HEADER2_NAME)'
+	@exit 1;
+
+
+#  Include the local cvs.postamble file
+
+-include $(LOCALMAKEDIR)/cvs.postamble
+
+#  Needs blank lines around this

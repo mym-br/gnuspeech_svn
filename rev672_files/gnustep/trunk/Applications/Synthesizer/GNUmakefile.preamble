@@ -1,0 +1,2 @@
+
+ADDITIONAL_GUI_LIBS += -ljack

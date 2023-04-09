@@ -1,0 +1,20 @@
+Sun Jun 28 15:39:36 1992  Leonard Manzara  (len at localhost)
+
+	* Fixed bugs in preditorDict.m.
+
+Tue May 19 17:42:28 1992  Vince DeMarco  (vince@whatnxt)
+
+	* Changed the names of the routines, so Len is happy
+
+Thu May 14 18:43:46 1992  Vince DeMarco  (vince@whatnxt.cuc.ab.ca)
+
+	* Routines added to support printout a PrDict file.
+
+Mon Apr  6 19:09:20 1992  Vince DeMarco  (vince@whatnxt.cuc.ab.ca)
+
+	* Program given to Trillium and checked into RCS (Finally)
+
+Wed Mar 11 17:46:37 1992  Vince DeMarco  (vince@whatnxt)
+
+	* ChangeLog file created
+

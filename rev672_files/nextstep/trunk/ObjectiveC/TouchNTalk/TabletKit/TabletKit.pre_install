@@ -1,0 +1,23 @@
+#! /bin/sh
+
+#
+# TabletKit.pre_install only works as root.
+#
+
+echo
+
+# Remove old precompiled header if it exists.
+if [ -f /LocalDeveloper/Headers/tabletkit/tabletkit.p ] ; then
+	echo -n "    Removing old precompiled header ... " ;
+        /bin/rm -f /LocalDeveloper/Headers/tabletkit/tabletkit.p ;
+	echo -n "OK." ;
+fi
+
+# Remove lingering links from previous install if present.
+if [ -h /usr/local/lib/libtabletkit.a ] ; then
+	echo -n "    Removing old library links ... " ;
+        /bin/rm -f /usr/local/lib/libtabletkit.a ;
+	echo "OK." ;
+fi
+
+echo "    ... done."

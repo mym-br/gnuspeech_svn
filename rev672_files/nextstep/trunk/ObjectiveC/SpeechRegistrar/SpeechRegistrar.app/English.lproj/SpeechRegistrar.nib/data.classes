@@ -1,0 +1,18 @@
+FirstResponder = {
+    ACTIONS = {
+    };
+    SUPERCLASS = Object;
+};
+MyController = {
+    ACTIONS = {
+	registerDemo:;
+	appDidInit:;
+    };
+    OUTLETS = {
+	mySpeech;
+	regButton;
+	regStatusField;
+	passwordField;
+    };
+    SUPERCLASS = Object;
+};

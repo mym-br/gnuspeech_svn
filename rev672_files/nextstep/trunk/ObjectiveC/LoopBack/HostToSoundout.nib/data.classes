@@ -1,0 +1,19 @@
+FirstResponder = {
+    ACTIONS = {
+    };
+    SUPERCLASS = Object;
+};
+Transport = {
+    ACTIONS = {
+	pause:;
+	stop:;
+	appDidInit:;
+	play:;
+	setFilename:;
+    };
+    OUTLETS = {
+	statusWindow;
+	filenameField;
+    };
+    SUPERCLASS = Object;
+};

@@ -1,0 +1,22 @@
+DOCICONFILES = ();
+DOCEXTENSIONS = ();
+LOCALIZABLE_FILES = {
+    AreaCellInspector.nib;
+    AreaInspector.nib;
+    AreaPalette.nib;
+};
+PROJECTVERSION = 1.1;
+INSTALLDIR = /NextDeveloper/Palettes;
+PROJECTTYPE = Palette;
+PROJECTNAME = AreaPalette;
+GENERATEMAIN = YES;
+MAINNIB = AreaPalette;
+LANGUAGE = English;
+FILESTABLE = {
+    CLASSES = (Area.m, AreaCell.m, AreaCellInspector.m, AreaInspector.m, AreaPalette.m);
+    OTHER_RESOURCES = (palette.table);
+    OTHER_SOURCES = (Makefile);
+    INTERFACES = (AreaCellInspector.nib, AreaInspector.nib, AreaPalette.nib);
+    H_FILES = (Area.h, AreaCell.h, AreaCellInspector.h, AreaInspector.h, AreaPalette.h);
+    IMAGES = (AreaPalette.tiff, bottom.tiff, left.tiff, leftAndRight.tiff, right.tiff, top.tiff, topAndBottom.tiff, valuesDisplay.tiff);
+};

@@ -1,0 +1,132 @@
+<!--
+   Monet XML file format version 1.0 DTD (This is still under development.)
+
+   This is a part of GnuSpeech.
+
+   Namespace = http://
+
+   This DTD module is identifier by the PUBLIC and SYSTEM identifiers:
+   (These haven't been chosen yet.  It could be something like the following.)
+
+   PUBLIC "-//GNU-test//DTD Monet XML 1.0//EN"
+   SYSTEM "http://www.fsf.org/some/path/to/DTDs/monet-v1.dtd"
+
+-->
+
+<!ELEMENT root (categories?, parameters?, meta-parameters?, symbols?, postures?, equations, transitions, special-transitions, rules?)>
+<!ATTLIST root version CDATA #REQUIRED>
+
+<!ELEMENT categories (category*)>
+<!ELEMENT parameters (parameter*)>
+<!ELEMENT meta-parameters (parameter*)>
+<!ELEMENT symbols (symbol*)>
+<!ELEMENT postures (posture*)>
+<!ELEMENT equations (equation-group*)>
+<!ELEMENT transitions (transition-group*)>
+<!ELEMENT special-transitions (transition-group*)>
+<!ELEMENT rules (rule*)>
+
+<!ELEMENT comment (#PCDATA)>
+
+<!-- Categories -->
+
+<!ELEMENT category (comment?)>
+<!ATTLIST category name CDATA #REQUIRED>
+
+<!-- Parameters -->
+
+<!ELEMENT parameter (comment?)>
+<!ATTLIST parameter name CDATA #REQUIRED
+                    minimum CDATA #REQUIRED
+                    maximum CDATA #REQUIRED
+                    default CDATA #REQUIRED>
+
+<!-- Symbols -->
+
+<!ELEMENT symbol (comment?)>
+<!ATTLIST symbol name CDATA #REQUIRED
+                 minimum CDATA #REQUIRED
+                 maximum CDATA #REQUIRED
+                 default CDATA #REQUIRED>
+
+<!-- Postures -->
+
+<!ELEMENT posture (comment?, posture-categories?, parameter-targets?, meta-parameter-targets?, symbol-targets?)>
+<!ATTLIST posture symbol CDATA #REQUIRED>
+
+<!-- comment already defined -->
+<!ELEMENT posture-categories (category-ref*)>
+<!ELEMENT category-ref EMPTY>
+<!ATTLIST category-ref name CDATA #REQUIRED>
+
+<!ELEMENT parameter-targets (target*)>
+<!ELEMENT meta-parameter-targets (target*)>
+<!ELEMENT symbol-targets (target*)>
+
+<!ELEMENT target EMPTY>
+<!ATTLIST target name CDATA #REQUIRED
+                 value CDATA #REQUIRED
+                 is-default CDATA #IMPLIED>
+
+<!-- Equations -->
+<!-- Note that storing comments for groups as an attribute is inconsistent with the rest of the format. -->
+
+<!ELEMENT equation-group (equation*)>
+<!ATTLIST equation-group name CDATA #REQUIRED
+                         comment CDATA #IMPLIED>
+
+<!ELEMENT equation (comment?)>
+<!ATTLIST equation name CDATA #REQUIRED
+                   formula CDATA #IMPLIED>
+
+<!-- Transitions -->
+
+<!ELEMENT transition-group (transition*)>
+<!ATTLIST transition-group name CDATA #REQUIRED
+                           comment CDATA #IMPLIED>
+
+<!-- again, a problem with duplicate points element -->
+<!ELEMENT transition (comment?, point-or-slopes?)>
+<!ATTLIST transition name CDATA #REQUIRED
+                     type (diphone | triphone | tetraphone) #REQUIRED>
+
+<!-- This is a little awkward, but since there is a "points" element I don't want to call it "points-or-slopes". -->
+<!ELEMENT point-or-slopes ( (point | slope-ratio)* )>
+<!ELEMENT slope-ratio (points?, slopes?)>
+
+<!ELEMENT points (point*)>
+<!ELEMENT slopes (slope*)>
+
+<!ELEMENT point EMPTY>
+<!ATTLIST point type (diphone | triphone | tetraphone) #REQUIRED
+                value CDATA #REQUIRED
+                free-time CDATA #IMPLIED
+                time-expression CDATA #IMPLIED
+                is-phantom CDATA #IMPLIED>
+
+<!ELEMENT slope EMPTY>
+<!ATTLIST slope slope CDATA #REQUIRED
+                display-time CDATA #REQUIRED>
+
+<!-- Special Transitions -->
+
+<!-- Rules -->
+
+<!ELEMENT rule (boolean-expressions, comment?, parameter-profiles?, meta-parameter-profiles?, special-profiles?, expression-symbols?)>
+
+<!ELEMENT boolean-expressions (boolean-expression*)>
+<!ELEMENT boolean-expression (#PCDATA)>
+
+<!ELEMENT parameter-profiles (parameter-transition*)>
+<!ELEMENT meta-parameter-profiles (parameter-transition*)>
+<!ELEMENT special-profiles (parameter-transition*)>
+
+<!ELEMENT parameter-transition EMPTY>
+<!ATTLIST parameter-transition name CDATA #REQUIRED
+                               transition CDATA #REQUIRED>
+
+<!ELEMENT expression-symbols (symbol-equation*)>
+
+<!ELEMENT symbol-equation EMPTY>
+<!ATTLIST symbol-equation name CDATA #REQUIRED
+                          equation CDATA #REQUIRED>

@@ -1,0 +1,73 @@
+InfoMgr = {
+    ACTIONS = {
+	switchViews:;
+	enableSpeech:;
+    };
+    OUTLETS = {
+	scrollView;
+	generalView;
+	TextToSpeechView;
+	mainObject;
+	speakLog;
+	defaultManager;
+	speechControlView;
+	speakMessages;
+	doubleClickAction;
+	window;
+	iconInfoView;
+	speechView;
+	infoView;
+	confirmDoubleClick;
+	whenToSpeak;
+	WorkSpaceView;
+    };
+    SUPERCLASS = Object;
+};
+FirstResponder = {
+    ACTIONS = {
+    };
+    SUPERCLASS = Object;
+};
+ProcessManager = {
+    ACTIONS = {
+    };
+    OUTLETS = {
+	myWindow;
+	myTextObject;
+    };
+    SUPERCLASS = Object;
+};
+NiftyMatrix = {
+    ACTIONS = {
+    };
+    OUTLETS = {
+	activeCell;
+    };
+    SUPERCLASS = Matrix;
+};
+IconView = {
+    SUPERCLASS = View;
+};
+myMainObject = {
+    ACTIONS = {
+	appDidInit:;
+	terminate:;
+    };
+    OUTLETS = {
+	icon;
+	owner;
+	localInfoMgr;
+	iconMatrix;
+	scrollView;
+	mySpeech;
+	iconWindow;
+    };
+    SUPERCLASS = Object;
+};
+DefaultMgr = {
+    ACTIONS = {
+    };
+    OUTLETS = {
+    };
+    SUPERCLASS = Object;
+};

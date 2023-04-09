@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleIconFile</key>
+	<string>GnuSpeechService.icns</string>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>English</string>
+	<key>CFBundleExecutable</key>
+	<string>${EXECUTABLE_NAME}</string>
+	<key>CFBundleIdentifier</key>
+	<string>org.gnu.gnuspeech.${PRODUCT_NAME:identifier}</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleSignature</key>
+	<string>????</string>
+	<key>CFBundleVersion</key>
+	<string>0.6</string>
+	<key>NSPrincipalClass</key>
+	<string>NSApplication</string>
+	<key>LSBackgroundOnly</key>
+	<true/>
+	<key>CFBundleName</key>
+	<string>${EXECUTABLE_NAME}</string>
+	<key>NSRequiredContext</key>
+	<string></string>
+	<key>NSHumanReadableCopyright</key>
+	<string>Copyright 1991-2009. David R. Hill, Leonard Manzara, Craig Schock. This software is licensed under the terms of the GNU GPL.</string>
+	<key>NSServices</key>
+	<array>
+		<dict>
+			<key>NSKeyEquivalent</key>
+			<dict>
+				<key>Key equivalent (with command and shift)</key>
+				<string>~S</string>
+			</dict>
+			<key>NSMessage</key>
+			<string>speakText</string>
+			<key>NSPortName</key>
+			<string>GnuSpeechService</string>
+			<key>NSSendTypes</key>
+			<array>
+				<string>NSPasteboardTypeString</string>
+				<string>NSStringPboardType</string>
+			</array>
+			<key>NSMenuItem</key>
+			<dict>
+				<key>default</key>
+				<string>GnuSpeech Speak Text</string>
+			</dict>
+		</dict>
+	</array>
+</dict>
+</plist>

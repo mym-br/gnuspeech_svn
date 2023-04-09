@@ -1,0 +1,36 @@
+INSTALLDIR = "$(HOME)/Apps";
+APPICON = app.tiff;
+GENERATEMAIN = YES;
+DOCICONFILES = (dict.tiff);
+FILESTABLE = {
+    M_FILES = (PrEditor_main.m);
+    OTHER_LINKED = ();
+    H_FILES = (conversion.h, hash.h, "objc-debug.h", phone_conversion.h, word_types.h, CustSlider.h, CustSliderCell.h, EnglishText.h, Help.h, InfoMgr.h, InspectorMgr.h, KeyboardController.h, KeyboardText.h, MyText.h, NiftyMatrix.h, NiftyMatrixCat.h, NiftyMatrixCell.h, PrDict.h, PrDictViewer.h, PrEditorApp.h, PrEditorDocument.h, PrefMgr.h, Speech.h, TextFieldCat.h);
+    CLASSES = (CustSlider.m, CustSliderCell.m, EnglishText.m, Help.m, InfoMgr.m, InspectorMgr.m, KeyboardController.m, KeyboardText.m, MyText.m, NiftyMatrix.m, NiftyMatrixCat.m, NiftyMatrixCell.m, PrDict.m, PrDictViewer.m, PrEditorApp.m, PrEditorDocument.m, PrefMgr.m, Speech.m, TextFieldCat.m);
+    IMAGES = (app.tiff, Delete.tiff, DeleteH.tiff, dict.tiff, help.tiff, left.tiff, max.tiff, min.tiff, preditor_logo.tiff, right.tiff, Shift.tiff, ShiftH.tiff, Speak.tiff, SpeakH.tiff, Store.tiff, StoreH.tiff);
+    PSW_FILES = ();
+    C_FILES = (conversion.c, hash.c);
+    OTHER_SOURCES = (AATOC, ChangeLog, TAGS, words);
+    SUBPROJECTS = ();
+    PSWM_FILES = ();
+    SOUNDS = ();
+    OTHER_LIBS = (Media_s, NeXT_s, TextToSpeech, TextToSpeechPron);
+    INTERFACES = (Document.nib, Help.nib, Info.nib, Inspector.nib, PrDictViewer.nib, PrEditor.nib, PrefMgr.nib);
+};
+APPCLASS = PrEditorApp;
+DOCEXTENSIONS = (preditor);
+MAINNIB = PrEditor;
+PROJECTTYPE = Application;
+LOCALIZABLE_FILES = {
+    Inspector.nib;
+    Info.nib;
+    Help.nib;
+    PrEditor.nib;
+    PrDictViewer.nib;
+    PrefMgr.nib;
+    Document.nib;
+};
+PROJECTVERSION = 1.1;
+PROJECTNAME = PrEditor;
+SYSTEMEXTENSIONS = ();
+LANGUAGE = English;

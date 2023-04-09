@@ -1,0 +1,165 @@
+head	1.5;
+access;
+symbols;
+locks;
+comment	@ * @;
+
+
+1.5
+date	94.06.03.19.28.24;	author dale;	state Exp;
+branches;
+next	1.4;
+
+1.4
+date	93.06.04.20.57.48;	author dale;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	93.05.30.08.24.27;	author dale;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	93.05.27.00.16.28;	author dale;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	93.05.20.06.03.35;	author dale;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.5
+log
+@Changed "LastEditDate" to "Last modified on" within header.
+@
+text
+@/*
+ *    Filename:	Node.h 
+ *    Created :	Wed May 19 14:36:15 1993 
+ *    Author  :	Dale Brisinda
+ *		<dale@@pegasus.cuc.ab.ca>
+ *
+ *    Last modified on "Fri Jun  4 12:17:18 1993"
+ *
+ * $Id: Node.h,v 1.4 1993/06/04 20:57:48 dale Exp $
+ *
+ * $Log: Node.h,v $
+ * Revision 1.4  1993/06/04  20:57:48  dale
+ * *** empty log message ***
+ *
+ * Revision 1.3  1993/05/30  08:24:27  dale
+ * *** empty log message ***
+ *
+ * Revision 1.2  1993/05/27  00:16:28  dale
+ * Added set and query methods.
+ *
+ * Revision 1.1  1993/05/20  06:03:35  dale
+ * Initial revision
+ *
+ */
+
+#import <objc/Object.h>
+
+@@interface Node:Object
+{
+    int start;
+    int end;
+    int level;                  
+}
+
+/* GENERAL METHODS */
+- init;
+- free;
+
+/* ARCHIVING METHODS */
+- awake;
+- read:(NXTypedStream *)typedStream;
+- write:(NXTypedStream *)typedStream;
+
+/* SET METHODS */
+- setStart:(int)aValue;
+- setEnd:(int)aValue;
+- setLevel:(int)aValue;
+
+/* QUERY METHODS */
+- (int)start;
+- (int)end;
+- (int)length;
+- (int)level;
+
+@@end
+@
+
+
+1.4
+log
+@*** empty log message ***
+@
+text
+@d7 1
+a7 1
+ *    LastEditDate was "Fri Jun  4 12:17:18 1993"
+d9 1
+a9 1
+ * $Id: Node.h,v 1.3 1993/05/30 08:24:27 dale Exp $
+d12 3
+@
+
+
+1.3
+log
+@*** empty log message ***
+@
+text
+@d7 1
+a7 1
+ *    LastEditDate was "Fri May 28 14:30:05 1993"
+d9 1
+a9 1
+ * $Id: Node.h,v 1.2 1993/05/27 00:16:28 dale Exp $
+d12 3
+d23 1
+a23 1
+#import <appkit/appkit.h>
+@
+
+
+1.2
+log
+@Added set and query methods.
+@
+text
+@d7 1
+a7 1
+ *    LastEditDate was "Fri May 21 14:36:42 1993"
+d9 1
+a9 1
+ * $Id: Node.h,v 1.1 1993/05/20 06:03:35 dale Exp $
+d12 3
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d7 1
+a7 1
+ *    LastEditDate was "Wed May 19 14:36:19 1993"
+d9 1
+a9 1
+ * $Id$
+d11 4
+a14 1
+ * $Log$
+d21 3
+d26 19
+@

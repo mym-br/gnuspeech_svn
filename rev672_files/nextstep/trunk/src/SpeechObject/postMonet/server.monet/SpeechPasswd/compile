@@ -1,0 +1,3 @@
+cc -o genpass genpass.c munge.c -s -object
+cc -o testpass test.c munge.c -s -object
+cc -o addpass addPassword.c -lNeXT_s -lMedia_s

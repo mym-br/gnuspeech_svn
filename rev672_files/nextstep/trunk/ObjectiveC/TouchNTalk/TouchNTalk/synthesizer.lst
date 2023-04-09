@@ -1,0 +1,1104 @@
+Motorola DSP56000 Macro Cross Assembler  Version 3.02  95-04-09  12:58:48  synthesizer.asm  Page 1
+
+
+
+26     
+28        000000         DEBUG_56  set     0                                 ; set to 1 for use with Bug56
+29     
+32     
+33                                 page    120,48,0,1,0                      ; Width, height, topmar, botmar, lmar
+34                                 opt     cex,mex,mu
+35     
+38     
+246    
+247    
+248    
+251    
+252                                IF      !DEBUG_56
+253                      ON_CHIP_PROGRAM_START
+254       000040                   equ     $40
+255                                ELSE
+257                                ENDIF
+258    
+259                      OFF_CHIP_PROGRAM_START
+260       002000                   equ     $2000
+261    
+262    
+265    
+266       000000         VEC_RESET equ     $00                               ; reset vector
+267                      VEC_DMA_OUT_DONE
+268       000024                   equ     $24                               ; host command: dma-out complete
+269       00002E         VEC_START equ     $2E                               ; host command: start synthesizing
+270       000030         VEC_STOP  equ     $30                               ; host command: stop synthesizing
+271                      VEC_SET_FREQUENCY
+272       000032                   equ     $32                               ; host command: set frequency
+273                      VEC_SET_AMPLITUDE
+274       000034                   equ     $34                               ; host command: set amplitude
+275                      VEC_SET_BALANCE
+276       000036                   equ     $36                               ; host command: set balance
+277                      VEC_SET_WAVETABLE
+278       000038                   equ     $38                               ; host command: set wavetable
+279                      VEC_SET_RATE
+280       00003A                   equ     $3A                               ; host command: set rate
+281                      VEC_LOAD_FIR_COEF
+282       00003C                   equ     $3C                               ; host command: load FIR coefficients
+283    
+284    
+285    
+
+Motorola DSP56000 Macro Cross Assembler  Version 3.02  95-04-09  12:58:48  synthesizer.asm  Page 2
+
+
+
+288    
+289                      writeHost macro   source
+290  m                   _one      jclr    #m_htde,x:m_hsr,_one
+291  m                             movep   source,x:m_htx
+292  m                             endm
+293    
+294    
+295                      readHost  macro   dest
+296  m                   _two      jclr    #m_hrdf,x:m_hsr,_two
+297  m                             movep   x:m_hrx,dest
+298  m                             endm
+299    
+300    
+301    
+304    
+309    
+310       00003D         l_a_save  equ     $3D                               ; $3D - $3D (1)
+311       00003E         l_phaseInc equ    $3E                               ; $3E - $3E (1)
+312                      l_currentPhase
+313       00003F                   equ     $3F                               ; $3F - $3F (1)
+314       000080         l_FIR_base equ    $80                               ; $80 - $BF (64) x and y space for FIR filt
+er
+315    
+316    
+317    
+320    
+321                      x_STATUS_flags
+322       000000                   equ     $00                               ; status flags (use $00 for use with jset)
+323       000001         x_tableMod equ    $01
+324       000002         x_x0_save equ     $02
+325       000003         x_FIR_size equ    $03
+326       000004         x_FIR_mod equ     $04
+327       000005         x_lpn1    equ     $05
+328    
+329    
+332    
+334                      PHASE_INC_INT
+335       000000                   equ     $00
+336                      PHASE_INC_FRAC
+337       000001                   equ     $01
+338       000002         AMPLITUDE equ     $02
+339       000003         BALANCE   equ     $03
+340                      NUMBER_HARMONICS
+
+Motorola DSP56000 Macro Cross Assembler  Version 3.02  95-04-09  12:58:48  synthesizer.asm  Page 3
+
+
+
+341       000004                   equ     $04
+342       000005         RATE      equ     $05
+343    
+344    
+346       000010         OSC_AMP   equ     $10
+347       000011         BALANCE_R equ     $11
+348       000012         BALANCE_L equ     $12
+349       000013         F_RATE    equ     $13
+350       000014         G_RATE    equ     $14
+351       000015         CUR_AMP   equ     $15
+352    
+353    
+354    
+357    
+358                      DMA_OUT_DONE
+359       000000                   equ     0                                 ; indicates dma-out is complete
+360                      DMA_IN_DONE
+361       000001                   equ     1                                 ; indicates dma-in is complete
+362                      DMA_IN_ACCEPTED
+363       000002                   equ     2                                 ; indicates dma-in accepted by host
+364       000003         RUN_STATUS equ    3                                 ; indicates if synth to run
+365                      PARAM_UPDATE
+366       000004                   equ     4                                 ; indicates if parameters need updating
+367                      UPDATE_FREQUENCY
+368       000005                   equ     5                                 ; frequency needs updating
+369                      UPDATE_AMPLITUDE
+370       000006                   equ     6                                 ; amplitude needs updating
+371                      UPDATE_BALANCE
+372       000007                   equ     7                                 ; balance needs updating
+373                      UPDATE_WAVETABLE
+374       000008                   equ     8                                 ; wavetable needs updating
+375                      UPDATE_RATE
+376       000009                   equ     9                                 ; rate needs updating
+377    
+378    
+379    
+390    
+391    
+393                      SINE_WAVE_TABLE
+394       000100                   equ     $0100                             ; base address of sine wavetable
+395                      SINE_TABLE_SIZE
+396       000100                   equ     256                               ; size of sine table (must match 68040)
+397    
+
+Motorola DSP56000 Macro Cross Assembler  Version 3.02  95-04-09  12:58:48  synthesizer.asm  Page 4
+
+
+
+398                      OSC_WAVE_TABLE
+399       002800                   equ     $2800                             ; base address of oscillator wavetable
+400                      OSC_TABLE_SIZE
+401       000100                   equ     256                               ; size of oscillator table
+402    
+404                      DMA_OUT_BUFFER
+405       003000                   equ     $3000                             ; dma output buffer
+406                      DMA_OUT_SIZE
+407       000800                   equ     2048                              ; size of output buffer (must match 040)
+408    
+409    
+410    
+421    
+422    
+425    
+426                      AMP_THRESHOLD
+427       0.010000                 equ     0.01
+428    
+429    
+432    
+433                      DMA_OUT_REQ
+434       050001                   equ     $050001                           ; message to host to request dma-OUT
+435       040002         DMA_IN_REQ equ    $040002                           ; message to host to request dma-IN 
+436    
+437    
+438    
+439    
+442    
+443                                IF      !DEBUG_56
+444    
+445       P:0000                   org     p:VEC_RESET
+446       P:0000 0AF080            jmp     reset
+                 000040
+447    
+448       P:0024                   org     p:VEC_DMA_OUT_DONE                ; DMA-OUT completed.
+449       P:0024 0A0020            bset    #DMA_OUT_DONE,x:x_STATUS_flags
+450       P:0025 000000            nop
+451    
+452       P:002E                   org     p:VEC_START
+453       P:002E 0A0023            bset    #RUN_STATUS,x:x_STATUS_flags
+454       P:002F 000000            nop
+455    
+456       P:0030                   org     p:VEC_STOP
+
+Motorola DSP56000 Macro Cross Assembler  Version 3.02  95-04-09  12:58:48  synthesizer.asm  Page 5
+
+
+
+457       P:0030 0A0003            bclr    #RUN_STATUS,x:x_STATUS_flags
+458       P:0031 000000            nop
+459    
+460       P:0032                   org     p:VEC_SET_FREQUENCY
+461       P:0032 0BF080            jsr     set_frequency
+                 000137
+462    
+463       P:0034                   org     p:VEC_SET_AMPLITUDE
+464       P:0034 0BF080            jsr     set_amplitude
+                 000144
+465    
+466       P:0036                   org     p:VEC_SET_BALANCE
+467       P:0036 0BF080            jsr     set_balance
+                 00014D
+468    
+469       P:0038                   org     p:VEC_SET_WAVETABLE
+470       P:0038 0BF080            jsr     set_wavetable
+                 000156
+471    
+472       P:003A                   org     p:VEC_SET_RATE
+473       P:003A 0BF080            jsr     set_rate
+                 00015F
+474    
+475       P:003C                   ORG     P:VEC_LOAD_FIR_COEF
+476       P:003C 0BF080            jsr     load_fir_coefficients
+                 000168
+477    
+478                                ENDIF
+479    
+480    
+481    
+484    
+485       P:0040                   org     p:ON_CHIP_PROGRAM_START
+486                      reset
+487    
+489       P:0040 0AA802            bclr    #m_hcie,x:m_hcr                   ; disable host command interrupts
+490       P:0041 0AA800            bclr    #m_hrie,x:m_hcr                   ; disable host receive interrupt
+491                                                                          ; (no interrupts while setting up)
+492       P:0042 0506BA            movec             #6,omr                  ; chip set to mode 2; ROM enabled
+493       P:0043 0AA020            bset    #0,x:m_pbc                        ; set port B to be host interface
+494       P:0044 0AA323            bset    #3,x:m_pcddr                      ; set pin 3 (pc3) of port C to be output
+495       P:0045 0AA503            bclr    #3,x:m_pcd                        ; zero to enable the external ram
+496       P:0046 08F4BE            movep             #>$000000,x:m_bcr       ; set 0 wait states for all external RAM
+
+Motorola DSP56000 Macro Cross Assembler  Version 3.02  95-04-09  12:58:48  synthesizer.asm  Page 6
+
+
+
+                 000000
+497       P:0048 08F4BF            movep             #>$000c00,x:m_ipr       ; set interrupt priority register to
+                 000C00
+498                                                                          ; SSI=0, SCI=0, HOST=2
+500       P:004A 200013            clr     a
+501       P:004B 403F00            move              a10,l:l_currentPhase    ; set current phase angle to 0
+502       P:004C 5E1000            move                          a,y:OSC_AMP ; set oscil ampl to 0 (ready for interpolat
+ion)
+503       P:004D 5E1100            move                          a,y:BALANCE_R ; clear balance variables
+504       P:004E 5E1200            move                          a,y:BALANCE_L
+505       P:004F 5E1500            move                          a,y:CUR_AMP ; clear current amplitude
+506       P:0050 560000            move              a,x:x_STATUS_flags      ; clear status flags
+507       P:0051 560500            move              a,x:x_lpn1              ; clear lowpass filter memory
+508    
+510       P:0052 60F400            move              #>OSC_WAVE_TABLE,r0     ; set register to base of waveform table
+                 002800
+511       P:0054 44F400            move              #>OSC_TABLE_SIZE-1,x0
+                 0000FF
+512       P:0056 440100            move              x0,x:x_tableMod         ; set mask to tablesize - 1
+513       P:0057 04C4A0            move              x0,m0                   ; set modulus for waveform table
+514    
+515       P:0058 61F400            move              #>SINE_WAVE_TABLE,r1    ; set register to base of waveform table
+                 000100
+516       P:005A 05F421            move              #>SINE_TABLE_SIZE-1,m1  ; set modulus for waveform table
+                 0000FF
+517    
+518       P:005C 63F400            move              #>l_FIR_base,r3         ; set register to base of FIR filter memory
+                 000080
+519       P:005E 64F400            move              #>l_FIR_base,r4         ; set register to base of FIR filter memory
+                 000080
+520    
+521       P:0060 66F400            move              #>DMA_OUT_BUFFER,r6     ; store base of dma buffer
+                 003000
+522       P:0062 05F426            move              #>DMA_OUT_SIZE-1,m6     ; set modulus for dma buffer
+                 0007FF
+523    
+525       P:0064 0AA822            bset    #m_hcie,x:m_hcr                   ; enable host command interrupts
+526       P:0065 0500B9            move              #0,sr                   ; unmask interrupts
+527    
+529       P:0066 0A0083  wait      jclr    #RUN_STATUS,x:x_STATUS_flags,wait ; loop here if not running
+                 000066
+530    
+531    
+
+Motorola DSP56000 Macro Cross Assembler  Version 3.02  95-04-09  12:58:48  synthesizer.asm  Page 7
+
+
+
+532    
+535    
+536    
+538       P:0068 0A00A3  top       jset    #RUN_STATUS,x:x_STATUS_flags,_next ; continue, if not stopped
+                 00006D
+539       P:006A 0BF080            jsr     ramp_to_zero                      ; else, ramp to zero amplitude
+                 00007E
+540       P:006C 0C0066            jmp     wait                              ; and wait to restart
+541    
+543       P:006D 0B00A4  _next     jsset   #PARAM_UPDATE,x:x_STATUS_flags,update_parameters
+                 000096
+544    
+546       P:006F 0BF080            jsr     envelope_generator                ; output in y:CUR_AMP
+                 0000E0
+547    
+549       P:0071 0BF080            jsr     oversampling_oscillator           ; output in a
+                 0000EE
+550    
+552       P:0073 0BF080            jsr     lowpass_filter
+                 0000E8
+553    
+555       P:0075 10F000            move              y:CUR_AMP,y0 a,x0       ; get current amplitude factor
+                 000015
+556       P:0077 2000D1            mpyr    x0,y0,a                           ; scale output signal
+557    
+559       P:0078 10F400            move              a,x0        #@cvf(@pow(2,-8.0)),y0
+                 008000
+560       P:007A 2000D1            mpyr    x0,y0,a
+561    
+563       P:007B 0BF080            jsr     write_sample_stereo               ; put sample to DMA buffer
+                 000113
+564    
+565       P:007D 0C0068            jmp     top                               ; loop forever
+566    
+567    
+568    
+571    
+572                      ramp_to_zero
+573    
+575       P:007E 200013            clr     a
+576       P:007F 5E1000            move                          a,y:OSC_AMP
+577    
+579       P:0080 0BF080  _top      jsr     envelope_generator                ; output in a and y:CUR_AMP
+
+Motorola DSP56000 Macro Cross Assembler  Version 3.02  95-04-09  12:58:48  synthesizer.asm  Page 8
+
+
+
+                 0000E0
+580    
+582       P:0082 45F400            move              #@cvf(AMP_THRESHOLD),x1
+                 0147AE
+583       P:0084 200065            cmp     x1,a
+584       P:0085 0AF0A7            jgt     _next                             ; if above threshold, continue
+                 000089
+585       P:0087 0AA824            bset    #m_hf3,x:m_hcr                    ; else, set hf3
+586       P:0088 00000C            rts                                       ; and return
+587    
+589       P:0089 0BF080  _next     jsr     oversampling_oscillator           ; output in a
+                 0000EE
+590    
+592       P:008B 0BF080            jsr     lowpass_filter
+                 0000E8
+593    
+595       P:008D 10F000            move              y:CUR_AMP,y0 a,x0       ; get amplitude factor
+                 000015
+596       P:008F 2000D1            mpyr    x0,y0,a                           ; scale output signal
+597    
+599       P:0090 10F400            move              a,x0        #@cvf(@pow(2,-8.0)),y0
+                 008000
+600       P:0092 2000D1            mpyr    x0,y0,a
+601    
+603       P:0093 0BF080            jsr     write_sample_stereo               ; put sample to DMA buffer
+                 000113
+604    
+606       P:0095 0C0080            jmp     _top
+607    
+608    
+609    
+613    
+614                      update_parameters
+615       P:0096 0AA802            bclr    #m_hcie,x:m_hcr                   ; disable host command interrupts
+616    
+617       P:0097 0B00A5            jsset   #UPDATE_FREQUENCY,x:x_STATUS_flags,convert_increment
+                 0000A4
+618       P:0099 0B00A6            jsset   #UPDATE_AMPLITUDE,x:x_STATUS_flags,convert_amplitude
+                 0000AB
+619       P:009B 0B00A7            jsset   #UPDATE_BALANCE,x:x_STATUS_flags,convert_balance
+                 0000AF
+620       P:009D 0B00A8            jsset   #UPDATE_WAVETABLE,x:x_STATUS_flags,create_wavetable
+                 0000B7
+
+Motorola DSP56000 Macro Cross Assembler  Version 3.02  95-04-09  12:58:48  synthesizer.asm  Page 9
+
+
+
+621       P:009F 0B00A9            jsset   #UPDATE_RATE,x:x_STATUS_flags,convert_rate
+                 0000D1
+622    
+623       P:00A1 0A0004            bclr    #PARAM_UPDATE,x:x_STATUS_flags    ; clear status flag
+624       P:00A2 0AA822            bset    #m_hcie,x:m_hcr                   ; enable host command interrupts
+625       P:00A3 00000C            rts
+626    
+627    
+628    
+635    
+636                      convert_increment
+637       P:00A4 200013            clr     a
+638       P:00A5 588100            move                          y:PHASE_INC_FRAC,a0 ; get frac. part of inc. from input
+ table
+639       P:00A6 200032            asl     a                                 ; get rid of sign bit, left justify
+640       P:00A7 5C8000            move                          y:PHASE_INC_INT,a1 ; get integer part of increment
+641       P:00A8 403E00            move              a10,l:l_phaseInc        ; store phase angle increment
+642       P:00A9 0A0005            bclr    #UPDATE_FREQUENCY,x:x_STATUS_flags ; clear status flag
+643       P:00AA 00000C            rts
+644    
+645    
+646    
+653    
+654                      convert_amplitude
+655       P:00AB 5E8200            move                          y:AMPLITUDE,a
+656       P:00AC 5E1000            move                          a,y:OSC_AMP
+657       P:00AD 0A0006            bclr    #UPDATE_AMPLITUDE,x:x_STATUS_flags ; clear status flag
+658       P:00AE 00000C            rts
+659    
+660    
+661    
+669    
+670                      convert_balance
+671       P:00AF 5E8300            move                          y:BALANCE,a ; get balance value
+672       P:00B0 244022            asr     a         #@cvf(0.5),x0           ; a /= 2
+673       P:00B1 57F440            add     x0,a      #@cvf(0.9999998),b      ; a += 0.5
+                 7FFFFE
+674       P:00B3 5E111C            sub     a,b                   a,y:BALANCE_R ; L = 1 - R  store R channel
+675       P:00B4 5F1200            move                          b,y:BALANCE_L ; store L channel scale
+676       P:00B5 0A0007            bclr    #UPDATE_BALANCE,x:x_STATUS_flags  ; clear status flag
+677       P:00B6 00000C            rts
+678    
+679    
+
+Motorola DSP56000 Macro Cross Assembler  Version 3.02  95-04-09  12:58:48  synthesizer.asm  Page 10
+
+
+
+680    
+687    
+688                      create_wavetable
+689    
+691       P:00B7 200013            clr     a
+692       P:00B8 060081            do      #OSC_TABLE_SIZE,_end_loop
+                 0000BA
+693       P:00BA 5E5800            move                          a,y:(r0)+
+694                      _end_loop
+695    
+697       P:00BB 5F8400            move                          y:NUMBER_HARMONICS,b
+698       P:00BC 06CF00            do      b,_end_outer_loop
+                 0000CD
+699       P:00BE 0445BF            movec             lc,x1                   ; x1 = loopCount
+700       P:00BF 20B900            move              x1,n1
+701       P:00C0 0BF080            jsr     reciprocal                        ; divisor in y0 (1/loopCount)
+                 0000D9
+702       P:00C2 20CE00            move              y0,a
+703       P:00C3 200022            asr     a                                 ; divisor /= 2  this eliminates clipping
+704       P:00C4 21C600            move              a,y0
+705       P:00C5 61F400            move              #>SINE_WAVE_TABLE,r1
+                 000100
+706       P:00C7 060081            do      #OSC_TABLE_SIZE,_end_inner_loop
+                 0000CC
+707       P:00C9 5EE000            move                          y:(r0),a
+708       P:00CA 4CC900            move                          y:(r1)+n1,x0
+709       P:00CB 2000D3            macr    x0,y0,a
+710       P:00CC 5E5800            move                          a,y:(r0)+
+711                      _end_inner_loop
+712       P:00CD 000000            nop
+713                      _end_outer_loop
+714       P:00CE 000000            nop
+715    
+716       P:00CF 0A0008            bclr    #UPDATE_WAVETABLE,x:x_STATUS_flags ; clear status flag
+717       P:00D0 00000C            rts
+718    
+719    
+720    
+723    
+724                      convert_rate
+725       P:00D1 4F8500            move                          y:RATE,y1
+726       P:00D2 4F1300            move                          y1,y:F_RATE ; store F rate
+727       P:00D3 56F400            move              #@cvf(0.9999998),a
+
+Motorola DSP56000 Macro Cross Assembler  Version 3.02  95-04-09  12:58:48  synthesizer.asm  Page 11
+
+
+
+                 7FFFFE
+728       P:00D5 200074            sub     y1,a                              ; G rate = 1 - F rate
+729       P:00D6 5E1400            move                          a,y:G_RATE  ; store G rate
+730       P:00D7 0A0009            bclr    #UPDATE_RATE,x:x_STATUS_flags     ; clear status flag
+731       P:00D8 00000C            rts
+732    
+733    
+734    
+743    
+744                      reciprocal
+745       P:00D9 56F400            move              #>1,a                   ; put dividend (1) into a1
+                 000001
+746       P:00DB 00FEB9            and     #$fe,ccr                          ; make sure carry bit is clear
+747       P:00DC 0618A0            rep     #$18                              ; do division
+748       P:00DD 018060            div     x1,a
+749       P:00DE 210600            move              a0,y0                   ; put result into y0
+750       P:00DF 00000C            rts
+751    
+752    
+753    
+759    
+760                      envelope_generator
+761       P:00E0 4D9500            move                          y:CUR_AMP,x1
+762       P:00E1 4C9400            move                          y:G_RATE,x0
+763       P:00E2 2000A0            mpy     x0,x1,a                           ; a = G rate * current amplitude
+764       P:00E3 4E9300            move                          y:F_RATE,y0
+765       P:00E4 4F9000            move                          y:OSC_AMP,y1
+766       P:00E5 2000B3            macr    y0,y1,a                           ; a += F rate * target amplitude
+767       P:00E6 5E1500            move                          a,y:CUR_AMP ; store calculated amplitude
+768       P:00E7 00000C            rts
+769    
+770    
+771    
+777    
+778                      lowpass_filter
+779       P:00E8 468500            move              x:x_lpn1,y0             ; x[n-1] -> y0
+780       P:00E9 21C400            move              a,x0                    ; x[n] -> x0
+781       P:00EA 274000            move              #@cvf(0.5),y1           ; 0.5 -> y1
+782       P:00EB 5605C0            mpy     x0,y1,a   a,x:x_lpn1              ; a = 0.5 * x[n]       store input as x[n-1
+]
+783       P:00EC 2000B3            macr    y0,y1,a                           ; a += 0.5 * x[n-1]
+784       P:00ED 00000C            rts
+785    
+
+Motorola DSP56000 Macro Cross Assembler  Version 3.02  95-04-09  12:58:48  synthesizer.asm  Page 12
+
+
+
+786    
+787    
+792    
+793                      oversampling_oscillator
+794    
+796       P:00EE 48BF00            move              l:l_currentPhase,a      ; get current phase angle in table
+797       P:00EF 49BE00            move              l:l_phaseInc,b          ; get phase angle increment
+798       P:00F0 458110            add     b,a       x:x_tableMod,x1         ; calc new current phase angle
+799                                                                          ; uses 48 bit addition (int.frac)
+800       P:00F1 47F466            and     x1,a      #>1,y1                  ; wrap integer part of current phase
+                 000001
+801                                                                          ; to keep within table boundaries
+802       P:00F3 21D800            move              a,n0                    ; put int part of CPA into register n0
+803       P:00F4 483F70            add     y1,a      a,l:l_currentPhase      ; store new current phase angle & add 1
+804       P:00F5 4FE866            and     x1,a                  y:(r0+n0),y1 ; wrap integer part of phase & get f(n)
+805       P:00F6 21D800            move              a,n0                    ; put int part of incremented CPA into n0
+806       P:00F7 2C0000            move              #0,a1                   ; zero upper part of a
+807       P:00F8 5FE800            move                          y:(r0+n0),b ; get value of f(n+1)
+808       P:00F9 20007C            sub     y1,b                              ; diff = f(n+1) - f(n)
+809       P:00FA 21E422            asr     a         b,x0                    ; shift frac right since no sign bit
+810                                                                          ; put diff in x0 register
+811       P:00FB 210571            tfr     y1,a      a0,x1                   ; put f(n) in a; put frac. of CPA into x1
+812       P:00FC 2000A3            macr    x0,x1,a                           ; a = f(n) + (diff * CPA(frac)),
+813    
+815       P:00FD 565300            move              a,x:(r3)-               ; put sample into input of FIR filter
+816    
+818       P:00FE 48BF00            move              l:l_currentPhase,a      ; get current phase angle in table
+819       P:00FF 49BE00            move              l:l_phaseInc,b          ; get phase angle increment
+820       P:0100 458110            add     b,a       x:x_tableMod,x1         ; calc new current phase angle
+821                                                                          ; uses 48 bit addition (int.frac)
+822       P:0101 47F466            and     x1,a      #>1,y1                  ; wrap integer part of current phase
+                 000001
+823                                                                          ; to keep within table boundaries
+824       P:0103 21D800            move              a,n0                    ; put int part of CPA into register n0
+825       P:0104 483F70            add     y1,a      a,l:l_currentPhase      ; store new current phase angle & add 1
+826       P:0105 4FE866            and     x1,a                  y:(r0+n0),y1 ; wrap integer part of phase & get f(n)
+827       P:0106 21D800            move              a,n0                    ; put int part of incremented CPA into n0
+828       P:0107 2C0000            move              #0,a1                   ; zero upper part of a
+829       P:0108 5FE800            move                          y:(r0+n0),b ; get value of f(n+1)
+830       P:0109 20007C            sub     y1,b                              ; diff = f(n+1) - f(n)
+831       P:010A 21E422            asr     a         b,x0                    ; shift frac right since no sign bit
+832                                                                          ; put diff in x0 register
+833       P:010B 210571            tfr     y1,a      a0,x1                   ; put f(n) in a; put frac. of CPA into x1
+
+Motorola DSP56000 Macro Cross Assembler  Version 3.02  95-04-09  12:58:48  synthesizer.asm  Page 13
+
+
+
+834       P:010C 2000A3            macr    x0,x1,a                           ; a = f(n) + (diff * CPA(frac)),
+835    
+837       P:010D F81B13            clr     a         a,x:(r3)+   y:(r4)+,y0
+838       P:010E 060400            do      x:x_FIR_mod,_end_loop
+                 000110
+839       P:0110 F09BD2            mac     x0,y0,a   x:(r3)+,x0  y:(r4)+,y0
+840                      _end_loop
+841       P:0111 2053D3            macr    x0,y0,a   (r3)-
+842    
+843       P:0112 00000C            rts                                       ; output in a is decimated signal
+844    
+845    
+846    
+851    
+852                      write_sample_stereo
+853       P:0113 10F000            move              a,x0        y:BALANCE_L,y0 ; signal in x0, L scaling -> y0
+                 000012
+854       P:0115 4F91D0            mpy     x0,y0,a               y:BALANCE_R,y1 ; scale L channel, R scaling -> y1
+855       P:0116 565EC8            mpy     x0,y1,b   a,x:(r6)+               ; scale R channel, L value -> dma buffer
+856       P:0117 575E00            move              b,x:(r6)+               ; R value -> dma buffer
+857       P:0118 44F400            move              #>DMA_OUT_BUFFER,x0     ; store base of dma buffer
+                 003000
+858       P:011A 22CE00            move              r6,a                    ; put current index in a
+859       P:011B 200045            cmp     x0,a                              ; if (current index==buffer base)
+860       P:011C 0BF0AA            jseq    write_DMA_buffer                  ; then the buffer is full, so write it out
+                 00011F
+861    
+862       P:011E 00000C            rts
+863    
+864    
+865    
+869    
+870                      write_DMA_buffer
+871       P:011F 0AA823            bset    #m_hf2,x:m_hcr                    ; signal host no interactive input
+872       P:0120 0A0000            bclr    #DMA_OUT_DONE,x:x_STATUS_flags    ; clear dma-out done flag
+873                                writeHost #DMA_OUT_REQ                    ; request host for dma-out
+874   +   P:0121 0AA981  _one      jclr    #m_htde,x:m_hsr,_one
+                 000121
+875   +   P:0123 08F4AB            movep             #DMA_OUT_REQ,x:m_htx
+                 050001
+876    
+877       P:0125 0AA984  _ackBeg   jclr    #m_hf1,x:m_hsr,_ackBeg            ; loop until host acknowledges (HF1=1)
+                 000125
+
+Motorola DSP56000 Macro Cross Assembler  Version 3.02  95-04-09  12:58:48  synthesizer.asm  Page 14
+
+
+
+878    
+879       P:0127 060088            do      #DMA_OUT_SIZE,_send_loop          ; top of DMA buffer send loop
+                 00012B
+880       P:0129 0AA981  _send     jclr    #m_htde,x:m_hsr,_send             ; loop until htde bit of HSR is set
+                 000129
+881       P:012B 08DEAB            movep             x:(r6)+,x:m_htx         ; send buffer element to host
+882                      _send_loop
+883       P:012C 0A00A0            jset    #DMA_OUT_DONE,x:x_STATUS_flags,_endDMA ; if interrupt has set flags,
+                 000133
+884       P:012E 0AA981            jclr    #m_htde,x:m_hsr,_send_loop        ; then go to end;  else keep
+                 00012C
+885       P:0130 08F4AB            movep             #0,x:m_htx              ; sending 0s until interrupt sets flags
+                 000000
+886       P:0132 0C012C            jmp     _send_loop
+887                      _endDMA
+888    
+889       P:0133 0AA9A4  _ackEnd   jset    #m_hf1,x:m_hsr,_ackEnd            ; loop until host ack. has ended (HF1=0)
+                 000133
+890    
+891       P:0135 0AA803            bclr    #m_hf2,x:m_hcr                    ; signal host interactive input allowed
+892       P:0136 00000C            rts
+893    
+894    
+895    
+898    
+899                      set_frequency
+900    
+901       P:0137 0AA802            bclr    #m_hcie,x:m_hcr                   ; disable host command interrupts
+902       P:0138 0A0024            bset    #PARAM_UPDATE,x:x_STATUS_flags    ; set status flag
+903       P:0139 0A0025            bset    #UPDATE_FREQUENCY,x:x_STATUS_flags ; set status flag
+904    
+905       P:013A 0AA980  _one      jclr    #m_hrdf,x:m_hsr,_one
+                 00013A
+906       P:013C 0870EB            movep             x:m_hrx,y:PHASE_INC_INT
+                 000000
+907       P:013E 0AA980  _two      jclr    #m_hrdf,x:m_hsr,_two
+                 00013E
+908       P:0140 0870EB            movep             x:m_hrx,y:PHASE_INC_FRAC
+                 000001
+909    
+910       P:0142 0AA822            bset    #m_hcie,x:m_hcr                   ; enable host command interrupts
+911       P:0143 000004            rti
+912    
+
+Motorola DSP56000 Macro Cross Assembler  Version 3.02  95-04-09  12:58:48  synthesizer.asm  Page 15
+
+
+
+913    
+914    
+917    
+918                      set_amplitude
+919       P:0144 0AA802            bclr    #m_hcie,x:m_hcr                   ; disable host command interrupts
+920       P:0145 0A0024            bset    #PARAM_UPDATE,x:x_STATUS_flags    ; set status flag
+921       P:0146 0A0026            bset    #UPDATE_AMPLITUDE,x:x_STATUS_flags ; set status flag
+922    
+923                                readHost y:AMPLITUDE
+924   +   P:0147 0AA980  _two      jclr    #m_hrdf,x:m_hsr,_two
+                 000147
+925   +   P:0149 0870EB            movep             x:m_hrx,y:AMPLITUDE
+                 000002
+926    
+927       P:014B 0AA822            bset    #m_hcie,x:m_hcr                   ; enable host command interrupts
+928       P:014C 000004            rti
+929    
+930    
+931    
+934    
+935                      set_balance
+936       P:014D 0AA802            bclr    #m_hcie,x:m_hcr                   ; disable host command interrupts
+937       P:014E 0A0024            bset    #PARAM_UPDATE,x:x_STATUS_flags    ; set status flag
+938       P:014F 0A0027            bset    #UPDATE_BALANCE,x:x_STATUS_flags  ; set status flag
+939    
+940                                readHost y:BALANCE
+941   +   P:0150 0AA980  _two      jclr    #m_hrdf,x:m_hsr,_two
+                 000150
+942   +   P:0152 0870EB            movep             x:m_hrx,y:BALANCE
+                 000003
+943    
+944       P:0154 0AA822            bset    #m_hcie,x:m_hcr                   ; enable host command interrupts
+945       P:0155 000004            rti
+946    
+947    
+948    
+951    
+952                      set_wavetable
+953       P:0156 0AA802            bclr    #m_hcie,x:m_hcr                   ; disable host command interrupts
+954       P:0157 0A0024            bset    #PARAM_UPDATE,x:x_STATUS_flags    ; set status flag
+955       P:0158 0A0028            bset    #UPDATE_WAVETABLE,x:x_STATUS_flags ; set status flag
+956    
+957                                readHost y:NUMBER_HARMONICS
+
+Motorola DSP56000 Macro Cross Assembler  Version 3.02  95-04-09  12:58:48  synthesizer.asm  Page 16
+
+
+
+958   +   P:0159 0AA980  _two      jclr    #m_hrdf,x:m_hsr,_two
+                 000159
+959   +   P:015B 0870EB            movep             x:m_hrx,y:NUMBER_HARMONICS
+                 000004
+960    
+961       P:015D 0AA822            bset    #m_hcie,x:m_hcr                   ; enable host command interrupts
+962       P:015E 000004            rti
+963    
+964    
+965    
+968    
+969                      set_rate
+970       P:015F 0AA802            bclr    #m_hcie,x:m_hcr                   ; disable host command interrupts
+971       P:0160 0A0024            bset    #PARAM_UPDATE,x:x_STATUS_flags    ; set status flag
+972       P:0161 0A0029            bset    #UPDATE_RATE,x:x_STATUS_flags     ; set status flag
+973    
+974                                readHost y:RATE
+975   +   P:0162 0AA980  _two      jclr    #m_hrdf,x:m_hsr,_two
+                 000162
+976   +   P:0164 0870EB            movep             x:m_hrx,y:RATE
+                 000005
+977    
+978       P:0166 0AA822            bset    #m_hcie,x:m_hcr                   ; enable host command interrupts
+979       P:0167 000004            rti
+980    
+981    
+982    
+985    
+986                      load_fir_coefficients
+987       P:0168 0AA802            bclr    #m_hcie,x:m_hcr                   ; disable host command interrupts
+988       P:0169 403D00            move              a10,l:l_a_save          ; save the current value of a
+989       P:016A 440200            move              x0,x:x_x0_save          ; save the current value of x0
+990    
+991                                readHost a                                ; read and store the tablesize
+992   +   P:016B 0AA980  _two      jclr    #m_hrdf,x:m_hsr,_two
+                 00016B
+993   +   P:016D 084E2B            movep             x:m_hrx,a
+994       P:016E 560300            move              a,x:x_FIR_size
+995    
+996       P:016F 44F400            move              #>1,x0                  ; modulus = tablesize - 1
+                 000001
+997       P:0171 200044            sub     x0,a
+998       P:0172 560400            move              a,x:x_FIR_mod           ; store modulus (used in FIR routine)
+
+Motorola DSP56000 Macro Cross Assembler  Version 3.02  95-04-09  12:58:48  synthesizer.asm  Page 17
+
+
+
+999       P:0173 04CEA3            move              a,m3                    ; store modulus (used in FIR routine)
+1000      P:0174 04CEA4            move              a,m4                    ; store modulus (used in FIR routine)
+1001   
+1002      P:0175 64F400            move              #>l_FIR_base,r4         ; set pointer to beginning of coefficient a
+rray
+                 000080
+1003      P:0177 060300            do      x:x_FIR_size,_end_loop
+                 00017B
+1004                               readHost y:(r4)+                          ; read and store each coefficient
+1005  +   P:0179 0AA980  _two      jclr    #m_hrdf,x:m_hsr,_two
+                 000179
+1006  +   P:017B 085CEB            movep             x:m_hrx,y:(r4)+
+1007                     _end_loop
+1008   
+1009      P:017C 64F400            move              #>l_FIR_base,r4         ; set register to base of FIR filter memory
+                 000080
+1010   
+1011      P:017E 40BD00            move              l:l_a_save,a10          ; restore the saved value of a
+1012      P:017F 448200            move              x:x_x0_save,x0          ; restore the saved value of x0
+1013      P:0180 0AA822            bset    #m_hcie,x:m_hcr                   ; enable host command interrupts
+1014      P:0181 000004            rti
+0    Errors
+0    Warnings
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Motorola DSP56000 Macro Cross Assembler  Version 3.02  95-04-09  12:58:48  synthesizer.asm  Page 18
+
+
+
+Macros:
+
+Name          Definition       Section
+                 Line
+
+readHost.........295   
+writeHost........289   
+
+
+Symbols:
+
+Name             Type    Value         Section           Attributes
+
+AMPLITUDE........int     000002                          GLOBAL
+AMP_THRESHOLD....fpt     0.010000                        GLOBAL
+BALANCE..........int     000003                          GLOBAL
+BALANCE_L........int     000012                          GLOBAL
+BALANCE_R........int     000011                          GLOBAL
+CUR_AMP..........int     000015                          GLOBAL
+DEBUG_56.........int     000000                          SET GLOBAL
+DMA_IN_ACCEPTED..int     000002                          GLOBAL
+DMA_IN_DONE......int     000001                          GLOBAL
+DMA_IN_REQ.......int     040002                          GLOBAL
+DMA_OUT_BUFFER...int     003000                          GLOBAL
+DMA_OUT_DONE.....int     000000                          GLOBAL
+DMA_OUT_REQ......int     050001                          GLOBAL
+DMA_OUT_SIZE.....int     000800                          GLOBAL
+F_RATE...........int     000013                          GLOBAL
+G_RATE...........int     000014                          GLOBAL
+NUMBER_HARMONICS.int     000004                          GLOBAL
+OFF_CHIP_PROGRAM.int     002000                          GLOBAL
+ON_CHIP_PROGRAM_.int     000040                          GLOBAL
+OSC_AMP..........int     000010                          GLOBAL
+OSC_TABLE_SIZE...int     000100                          GLOBAL
+OSC_WAVE_TABLE...int     002800                          GLOBAL
+PARAM_UPDATE.....int     000004                          GLOBAL
+PHASE_INC_FRAC...int     000001                          GLOBAL
+PHASE_INC_INT....int     000000                          GLOBAL
+RATE.............int     000005                          GLOBAL
+RUN_STATUS.......int     000003                          GLOBAL
+SINE_TABLE_SIZE..int     000100                          GLOBAL
+SINE_WAVE_TABLE..int     000100                          GLOBAL
+UPDATE_AMPLITUDE.int     000006                          GLOBAL
+
+Motorola DSP56000 Macro Cross Assembler  Version 3.02  95-04-09  12:58:48  synthesizer.asm  Page 19
+
+
+
+UPDATE_BALANCE...int     000007                          GLOBAL
+UPDATE_FREQUENCY.int     000005                          GLOBAL
+UPDATE_RATE......int     000009                          GLOBAL
+UPDATE_WAVETABLE.int     000008                          GLOBAL
+VEC_DMA_OUT_DONE.int     000024                          GLOBAL
+VEC_LOAD_FIR_COE.int     00003C                          GLOBAL
+VEC_RESET........int     000000                          GLOBAL
+VEC_SET_AMPLITUD.int     000034                          GLOBAL
+VEC_SET_BALANCE..int     000036                          GLOBAL
+VEC_SET_FREQUENC.int     000032                          GLOBAL
+VEC_SET_RATE.....int     00003A                          GLOBAL
+VEC_SET_WAVETABL.int     000038                          GLOBAL
+VEC_START........int     00002E                          GLOBAL
+VEC_STOP.........int     000030                          GLOBAL
+convert_amplitud.int   P:0000AB                          GLOBAL
+convert_balance..int   P:0000AF                          GLOBAL
+convert_incremen.int   P:0000A4                          GLOBAL
+convert_rate.....int   P:0000D1                          GLOBAL
+create_wavetable.int   P:0000B7                          GLOBAL
+envelope_generat.int   P:0000E0                          GLOBAL
+l_FIR_base.......int     000080                          GLOBAL
+l_a_save.........int     00003D                          GLOBAL
+l_currentPhase...int     00003F                          GLOBAL
+l_phaseInc.......int     00003E                          GLOBAL
+load_fir_coeffic.int   P:000168                          GLOBAL
+lowpass_filter...int   P:0000E8                          GLOBAL
+m_bcr............int     00FFFE                          GLOBAL
+m_cd.............int     000FFF                          GLOBAL
+m_cod............int     00000C                          GLOBAL
+m_cra............int     00FFEC                          GLOBAL
+m_crb............int     00FFED                          GLOBAL
+m_dc.............int     001F00                          GLOBAL
+m_dma............int     000007                          GLOBAL
+m_fe.............int     000006                          GLOBAL
+m_fsl............int     000008                          GLOBAL
+m_gck............int     00000A                          GLOBAL
+m_hcie...........int     000002                          GLOBAL
+m_hcp............int     000002                          GLOBAL
+m_hcr............int     00FFE8                          GLOBAL
+m_hf.............int     000018                          GLOBAL
+m_hf0............int     000003                          GLOBAL
+m_hf1............int     000004                          GLOBAL
+m_hf2............int     000003                          GLOBAL
+
+Motorola DSP56000 Macro Cross Assembler  Version 3.02  95-04-09  12:58:48  synthesizer.asm  Page 20
+
+
+
+m_hf3............int     000004                          GLOBAL
+m_hpl............int     000C00                          GLOBAL
+m_hpl0...........int     00000A                          GLOBAL
+m_hpl1...........int     00000B                          GLOBAL
+m_hrdf...........int     000000                          GLOBAL
+m_hrie...........int     000000                          GLOBAL
+m_hrx............int     00FFEB                          GLOBAL
+m_hsr............int     00FFE9                          GLOBAL
+m_htde...........int     000001                          GLOBAL
+m_htie...........int     000001                          GLOBAL
+m_htx............int     00FFEB                          GLOBAL
+m_ial............int     000007                          GLOBAL
+m_ial0...........int     000000                          GLOBAL
+m_ial1...........int     000001                          GLOBAL
+m_ial2...........int     000002                          GLOBAL
+m_ibl............int     000038                          GLOBAL
+m_ibl0...........int     000003                          GLOBAL
+m_ibl1...........int     000004                          GLOBAL
+m_ibl2...........int     000005                          GLOBAL
+m_idle...........int     000003                          GLOBAL
+m_if.............int     000002                          GLOBAL
+m_if0............int     000000                          GLOBAL
+m_if1............int     000001                          GLOBAL
+m_ilie...........int     00000A                          GLOBAL
+m_ipr............int     00FFFF                          GLOBAL
+m_mod............int     00000B                          GLOBAL
+m_of.............int     000003                          GLOBAL
+m_of0............int     000000                          GLOBAL
+m_of1............int     000001                          GLOBAL
+m_or.............int     000004                          GLOBAL
+m_pbc............int     00FFE0                          GLOBAL
+m_pbd............int     00FFE4                          GLOBAL
+m_pbddr..........int     00FFE2                          GLOBAL
+m_pcc............int     00FFE1                          GLOBAL
+m_pcd............int     00FFE5                          GLOBAL
+m_pcddr..........int     00FFE3                          GLOBAL
+m_pe.............int     000005                          GLOBAL
+m_pm.............int     0000FF                          GLOBAL
+m_psr............int     00000F                          GLOBAL
+m_r8.............int     000007                          GLOBAL
+m_rcm............int     00000E                          GLOBAL
+m_rdf............int     000007                          GLOBAL
+m_rdrf...........int     000002                          GLOBAL
+
+Motorola DSP56000 Macro Cross Assembler  Version 3.02  95-04-09  12:58:48  synthesizer.asm  Page 21
+
+
+
+m_re.............int     000008                          GLOBAL
+m_rfs............int     000003                          GLOBAL
+m_rie............int     00000B                          GLOBAL
+m_roe............int     000005                          GLOBAL
+m_rwi............int     000006                          GLOBAL
+m_rx.............int     00FFEF                          GLOBAL
+m_sbk............int     000004                          GLOBAL
+m_sccr...........int     00FFF2                          GLOBAL
+m_scd............int     00001C                          GLOBAL
+m_scd0...........int     000002                          GLOBAL
+m_scd1...........int     000003                          GLOBAL
+m_scd2...........int     000004                          GLOBAL
+m_sckd...........int     000005                          GLOBAL
+m_scl............int     00C000                          GLOBAL
+m_scl0...........int     00000E                          GLOBAL
+m_scl1...........int     00000F                          GLOBAL
+m_scp............int     00000D                          GLOBAL
+m_scr............int     00FFF0                          GLOBAL
+m_sr.............int     00FFEE                          GLOBAL
+m_sre............int     00000D                          GLOBAL
+m_srie...........int     00000F                          GLOBAL
+m_srxh...........int     00FFF6                          GLOBAL
+m_srxl...........int     00FFF4                          GLOBAL
+m_srxm...........int     00FFF5                          GLOBAL
+m_ssl............int     003000                          GLOBAL
+m_ssl0...........int     00000C                          GLOBAL
+m_ssl1...........int     00000D                          GLOBAL
+m_ssr............int     00FFF1                          GLOBAL
+m_ste............int     00000C                          GLOBAL
+m_stie...........int     00000E                          GLOBAL
+m_stxa...........int     00FFF3                          GLOBAL
+m_stxh...........int     00FFF6                          GLOBAL
+m_stxl...........int     00FFF4                          GLOBAL
+m_stxm...........int     00FFF5                          GLOBAL
+m_syn............int     000009                          GLOBAL
+m_tcm............int     00000F                          GLOBAL
+m_tde............int     000006                          GLOBAL
+m_tdre...........int     000001                          GLOBAL
+m_te.............int     000009                          GLOBAL
+m_tfs............int     000002                          GLOBAL
+m_tie............int     00000C                          GLOBAL
+m_tmie...........int     00000D                          GLOBAL
+m_trne...........int     000000                          GLOBAL
+
+Motorola DSP56000 Macro Cross Assembler  Version 3.02  95-04-09  12:58:48  synthesizer.asm  Page 22
+
+
+
+m_tsr............int     00FFEE                          GLOBAL
+m_tue............int     000004                          GLOBAL
+m_tx.............int     00FFEF                          GLOBAL
+m_wake...........int     000005                          GLOBAL
+m_wds............int     000003                          GLOBAL
+m_wds0...........int     000000                          GLOBAL
+m_wds1...........int     000001                          GLOBAL
+m_wds2...........int     000002                          GLOBAL
+m_wl.............int     006000                          GLOBAL
+m_wl0............int     00000D                          GLOBAL
+m_wl1............int     00000E                          GLOBAL
+m_woms...........int     000007                          GLOBAL
+oversampling_osc.int   P:0000EE                          GLOBAL
+ramp_to_zero.....int   P:00007E                          GLOBAL
+reciprocal.......int   P:0000D9                          GLOBAL
+reset............int   P:000040                          GLOBAL
+set_amplitude....int   P:000144                          GLOBAL
+set_balance......int   P:00014D                          GLOBAL
+set_frequency....int   P:000137                          GLOBAL
+set_rate.........int   P:00015F                          GLOBAL
+set_wavetable....int   P:000156                          GLOBAL
+top..............int   P:000068                          GLOBAL
+update_parameter.int   P:000096                          GLOBAL
+wait.............int   P:000066                          GLOBAL
+write_DMA_buffer.int   P:00011F                          GLOBAL
+write_sample_ste.int   P:000113                          GLOBAL
+x_FIR_mod........int     000004                          GLOBAL
+x_FIR_size.......int     000003                          GLOBAL
+x_STATUS_flags...int     000000                          GLOBAL
+x_lpn1...........int     000005                          GLOBAL
+x_tableMod.......int     000001                          GLOBAL
+x_x0_save........int     000002                          GLOBAL
+
+
+
+
+
+
+
+
+
+
+
+
+Motorola DSP56000 Macro Cross Assembler  Version 3.02  95-04-09  12:58:48  synthesizer.asm  Page 23
+
+
+
+                         Memory Utilization Report
+
+
+X Memory
+
+Start    End     Length    Type      Label             Section           Overlay Address
+0000     FFFF    65536     UNUSED
+
+
+Y Memory
+
+Start    End     Length    Type      Label             Section           Overlay Address
+0000     FFFF    65536     UNUSED
+
+
+L Memory
+
+Start    End     Length    Type      Label             Section           Overlay Address
+0000     FFFF    65536     UNUSED
+
+
+P Memory
+
+Start    End     Length    Type      Label             Section           Overlay Address
+0000     0001        2     CODE  
+0002     0023       34     UNUSED
+0024     0025        2     CODE  
+0026     002D        8     UNUSED
+002E     002F        2     CODE  
+0030     0031        2     CODE  
+0032     0033        2     CODE  
+0034     0035        2     CODE  
+0036     0037        2     CODE  
+0038     0039        2     CODE  
+003A     003B        2     CODE  
+003C     003D        2     CODE  
+003E     003F        2     UNUSED
+0040     0181      322     CODE  
+0182     FFFF    65150     UNUSED
+
+
+
+
+

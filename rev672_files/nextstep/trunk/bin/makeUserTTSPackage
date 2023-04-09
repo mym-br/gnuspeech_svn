@@ -1,0 +1,28 @@
+echo "Loading Fonts... "
+echo "	Phonetica"
+/NextAdmin/Installer.app/installer_bigtar -cfp TextToSpeech.tar /LocalLibrary/Fonts/Phonetica.font
+echo "	Trillium"
+/NextAdmin/Installer.app/installer_bigtar -ufp TextToSpeech.tar /LocalLibrary/Fonts/Trillium-Phonetic.font
+echo "	Lexical"
+/NextAdmin/Installer.app/installer_bigtar -ufp TextToSpeech.tar /LocalLibrary/Fonts/Lexical.font
+echo "Loading say"
+/NextAdmin/Installer.app/installer_bigtar -ufp TextToSpeech.tar /usr/local/bin/say
+echo "Loading Speech Applications"
+echo "	BigMouth"
+/NextAdmin/Installer.app/installer_bigtar -ufp TextToSpeech.tar /LocalApps/TextToSpeech/BigMouth.app
+echo "	PrEditor"
+/NextAdmin/Installer.app/installer_bigtar -ufp TextToSpeech.tar /LocalApps/TextToSpeech/PrEditor
+echo "	SpeechManager"
+/NextAdmin/Installer.app/installer_bigtar -ufp TextToSpeech.tar /LocalApps/TextToSpeech/SpeechManager.app
+echo "	TTS_Install"
+/NextAdmin/Installer.app/installer_bigtar -ufp TextToSpeech.tar /LocalApps/TextToSpeech/TTS_Install.app
+echo "	WhosOnFirst"
+/NextAdmin/Installer.app/installer_bigtar -ufp TextToSpeech.tar /LocalApps/TextToSpeech/WhosOnFirst.app
+echo "Loading Documentation"
+echo "	Release Notes"
+/NextAdmin/Installer.app/installer_bigtar -ufp TextToSpeech.tar /LocalLibrary/TextToSpeech/documentation/ReleaseNotes1.07.rtf
+echo "	User Kit Manual"
+/NextAdmin/Installer.app/installer_bigtar -ufp TextToSpeech.tar /LocalLibrary/TextToSpeech/documentation/User_Kit_Manual.rtfd
+echo "Loading System"
+/NextAdmin/Installer.app/installer_bigtar -ufp TextToSpeech.tar /LocalLibrary/TextToSpeech/system
+

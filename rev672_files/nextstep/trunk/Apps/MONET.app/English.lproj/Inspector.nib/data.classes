@@ -1,0 +1,282 @@
+CategoryInspector = {
+    ACTIONS = {
+	revertComment:;
+	setUpWindow:;
+	setComment:;
+    };
+    OUTLETS = {
+	commentView;
+	categoryPopUpList;
+	categoryPopUpListView;
+	setButton;
+	mainInspector;
+	revertButton;
+	commentText;
+    };
+    SUPERCLASS = Object;
+};
+MyController = {
+    ACTIONS = {
+	appDidInit:;
+	displayInspectorWindow:;
+	displayInfoPanel:;
+    };
+    OUTLETS = {
+	infoPanel;
+	inspectorController;
+    };
+    SUPERCLASS = Object;
+};
+FirstResponder = {
+    ACTIONS = {
+    };
+    SUPERCLASS = Object;
+};
+IntonationPointInspector = {
+    ACTIONS = {
+	setUpWindow:;
+	setHertz:;
+	browserDoubleHit:;
+	browserHit:;
+	setSlope:;
+	setSemitone:;
+	setBeatOffset:;
+	browser:;
+	appDidInit:;
+    };
+    OUTLETS = {
+	semitoneField;
+	beatField;
+	popUpListView;
+	hertzField;
+	mainBox;
+	mainInspector;
+	ruleBrowser;
+	slopeField;
+	popUpList;
+	absTimeField;
+	beatOffsetField;
+    };
+    SUPERCLASS = Object;
+};
+ProtoTemplateInspector = {
+    ACTIONS = {
+	setUpWindow:;
+	setTriphone:;
+	revertComment:;
+	setTetraphone:;
+	setComment:;
+	setDiphone:;
+    };
+    OUTLETS = {
+	commentView;
+	revertCommentButton;
+	usageField;
+	typeMatrix;
+	commentText;
+	usageBox;
+	popUpListView;
+	formParser;
+	genInfoView;
+	setCommentButton;
+	popUpList;
+	usageBrowser;
+	mainInspector;
+    };
+    SUPERCLASS = Object;
+};
+ProtoEquationInspector = {
+    ACTIONS = {
+	setUpWindow:;
+	revertComment:;
+	setComment:;
+	revertEquation:;
+	setEquation:;
+    };
+    OUTLETS = {
+	commentView;
+	revertCommentButton;
+	usageField;
+	setEquationButton;
+	commentText;
+	usageBox;
+	popUpListView;
+	messagesText;
+	formParser;
+	equationText;
+	equationBox;
+	currentEquationField;
+	revertEquationButton;
+	setCommentButton;
+	popUpList;
+	usageBrowser;
+	mainInspector;
+    };
+    SUPERCLASS = Object;
+};
+PhoneInspector = {
+    ACTIONS = {
+	appDidInit:;
+	setUpWindow:;
+	browserDoubleHit:;
+	browserHit:;
+	setValueNextText:;
+	revertComment:;
+	setComment:;
+	browser:;
+	itemsChanged:;
+    };
+    OUTLETS = {
+	commentView;
+	revertCommentButton;
+	niftyMatrixScrollView;
+	phonePopUpListView;
+	minText;
+	browser;
+	defText;
+	currentMainList;
+	commentText;
+	defBrowserButton;
+	revertBrowserButton;
+	niftyMatrix;
+	valueField;
+	browserBox;
+	phonePopUpList;
+	maxText;
+	setCommentButton;
+	niftyMatrixBox;
+	mainInspector;
+	setBrowserButton;
+    };
+    SUPERCLASS = Object;
+};
+PointInspector = {
+    ACTIONS = {
+	setType1:;
+	setType2:;
+	setType3:;
+	browserDoubleHit:;
+	browserHit:;
+	browser:;
+	setPhantom:;
+	setValue:;
+	appDidInit:;
+	setUpWindow:;
+    };
+    OUTLETS = {
+	valueBox;
+	phantomSwitch;
+	type1Button;
+	popUpListView;
+	multipleListView;
+	valueField;
+	expressionBrowser;
+	type2Button;
+	popUpList;
+	type3Button;
+	currentTimingField;
+	mainInspector;
+    };
+    SUPERCLASS = Object;
+};
+RuleInspector = {
+    ACTIONS = {
+	appDidInit:;
+	setUpWindow:;
+	browserDoubleHit:;
+	selectionBrowserHit:;
+	browserHit:;
+	revertComment:;
+	selectionBrowserDoubleHit:;
+	setComment:;
+	browser:;
+	moveRule:;
+    };
+    OUTLETS = {
+	commentView;
+	revertCommentButton;
+	genInfoBox;
+	consumeText;
+	commentText;
+	selectionBrowser;
+	popUpListView;
+	moveToField;
+	mainBrowser;
+	setCommentButton;
+	browserView;
+	locationTextField;
+	popUpList;
+	mainInspector;
+    };
+    SUPERCLASS = Object;
+};
+Inspector = {
+    ACTIONS = {
+	appDidInit:;
+    };
+    OUTLETS = {
+	pointInspector;
+	parameterInspector;
+	generalView;
+	protoTransitionInspector;
+	popUpListView;
+	currentInspector;
+	mainInspectorWindow;
+	phoneInspector;
+	ruleInspector;
+	categoryInspector;
+	currentInspectorObject;
+	noPopUpListView;
+	symbolInspector;
+	metaParameterInspector;
+	protoEquationInspector;
+	intonationPointInspector;
+	noInspectorView;
+	panel;
+    };
+    SUPERCLASS = Object;
+};
+SymbolInspector = {
+    ACTIONS = {
+	revertComment:;
+	setUpWindow:;
+	setComment:;
+    };
+    OUTLETS = {
+	valueBox;
+	setValueButton;
+	commentView;
+	symbolPopUpList;
+	symbolPopUpListView;
+	revertValueButton;
+	setButton;
+	mainInspector;
+	revertButton;
+	commentText;
+	valueFields;
+    };
+    SUPERCLASS = Object;
+};
+ParameterInspector = {
+    ACTIONS = {
+	setUpWindow:;
+	revertComment:;
+	setComment:;
+	revertValue:;
+	setValue:;
+    };
+    OUTLETS = {
+	commentView;
+	valueBox;
+	setValueButton;
+	parameterPopUpList;
+	revertValueButton;
+	mainInspector;
+	setCommentButton;
+	parameterPopUpListView;
+	revertCommentButton;
+	commentText;
+	valueFields;
+    };
+    SUPERCLASS = Object;
+};

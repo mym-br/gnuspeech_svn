@@ -1,0 +1,61 @@
+{
+    "## Comment" = "Do NOT change this file, Gorm maintains it";
+    FirstResponder = {
+	Actions = (
+	    "addRule:",
+	    "removeRule:",
+	    "setExpression:",
+	    "updateRule:"
+	);
+	Super = NSObject;
+    };
+    MExtendedTableView = {
+	Actions = (
+	);
+	Outlets = (
+	);
+	Super = NSTableView;
+    };
+    MOutlineView = {
+	Actions = (
+	);
+	Outlets = (
+	);
+	Super = NSOutlineView;
+    };
+    MRuleManager = {
+	Actions = (
+	    "setExpression:",
+	    "addRule:",
+	    "updateRule:",
+	    "removeRule:"
+	);
+	Outlets = (
+	    match1Browser,
+	    metaParameterTableView,
+	    parameterTableView,
+	    symbolEquationOutlineView,
+	    possibleCombinationsTextField,
+	    symbolTableView,
+	    match4Browser,
+	    specialParameterTableView,
+	    match3Browser,
+	    expressionForm,
+	    ruleCommentTextView,
+	    parameterTransitionOutlineView,
+	    match2Browser,
+	    ruleTableView,
+	    metaParameterTransitionOutlineView,
+	    specialParameterTransitionOutlineView,
+	    errorTextField
+	);
+	Super = MWindowController;
+    };
+    MWindowController = {
+	Actions = (
+	);
+	Outlets = (
+	);
+	Super = NSWindowController;
+    };
+}

@@ -1,0 +1,101 @@
+{
+    "## Comment" = "Do NOT change this file, Gorm maintains it";
+    FirstResponder = {
+	Actions = (
+	    "addEquation:",
+	    "addEquationGroup:",
+	    "addSpecialTransition:",
+	    "addSpecialTransitionGroup:",
+	    "addTransition:",
+	    "addTransitionGroup:",
+	    "doubleHit:",
+	    "editSpecialTransition:",
+	    "editTransition:",
+	    "groupInSlopeRatio:",
+	    "removeEquation:",
+	    "removeSpecialTransition:",
+	    "removeTransition:",
+	    "revertEquation:",
+	    "setEquation:",
+	    "takeBeatLocationFrom:",
+	    "takeMark1From:",
+	    "takeMark2From:",
+	    "takeMark3From:",
+	    "takeRuleDurationFrom:"
+	);
+	Super = NSObject;
+    };
+    MOutlineView = {
+	Actions = (
+	);
+	Outlets = (
+	);
+	Super = NSOutlineView;
+    };
+    MPrototypeManager = {
+	Actions = (
+	    "addTransitionGroup:",
+	    "removeSpecialTransition:",
+	    "revertEquation:",
+	    "doubleHit:",
+	    "addEquation:",
+	    "addEquationGroup:",
+	    "addSpecialTransition:",
+	    "addSpecialTransitionGroup:",
+	    "setEquation:",
+	    "editSpecialTransition:",
+	    "addTransition:",
+	    "removeEquation:",
+	    "removeTransition:",
+	    "editTransition:"
+	);
+	Outlets = (
+	    removeEquationButtonCell,
+	    miniSpecialTransitionView,
+	    specialTransitionOutlineView,
+	    miniTransitionView,
+	    equationParserMessagesTextView,
+	    equationTextView,
+	    addEquationButtonCell,
+	    removeSpecialTransitionButtonCell,
+	    transitionOutlineView,
+	    specialTransitionCommentTextView,
+	    equationCommentTextView,
+	    removeTransitionButtonCell,
+	    addSpecialTransitionButtonCell,
+	    transitionCommentTextView,
+	    addTransitionButtonCell,
+	    equationOutlineView
+	);
+	Super = MWindowController;
+    };
+    MWindowController = {
+	Actions = (
+	);
+	Outlets = (
+	);
+	Super = NSWindowController;
+    };
+    SpecialView = {
+	Actions = (
+	);
+	Outlets = (
+	);
+	Super = TransitionView;
+    };
+    TransitionView = {
+	Actions = (
+	    "delete:",
+	    "takeMark1From:",
+	    "takeMark2From:",
+	    "takeBeatLocationFrom:",
+	    "takeRuleDurationFrom:",
+	    "takeMark3From:",
+	    "groupInSlopeRatio:"
+	);
+	Outlets = (
+	    controller
+	);
+	Super = NSView;
+    };
+}

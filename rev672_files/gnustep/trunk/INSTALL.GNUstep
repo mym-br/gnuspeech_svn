@@ -1,0 +1,73 @@
+
+- Software requirements:
+
+	- For Debian systems and derivatives, install the packages:
+
+		libgdbm-dev
+		portaudio19-dev
+		gnustep
+		gnustep-devel
+
+		libjack-jackd2-0 / libjack-jackd2-dev / jackd2
+		or
+		libjack-0 / libjack-dev / jackd1 (or jackd)
+
+	- Manual installation:
+
+		- Install gdbm's compatibility files, if needed (libgdbm_compat.so.*).
+			(http://www.gnu.org/software/gdbm/)
+			Used by the GnuSpeech Framework.
+
+		- Install PortAudio v19 (http://www.portaudio.com).
+			Used by the GnuSpeech Framework.
+
+		- Install JACK Audio Connection Kit (http://jackaudio.org/).
+			Used by Synthesizer.
+
+		- Install GNUstep (make / base / gui / back) (http://www.gnustep.org).
+
+	- Versions tested:
+
+		gdbm: 1.8.3
+		PortAudio: v19-svn20071022 / v19-svn20071207 / v19-svn20110303
+		JACK: 0.116.1 / 1.9.6
+		gnustep-back: 0.16.0 / 0.18.0
+		gnustep-base: 1.18.0 / 1.20.1
+		gnustep-gui: 0.16.0 / 0.18.0
+		gnustep-make: 2.0.8 / 2.4.0
+
+
+
+- Initialize the GNUstep environment:
+
+	bash:
+		. /usr/local/GNUstep/System/Library/Makefiles/GNUstep.sh
+	csh:
+		source /usr/local/GNUstep/System/Library/Makefiles/GNUstep.csh
+
+	Notes:
+		The file GNUstep.sh/GNUstep.csh may be in another directory.
+			Debian/Ubuntu: /usr/share/GNUstep/Makefiles/GNUstep.sh
+		The command may be put in ~/.bashrc (for bash).
+
+- In Debian/Ubuntu systems, edit the file
+	Frameworks/GnuSpeech/TextProcessing/GSDBMPronunciationDictionary.h
+	and replace:
+		#include <ndbm.h>
+	with:
+		#include <gdbm-ndbm.h>
+
+- Run ./install.sh.
+	This script will install GnuSpeech in ~/GNUstep and ~/Library.
+
+- The programs gpbs and gdnc are needed by GNUstep and are normally
+	started automatically when a GNUstep app is run. If they are not
+	being started, execute them manually, or put them in
+	~/.bashrc (for bash).
+
+- If the sound doesn't work in Monet, try installing/activating
+	OSS emulation in ALSA.
+
+	- For Debian systems, install the package oss_compat.
+
+- Read the file README.GNUstep.

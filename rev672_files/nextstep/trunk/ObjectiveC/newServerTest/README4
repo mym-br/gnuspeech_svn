@@ -1,0 +1,6 @@
+This is the 4th version of the client-side of the server. This version
+fixes the bug associated with starting up the server (fork bug).  The
+problem was with the NXSetDefaultsUser() function:  it was trashing
+memory used for NXDefaults set up by the user and by the appkit.  The
+problem was solved by putting the function call in the child process,
+therefore protecting the defaults memory used in the parent process.

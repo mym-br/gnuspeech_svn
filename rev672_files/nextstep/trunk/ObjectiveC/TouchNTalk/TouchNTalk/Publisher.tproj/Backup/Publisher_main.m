@@ -1,0 +1,134 @@
+/*
+ *    Filename:	Publisher_main.m 
+ *    Created :	Sat May 29 00:25:18 1993 
+ *    Author  :	Dale Brisinda
+ *		<dale@pegasus.cuc.ab.ca>
+ *
+ *    Last modified on "Fri Sep  9 21:44:46 1994"
+ *
+ * $Id: Publisher_main.m,v 1.1 1994/07/26 20:15:27 dale Exp dale $
+ *
+ * $Log: Publisher_main.m,v $
+ * Revision 1.1  1994/07/26  20:15:27  dale
+ * Initial revision
+ *
+ * Revision 1.3  1993/07/21  00:07:52  dale
+ * Converted tabs to spaces.
+ *
+ * Revision 1.2  1993/06/03  00:39:05  dale
+ * *** empty log message ***
+ *
+ * Revision 1.1  1993/06/02  07:34:15  dale
+ * Initial revision
+ *
+ */
+
+#import <appkit/appkit.h>
+#import "TNTDefinitions.h"
+#import "Publisher.h"
+#import "Document.h"
+
+void usageMessage(char *str)
+{
+    printf("Usage: %s [-hlst] file\n", str);
+    printf(" -h                      help\n");
+    printf(" -l length               maximum line length (wrap)\n");
+    printf(" -s tabstop              tabs are set tabstop spaces apart\n");
+    printf(" -t tab1,tab2,...,tabn   see expand(1) manual page\n");
+}
+
+int main(int argc, char *argv[])
+{
+    NXTypedStream *typedStream;
+    NXStream *stream;
+    FILE *expandPipe;
+    char pathname[MAXPATHLEN];
+    char buffer[MAXPATHLEN+256];
+    int i, maxLineLength = 0;
+    id publisher, document;
+
+    if (argc < 2) {
+	usageMessage(argv[0]);
+        exit(-1);
+    }
+
+    // default invocation of expand(1) system call if tabstop arguments not provided
+    sprintf(buffer, "/usr/ucb/expand %s 2>/dev/null", argv[argc-1]);
+
+    // argument processing
+    for (i = 1; i < argc-1; i++) {
+	if (!strcmp("-h", argv[i])) {
+	    // additional help not really required
+	    usageMessage(argv[0]);
+	    exit(0);
+	} else if (!strcmp("-l", argv[i])) {
+	    i++;
+	    sscanf(argv[i], "%d", &maxLineLength);
+	    if (maxLineLength < 0) {
+		usageMessage(argv[0]);
+		exit(-1);
+	    }
+	} else if (!strcmp("-s", argv[i])) {
+	    i++;
+	    sprintf(buffer, "/usr/ucb/expand %s %s 2>/dev/null", argv[i], argv[argc-1]);
+	} else if (!strcmp("-t", argv[i])) {
+	    i++;
+	    sprintf(buffer, "/usr/ucb/expand %s %s 2>/dev/null", argv[i], argv[argc-1]);	    
+	} else {   // usage error
+	    usageMessage(argv[0]);
+	    exit(-1);
+	}
+    }
+
+    // check file accessibility before we begin
+    if (access(argv[argc-1], F_OK) || access(argv[argc-1], R_OK)) {
+        fprintf(stderr, "%s: Cannot read from file.\n", argv[0]);
+	exit(-1);
+    }
+
+    // Convert all tabs to spaces via expand(1) system call, using command line args. The string
+    // "2>/dev/null" just sends all stderr output to the NULL file since we output our own error 
+    // messages.
+
+    // set up expand pipe
+    if ((expandPipe = popen(buffer, "r")) == NULL) {
+        fprintf(stderr, "%s: Error creating expand pipe.\n", argv[0]);	
+	exit(-1);
+    }
+
+    // open stream on pipe
+    if (!(stream = NXOpenFile(fileno(expandPipe), NX_READONLY))) {   // error during open
+	fprintf(stderr, "%s: Error opening stream for pipe.\n", argv[0]);
+	exit(-1);
+    }
+
+    // determine if the file was empty or a bad tab stop specification was given
+    if (NXGetc(stream) == EOF) {
+	fprintf(stderr, "%s: Bad tab stop specification (or empty file).\n", argv[0]);	
+	exit(-1);
+    } else {
+	NXUngetc(stream);
+    }
+
+    document = [[Document alloc] init];
+    [[document text] readText:stream];
+    NXClose(stream);
+    pclose(expandPipe);
+
+    strcpy(pathname, argv[argc-1]);
+    strcat(pathname, ".");
+    strcat(pathname, TNT_FILE_EXTENSION);
+
+    if (!(typedStream = NXOpenTypedStreamForFile(pathname, NX_WRITEONLY))) {
+        fprintf(stderr, "publish: Write permission denied.\n");
+        exit(-1);
+    }
+
+    publisher = [[Publisher alloc] init];
+    [publisher publishEnglishTextDocument:document withLineLength:maxLineLength];
+    NXWriteRootObject(typedStream, document);
+    NXCloseTypedStream(typedStream);
+    [document free];
+    [publisher free];
+    exit(0);
+}

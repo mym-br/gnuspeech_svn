@@ -1,0 +1,28 @@
+INSTALLDIR = /LocalApps;
+APPICON = TrilliumSoundEditor.tiff;
+GENERATEMAIN = YES;
+DOCICONFILES = ();
+FILESTABLE = {
+    C_FILES = (kb_window.c);
+    OTHER_LIBS = (Media_s, NeXT_s);
+    CLASSES = (FFT.m, FFTController.m, FFTScaleView.m, FFTScrollView.m, FFTTitleView.m, FFTView.m, TSRSoundView.m, WindowController.m);
+    OTHER_SOURCES = (Makefile.preamble, Makefile, Makefile.postamble);
+    H_FILES = (FFT.h, FFTController.h, FFTScaleView.h, FFTScrollView.h, FFTTitleView.h, FFTView.h, TSRSoundView.h, WindowController.h);
+    INTERFACES = (Document.nib, Info.nib, TrilliumSoundEditor.nib);
+    IMAGES = (AllDirections.tiff, LeftRight.tiff, UpDown.tiff);
+    OTHER_LINKED = ();
+    M_FILES = (TrilliumSoundEditor_main.m);
+};
+APPCLASS = Application;
+MAINNIB = TrilliumSoundEditor;
+DOCEXTENSIONS = ();
+PROJECTTYPE = Application;
+PROJECTVERSION = 1.1;
+LOCALIZABLE_FILES = {
+    Document.nib;
+    TrilliumSoundEditor.nib;
+    Info.nib;
+};
+PROJECTNAME = TrilliumSoundEditor;
+SYSTEMEXTENSIONS = ();
+LANGUAGE = English;

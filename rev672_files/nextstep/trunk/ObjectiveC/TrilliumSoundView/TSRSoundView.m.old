@@ -1,0 +1,475 @@
+#import "TSRSoundView.h"
+#import <appkit/Application.h>
+#import <appkit/Slider.h>
+#import <dpsclient/event.h>
+#import <bsd/sys/param.h>
+#import <appkit/OpenPanel.h>
+#import <string.h>
+#import <soundkit/Sound.h>
+#import <appkit/graphics.h>
+#import <dpsclient/psops.h>
+#import <dpsclient/event.h>
+
+@implementation TSRSoundView
+
+- initFrame:(const NXRect *)frameRect
+{
+int newViewOrder[3] = {RIGHT , STEREO, LEFT};
+//int newViewOrder[3] = {STEREO, RIGHT, LEFT};
+
+	self = [super initFrame:frameRect];
+	[self allocateGState];
+
+	bcopy(frameRect, &totalFrame, sizeof(NXRect));
+
+	[self setMaxStereoProportion: 0.5];
+	[self setMinStereoProportion: 0.20];
+	[self setStereoProportion:0.5];
+	[self setViewOrder: newViewOrder];
+	[self setFlipped: YES];
+
+//	[self setAutosizing: NX_HEIGHTSIZABLE|NX_WIDTHSIZABLE];
+
+	[self display];
+
+	return self;
+}
+
+- loadSoundfile:sender
+{
+char *types[] = {"snd", 0};
+const char * const *fnames;
+const char *directory;
+char buf[MAXPATHLEN+1];
+
+	[[OpenPanel new] allowMultipleFiles:YES];
+	if ([[OpenPanel new] runModalForTypes:types])
+	{
+		fnames = [[OpenPanel new] filenames];
+		directory = [[OpenPanel new] directory];
+		while (*fnames)
+		{
+			strcpy(buf, directory);
+			strcat(buf, "/");
+			strcat(buf, *fnames);
+			[self loadFile:buf];
+			fnames++;
+		}
+	}
+	return self;
+}
+
+- loadFile:(char *) filename
+{
+	if (sound)
+		free(sound);
+	sound = [[Sound alloc] initFromSoundfile: filename];
+	if (sound) [sound play];
+	[self display];
+	return self;
+}
+
+- drawSelf:(NXRect *)rects :(int)rectCount
+{
+
+	[self clearView];
+	[self drawGrid];
+	[self drawRightChannel];
+	[self drawLeftChannel];
+	[self drawStereoChannel];
+
+	return self;
+}
+
+- clearView
+{
+	PSsetgray(NX_LTGRAY);
+	PSrectfill(0.0, 0.0, totalFrame.size.width, totalFrame.size.height);
+	PSstroke();
+	return self;
+}
+
+- drawGrid
+{
+float stereoHeight = (totalFrame.size.height-2.0) * stereoProportion ;
+float channelHeight = (totalFrame.size.height - 2.0 - stereoHeight)/2.0;
+float tempHeight = 0.0, previousHeight = 0.0;
+NXRect tempRect, clipRect;
+int i;
+
+	PSsetgray(NX_BLACK);
+//	PSsetlinewidth(2.0);
+//	PSmoveto(0.0, 0.0);
+//	PSlineto(totalFrame.size.width, 0.0);
+//	PSlineto(totalFrame.size.width, totalFrame.size.height);
+//	PSlineto(0.0, totalFrame.size.height);
+//	PSlineto(0.0, 0.0);
+
+	for (i = 0;i<3; i++)
+	{
+		switch(viewOrder[i])
+		{
+			case LEFT: 	previousHeight = tempHeight;
+					tempHeight += channelHeight;
+					viewBox[i] = tempHeight;
+
+					/* Find Clip Rectangle */
+					bcopy(&totalFrame, &clipRect, sizeof (NXRect));
+					[self convertPoint:&clipRect.origin fromView:nil];
+
+					/* Calculate big Box and Draw */
+					tempRect.size.height = channelHeight;
+					tempRect.size.width = totalFrame.size.width-60.0;
+					tempRect.origin.x = 60.0;
+					tempRect.origin.y = previousHeight-1.0;
+					[self convertPoint:&tempRect.origin fromView:nil];
+					NXDrawButton(&tempRect, &totalFrame);
+					PSstroke();
+
+					/* Calculate Small Box and Draw */
+					tempRect.size.height = channelHeight;
+					tempRect.size.width = 60.0;
+					tempRect.origin.y = previousHeight-1.0;
+					tempRect.origin.x = 0.0;
+					[self convertPoint:&tempRect.origin fromView:nil];
+					NXDrawButton(&tempRect, &totalFrame);
+					PSstroke();
+
+					PSsetgray(NX_BLACK);
+//					PSmoveto(0.0, tempHeight);
+//					PSlineto(totalFrame.size.width, tempHeight);
+					PSmoveto(12.0, (tempHeight+previousHeight+1.0)/2.0);
+					PSshow("Left");
+
+					break;
+
+			case RIGHT: 	previousHeight = tempHeight;
+					tempHeight += channelHeight;
+					viewBox[i] = tempHeight;
+					PSmoveto(0.0, tempHeight);
+					PSlineto(totalFrame.size.width, tempHeight);
+					PSmoveto(12.0, (tempHeight+previousHeight+1.0)/2.0);
+					PSshow("Right");
+					break;
+
+			case STEREO: 	previousHeight = tempHeight;
+					tempHeight += stereoHeight;
+					viewBox[i] = tempHeight;
+					PSmoveto(0.0, tempHeight);
+					PSlineto(totalFrame.size.width, tempHeight);
+					PSmoveto(12.0, (tempHeight+previousHeight+1.0)/2.0);
+					PSshow("Stereo");
+					break;
+		}
+
+	}
+//	PSmoveto(60.0, 0.0);
+//	PSlineto(60.0, totalFrame.size.height);
+	
+	PSstroke();
+	return self;
+}
+
+- drawLeftChannel
+{
+int i;
+float topLine = 0.0, bottomLine = 0.0;
+
+	PSsetlinewidth(1.0);
+	for (i = 0; i<3; i++)
+		if (viewOrder[i] == LEFT)
+		{
+			if (i == 0) bottomLine = 0.0;
+			else
+				bottomLine = viewBox[i-1];
+			topLine = viewBox[i];
+		}
+
+	PSsetgray(NX_DKGRAY);
+	PSmoveto(60.0, (topLine+bottomLine)/2.0);
+	PSlineto(totalFrame.size.width, (topLine+bottomLine)/2.0);
+	PSstroke();
+	PSsetgray(NX_BLACK);
+	return self;
+}
+
+- drawRightChannel
+{
+int i;
+float topLine = 0.0, bottomLine = 0.0;
+
+	PSsetlinewidth(1.0);
+	for (i = 0; i<3; i++)
+		if (viewOrder[i] == RIGHT)
+		{
+			if (i == 0) bottomLine = 0.0;
+			else
+				bottomLine = viewBox[i-1];
+			topLine = viewBox[i];
+		}
+
+	PSsetgray(NX_DKGRAY);
+	PSmoveto(60.0, (topLine+bottomLine)/2.0);
+	PSlineto(totalFrame.size.width, (topLine+bottomLine)/2.0);
+	PSstroke();
+	PSsetgray(NX_BLACK);
+	return self;
+}
+
+- drawStereoChannel
+{
+int i, j, sample = 0, max;
+float topLine = 0.0, bottomLine = 0.0, midLine = 0.0;
+short *data;
+
+	PSsetlinewidth(0.5);
+	for (i = 0; i<3; i++)
+		if (viewOrder[i] == STEREO)
+		{
+			if (i == 0) bottomLine = 0.0;
+			else
+				bottomLine = viewBox[i-1];
+			topLine = viewBox[i];
+		}
+
+	midLine = (topLine+bottomLine)/2.0;
+	PSsetgray(NX_DKGRAY);
+	PSmoveto(60.0, midLine);
+	PSlineto(totalFrame.size.width, midLine);
+	PSstroke();
+	PSsetgray(NX_BLACK);
+
+	if (sound)
+	{
+		stereoReduction = ((int) [sound sampleCount] / [sound channelCount] )/( (int) (totalFrame.size.width-60.0));
+		data = [sound data];
+
+
+		i = 0;
+		PSmoveto(60.0, midLine);
+		while(i<[sound sampleCount])
+		{
+			j = 0;
+			max = 0;
+			while(j<stereoReduction*[sound channelCount])
+			{	
+				if (data[i] > max)
+					max = (int) data[i];
+				j++;
+				i++;
+			}
+//			printf("Max = %d\n", max);
+			PSlineto(60.0+(float)sample, midLine - ( ((float)max)/(65535.0/midLine)));
+			sample++;
+		}
+		PSstroke();
+
+		sample = i = 0;
+		PSmoveto(60.0, midLine);
+		while(i<[sound sampleCount])
+		{
+			j = 0;
+			max = 0;
+			while(j<stereoReduction*[sound channelCount])
+			{	
+				if (data[i] < max)
+					max = (int) data[i];
+				j++;
+				i++;
+			}
+//			printf("Max = %d\n", max);
+			PSlineto(60.0+(float)sample, midLine - ( ((float)max)/(65535.0/midLine)));
+			sample++;
+		}
+		PSstroke();
+
+	}
+
+	return self;
+}
+
+- setMinStereoProportion: (float) value
+{
+	if (value<0.0) MinStereoProportion = 0.0;
+	else
+	if (value>1.0) MinStereoProportion = 1.0;
+	else
+		MinStereoProportion = value;
+
+	return self;
+}
+
+- setMaxStereoProportion: (float) value;
+{
+	if (value<0.0) MaxStereoProportion = 0.0;
+	else
+	if (value>1.0) MaxStereoProportion = 1.0;
+	else
+		MaxStereoProportion = value;
+
+	return self;
+}
+
+- setStereoProportion: (float) value
+{
+	stereoProportion = value;
+	if (stereoProportion > MaxStereoProportion) stereoProportion = MaxStereoProportion;
+	else
+	if (stereoProportion < MinStereoProportion) stereoProportion = MinStereoProportion;
+
+	return self;
+}
+
+- setProportionSlider:sender
+{
+	stereoProportion = [sender floatValue];
+
+	if (stereoProportion > MaxStereoProportion) stereoProportion = MaxStereoProportion;
+	else
+	if (stereoProportion < MinStereoProportion) stereoProportion = MinStereoProportion;
+
+	[self display];
+	return self;
+}
+- setNewProportion: (float) old : (float) new
+{
+float temp;
+
+	temp = ((old - new))/totalFrame.size.height;
+	stereoProportion += temp;
+
+	if (stereoProportion > MaxStereoProportion) stereoProportion = MaxStereoProportion;
+	else
+	if (stereoProportion < MinStereoProportion) stereoProportion = MinStereoProportion;
+
+	[self display];
+	return self;
+}
+
+- setViewOrder: (int *) newViewOrder
+{
+	viewOrder[0] = newViewOrder[0];
+	viewOrder[1] = newViewOrder[1];
+	viewOrder[2] = newViewOrder[2];
+
+	return self;
+}
+
+#define MOVE_MASK NX_MOUSEUPMASK|NX_MOUSEDRAGGEDMASK
+
+- mouseDown:(NXEvent *)theEvent
+{
+int i, oldEventMask;
+float row;
+NXPoint mouseDownLocation = theEvent->location;
+NXEvent newEvent;
+
+	if (theEvent->data.mouse.click == 2)
+	{
+		mouseDownLocation = theEvent->location;
+		[self convertPoint:&mouseDownLocation fromView:nil];
+		row = mouseDownLocation.y;
+		for (i = 0 ; i<3 ; i++)
+		{
+			if (row<viewBox[i])
+			{
+				switch(viewOrder[i])
+				{
+					case LEFT: printf("Left Channel: %f\n", row);
+						   i = 3;
+						   break;
+					case RIGHT: printf("Right Channel: %f\n", row);
+						   i = 3;
+						   break;
+					case STEREO:printf("StereoChannel: %f\n", row);
+						   i = 3;
+						   oldEventMask = [[self window] addToEventMask:NX_MOUSEDRAGGEDMASK];
+						   while(1)
+						   {
+							DPSGetEvent(DPSGetCurrentContext(), &newEvent, NX_ALLEVENTS, 
+								NX_FOREVER, 16);
+
+							mouseDownLocation = newEvent.location;
+							[self convertPoint:&mouseDownLocation fromView:nil];
+							[self setNewProportion: row : mouseDownLocation.y];
+							row = mouseDownLocation.y;
+							if (newEvent.type == NX_LMOUSEUP) break;
+						   }
+						   printf("Left\n");
+						   [[self window] setEventMask:oldEventMask];
+						   break;
+				}
+
+			}
+		}
+	}
+	return self;
+
+}
+
+- fullScaleLeft
+{
+
+	return self;
+}
+
+- fullScaleRight
+{
+
+	return self;
+}
+
+
+- normalizeScaleLeft
+{
+
+	return self;
+}
+
+- normalizeScaleRight
+{
+
+	return self;
+}
+
+
+- windowStartLeft
+{
+
+	return self;
+}
+
+- windowStartRight
+{
+
+	return self;
+}
+
+
+- syncLeftRightAmplitude
+{
+
+	return self;
+}
+
+- syncLeftRightWidth
+{
+
+	return self;
+}
+
+- syncLeftRightStart
+{
+
+	return self;
+}
+
+- syncLeftRightEnd
+{
+
+	return self;
+}
+
+
+@end
+

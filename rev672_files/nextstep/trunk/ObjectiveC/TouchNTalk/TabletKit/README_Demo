@@ -1,0 +1,42 @@
+TabletKit 1.1 Demo Distribution
+
+    This distribution contains the full source code for an example
+TabletKit drawing application with open/save support for EPS and
+TIFF images. Also included are two tablet reader bundles with full
+source utilizing the TabletReader API, library header files, and
+complete high quality documentation. The distribution does not include
+the TabletKit libraries necessary for compiling applications making
+use of the TabletKit API. 
+
+TabletKit Description
+
+    The TabletKit defines a high-level framework and API that
+facilitates communication between applications and graphics
+tablets. Tablet input occurs independent of both the mouse and a
+specific display area of the screen. This framework eases development
+of applications relying on tablet information for digitizing graphs,
+maps, and other images, in addition to free hand drawing, gesture
+recognition, and many other activities requiring a tablet and stylus
+or cursor as the primary mode of input. The TabletKit fully supports
+features common to many tablets including:
+
+	-  Transmission control settings (baud rate, parity, etc.)
+	-  Communication protocol settings
+	-  Alternate report formats and report frequency
+	-  Resolution and orientation settings
+	-  Multi-button pressure and angle sensitive stylus
+	-  4-button and 16-button cursor
+
+    The TabletKit also provides a high-level API for developers that
+allows creation of custom tablet reader bundles for reading data from
+tablets with currently unsupported data formats. The TabletKit
+currently provides two bundles for reading the MM/SummaSketch and
+UIOF/Microgrid binary data formats.
+
+For further information, contact:
+
+Arcane Systems Ltd.
+Phone: (403) 275-9232
+Fax: (403) 275-9245
+Email: tabletkit@arcane.com
+

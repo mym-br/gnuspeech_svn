@@ -1,0 +1,82 @@
+List of image files for Monet Manual
+------------------------------------
+  21859 Apr  8 22:32 addpos01.jpg	Adding new posture using Data Entry pan
+  28933 Apr  8 22:32 addpos02.jpg	PI Param Tgts shows/changes new pos tgts
+  19200 Apr  8 22:32 addpos03.jpg	PI Categs shows new pos in own cat
+  24105 Apr  8 22:32 addpos04.jpg	PI Syms shows default ME values
+  20204 Apr  8 22:32 addpos05.jpg	PI Comm shows/allows comments
+  29374 Apr  8 22:32 addpos06.jpg	(obsolete)
+  19745 Apr  8 22:32 addpos07.jpg	PI Param tgts: entering new targets
+  24214 Apr  8 22:32 addpos08.jpg	PI Cats: new posture assgnd to sev tgts
+ 125175 Apr  7 20:45 addrul01.jpg	Rule builder: rule 1 highlighted
+  77548 Apr  7 20:45 addrul02.jpg	Adding new rule: shows error message
+  34008 Apr  7 20:45 addrul03.jpg	RI--default rule dur. auto. assigned
+  33104 Apr  7 20:45 addrul04.jpg	RI--Glot Vol transition default
+  20603 Apr  7 20:45 addrul05.jpg	RI--Comment on the new rule  
+  15518 Apr  7 20:45 addrul06.jpg	RI GI shows new rule next to last
+  80478 Apr  7 20:45 addrul07a.jpg	RI--new rule has been repositioned
+  75046 Apr  7 20:45 addrul08a.jpg	Dbl click GV entry brings up Tran Bld
+  40252 Apr  7 20:45 addrul09.jpg	Defining new Transition category
+  77581 Apr  7 20:45 addrul10a.jpg	Naming new Trans. Prototype
+  97483 Apr  7 20:46 addrul11a.jpg	Shaping the Transition Prototype
+  63900 Apr 10 22:27 addrul12.jpg	PM existing equation for display/edit
+  55881 Apr  8 22:31 addrul13.jpg	PM new cat & sym "GnuStandard/GnuOne"
+  68180 Apr 12 22:03 addrul14.jpg	PM new trans proto using slope ratios
+  25370 Mar 19 12:18 comrul6.jpg	Rule Inspector with  comment on rule 6
+  31436 Mar 23 13:03 dentcats.jpg	Data Entry: Categories
+  27064 Mar 23 13:03 dentpars.jpg	Data Entry: Parameters
+  24641 Mar 23 13:03 dentsyms.jpg	Data Entry: Symbols
+ 105167 Mar 18 15:17 contpan.jpg	Control Panel
+  26087 Mar 18 15:17 dataent.jpg	Data Entry Panel
+  22525 Mar 18 15:17 docmenu.jpg	Document Menu
+  24615 Mar 18 15:17 eqinscom.jpg	Equations Inspector Comments selection
+  23373 Mar 18 15:17 eqinsuse.jpg	Equations Inspector Usage selection
+  41609 Mar 27 16:43 eqprouse.jpg	Equations Prototype Inspector "Usage"
+  44683 Mar 18 15:17 equri.jpg		Equation Rule Inspector (rule selected)
+  87319 Mar 18 15:17 intraw2.jpg	Intonation Contour unsmoothed
+  95326 Mar 18 15:17 intraw.jpg		(obsolete)
+  90402 Mar 18 15:17 intsmoo2.jpg	Intonation Contour smoothed
+  13898 Mar 18 15:17 maimenu.jpg	(obsolete)
+  13857 Mar 18 15:17 mainmen.jpg	Main Menu
+   1763 Mar 18 15:17 microint.jpg	Spec Param P'type for microint + insp
+   1763 Mar 18 15:17 monet.jpg		The artist
+   4158 Mar 18 15:17 palette.jpg	The artist's palette
+  26473 Mar 18 15:17 panmenu.jpg	Panel Menu
+  68114 Mar 18 16:55 phinspd.jpg	Phone Inspector with pull down list
+  29090 Mar 18 15:17 phinsp.jpg		Phone Inspector
+  26078 Mar 18 15:17 phones.jpg		(obsolete version data entry)
+  56847 Mar 18 16:55 phopuldn.jpg	Data Entry with pull down
+  55737 Mar 18 15:17 pigen.jpg		Point Inspector for point on Int. Cont.
+  55619 Mar 18 15:17 pigi.jpg		(obsolete--same as pigen)
+  34839 Mar 18 15:17 pipartgt.jpg	Phone Inspector showing param. targets
+  33434 Mar 18 15:17 proeqins.jpg	Prototype Equation Inspector
+  72438 Mar 18 15:17 promaneq.jpg	Prototype Manager for equations
+  66694 Mar 18 15:17 protman2.jpg	Prototype Manager for param. variation
+ 231939 Mar 24 13:15 protmanb.jpg	Both Equations & Transitions Prot Man
+  74134 Mar 18 15:17 protman.jpg	Prototype Manager for equations (later)
+  35811 Mar 26 13:12 r11tdeqf.jpg	Actual equation for rule 11 total duration
+  76949 Mar 26 13:12 r11tdeq.jpg	Reference to equation for rule 11 tot. dur.
+  31336 Mar 26 13:12 r11tdequ.jpg	Symbol defined by rule 11 tot. dur. usage
+  34977 Mar 18 15:17 riequ.jpg		Equation Rule Inspector (no rule sel)
+  32785 Mar 18 15:17 riparpro.jpg	Rule Inspector for param prototypes
+  41384 Mar 18 18:04 riselrul.jpg	As above, rule selected
+ 161898 Mar 18 15:17 rlbldreq.jpg	Rule Builder (rule 11 showing)
+ 163841 Mar 10 19:11 rulbldr.jpg	Rule Builder (rule 6 showing)
+   7991 Mar 18 17:06 rulbldrthum.jpg	Thumbnail of above
+  34690 Mar  8 21:14 rulepars.jpg	Rule Parser
+  52616 Mar 18 18:08 rulinspd.jpg	Rule Inspector with pull down
+ 229693 Mar 18 16:55 screena.jpg	(obsolete)
+   3732 Mar 18 16:55 screenathum.jpg	(obsolete)
+ 244787 Mar 18 16:55 screenb.jpg	Overview Screen at start up (Fig 1)
+   3965 Mar 18 16:55 screenbthum.jpg	Thumbnail of above
+ 299240 Mar 18 16:55 screen.jpg		(obsolete)
+   4470 Mar 18 16:55 screenthum.jpg	(obsolete)
+ 120514 Mar 27 16:44 servtest.jpg	Server Test window
+ 115053 Mar 27 16:44 synins2.jpg	Synth insp in context showing rule segments
+  30095 Mar 27 16:44 synins.jpg		Inspector only as "synins2"
+ 168888 Mar 10 19:12 synwin3.jpg	Synthesis Window ("Gnu Speech")
+   4096 Mar 18 18:09 .thumbnails	.png thumbnails of the images
+  83917 Mar  8 21:14 tranbld.jpg	Transition Builder
+  32458 Mar 27 16:44 trprocom.jpg	Inspector showing trans. prot. Comment
+  12894 Mar 27 16:44 trprogen.jpg	Inspector showing trans. prot. Gen. Inf.
+ 629 Mar 18 16:55 whitespace.jpg	spacer

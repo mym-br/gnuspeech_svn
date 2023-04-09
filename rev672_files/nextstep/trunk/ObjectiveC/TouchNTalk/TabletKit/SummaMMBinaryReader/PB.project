@@ -1,0 +1,14 @@
+LANGUAGE = English;
+FILESTABLE = {
+    OTHER_SOURCES = (Makefile.preamble, Makefile, Makefile.postamble);
+    H_FILES = (SummaMMBinaryReader.h);
+    CLASSES = (SummaMMBinaryReader.m);
+};
+LOCALIZABLE_FILES = {
+};
+PROJECTVERSION = 1.1;
+PROJECTTYPE = Bundle;
+PROJECTNAME = SummaMMBinaryReader;
+GENERATEMAIN = YES;
+DOCEXTENSIONS = ();
+DOCICONFILES = ();

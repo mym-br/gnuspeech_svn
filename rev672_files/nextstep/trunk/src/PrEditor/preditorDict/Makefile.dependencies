@@ -1,0 +1,3 @@
+PrDict.o : PrDict.m PrDict.h 
+preditorDict.o : preditorDict.m preditorDict.h conversion.h PrDict.h 
+conversion.o : conversion.c phone_conversion.h 

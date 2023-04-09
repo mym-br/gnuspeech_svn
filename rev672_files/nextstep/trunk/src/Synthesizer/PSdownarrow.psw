@@ -1,0 +1,20 @@
+defineps PSdownarrow(float x; float y; float width; float height)
+        /headheight {6} def
+        /halfheight {height 2 div} def
+        /halfwidth {width 2 div} def
+
+        /top {y halfheight add} def
+        /bottom {y halfheight sub 1 sub} def
+
+        1 setlinewidth			% set the linewidth
+
+        x bottom moveto			% draw arrowhead
+        halfwidth neg headheight rlineto
+        width 0 rlineto
+        closepath
+        fill
+
+        x bottom headheight add moveto	% draw stem
+        x top lineto
+        stroke
+endps

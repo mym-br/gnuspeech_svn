@@ -1,0 +1,64 @@
+CustSlider = {
+    SUPERCLASS = Slider;
+};
+PrefMgr = {
+    ACTIONS = {
+	setPitchOFFset:;
+	windowWillClose:;
+	revertUserDictPath:;
+	setBReathiness:;
+	setTestSentence:;
+	setVOlume:;
+	setVOiceType:;
+	acceptUserDictPath:;
+	setBAlance:;
+	setINtonation:;
+	setVtlOFFset:;
+	sayTestSentence:;
+	setUSerDictPath:;
+	setCHannels:;
+	preferences:;
+	revertAll:;
+	switchViews:;
+	setSPeed:;
+    };
+    OUTLETS = {
+	voiceType;
+	vtlOffsetField;
+	pitchOffsetField;
+	volumeField;
+	speed;
+	userDictPathAcceptButton;
+	balance;
+	dictionarySettingsView;
+	currentView;
+	pitchOffset;
+	generalView;
+	breathinessField;
+	balanceField;
+	userDictPathRevertButton;
+	channels;
+	vtlOffset;
+	intonation;
+	speedField;
+	window;
+	breathiness;
+	testSentenceField;
+	volume;
+	speechObject;
+	userDictionaryField;
+	speechQualityView;
+    };
+    SUPERCLASS = Object;
+};
+FirstResponder = {
+    ACTIONS = {
+    };
+    SUPERCLASS = Object;
+};
+CustSliderCell = {
+    OUTLETS = {
+	target2;
+    };
+    SUPERCLASS = SliderCell;
+};

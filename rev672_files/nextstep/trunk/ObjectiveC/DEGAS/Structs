@@ -1,0 +1,20 @@
+Categories.h:		typedef struct _categoryStruct categoryStruct;
+Generate.h:		typedef struct _filterParam filterParam;
+Generate.m:		struct _paramStruct {
+PhoneDescription.h:	typedef struct _target target;
+PhoneDescription.h:	typedef struct _category category;			/* Equivalent to categoryStruct */
+PhoneDescription.h:	typedef struct _phoneDescription phoneDescription;
+Rule.h:			typedef struct _start_time_struct start_timeStruct;
+Rule.h:			typedef struct _f_interval f_interval;
+Rule.h:			typedef struct _f_parameter f_parameter;
+Rule.h:			typedef struct _sub_interval sub_interval;
+Rule.h:			typedef struct _se_interval se_interval;
+Rule.h:			typedef struct _specialEventStruct specialEventStruct;
+Rule.h:			typedef struct _t_interval t_interval;
+Rule.h:			typedef struct _specifierStruct specifierStruct;
+Synthesize.h:		typedef struct _phoneListType phoneListType;
+Synthesize.h:		typedef struct _diphoneList diphoneList;
+Synthesize.h:		typedef struct _synthParameterList synthParameterList;
+Template.h:		typedef struct _phoneStruct phoneStruct;
+Template.h:		typedef struct _parameterStruct parameterStruct;
+TileScrollView.m:	typedef struct _param paramType;

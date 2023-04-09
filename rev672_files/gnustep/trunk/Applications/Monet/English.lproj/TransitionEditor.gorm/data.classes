@@ -1,0 +1,62 @@
+{
+    "## Comment" = "Do NOT change this file, Gorm maintains it";
+    FirstResponder = {
+	Actions = (
+	    "groupInSlopeRatio:",
+	    "setPhantom:",
+	    "setPointValue:",
+	    "setTransitionType:",
+	    "setType:",
+	    "takeBeatLocationFrom:",
+	    "takeMark1From:",
+	    "takeMark2From:",
+	    "takeMark3From:",
+	    "takeRuleDurationFrom:"
+	);
+	Super = NSObject;
+    };
+    MTransitionEditor = {
+	Actions = (
+	    "setTransitionType:",
+	    "setPointValue:",
+	    "setType:",
+	    "setPhantom:"
+	);
+	Outlets = (
+	    type2Button,
+	    transitionView,
+	    type3Button,
+	    type1Button,
+	    equationTextView,
+	    equationOutlineView,
+	    transitionNameTextField,
+	    valueTextField,
+	    isPhantomSwitch,
+	    transitionTypePopUpButton,
+	    controlParametersForm
+	);
+	Super = MWindowController;
+    };
+    MWindowController = {
+	Actions = (
+	);
+	Outlets = (
+	);
+	Super = NSWindowController;
+    };
+    TransitionView = {
+	Actions = (
+	    "takeMark1From:",
+	    "takeMark2From:",
+	    "deleteBackward:",
+	    "takeBeatLocationFrom:",
+	    "takeRuleDurationFrom:",
+	    "takeMark3From:",
+	    "groupInSlopeRatio:"
+	);
+	Outlets = (
+	    nonretained_delegate
+	);
+	Super = NSControl;
+    };
+}

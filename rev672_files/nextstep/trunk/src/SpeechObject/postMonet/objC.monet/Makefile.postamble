@@ -1,0 +1,185 @@
+#  REVISION INFORMATION  ######################################################
+#
+#  $Author: rao $
+#  $Date: 2002-03-21 16:49:52 $
+#  $Revision: 1.1 $
+#  $Source: /Users/dalmazio/cvsroot/gnuspeech/trillium/src/SpeechObject/postMonet/objC.monet/Makefile.postamble,v $
+#  $State: Exp $
+#
+#
+#  $Log: not supported by cvs2svn $
+#
+#
+###############################################################################
+#
+#  This postamble was created to automate the making of libraries
+#  and header files for the TextToSpeech system.  It simply extends
+#  the 'make app' (default) target used in Project Builder.  So, to
+#  make the libraries and header files, just do a normal build in
+#  Project Builder, or type 'make', 'make all', or 'make app' at
+#  the command line.  A 'make clean' will delete the library and
+#  header file directories.
+#
+#  A category and its associated library and header file can be
+#  added to the TextToSpeech class as follows:
+#
+#	1) create the .h and .m files which define the category
+#	2) add these files to the project in PB (you may need to
+#	   do a save, to update the main Makefile)
+#	3) do a 'make depend', so that all dependencies are defined
+#	4) add the name of the category source file to the SRC?_NAME
+#	   list below
+#	5) add the appropriate OFILE? definition
+#	6) add the appropriate LIB? definition
+#	7) add the appropriate HEADER?_NAME definition
+#	8) add the appropriate HEADER? definition
+#	9) add the $(LIB?) to the libraries:: target
+#	10) create a new $(LIB?): target
+#	11) add the $(HEADER?) to the headers:: target
+#	12) create a new $(HEADER?): target
+#	13) create a new $(HEADER5_NAME): target
+#
+###############################################################################
+
+#  name of library subdirectory
+LIB_DIR= lib
+
+#  name of header subdirectory
+HEADER_DIR= headerFiles
+
+#  source files to be compiled into the libraries
+SRC0_NAME= Messages
+SRC1_NAME= TextToSpeech
+SRC2_NAME= TextToSpeechPron
+SRC3_NAME= TextToSpeechRhythm
+SRC4_NAME= TextToSpeechPriority
+SRC5_NAME= TextToSpeechDemo
+
+#  object files to be compiled into libraries
+OFILE0= $(OFILE_DIR)/$(SRC0_NAME).o
+OFILE1= $(OFILE_DIR)/$(SRC1_NAME).o
+OFILE2= $(OFILE_DIR)/$(SRC2_NAME).o
+OFILE3= $(OFILE_DIR)/$(SRC3_NAME).o
+OFILE4= $(OFILE_DIR)/$(SRC4_NAME).o
+OFILE5= $(OFILE_DIR)/$(SRC5_NAME).o
+
+#  names of libraries
+LIB1= $(LIB_DIR)/lib$(SRC1_NAME).a
+LIB2= $(LIB_DIR)/lib$(SRC2_NAME).a
+LIB3= $(LIB_DIR)/lib$(SRC3_NAME).a
+LIB4= $(LIB_DIR)/lib$(SRC4_NAME).a
+LIB5= $(LIB_DIR)/lib$(SRC5_NAME).a
+
+#  header files for the libraries
+HEADER0_NAME= TTS_types.h
+HEADER1_NAME= $(SRC1_NAME).h
+HEADER2_NAME= $(SRC2_NAME).h
+HEADER3_NAME= $(SRC3_NAME).h
+HEADER4_NAME= $(SRC4_NAME).h
+HEADER5_NAME= $(SRC5_NAME).h
+
+HEADER0= $(HEADER_DIR)/$(HEADER0_NAME)
+HEADER1= $(HEADER_DIR)/$(HEADER1_NAME)
+HEADER2= $(HEADER_DIR)/$(HEADER2_NAME)
+HEADER3= $(HEADER_DIR)/$(HEADER3_NAME)
+HEADER4= $(HEADER_DIR)/$(HEADER4_NAME)
+HEADER5= $(HEADER_DIR)/$(HEADER5_NAME)
+
+#  This removes the library and header directories on a 'make clean'
+OTHER_GARBAGE= $(LIB_DIR) $(HEADER_DIR)
+
+
+
+#  this target makes both libraries and header files
+#  with the correct architecture, by extending the
+#  default 'make app' behavior
+app::
+	@(evaled_rc_archs=`$(ARCH_TOOL) -choose_obj_dir $(RC_ARCHS)`; \
+	obj_dir=`echo $$evaled_rc_archs`_obj ; \
+	$(MAKE) libraries headers "OFILE_DIR = $(OBJROOT)/$$obj_dir" )
+
+
+#  these targets build the libraries
+libraries:: $(LIB_DIR) $(LIB1) $(LIB2) $(LIB3) $(LIB4) $(LIB5) 
+
+
+$(LIB_DIR):
+	$(MKDIRS) $@
+
+
+$(LIB1): $(OFILE0) $(OFILE1) 
+	$(RM) -f $@
+	libtool -o $@ $(OFILE0) $(OFILE1)
+
+$(LIB2): $(OFILE2)
+	$(RM) -f $@
+	libtool -o $@ $(OFILE2)
+
+$(LIB3): $(OFILE3) 
+	$(RM) -f $@
+	libtool -o $@ $(OFILE3)
+
+$(LIB4): $(OFILE4) 
+	$(RM) -f $@
+	libtool -o $@ $(OFILE4)
+
+$(LIB5): $(OFILE5) 
+	$(RM) -f $@
+	libtool -o $@ $(OFILE5)
+
+
+
+#  these targets build the header files
+headers:: $(HEADER_DIR) $(HEADER0) $(HEADER1) $(HEADER2) $(HEADER3) \
+		$(HEADER4) $(HEADER5) 
+
+$(HEADER_DIR):
+	$(MKDIRS) $@
+
+$(HEADER0): $(HEADER0_NAME)
+	cp $(HEADER0_NAME) $@
+
+$(HEADER1): $(HEADER1_NAME)
+	sed s+\"TTS_types.h\"+\<TextToSpeech/TTS_types.h\>+g \
+		< $(HEADER1_NAME) > $@
+
+$(HEADER2): $(HEADER2_NAME)
+	sed s+\"TextToSpeech.h\"+\<TextToSpeech/TextToSpeech.h\>+g \
+		< $(HEADER2_NAME) > $@
+
+$(HEADER3): $(HEADER3_NAME)
+	sed s+\"TextToSpeech.h\"+\<TextToSpeech/TextToSpeech.h\>+g \
+		< $(HEADER3_NAME) > $@
+
+$(HEADER4): $(HEADER4_NAME)
+	sed s+\"TextToSpeech.h\"+\<TextToSpeech/TextToSpeech.h\>+g \
+		< $(HEADER4_NAME) > $@
+
+$(HEADER5): $(HEADER5_NAME)
+	sed s+\"TextToSpeech.h\"+\<TextToSpeech/TextToSpeech.h\>+g \
+		< $(HEADER5_NAME) > $@
+
+
+$(HEADER0_NAME):
+	@$(ECHO) 'Missing $(HEADER0_NAME)'
+	@exit 1;
+
+$(HEADER1_NAME):
+	@$(ECHO) 'Missing $(HEADER1_NAME)'
+	@exit 1;
+
+$(HEADER2_NAME):
+	@$(ECHO) 'Missing $(HEADER2_NAME)'
+	@exit 1;
+
+$(HEADER3_NAME):
+	@$(ECHO) 'Missing $(HEADER3_NAME)'
+	@exit 1;
+
+$(HEADER4_NAME):
+	@$(ECHO) 'Missing $(HEADER4_NAME)'
+	@exit 1;
+
+$(HEADER5_NAME):
+	@$(ECHO) 'Missing $(HEADER5_NAME)'
+	@exit 1;

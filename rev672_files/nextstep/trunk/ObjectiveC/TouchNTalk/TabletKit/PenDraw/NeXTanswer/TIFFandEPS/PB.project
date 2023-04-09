@@ -1,0 +1,30 @@
+INSTALLDIR = "$(HOME)/Apps";
+APPICON = "";
+GENERATEMAIN = YES;
+DOCICONFILES = ();
+FILESTABLE = {
+    M_FILES = (TIFFandEPS_main.m);
+    OTHER_LINKED = ();
+    H_FILES = (ImageReader.h, ImageView.h, PopAndForm.h);
+    CLASSES = (ImageReader.m, ImageView.m, PopAndForm.m);
+    IMAGES = ();
+    PSW_FILES = ();
+    C_FILES = ();
+    OTHER_SOURCES = (Makefile, README.rtf);
+    SUBPROJECTS = ();
+    PSWM_FILES = ();
+    SOUNDS = ();
+    OTHER_LIBS = (Media_s, NeXT_s);
+    INTERFACES = (TIFFandEPS.nib);
+};
+APPCLASS = Application;
+MAINNIB = TIFFandEPS;
+DOCEXTENSIONS = ();
+PROJECTTYPE = Application;
+PROJECTVERSION = 1.1;
+LOCALIZABLE_FILES = {
+    TIFFandEPS.nib;
+};
+PROJECTNAME = TIFFandEPS;
+SYSTEMEXTENSIONS = ();
+LANGUAGE = English;

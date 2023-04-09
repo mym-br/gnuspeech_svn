@@ -1,0 +1,1 @@
+cc -DV2 -ObjC check_line.c -lTextToSpeechPlus -lNeXT_s

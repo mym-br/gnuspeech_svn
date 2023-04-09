@@ -1,0 +1,63 @@
+head	1.2;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.2
+date	94.09.11.17.44.27;	author dale;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	94.07.26.20.20.07;	author dale;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.2
+log
+@*** empty log message ***
+@
+text
+@FILESTABLE = {
+    OTHER_SOURCES = (Makefile.preamble, Makefile, Makefile.postamble);
+    M_FILES = (Publisher_main.m);
+    OTHER_LIBS = (TextToSpeech, Media_s, NeXT_s);
+    H_FILES = (ActionText.h, BookmarkNode.h, Document.h, Node.h, Page.h, PageNode.h, SpeakText.h, TactileSpeaker.h, TactileText.h, TNTDefinitions.h);
+    OTHER_LINKED = ();
+    CLASSES = (ActionText.m, BookmarkNode.m, Document.m, Node.m, Page.m, PageNode.m, SpeakText.m, TactileSpeaker.m, TactileText.m);
+};
+LOCALIZABLE_FILES = {
+};
+LANGUAGE = English;
+PROJECTVERSION = 1.1;
+PROJECTTYPE = Tool;
+PROJECTNAME = Publisher;
+GENERATEMAIN = YES;
+DOCICONFILES = ();
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d5 1
+a5 1
+    H_FILES = (ActionText.h, BookmarkNode.h, Document.h, Node.h, Page.h, PageNode.h, Publisher.h, Publisher.tproj.h, SpeakText.h, TactileSpeaker.h, TactileText.h, TNTDefinitions.h);
+d7 1
+a7 1
+    CLASSES = (ActionText.m, BookmarkNode.m, Document.m, Node.m, Page.m, PageNode.m, Publisher.m, SpeakText.m, TactileSpeaker.m, TactileText.m);
+d11 1
+a11 1
+
+a12 1
+
+@

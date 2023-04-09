@@ -1,0 +1,201 @@
+/*  REVISION INFORMATION  *****************************************************
+
+$Author: rao $
+$Date: 2002-03-21 16:49:53 $
+$Revision: 1.1 $
+$Source: /Users/dalmazio/cvsroot/gnuspeech/trillium/src/SpeechObject/postMonet/objC.monet/README,v $
+$State: Exp $
+
+
+$Log: not supported by cvs2svn $
+
+******************************************************************************/
+
+
+March 3, 1995:
+
+Added the setSoftwareSynthesizer: and softwareSynthesizer methods.  Rearranged
+the ServerTest.app interface to accomodate the new methods.
+
+
+
+December 6, 1994:
+
+Added new methods for control of the tube synthesizer, and removed the
+elasticity methods (now obsolete).
+
+Also added explicit checks of server version numbers, so obsolete servers are
+not a problem for the library code.
+
+Cleaned the makefiles so that libraries, headers, and test application are
+created automatically from Project Builder.  The hidden methods (in the class
+categories) are each now given their own library.
+
+Added versioning to the archiving methods.
+
+Updated ServerTest.app to handle the new methods and all hidden methods
+in the categories.
+
+
+
+July 8, 1992:
+
+Fixed start up code so that client waits somewhat longer before giving
+up on the server.
+
+Shortened most message timeouts to 3 seconds.
+
+speakText: and linePronunciation: methods now await an immediate acknowledge
+from the server (int message) with a 3 second timeout.  The message from after
+the parse stage in the server now has a timeout of 30 seconds.
+
+Added the dictionaryVersion method.
+
+
+
+June 4, 1992:
+
+Changed the client code so that restarting the server with the kill
+option does not use the "-k" and "pid" command line arguments.  These
+arguments are not needed with version k of the server.
+
+Also cleaned up defaults registration code (using STRINGIFY macro).
+
+
+
+May 31, 1992:
+
+This is the 4th version of the client-side of the server. This version
+fixes the bug associated with starting up the server (fork bug).  The
+problem was with the NXSetDefaultsUser() function:  it was trashing
+memory used for NXDefaults set up by the user and by the appkit.  The
+problem was solved by putting the function call in the child process,
+therefore protecting the defaults memory used in the parent process.
+
+
+
+May 25, 1992:
+
+This is the 3rd version of the client-side part of the server.
+I've removed all static variables---they cause problems in an
+Objective C environment.  SetEscapeCharacter: now also rejects
+non-ASCII characters.
+
+Three new methods have been added:
+
+	speakStream:
+	setBlock:
+	block
+
+The speakStream: method is a cover for the speakText: method,
+so no new enumerated messages have been added for it.  However,
+2 new messages have been added for the block and setBlock:
+methods---you will have to add these to the server.  I've added
+the DIAGNOSIS message number to the SpeechMessages.h file as well.
+Make sure that blocking happens ONLY with the speakText message
+(when asked for), and not with any of the other messages.
+
+The TTS_types.h file has been changed to allow easy setting of the
+RANDOMIZE bit for the intonation mask.  The library will now pass
+this bit through to the server.
+
+I've also added automatic library making to the Makefile.
+Once a "make all" has been done, simply type "make libraries".
+Also, you can type "make header" to create a subdirectory of
+the needed include files for the libraries. 
+
+You'll notice two additional subdirectories:
+
+	serverTestWithLib
+	userServerTestWithLib
+
+The first contains files for compiling the serverTest with the
+TextToSpeechPlus library.  The second contains files for compiling
+with the plain TextToSpeech library, and is suitable for public
+distribution since the references to hidden methods are all deleted.
+
+
+
+May 13, 1992:
+
+This is the second version of the client-side parts of the server.
+I've made all the global variables into instance variables, and changed
+the C functions into internal methods.  This solves the scoping problem,
+and the problem of no inherited dataspace when subclassing.
+
+Also note that the initiateConnection method (formerly initiate_connection())
+expects the value of SpeechIdentifier to be returned to the client using
+receive_int_message().  This causes problems now, since I think the server
+still uses a simple message.  Make sure that SpeechIdentifier ranges from
+0 to 49;  sending a value outside of this range signals that a connection
+cannot be made, implying that all the client slots are being used.
+
+I've altered speakText:, serverVersion, pronunciation:::, 
+and linePronunciation:: so that they will resend a message to the
+server after a restart.  This means that these methods no longer need
+to be executed twice to speak or return the appropriate data after a
+restart.
+
+Finally, I've fixed the bugs to do with pointers pointing to memory
+allocated on the stack.  Simply involved declaring some arrays static.
+
+
+
+April 30, 1992:
+
+The set of files in this directory are used to make the client side
+of the server.  The server will have to be altered for these routines
+to work:
+
+1) I've made some changes to SpeechMessages.h.  The numbering of the messages
+   has been changed, so any modules which refers to this header file will have
+   to be recompiled.  Also note that I've changed some of the #defines to be
+   more self-consistent:
+
+      SETSPEED => SET_SPEED
+      SETVOLUME => SET_VOLUME
+      SPEED => GET_SPEED
+      VOLUME => GET_VOLUME
+
+2) Once the client is connected to the server, after getting the appropriate
+   SpeechIdentifier, the client now exchanges task_port ids with the server
+   (using a newly defined int_msg).  This must be fixed on the server side
+   or the client will exit.
+
+3) The client will now launch the server with the kill arguments when
+   appropriate.  The kill arguments are -k <old server task #>.
+   If you don't put in the code to kill the old servers, then zombies
+   are left hanging about.
+
+4) The "hidden" methods are now put into a separate Category, called
+   TextToSpeechPlus.  Two libraries will have to be built:
+
+      libTextToSpeech.a
+      libTextToSpeechPlus.a
+
+   There are now two corresponding header files:
+
+      TextToSpeech.h
+      TextToSpeechPlus.h
+
+   Of course, only programs like PrEditor will get to use the Plus
+   library and header file;  the public will only get the plain
+   TextToSpeech stuff.  To compile the Plus library, simply have
+   your Makefile also compile the TextToSpeechPlus.m file.
+
+
+
+I've not been able to test the relaunching of the server in kill mode;
+this can only be done when you've got that code implemented in the server.
+I have tested the relaunch sequence when the server has been killed, or
+when the server has been killed and started by some other process (in
+this case, I did it by hand).  It seems to work fine.
+
+I haven't tested archiving and unarchiving of the TTS Object---this is easiest
+to test once the library has been built, and the server is almost fully
+functional.
+
+We need to thoroughly test the exchange of messages, especially since
+I've put your casts onto one line instead of two.  All but pronunciation:::
+seem to work OK with the old server I have.  I'm concerned, also, about
+the range of the SpeechIdentifier that is returned.

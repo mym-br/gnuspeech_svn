@@ -1,0 +1,32 @@
+FFTInspector = {
+    ACTIONS = {
+	revert:;
+    };
+    OUTLETS = {
+	entryMatrix;
+    };
+    SUPERCLASS = WMInspector;
+};
+FirstResponder = {
+    ACTIONS = {
+    };
+    SUPERCLASS = Object;
+};
+WMInspector = {
+    ACTIONS = {
+	touch:;
+	ok:;
+	textDidChange:;
+	revert:;
+    };
+    OUTLETS = {
+	fileNameField;
+	window;
+	revertButton;
+	okButton;
+	fileIconButton;
+	dirNameField;
+	dirTitleField;
+    };
+    SUPERCLASS = Object;
+};

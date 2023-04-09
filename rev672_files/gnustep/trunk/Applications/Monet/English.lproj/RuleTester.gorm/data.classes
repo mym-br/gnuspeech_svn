@@ -1,0 +1,33 @@
+{
+    "## Comment" = "Do NOT change this file, Gorm maintains it";
+    FirstResponder = {
+	Actions = (
+	    "parseRule:",
+	    "shiftPosturesLeft:"
+	);
+	Super = NSObject;
+    };
+    MRuleTester = {
+	Actions = (
+	    "shiftPosturesLeft:",
+	    "parseRule:"
+	);
+	Outlets = (
+	    posture2Form,
+	    durationOutputForm,
+	    ruleOutputTextField,
+	    posture3Form,
+	    posture4Form,
+	    consumedTokensTextField,
+	    posture1Form
+	);
+	Super = MWindowController;
+    };
+    MWindowController = {
+	Actions = (
+	);
+	Outlets = (
+	);
+	Super = NSWindowController;
+    };
+}

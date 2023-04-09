@@ -1,0 +1,105 @@
+TouchNTalk = {
+    ACTIONS = {
+	appDidInit:;
+	speakInfoPanel:;
+	appWillTerminate:;
+	sendTabletCommands:;
+	open:;
+	new:;
+	saveAll:;
+	configureCancel:;
+    };
+    OUTLETS = {
+	saveAllCell;
+	tabletSurface;
+	saveCell;
+	openPanel;
+	silSpeaker;
+	commandsText;
+	previousTNTControl;
+	documentSubmenuCell;
+	tabletDriver;
+	tntControl;
+	revertToSavedCell;
+	closeCell;
+	savePanel;
+	saveAsCell;
+    };
+    SUPERCLASS = TNTServer;
+};
+FirstResponder = {
+    ACTIONS = {
+    };
+    SUPERCLASS = Object;
+};
+TNTServer = {
+    ACTIONS = {
+    };
+    OUTLETS = {
+	leftHolo3Slider;
+	leftHolo2Slider;
+	closeTitle;
+	bookmarkHoloSlider;
+	leftHolo4Slider;
+	tactileDisplay;
+	speechModeTitle;
+	softFunctionSlider;
+	horizPageScrollSlider;
+	pageTitle;
+	nextPageButton;
+	holoSetTitle;
+	saveTitle;
+	vertPageScrollSlider;
+	cursorLocatorSlider;
+	openTitle;
+	helpTitle;
+	shellTitle;
+	sil;
+	pageLocatorSlider;
+	leftHolo1Slider;
+	windowsTitle;
+    };
+    SUPERCLASS = Object;
+};
+TabletGroove = {
+    ACTIONS = {
+    };
+    OUTLETS = {
+    };
+    SUPERCLASS = Object;
+};
+TabletSurface = {
+    ACTIONS = {
+    };
+    OUTLETS = {
+	nextArea;
+	rightArea;
+	prevArea;
+	cancelButton;
+	configurePanel;
+	xCurrentField;
+	silArea;
+	tactileArea;
+	yCurrentTitle;
+	yClickField;
+	xClickField;
+	leftHolo;
+	topHolo;
+	yClickTitle;
+	xClickTitle;
+	xCurrentTitle;
+	speaker;
+	locationTitle;
+	softArea;
+	yCurrentField;
+	regionTitle;
+    };
+    SUPERCLASS = Object;
+};
+TabletRegion = {
+    ACTIONS = {
+    };
+    OUTLETS = {
+    };
+    SUPERCLASS = Object;
+};

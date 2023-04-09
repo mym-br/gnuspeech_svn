@@ -1,0 +1,41 @@
+Hi Craig:
+
+This is the 3rd version of the client-side part of the server.
+I've removed all static variables---they cause problems in an
+Objective C environment.  SetEscapeCharacter: now also rejects
+non-ASCII characters.
+
+Three new methods have been added:
+
+	speakStream:
+	setBlock:
+	block
+
+The speakStream: method is a cover for the speakText: method,
+so no new enumerated messages have been added for it.  However,
+2 new messages have been added for the block and setBlock:
+methods---you will have to add these to the server.  I've added
+the DIAGNOSIS message number to the SpeechMessages.h file as well.
+Make sure that blocking happens ONLY with the speakText message
+(when asked for), and not with any of the other messages.
+
+The TTS_types.h file has been changed to allow easy setting of the
+RANDOMIZE bit for the intonation mask.  The library will now pass
+this bit through to the server.
+
+I've also added automatic library making to the Makefile.
+Once a "make all" has been done, simply type "make libraries".
+Also, you can type "make header" to create a subdirectory of
+the needed include files for the libraries. 
+
+You'll notice two additional subdirectories:
+
+	serverTestWithLib
+	userServerTestWithLib
+
+The first contains files for compiling the serverTest with the
+TextToSpeechPlus library.  The second contains files for compiling
+with the plain TextToSpeech library, and is suitable for public
+distribution since the references to hidden methods are all deleted.
+
+Len

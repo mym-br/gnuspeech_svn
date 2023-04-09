@@ -1,0 +1,10 @@
+
+before-all::
+	cp -u ../../Frameworks/GnuSpeech/TextProcessing/2.0eMainDictionary.dict .
+	cp -u ../../Frameworks/GnuSpeech/TextProcessing/SpecialAcronyms.plist .
+	cp -u ../../Frameworks/GnuSpeech/TextProcessing/TTSSuffixList.txt .
+
+after-clean::
+	rm -f 2.0eMainDictionary.dict
+	rm -f SpecialAcronyms.plist
+	rm -f TTSSuffixList.txt

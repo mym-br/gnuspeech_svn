@@ -1,0 +1,8 @@
+MainDictionary.fixed is compiled in the following manner
+
+	MainDictionary.skel is the skeleton file.
+	NewDict* replaces portions of the Skeleton file.
+
+	The resulting file is then "fixed" with the fix program, 
+		using fixfile2 as the fix file.
+

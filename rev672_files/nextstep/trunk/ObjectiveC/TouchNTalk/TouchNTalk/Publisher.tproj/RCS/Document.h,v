@@ -1,0 +1,720 @@
+head	1.17;
+access;
+symbols;
+locks;
+comment	@ * @;
+
+
+1.17
+date	94.09.11.17.43.12;	author dale;	state Exp;
+branches;
+next	1.16;
+
+1.16
+date	94.06.03.19.28.24;	author dale;	state Exp;
+branches;
+next	1.15;
+
+1.15
+date	93.07.23.07.32.18;	author dale;	state Exp;
+branches;
+next	1.14;
+
+1.14
+date	93.07.14.22.11.48;	author dale;	state Exp;
+branches;
+next	1.13;
+
+1.13
+date	93.07.06.00.34.26;	author dale;	state Exp;
+branches;
+next	1.12;
+
+1.12
+date	93.07.04.17.57.23;	author dale;	state Exp;
+branches;
+next	1.11;
+
+1.11
+date	93.07.01.20.18.47;	author dale;	state Exp;
+branches;
+next	1.10;
+
+1.10
+date	93.06.25.23.38.25;	author dale;	state Exp;
+branches;
+next	1.9;
+
+1.9
+date	93.06.24.07.40.17;	author dale;	state Exp;
+branches;
+next	1.8;
+
+1.8
+date	93.06.22.19.50.38;	author dale;	state Exp;
+branches;
+next	1.7;
+
+1.7
+date	93.06.05.07.37.08;	author dale;	state Exp;
+branches;
+next	1.6;
+
+1.6
+date	93.06.04.20.57.48;	author dale;	state Exp;
+branches;
+next	1.5;
+
+1.5
+date	93.06.04.07.18.00;	author dale;	state Exp;
+branches;
+next	1.4;
+
+1.4
+date	93.06.03.00.37.58;	author dale;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	93.06.01.08.03.24;	author dale;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	93.05.30.08.24.27;	author dale;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	93.05.20.06.03.35;	author dale;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.17
+log
+@Coalesced Publisher and Document together since all Publisher operations were on documents. This is
+better OO design.
+@
+text
+@/*
+ *    Filename:	Document.h 
+ *    Created :	Thu May 13 11:39:35 1993 
+ *    Author  :	Dale Brisinda
+ *		<dale@@pegasus.cuc.ab.ca>
+ *
+ *    Last modified on "Sat Sep 10 16:13:50 1994"
+ *
+ * $Id: Document.h,v 1.16 1994/06/03 19:28:24 dale Exp $
+ *
+ * $Log: Document.h,v $
+ * Revision 1.16  1994/06/03  19:28:24  dale
+ * Changed "LastEditDate" to "Last modified on" within header.
+ *
+ * Revision 1.15  1993/07/23  07:32:18  dale
+ * *** empty log message ***
+ *
+ * Revision 1.14  1993/07/14  22:11:48  dale
+ * *** empty log message ***
+ *
+ * Revision 1.13  1993/07/06  00:34:26  dale
+ * Incorporated SpeakTactileText object.
+ *
+ * Revision 1.12  1993/07/04  17:57:23  dale
+ * *** empty log message ***
+ *
+ * Revision 1.11  1993/07/01  20:18:47  dale
+ * *** empty log message ***
+ *
+ * Revision 1.10  1993/06/25  23:38:25  dale
+ * Added bookmarkNumber for dealing with default bookmark names.
+ *
+ * Revision 1.9  1993/06/24  07:40:17  dale
+ * *** empty log message ***
+ *
+ * Revision 1.8  1993/06/22  19:50:38  dale
+ * Renamed some instance variables.
+ *
+ * Revision 1.7  1993/06/05  07:37:08  dale
+ * *** empty log message ***
+ *
+ * Revision 1.6  1993/06/04  20:57:48  dale
+ * *** empty log message ***
+ *
+ * Revision 1.5  1993/06/04  07:18:00  dale
+ * *** empty log message ***
+ *
+ * Revision 1.4  1993/06/03  00:37:58  dale
+ * *** empty log message ***
+ *
+ * Revision 1.3  1993/06/01  08:03:24  dale
+ * *** empty log message ***
+ *
+ * Revision 1.2  1993/05/30  08:24:27  dale
+ * *** empty log message ***
+ *
+ * Revision 1.1  1993/05/20  06:03:35  dale
+ * Initial revision
+ *
+ */
+
+#import <appkit/appkit.h>
+
+@@interface Document:Object
+{
+    id text;              // instance of TactileText object (contains all document text)
+    id activePage;        // instance of Page object (contains text of active page)
+    int bookmarkNumber;   // number of next default bookmark to be added
+
+    // mark holds previous position of system cursor; all values are one-based
+    int markLine;
+    int markCol;
+    int markPage;
+
+    // system cursor holds current working location; all values are one-based
+    int systemCursorLine;
+    int systemCursorCol;
+    int systemCursorPage;
+
+    BOOL edited;       // will be used when editing facility in place
+
+    char pathname[MAXPATHLEN];
+    char filename[256];
+
+    id lineWrapStore;   // holds EOL document offsets for wrapped lines
+
+    // node lists
+    id titleNodeList;
+    id paragraphNodeList;
+    id sentenceNodeList;
+    id phraseNodeList;
+    id parenNodeList;
+    id doubleQuoteNodeList;
+    id singleQuoteNodeList;
+    id lineColumnNodeList;
+    id bookmarkNodeList;         // contains ordered bookmark nodes (see BookmarkNode class)
+    id pageNodeList;             // contains page nodes; also used with the page locator holophrast
+}
+
+/* INITIALIZING AND FREEING */
+- init;
+- free;
+
+/* ARCHIVING METHODS */
+- awake;
+- read:(NXTypedStream *)typedStream;
+- write:(NXTypedStream *)typedStream;
+
+/* BOOKMARK MANAGEMENT METHODS */
+- addBookmarkAtPage:(int)pageNumber withName:(const char *)name;
+- removeBookmarkAtPage:(int)pageNumber;
+- bookmarkAtPage:(int)pageNumber;
+- (const char *)defaultBookmarkName;
+
+/* SET METHODS */
+- setPathname:(const char *)pathname;
+- setFilename:(const char *)filename;
+- setActivePage:(int)pageNumber;
+- setRelativeActivePage:(int)pageOffset;
+
+- setSystemCursorPage:(int)page line:(int)line col:(int)col;
+- setSystemCursorPage:(int)page;
+- setSystemCursorLine:(int)line;
+- setSystemCursorCol:(int)col;
+
+- setMarkPage:(int)page line:(int)line col:(int)col;
+- setMarkPage:(int)page;
+- setMarkLine:(int)line;
+- setMarkCol:(int)col;
+
+/* QUERY METHODS */
+- (const char *)pathname;
+- (const char *)filename;
+- (BOOL)isEdited;
+- activePage;
+- (int)activePageNumber;
+- (int)pages;
+- (int)bookmarkNumber;
+- text;
+
+- (int)systemCursorLine;
+- (int)systemCursorCol;
+- (int)systemCursorPage;
+
+- (int)markLine;
+- (int)markCol;
+- (int)markPage;
+
+/* NODE LIST SET METHODS */
+- setTitleNodeList:nodeList;
+- setParagraphNodeList:nodeList;
+- setSentenceNodeList:nodeList;
+- setPhraseNodeList:nodeList;
+- setParenNodeList:nodeList;
+- setDoubleQuoteNodeList:nodeList;
+- setSingleQuoteNodeList:nodeList;
+- setLineColumnNodeList:nodeList;
+- setBookmarkNodeList:nodeList;
+- setPageNodeList:nodeList;
+
+/* NODE LIST QUERY METHODS */
+- titleNodeList;
+- paragraphNodeList;
+- sentenceNodeList;
+- phraseNodeList;
+- parenNodeList;
+- doubleQuoteNodeList;
+- singleQuoteNodeList;
+- lineColumnNodeList;
+- bookmarkNodeList;
+- pageNodeList;
+
+/* NODE SEARCH METHODS */
+- nodesInNodeList:nodeList startingOnLine:(int)line;
+- nodesInNodeList:nodeList startingInRange:(int)start :(int)end;
+- nodeInNodeList:nodeList endingOnLine:(int)line;
+- nodeInNodeList:nodeList endingInRange:(int)start :(int)end;
+- bookmarkNodeForPage:(int)pageNumber;
+
+/* FULL DOCUMENT PUBLISHING METHODS */
+- publishEnglishText;
+- publishEnglishTextWithLineLength:(unsigned int)maxLength;
+- publishCSourceCode;
+- publishCSourceCodeWithLineLength:(unsigned int)maxLength;
+
+/* LINE WRAPPING AND CHARACTER FILTERING */
+- wrapLines:(unsigned int)lineLength;
+- unwrapLines;
+- filterControlCharacters;
+
+/* NODE CREATION METHODS */
+- createNode:(int)start :(int)end forNodeList:nodeList;
+- createPageNode:(int)start :(int)end forNodeList:nodeList;
+
+/* PAGE AND BOOKMARK PUBLISHING METHODS */
+- publishPages;
+- publishBookmarks;
+
+/* ENGLISH TEXT PUBLISHING METHODS */
+- publishTitles;
+- publishParagraphs;
+- publishSentences;
+- publishPhrases;
+- publishParentheses;
+- publishDoubleQuotes;
+- publishSingleQuotes;
+- publishLineColumns;
+
+/* ENGLISH TEXT UTILITY METHODS */
+- (BOOL)isParagraphPunct:(char)ch;
+- (BOOL)isSentencePunct:(char)ch;
+- (BOOL)isPhrasePunct:(char)ch;
+
+/* GENERAL UTILITY METHODS */
+- (BOOL)getNewLine:(NXStream *)stream;
+- (BOOL)blankLine:(NXStream *)stream;
+
+/* ANSI C SOURCE CODE PUBLISHING METHODS (example)
+- publishComments;
+- publishIncludes;
+- publishDefines;
+- publishFunctionDeclarations;
+- publishBraces;
+- publishVariableDeclarations;
+- publishForStatements;
+- publishWhileStatements;
+- publishDoWhileStatements;
+- publishIfStatements;
+- publishSwitchStatements;
+*/
+
+/* DEBUG METHODS */
+- printStream:(NXStream *)stream inNodeList:nodeList;
+
+@@end
+@
+
+
+1.16
+log
+@Changed "LastEditDate" to "Last modified on" within header.
+@
+text
+@d7 1
+a7 1
+ *    Last modified on "Wed Jul 14 17:09:43 1993"
+d9 1
+a9 1
+ * $Id: Document.h,v 1.15 1993/07/23 07:32:18 dale Exp $
+d12 3
+d85 2
+d100 1
+a100 1
+/* GENERAL METHODS */
+d179 55
+@
+
+
+1.15
+log
+@*** empty log message ***
+@
+text
+@d7 1
+a7 1
+ *    LastEditDate was "Wed Jul 14 17:09:43 1993"
+d9 1
+a9 1
+ * $Id: Document.h,v 1.14 1993/07/14 22:11:48 dale Exp $
+d12 3
+@
+
+
+1.14
+log
+@*** empty log message ***
+@
+text
+@d7 1
+a7 1
+ *    LastEditDate was "Sun Jul 11 12:51:12 1993"
+d9 1
+a9 1
+ * $Id: Document.h,v 1.13 1993/07/06 00:34:26 dale Exp $
+d12 3
+d113 2
+a116 1
+- setSystemCursorPage:(int)page;
+d118 2
+a121 1
+- setMarkPage:(int)page;
+@
+
+
+1.13
+log
+@Incorporated SpeakTactileText object.
+@
+text
+@d7 1
+a7 1
+ *    LastEditDate was "Mon Jul  5 17:08:51 1993"
+d9 1
+a9 1
+ * $Id: Document.h,v 1.12 1993/07/04 17:57:23 dale Exp $
+d12 3
+d57 1
+a57 1
+    id text;              // instance of SpeakTactileText object (contains all document text)
+@
+
+
+1.12
+log
+@*** empty log message ***
+@
+text
+@d7 1
+a7 1
+ *    LastEditDate was "Thu Jul  1 18:27:03 1993"
+d9 1
+a9 1
+ * $Id: Document.h,v 1.11 1993/07/01 20:18:47 dale Exp $
+d12 3
+d54 1
+a54 1
+    id text;              // instance of SpeakText object (contains all document text)
+@
+
+
+1.11
+log
+@*** empty log message ***
+@
+text
+@d7 1
+a7 1
+ *    LastEditDate was "Wed Jun 30 22:53:25 1993"
+d9 1
+a9 1
+ * $Id: Document.h,v 1.10 1993/06/25 23:38:25 dale Exp $
+d12 3
+d67 2
+a68 1
+    char pathname[MAXPATHLEN+1];
+d100 1
+@
+
+
+1.10
+log
+@Added bookmarkNumber for dealing with default bookmark names.
+@
+text
+@d7 1
+a7 1
+ *    LastEditDate was "Fri Jun 25 15:59:38 1993"
+d9 1
+a9 1
+ * $Id: Document.h,v 1.9 1993/06/24 07:40:17 dale Exp $
+d12 3
+d92 1
+@
+
+
+1.9
+log
+@*** empty log message ***
+@
+text
+@d7 1
+a7 1
+ *    LastEditDate was "Wed Jun 23 16:16:49 1993"
+d9 1
+a9 1
+ * $Id: Document.h,v 1.8 1993/06/22 19:50:38 dale Exp $
+d12 3
+d45 3
+a47 2
+    id text;           // instance of SpeakText object (contains all document text)
+    id activePage;     // instance of Page object (contains text of active page)
+d109 2
+@
+
+
+1.8
+log
+@Renamed some instance variables.
+@
+text
+@d7 1
+a7 1
+ *    LastEditDate was "Tue Jun 22 00:06:23 1993"
+d9 1
+a9 1
+ * $Id: Document.h,v 1.7 1993/06/05 07:37:08 dale Exp $
+d12 3
+d42 2
+a43 2
+    id text;                     // instance of SpeakText object (contains all document text)
+    id activePage;               // instance of Page object (contains text of active page)
+d45 1
+a45 1
+    // the mark holds the previous position of the system cursor, and all values are one-based
+d50 1
+a50 1
+    // the system cursor holds the current working location, and all values are one-based
+d55 1
+a55 1
+    BOOL edited;                 // will be used when editing facility in place
+@
+
+
+1.7
+log
+@*** empty log message ***
+@
+text
+@d7 1
+a7 1
+ *    LastEditDate was "Fri Jun  4 17:42:40 1993"
+d9 1
+a9 1
+ * $Id: Document.h,v 1.6 1993/06/04 20:57:48 dale Exp $
+d12 3
+d42 9
+a50 14
+    // one-based
+    int userCursorLine;          // line number of user cursor
+    int userCursorCol;           // column number of user cursor
+    int userCursorPage;          // page number of user cursor
+
+    // one-based
+    int markLine;                // line number of mark
+    int markCol;                 // column number of mark
+    int markPage;                // page number of mark
+
+    // one-based
+    int sysCursorLine;           // line number of system cursor
+    int sysCursorCol;            // column number of system cursor
+    int sysCursorPage;           // page number of system cursor
+d88 7
+a94 7
+- setUserCursorLine:(int)line;
+- setUserCursorCol:(int)col;
+- setUserCursorPage:(int)page;
+
+- setSysCursorLine:(int)line;
+- setSysCursorCol:(int)col;
+- setSysCursorPage:(int)page;
+d104 7
+a110 7
+- (int)userCursorLine;
+- (int)userCursorCol;
+- (int)userCursorPage;
+
+- (int)sysCursorLine;
+- (int)sysCursorCol;
+- (int)sysCursorPage;
+@
+
+
+1.6
+log
+@*** empty log message ***
+@
+text
+@d7 1
+a7 1
+ *    LastEditDate was "Fri Jun  4 13:34:31 1993"
+d9 1
+a9 1
+ * $Id: Document.h,v 1.5 1993/06/04 07:18:00 dale Exp $
+d12 3
+d43 5
+a47 1
+    id userCursorPageNode;       // node of page where user cursor resides
+a52 1
+    id sysCursorPageNode;        // node of page where system cursor resides
+@
+
+
+1.5
+log
+@*** empty log message ***
+@
+text
+@d7 1
+a7 1
+ *    LastEditDate was "Fri Jun  4 00:10:42 1993"
+d9 1
+a9 1
+ * $Id: Document.h,v 1.4 1993/06/03 00:37:58 dale Exp $
+d12 3
+d50 1
+a50 3
+    char pathname[MAXPATHLEN];
+    char filename[256];
+    char title[1024];
+d75 3
+a77 4
+- insertBookmark:pageNode withName:(const char *)name;
+- removeBookmarkWithName:(const char *)name;
+- removeBookmark:bookmarkNode;
+- bookmarkWithName:(const char *)name;
+a80 1
+- setTitle:(const char *)title;   // (?)
+a94 1
+- (const char *)title;   // (?)
+@
+
+
+1.4
+log
+@*** empty log message ***
+@
+text
+@d7 1
+a7 1
+ *    LastEditDate was "Tue Jun  1 15:04:57 1993"
+d9 1
+a9 1
+ * $Id: Document.h,v 1.3 1993/06/01 08:03:24 dale Exp $
+d12 3
+d60 2
+a61 2
+    id bookmarkNodeList;         // contains ordered page nodes
+    id pageNodeList;             // also used with the page locator holophrast
+d75 3
+a77 1
+- removeBookmark:pageNode;
+d135 1
+d137 3
+a139 1
+- nodesInNodeList:nodeList endingInRange:(int)start :(int)end;
+@
+
+
+1.3
+log
+@*** empty log message ***
+@
+text
+@d7 1
+a7 1
+ *    LastEditDate was "Mon May 31 15:19:22 1993"
+d9 1
+a9 1
+ * $Id: Document.h,v 1.2 1993/05/30 08:24:27 dale Exp $
+d12 3
+a28 1
+    id activePageNode;           // instance of Node object (contains active page information)
+d77 1
+a77 1
+- setActivePage:(int)pageNum;
+d94 1
+a94 1
+- (int)activePageNum;
+@
+
+
+1.2
+log
+@*** empty log message ***
+@
+text
+@d7 1
+a7 1
+ *    LastEditDate was "Sat May 29 23:24:00 1993"
+d9 1
+a9 1
+ * $Id: Document.h,v 1.1 1993/05/20 06:03:35 dale Exp $
+d12 3
+d24 1
+a24 1
+    id text;                     // instance of Text object (contains all document text)
+a26 1
+    int activePageNum;           // page number of active page
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d7 1
+a7 1
+ *    LastEditDate was "Wed May 19 16:26:50 1993"
+d9 1
+a9 1
+ * $Id$
+d11 4
+a14 1
+ * $Log$
+d21 19
+a39 5
+    id activePage;       // instance of Page object
+    id nodeListManager;  // instance of NodeListManager object
+    id activePageNode;   // instance of Node object
+    int activePageNum;   // page number of active page (1-based)
+    BOOL edited;         // will be used when editing facility in place
+d43 12
+d62 1
+d66 4
+d71 2
+a72 2
+- setPathname:(const char *)pathName;
+- setTitle:(const char *)title;
+d76 8
+d87 1
+a87 1
+- (const char *)title;
+d91 37
+a127 1
+- nodeListManager;
+@

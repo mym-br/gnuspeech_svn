@@ -1,0 +1,122 @@
+{
+    "## Comment" = "Do NOT change this file, Gorm maintains it";
+    FirstResponder = {
+	Actions = (
+	    "revertToDefaults:",
+	    "saveAsDefaults:",
+	    "updateAperatureScaling:",
+	    "updateBalance:",
+	    "updateBreathiness:",
+	    "updateGlottalPulseShape:",
+	    "updateLossFactor:",
+	    "updateMasterVolume:",
+	    "updateMixOffset:",
+	    "updateMouthCoef:",
+	    "updateN1:",
+	    "updateN2:",
+	    "updateN3:",
+	    "updateN4:",
+	    "updateN5:",
+	    "updateNoiseModulation:",
+	    "updateNoseCoef:",
+	    "updateOutputChannels:",
+	    "updatePitchMean:",
+	    "updateSamplingRate:",
+	    "updateTemperature:",
+	    "updateThroatCutoff:",
+	    "updateThroatVolume:",
+	    "updateTnMax:",
+	    "updateTnMin:",
+	    "updateTp:",
+	    "updateTubeLength:"
+	);
+	Super = NSObject;
+    };
+    MSynthesisParameterEditor = {
+	Actions = (
+	    "updateTnMin:",
+	    "updateNoiseModulation:",
+	    "updateN4:",
+	    "updateN5:",
+	    "updateTubeLength:",
+	    "updateBalance:",
+	    "updateThroatVolume:",
+	    "updateTp:",
+	    "updateAperatureScaling:",
+	    "updateMasterVolume:",
+	    "updateOutputChannels:",
+	    "updateTemperature:",
+	    "updateGlottalPulseShape:",
+	    "revertToDefaults:",
+	    "saveAsDefaults:",
+	    "updateMouthCoef:",
+	    "updateThroatCutoff:",
+	    "updateSamplingRate:",
+	    "updateN1:",
+	    "updateNoseCoef:",
+	    "updateLossFactor:",
+	    "updateTnMax:",
+	    "updateN2:",
+	    "updateMixOffset:",
+	    "updatePitchMean:",
+	    "updateBreathiness:",
+	    "updateN3:"
+	);
+	Outlets = (
+	    throatVolume,
+	    masterVolumeSlider,
+	    samplingRate,
+	    length,
+	    n1,
+	    breathiness,
+	    n2,
+	    n3,
+	    n4,
+	    masterVolume,
+	    stereoMono,
+	    n5,
+	    breathinessSlider,
+	    apScale,
+	    mouthCoef,
+	    lossFactorSlider,
+	    n2Slider,
+	    balanceSlider,
+	    balance,
+	    waveform,
+	    pitchMean,
+	    lossFactor,
+	    throatCutoff,
+	    n4Slider,
+	    n5Slider,
+	    apScaleSlider,
+	    mouthCoefSlider,
+	    temperature,
+	    lengthSlider,
+	    tp,
+	    tnMax,
+	    pitchMeanSlider,
+	    mixOffset,
+	    temperatureSlider,
+	    mixOffsetSlider,
+	    noseCoefSlider,
+	    modulation,
+	    tnMinSlider,
+	    throatVolumeSlider,
+	    n1Slider,
+	    noseCoef,
+	    tnMin,
+	    tpSlider,
+	    throatCutoffSlider,
+	    n3Slider,
+	    tnMaxSlider
+	);
+	Super = MWindowController;
+    };
+    MWindowController = {
+	Actions = (
+	);
+	Outlets = (
+	);
+	Super = NSWindowController;
+    };
+}

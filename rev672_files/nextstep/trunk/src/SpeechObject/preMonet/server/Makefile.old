@@ -1,0 +1,152 @@
+OFILES = obj/delta_calc.o obj/normal_dist.o obj/server.o\
+	obj/structs.o obj/main.o obj/Messages.o obj/server_handler.o\
+	obj/synthesizer_module.o obj/cache.o obj/hash.o obj/lookup.o\
+	obj/number_parse.o obj/parser.o obj/search.o obj/aug_search.o \
+	obj/transcribe.o obj/util.o obj/by_rule.o obj/ends_with.o\
+	obj/final_s.o obj/ie_to_y.o obj/insert_mark.o obj/isp_trans.o\
+	obj/long_vowel.o obj/mark_e.o obj/medial_s.o obj/member.o\
+	obj/parse.o obj/silent_e.o obj/stress.o obj/suffix.o\
+	obj/syllabify.o obj/vowel_before.o obj/word_list.o\
+	obj/categories.o obj/diphone_module.o obj/evaluate.o\
+	obj/phoneDescription.o obj/rule.o obj/template.o\
+	obj/literal_check.o parser_module/parser_module.a
+CC = cc
+
+#ENCFLAG = -DNOENC
+ENCFLAG = -DYESENC
+CFLAGS = -g -O -DV3
+OFILE_DIR = obj
+LIBS = -lsys_s -ldsp_s -lNeXT_s
+#LIBS = -lsys_s -lNeXT_s
+
+
+out: $(OFILES)
+#	cc $(CFLAGS) $(OFILES) /research/source/speechdict/Dictionary_Index1.o -o out $(LIBS)
+#	cc $(CFLAGS) $(OFILES) /Accounts/schock/.speechlibrary/file2.o -o out $(LIBS)
+	cc $(CFLAGS) $(OFILES) /Accounts/schock/.speechlibrary/IndexA-DL-R.o -o out $(LIBS) parser_module/parser_module.a
+
+parser_module/parser_module.a:
+	(cd parser_module ; $(MAKE))
+
+obj/delta_calc.o: delta_calc.c
+	cc -c $(CFLAGS) delta_calc.c -o obj/delta_calc.o
+
+obj/normal_dist.o: normal_dist.c
+	cc -c $(CFLAGS) normal_dist.c -o obj/normal_dist.o
+
+obj/structs.o:structs.c
+	cc -c $(CFLAGS) structs.c -o obj/structs.o
+
+obj/Messages.o:Messages.c
+	cc -c $(CFLAGS) Messages.c -o obj/Messages.o
+
+obj/server.o:server.c
+	cc -c $(CFLAGS) server.c -o obj/server.o
+
+obj/server_handler.o:server_handler.c
+	cc -c $(CFLAGS) server_handler.c -o obj/server_handler.o
+
+obj/main.o:main.c
+	cc -c $(CFLAGS) main.c -o obj/main.o
+
+obj/synthesizer_module.o:synthesizer_module.c
+	cc -c $(CFLAGS) synthesizer_module.c -o obj/synthesizer_module.o
+
+obj/cache.o:parser/cache.c
+	cc -c $(CFLAGS) parser/cache.c -o obj/cache.o
+
+obj/hash.o:parser/hash.c
+	cc -c $(CFLAGS) parser/hash.c -o obj/hash.o
+
+obj/lookup.o:parser/lookup.c
+	cc -c $(CFLAGS) parser/lookup.c -o obj/lookup.o
+
+obj/number_parse.o:parser/number_parse.c
+	cc -c $(CFLAGS) parser/number_parse.c -o obj/number_parse.o
+
+obj/parser.o:parser/parser.c
+	cc -c $(CFLAGS) parser/parser.c -o obj/parser.o
+
+obj/search.o:parser/search.c
+	cc -c $(ENCFLAG) $(CFLAGS) parser/search.c -o obj/search.o
+
+obj/aug_search.o:parser/aug_search.c
+	cc -c $(CFLAGS) parser/aug_search.c -o obj/aug_search.o
+
+obj/transcribe.o:parser/transcribe.c
+	cc -c $(CFLAGS) parser/transcribe.c -o obj/transcribe.o
+
+obj/util.o:parser/util.c
+	cc -c $(CFLAGS) parser/util.c -o obj/util.o
+
+obj/literal_check.o: parser/literal_check.c parser/literal_check.h
+	cc -c $(CFLAGS) parser/literal_check.c -o obj/literal_check.o
+
+obj/by_rule.o:text2/by_rule.c
+	cc -c $(CFLAGS) text2/by_rule.c -o obj/by_rule.o
+
+obj/ends_with.o:text2/ends_with.c
+	cc -c $(CFLAGS) text2/ends_with.c -o obj/ends_with.o
+
+obj/final_s.o:text2/final_s.c
+	cc -c $(CFLAGS) text2/final_s.c -o obj/final_s.o
+
+obj/ie_to_y.o:text2/ie_to_y.c
+	cc -c $(CFLAGS) text2/ie_to_y.c -o obj/ie_to_y.o
+
+obj/insert_mark.o:text2/insert_mark.c
+	cc -c $(CFLAGS) text2/insert_mark.c -o obj/insert_mark.o
+
+obj/isp_trans.o:text2/isp_trans.c
+	cc -c $(CFLAGS) text2/isp_trans.c -o obj/isp_trans.o
+
+obj/long_vowel.o:text2/long_vowel.c
+	cc -c $(CFLAGS) text2/long_vowel.c -o obj/long_vowel.o
+
+obj/mark_e.o:text2/mark_e.c
+	cc -c $(CFLAGS) text2/mark_e.c -o obj/mark_e.o
+
+obj/medial_s.o:text2/medial_s.c
+	cc -c $(CFLAGS) text2/medial_s.c -o obj/medial_s.o
+
+obj/member.o:text2/member.c
+	cc -c $(CFLAGS) text2/member.c -o obj/member.o
+
+obj/parse.o:text2/parse.c
+	cc -c $(CFLAGS) text2/parse.c -o obj/parse.o
+
+obj/silent_e.o:text2/silent_e.c
+	cc -c $(CFLAGS) text2/silent_e.c -o obj/silent_e.o
+
+obj/stress.o:text2/stress.c
+	cc -c $(CFLAGS) text2/stress.c -o obj/stress.o
+
+obj/suffix.o:text2/suffix.c
+	cc -c $(CFLAGS) text2/suffix.c -o obj/suffix.o
+
+obj/syllabify.o:text2/syllabify.c
+	cc -c $(CFLAGS) text2/syllabify.c -o obj/syllabify.o
+
+obj/vowel_before.o:text2/vowel_before.c
+	cc -c $(CFLAGS) text2/vowel_before.c -o obj/vowel_before.o
+
+obj/word_list.o:text2/word_list.c
+	cc -c $(CFLAGS) text2/word_list.c -o obj/word_list.o
+
+obj/categories.o: diphones/categories.c diphones/categories.h
+	cc -c $(CFLAGS) diphones/categories.c -o obj/categories.o
+
+obj/diphone_module.o: diphones/diphone_module.c diphones/diphone_module.h
+	cc -c $(CFLAGS) diphones/diphone_module.c -o obj/diphone_module.o
+
+obj/evaluate.o: diphones/evaluate.c diphones/evaluate.h
+	cc -c $(CFLAGS) diphones/evaluate.c -o obj/evaluate.o
+
+obj/phoneDescription.o: diphones/phoneDescription.c diphones/phoneDescription.h
+	cc -c $(CFLAGS) diphones/phoneDescription.c -o obj/phoneDescription.o
+
+obj/rule.o: diphones/rule.c diphones/rule.h
+	cc -c $(CFLAGS) diphones/rule.c -o obj/rule.o
+
+obj/template.o: diphones/template.c diphones/template.h
+	cc -c $(CFLAGS) diphones/template.c -o obj/template.o

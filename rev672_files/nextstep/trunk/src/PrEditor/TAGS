@@ -1,0 +1,87 @@
+
+PrEditorApp.m,97
+static id documentInWindow(72,1719
+static id findDocument(82,2017
+static void initMenu(43,795
+
+PrEditorDocument.m,78
+static inline void setList(61,1678
+static inline char *setWordtype(191,4674
+
+PrDict.m,32
+static void quicksort(136,2856
+
+MyText.m,0
+
+Speech.m,110
+@implementation TextToSpeech(32,822
+static inline void escapechars(60,1521
+static inline int parse(82,2002
+
+PrDictViewer.m,0
+
+InspectorMgr.m,0
+
+NiftyMatrix.m,27
+#define stopTimer(43,1081
+
+NiftyMatrixCat.m,36
+@implementation NiftyMatrix(23,420
+
+NiftyMatrixCell.m,0
+
+EnglishText.m,41
+unsigned short englishCharFilter(31,576
+
+KeyboardController.m,33
+inline static int search(45,796
+
+KeyboardText.m,42
+unsigned short keyboardCharFilter(36,732
+
+PrefMgr.m,46
+#define STR(42,899
+#define STRINGIFY(41,871
+
+CustSliderCell.m,0
+
+CustSlider.m,0
+
+InfoMgr.m,0
+
+Help.m,0
+
+TextFieldCat.m,34
+@implementation TextField(16,248
+
+PrEditor_main.m,18
+void main(20,304
+
+conversion.c,261
+#define DELIMITER(23,426
+void PrToTTS(133,2869
+char *PreditorToTTS(122,2626
+char *TTSToPreditor(184,4058
+static inline int findPreditor(95,2059
+static inline int findTTS(110,2369
+int main(453,10042
+char *pronunciation(395,9148
+char *word_type(430,9697
+
+hash.c,78
+main(86,2102
+const char typecode(75,1827
+static inline int typehash 34,636
+
+conversion.h,0
+
+hash.h,0
+
+objc-debug.h,83
+#define DEBUG_ASSERT(30,650
+#define DEBUG_PUTS(27,589
+#define DEBUG_PUTS(39,961
+
+phone_conversion.h,0
+
+word_types.h,0

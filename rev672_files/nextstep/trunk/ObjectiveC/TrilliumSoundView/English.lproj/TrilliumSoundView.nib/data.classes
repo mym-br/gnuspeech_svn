@@ -1,0 +1,37 @@
+FirstResponder = {
+    ACTIONS = {
+    };
+    SUPERCLASS = Object;
+};
+TSRSoundView = {
+    ACTIONS = {
+	syncLeftRightAmplitude:;
+	normalizeScaleLeft:;
+	windowStartRight:;
+	windowStartLeft:;
+	fullScaleLeft:;
+	syncLeftRightWidth:;
+	fullScaleRight:;
+	syncLeftRightEnd:;
+	setProportionSlider:;
+	normalizeScaleRight:;
+	syncLeftRightStart:;
+	loadSoundfile:;
+    };
+    OUTLETS = {
+	leftTimeStartField;
+	numSamplesField;
+	rightSamStartField;
+	durationField;
+	leftScaleField;
+	rightSamEndField;
+	leftTimeEndField;
+	leftSamStartField;
+	rightTimeEndField;
+	rightTimeStartField;
+	leftSamEndField;
+	sound;
+	rightScaleField;
+    };
+    SUPERCLASS = View;
+};

@@ -1,0 +1,86 @@
+FirstResponder = {
+    ACTIONS = {
+    };
+    SUPERCLASS = Object;
+};
+WindowController = {
+    ACTIONS = {
+	displayInfoWindow:;
+	setCurrentFFTController:;
+	gridDisplay:;
+	newDocument:;
+	logScale:;
+	localUpdateControlPanel:;
+	linearScale:;
+	updateControlPanel:;
+	changeGridTime:;
+	appDidInit:;
+	changeGridFreq:;
+	changeMaxSlider:;
+	updateControlPanelSize:;
+	changeMinSlider:;
+	setIntStuff:;
+	doAnalysis:;
+    };
+    OUTLETS = {
+	windowShapeCoef;
+	freqResolution;
+	newFFT;
+	timeInterval;
+	maxFFTValueField;
+	windowSize;
+	windowSlide;
+	scalingSliderMin;
+	numSamplesField;
+	freqInterval;
+	currentFFTController;
+	infoWindow;
+	numWindowsField;
+	displaySwitch;
+	timeResolution;
+	samplingRateField;
+	scaleMax;
+	scaleMin;
+	scalingSliderMax;
+	myWindow;
+	windowShape;
+    };
+    SUPERCLASS = Object;
+};
+TSRSoundView = {
+    ACTIONS = {
+	syncLeftRightAmplitude:;
+	normalizeScaleLeft:;
+	windowStartRight:;
+	windowStartLeft:;
+	fullScaleLeft:;
+	syncLeftRightWidth:;
+	fftLeftSelection:;
+	fullScaleRight:;
+	fftRightChannel:;
+	syncLeftRightEnd:;
+	fftLeftChannel:;
+	setProportionSlider:;
+	normalizeScaleRight:;
+	syncLeftRightStart:;
+	fftRightSelection:;
+	loadSoundfile:;
+    };
+    OUTLETS = {
+	leftTimeStartField;
+	numSamplesField;
+	windowController;
+	rightSamStartField;
+	durationField;
+	leftScaleField;
+	rightSamEndField;
+	leftTimeEndField;
+	leftSamStartField;
+	rightTimeEndField;
+	rightTimeStartField;
+	leftSamEndField;
+	sound;
+	rightScaleField;
+    };
+    SUPERCLASS = View;
+};

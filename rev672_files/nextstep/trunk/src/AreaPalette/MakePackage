@@ -1,0 +1,97 @@
+#  REVISION INFORMATION  *****************************************************
+#
+#  $Author: rao $
+#  $Date: 2002-03-21 16:49:51 $
+#  $Revision: 1.1 $
+#  $Source: /Users/dalmazio/cvsroot/gnuspeech/trillium/src/AreaPalette/MakePackage,v $
+#  $State: Exp $
+#
+#
+#  $Log: not supported by cvs2svn $
+# Revision 1.1.1.1  1993/09/27  19:34:53  len
+# Initial archiving of AreaPalette source code.
+#
+#
+#*****************************************************************************
+
+
+# These are the files to be packaged
+set library = /usr/local/lib/libAreaPalette.a
+set header1 = /usr/local/include/Area/Area.h
+set header2 = /usr/local/include/Area/AreaCell.h
+set palette = /LocalDeveloper/Palettes/AreaPalette.palette
+
+# Use Installer's tar by default
+set tar = /NextAdmin/Installer.app/installer_tar
+
+# Set various file names
+set root = AreaPalette
+set info = $root.info
+set tiff = $root.tiff
+set pkg = $root.pkg
+set pkgTar = $pkg/$root.tar
+set pkgArchive = $pkg/$root.tar.Z
+set pkgBom = $pkg/$root.bom
+set pkgInfo = $pkg/$root.info
+set pkgTiff = $pkg/$root.tiff
+set pkgSizes = $pkg/$root.sizes
+
+# create package directory
+echo Generating Installer package $pkg ...
+if ( -e $pkg ) /bin/rm -rf $pkg
+/bin/mkdirs -m 755 $pkg
+
+# tar and compress files, generate bom file
+echo 	"	creating package archive ... "
+$tar cf - $library $header1 $header2 $palette > $pkgTar
+echo -n "	generating bom file ... "
+$tar -tvf $pkgTar > $pkgBom
+/bin/chmod 444 $pkgBom
+echo done.
+/usr/ucb/compress -f $pkgTar
+/bin/chmod 444 $pkgArchive
+echo	"	... package archive done."
+
+# copy info file to package
+echo -n "	copying ${info:t} ... "
+/bin/cp $info $pkgInfo
+/bin/chmod 444 $pkgInfo
+echo done.
+
+# copy tiff file to package
+echo -n "	copying ${tiff:t} ... "
+/bin/cp $tiff $pkgTiff
+/bin/chmod 444 $pkgTiff
+echo done.
+	
+# generate sizes file
+echo -n "	generating sizes file ... "
+
+# compute number of files in package
+set numFiles = `/usr/ucb/wc -l <$pkgBom`
+
+# compute package size when compressed
+@ compressedSize = `/bin/du -s $pkg | /bin/awk '{print $1}'`
+@ compressedSize += 3		# add 1KB each for sizes, location, status files
+
+@ infoSize = `/bin/ls -s $pkgInfo | /bin/awk '{print $1}'`
+@ bomSize = `/bin/ls -s $pkgBom | /bin/awk '{print $1}'`
+@ tiffSize = `/bin/ls -s $pkgTiff | /bin/awk '{print $1}'`
+
+@ installedSize = `/bin/ls -s $library | /bin/awk '{print $1}'`
+@ installedSize += `/bin/ls -s $header1 | /bin/awk '{print $1}'`
+@ installedSize += `/bin/ls -s $header2 | /bin/awk '{print $1}'`
+@ installedSize += `/bin/ls -s $library | /bin/awk '{print $1}'`
+@ installedSize += $infoSize + $bomSize + $tiffSize + 3
+
+# echo size parameters to sizes file
+echo NumFiles $numFiles > $pkgSizes
+echo InstalledSize $installedSize >> $pkgSizes
+echo CompressedSize $compressedSize >> $pkgSizes
+echo done.
+echo " ... finished generating $pkg."
+
+exit(0)
+
+# end package
+	

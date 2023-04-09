@@ -1,0 +1,16 @@
+FirstResponder = {
+    ACTIONS = {
+    };
+    SUPERCLASS = Object;
+};
+MyController = {
+    ACTIONS = {
+	appDidInit:;
+	displayInfoPanel:;
+    };
+    OUTLETS = {
+	inspectorController;
+	infoPanel;
+    };
+    SUPERCLASS = Object;
+};

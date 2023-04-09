@@ -1,0 +1,63 @@
+
+2009-04-28
+
+
+
+OVERVIEW
+========
+
+GnuSpeech is an extensible, text-to-speech package, based on real-time,
+articulatory, speech-synthesis-by-rules
+(see http://www.gnu.org/software/gnuspeech/).
+
+GnuSpeech is distributed under the terms of the GNU General Public License
+(see the file COPYING).
+
+This directory contains the source code of the GNUstep version. Other
+files are available in: http://savannah.gnu.org/projects/gnuspeech.
+
+
+
+HINTS
+=====
+
+- To convert text to phonemes, run:
+
+	openapp PreMo
+
+	Tools / Text to Phone String
+
+- To convert text to speech using a GUI, run:
+
+	openapp Monet
+
+	File / Open
+		Select ./Applications/Monet/diphones.mxml.
+	Tools / Intonation Parameters
+		In Intonation Control:
+			Select Macro / Micro / Drift.
+	Tool / Synthesis Window
+		Select or enter the text into the "Text String" field.
+		Click on "Synthesize".
+		or
+		Click on "Synthesize to sound file...".
+			Select the path / file name (the File Type selection
+			is not working; the file will be created in AU format).
+
+- To convert text to speech using a command-line tool:
+
+	Execute the script:
+		~/GNUstep/Library/Tools/Resources/GnuSpeechCLI/gnuspeechcli.sh
+		(this script is just an example)
+
+- To use Synthesizer:
+
+	Configure the system to allow real-time scheduling for "openapp".
+	(see http://jackaudio.org/faq
+	 or set_rlimits: http://www.physics.adelaide.edu.au/~jwoithe/)
+
+	Start the JACK server (for example with QjackCtl).
+	The latency must not be set too low.
+
+	Run:
+	openapp Synthesizer

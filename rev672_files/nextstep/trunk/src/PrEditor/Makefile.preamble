@@ -1,0 +1,30 @@
+#*
+#*    Filename:	Makefile.preamble 
+#*    Created :	Wed Jan  8 23:35:36 1992 
+#*    Author  :	Vince DeMarco
+#*		<vince@whatnxt.cuc.ab.ca>
+#*
+#*
+#* LastEditDate "Mon Jun  8 18:45:07 1992"
+#*
+#* $Log: not supported by cvs2svn $
+# Revision 2.2  92/08/16  11:00:57  len
+# Got rid of "Beta" in version string
+# 
+# Revision 2.1  1992/06/10  14:04:58  vince
+# .Added more __RTF segements, because more documentation
+# has been added to the Help window
+#
+# Revision 2.0  1992/04/08  03:43:23  vince
+# Initial-Release
+#
+#*
+
+
+CFLAGS  = -pipe -DPREDITORVERSION='"3.0.0"' #-DDEBUG
+LDFLAGS = -segcreate __RTF What           ./PrDocumentation/What.rtf         \
+          -segcreate __RTF Entering       ./PrDocumentation/Entering.rtf     \
+          -segcreate __RTF Phonetic       ./PrDocumentation/Phonetic.rtf     \
+          -segcreate __RTF Pronunciation  ./PrDocumentation/Pronunciation.rtf\
+	  -segcreate __RTF Setting        ./PrDocumentation/Setting.rtf      \
+	  -segcreate __RTF Bugs           ./PrDocumentation/Bugs.rtf

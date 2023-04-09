@@ -1,0 +1,58 @@
+/*  REVISION INFORMATION  *****************************************************
+
+$Author: rao $
+$Date: 2002-03-21 16:49:51 $
+$Revision: 1.1 $
+$Source: /Users/dalmazio/cvsroot/gnuspeech/trillium/src/AreaPalette/README,v $
+$State: Exp $
+
+
+$Log: not supported by cvs2svn $
+# Revision 1.1.1.1  1993/09/27  19:34:55  len
+# Initial archiving of AreaPalette source code.
+#
+# Revision 1.1.1.1  1993/09/27  18:22:26  len
+# Area Palette source code first archived.
+#
+
+******************************************************************************/
+
+
+This directory contains the source code for creating
+AreaPalette.palette, plus the associated installer package.  To create
+the palette, click "build" in the builder panel in ProjectBuilder
+(the "palette" target should be used).  Alternatively, you can type
+"make palette" in a terminal shell.
+
+The make process described above will create the library
+"libAreaPalette.a" in the ./lib subdirectory, and will also copy the
+include files "Area.h" and "AreaCell.h" into the ./headerFiles
+subdirectory.
+
+The RootInstall shell script is used to copy the library, include
+files, and palette into appropriate final locations in the file
+heirarchy.  These locations are:
+
+	/usr/local/lib/libAreaPalette.a
+	/usr/local/include/Area/Area.h
+	/usr/local/include/Area/AreaCell.h
+	/LocalDeveloper/Palettes/AreaPalette.palette
+
+As the name implies, this script must be run as root.
+
+Once the files are installed in their proper places, an Installer
+package can be created by running the MakePackage shell script.  This
+script need not be run as root.  It creates the package called
+AreaPalette.pkg.  This package can be copied to optical or floppy
+disk, for distribution to other computers.  The package must be
+installed as root.
+
+To use the AreaPalette, start up InterfaceBuilder and click on the
+"Load Palette..." sub-menu item, under the "Tools" main menu item.
+Find the file /LocalDeveloper/Palettes/AreaPalette.palette, and click
+the OK button.  InterfaceBuilder will then load the palette.
+
+If you incorporate the Area control into your application, be sure to
+add the AreaPalette library to your project.  This can be done in
+Project Builder by double clicking on the "Libraries" icon in the
+Files panel, and choosing the libAreaPalette.a file in /usr/local/lib.

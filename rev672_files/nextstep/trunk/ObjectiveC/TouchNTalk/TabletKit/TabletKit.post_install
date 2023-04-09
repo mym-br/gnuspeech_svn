@@ -1,0 +1,23 @@
+#! /bin/sh
+
+#
+# TabletKit.post_install only works as root.
+#
+
+echo
+
+osversion="`hostinfo | sed '/NeXT\ Mach\ / !d' | \
+	awk -F: '{print $1}' | awk -F\  '{print $3}'`"
+
+if [ -f /LocalDeveloper/Libraries/libtabletkit.a ] ; then
+	echo -n "        Rebuilding library table of contents ... " ;
+	ranlib /LocalDeveloper/Libraries/libtabletkit.a ;
+	echo "OK." ;
+	echo -n "        Creating /usr/local/lib/libtabletkit.a link ... " ;
+	mkdirs /usr/local/lib ;
+	ln -s /LocalDeveloper/Libraries/libtabletkit.a \
+		/usr/local/lib/libtabletkit.a ;
+	echo "OK." ;
+fi
+
+echo    "    ... done."

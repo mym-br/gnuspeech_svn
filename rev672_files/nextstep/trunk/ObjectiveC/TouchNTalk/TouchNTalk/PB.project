@@ -1,0 +1,32 @@
+INSTALLDIR = "$(HOME)/Apps";
+APPICON = TouchNTalk.tiff;
+GENERATEMAIN = YES;
+DOCICONFILES = (TNTDocument.tiff);
+FILESTABLE = {
+    TOOLS = (Publisher.tproj);
+    M_FILES = (TouchNTalk_main.m);
+    OTHER_LINKED = ();
+    H_FILES = (conversion.h, DSPTone.h, dsp_control.h, EnglishConstruct.h, FileListing.h, GestureExpert.h, oversampling_filter.h, Publisher.tproj.h, SIL.h, SILSpeaker.h, SILText.h, TabletGroove.h, TabletRegion.h, TabletSurface.h, TactileDisplay.h, TNTControl.h, TNTEventGenerator.h, TNTServer.h, TNTWindow.h, TouchNTalk.h);
+    CLASSES = (DSPTone.m, EnglishConstruct.m, FileListing.m, GestureExpert.m, SIL.m, SILSpeaker.m, SILText.m, TabletGroove.m, TabletRegion.m, TabletSurface.m, TactileDisplay.m, TNTControl.m, TNTEventGenerator.m, TNTServer.m, TNTWindow.m, TouchNTalk.m);
+    IMAGES = (Mark.tiff, SystemCursor.tiff, TNTDocument.tiff, TouchNTalk.tiff, UserCursor.tiff);
+    C_FILES = (conversion.c, dsp_control.c, oversampling_filter.c);
+    OTHER_RESOURCES = (HelpDocument);
+    OTHER_SOURCES = (Makefile.preamble, Makefile, Makefile.postamble, Makefile.dependencies);
+    SUBPROJECTS = ();
+    SOUNDS = (Basso.snd, Bonk.snd, Funk.snd);
+    OTHER_LIBS = (dsp, TextToSpeech, GrooveSlider, tabletkit, Media_s, NeXT_s);
+    INTERFACES = (configureTablet.nib, displayWindow.nib, TouchNTalk.nib);
+};
+APPCLASS = Application;
+MAINNIB = TouchNTalk;
+DOCEXTENSIONS = (tnt);
+PROJECTTYPE = Application;
+PROJECTVERSION = 1.1;
+LOCALIZABLE_FILES = {
+    TouchNTalk.nib;
+    displayWindow.nib;
+    configureTablet.nib;
+};
+PROJECTNAME = TouchNTalk;
+SYSTEMEXTENSIONS = ();
+LANGUAGE = English;

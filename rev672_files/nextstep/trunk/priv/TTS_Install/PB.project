@@ -1,0 +1,23 @@
+INSTALLDIR = "$(HOME)/Apps";
+FILESTABLE = {
+    C_FILES = (buffer.c, munge.c);
+    OTHER_LIBS = (Media_s, NeXT_s);
+    CLASSES = (myController.m);
+    OTHER_SOURCES = (Makefile);
+    H_FILES = (myController.h, rPrimes.h);
+    INTERFACES = (TTS_Developer_Install.nib);
+    OTHER_LINKED = ();
+    M_FILES = (TTS_Developer_Install_main.m);
+};
+GENERATEMAIN = YES;
+DOCICONFILES = ();
+APPCLASS = Application;
+MAINNIB = TTS_Developer_Install;
+DOCEXTENSIONS = ();
+PROJECTTYPE = Application;
+PROJECTVERSION = 1.1;
+LOCALIZABLE_FILES = {
+};
+PROJECTNAME = TTS_Developer_Install;
+SYSTEMEXTENSIONS = ();
+LANGUAGE = English;

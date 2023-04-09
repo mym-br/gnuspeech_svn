@@ -1,0 +1,9 @@
+Title		TextToSpeech Kit Demo.
+Version		Release 2.01
+Description	Demonstration version of the Text-To-Speech Kit.  For NeXT and Intel Computers by Trillium Sound Research Inc.  Run SpeechRegistrar.app for information about registering this demo.
+DefaultLocation /
+DiskName	TextToSpeech#%d
+Relocatable	NO
+Application	NO
+LongFileNames	YES
+UseUserMask	NO

@@ -1,0 +1,24 @@
+INSTALLDIR = "$(HOME)/Apps";
+FILESTABLE = {
+    OTHER_LIBS = (Media_s, NeXT_s, TextToSpeech, TextToSpeechDemo, TextToSpeechPriority);
+    CLASSES = (MyController.m);
+    OTHER_SOURCES = (Makefile.preamble, Makefile, Makefile.postamble);
+    H_FILES = (MyController.h);
+    INTERFACES = (SpeechRegistrar.nib);
+    OTHER_LINKED = ();
+    M_FILES = (SpeechRegistrar_main.m);
+};
+APPICON = Trillium.tiff;
+GENERATEMAIN = YES;
+DOCICONFILES = ();
+APPCLASS = Application;
+MAINNIB = SpeechRegistrar;
+DOCEXTENSIONS = ();
+PROJECTTYPE = Application;
+PROJECTVERSION = 1.1;
+LOCALIZABLE_FILES = {
+    SpeechRegistrar.nib;
+};
+PROJECTNAME = SpeechRegistrar;
+SYSTEMEXTENSIONS = ();
+LANGUAGE = English;

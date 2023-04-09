@@ -1,0 +1,50 @@
+{
+    "## Comment" = "Do NOT change this file, Gorm maintains it";
+    FirstResponder = {
+	Actions = (
+	    "addPosture:",
+	    "removePosture:",
+	    "useDefaultValueForMetaParameter:",
+	    "useDefaultValueForParameter:",
+	    "useDefaultValueForSymbol:"
+	);
+	Super = NSObject;
+    };
+    MExtendedTableView = {
+	Actions = (
+	);
+	Outlets = (
+	);
+	Super = NSTableView;
+    };
+    MPostureEditor = {
+	Actions = (
+	    "addPosture:",
+	    "useDefaultValueForSymbol:",
+	    "removePosture:",
+	    "useDefaultValueForParameter:",
+	    "useDefaultValueForMetaParameter:"
+	);
+	Outlets = (
+	    useDefaultParameterButton,
+	    metaParameterTableView,
+	    categoryTableView,
+	    useDefaultSymbolButton,
+	    symbolTableView,
+	    postureTotalTextField,
+	    removePostureButtonCell,
+	    postureTableView,
+	    parameterTableView,
+	    useDefaultMetaParameterButton,
+	    postureCommentTextView
+	);
+	Super = MWindowController;
+    };
+    MWindowController = {
+	Actions = (
+	);
+	Outlets = (
+	);
+	Super = NSWindowController;
+    };
+}

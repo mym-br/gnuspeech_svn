@@ -1,0 +1,216 @@
+head	1.6;
+access;
+symbols;
+locks;
+comment	@ * @;
+
+
+1.6
+date	94.06.03.19.28.24;	author dale;	state Exp;
+branches;
+next	1.5;
+
+1.5
+date	93.06.25.23.38.25;	author dale;	state Exp;
+branches;
+next	1.4;
+
+1.4
+date	93.06.04.20.57.48;	author dale;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	93.06.04.07.18.00;	author dale;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	93.06.01.08.03.24;	author dale;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	93.05.30.08.24.27;	author dale;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.6
+log
+@Changed "LastEditDate" to "Last modified on" within header.
+@
+text
+@/*
+ *    Filename:	BookmarkNode.h 
+ *    Created :	Sat May 29 22:39:47 1993 
+ *    Author  :	Dale Brisinda
+ *		<dale@@pegasus.cuc.ab.ca>
+ *
+ *    Last modified on "Fri Jun 25 16:09:57 1993"
+ *
+ * $Id: BookmarkNode.h,v 1.5 1993/06/25 23:38:25 dale Exp $
+ *
+ * $Log: BookmarkNode.h,v $
+ * Revision 1.5  1993/06/25  23:38:25  dale
+ * *** empty log message ***
+ *
+ * Revision 1.4  1993/06/04  20:57:48  dale
+ * *** empty log message ***
+ *
+ * Revision 1.3  1993/06/04  07:18:00  dale
+ * *** empty log message ***
+ *
+ * Revision 1.2  1993/06/01  08:03:24  dale
+ * *** empty log message ***
+ *
+ * Revision 1.1  1993/05/30  08:24:27  dale
+ * Initial revision
+ *
+ */
+
+#import <objc/Object.h>
+
+@@interface BookmarkNode:Object
+{
+    char name[256];   // holds the name of the bookmark
+    int pageNumber;   // holds the page number of the bookmark
+}
+
+/* GENERAL METHODS */
+- init;
+- free;
+
+/* ARCHIVING METHODS */
+- awake;
+- read:(NXTypedStream *)typedStream;
+- write:(NXTypedStream *)typedStream;
+
+/* SET METHODS */
+- setName:(const char *)name;
+- setPageNumber:(int)pageNum;
+
+/* QUERY METHODS */
+- (const char *)name;
+- (int)pageNumber;
+
+@@end
+@
+
+
+1.5
+log
+@*** empty log message ***
+@
+text
+@d7 1
+a7 1
+ *    LastEditDate was "Fri Jun 25 16:09:57 1993"
+d9 1
+a9 1
+ * $Id: BookmarkNode.h,v 1.4 1993/06/04 20:57:48 dale Exp $
+d12 3
+@
+
+
+1.4
+log
+@*** empty log message ***
+@
+text
+@d7 1
+a7 1
+ *    LastEditDate was "Fri Jun  4 12:18:59 1993"
+d9 1
+a9 1
+ * $Id: BookmarkNode.h,v 1.3 1993/06/04 07:18:00 dale Exp $
+d12 3
+@
+
+
+1.3
+log
+@*** empty log message ***
+@
+text
+@d7 1
+a7 1
+ *    LastEditDate was "Thu Jun  3 16:35:32 1993"
+d9 1
+a9 1
+ * $Id: BookmarkNode.h,v 1.2 1993/06/01 08:03:24 dale Exp $
+d12 3
+d23 1
+a23 1
+#import <appkit/appkit.h>
+d27 2
+a28 2
+    char bookmarkName[256];   // holds the name of the bookmark
+    int pageNumber;           // holds the page number of the bookmark
+d41 1
+a41 1
+- setBookmarkName:(const char *)name;
+d45 1
+a45 1
+- (const char *)bookmarkName;
+@
+
+
+1.2
+log
+@*** empty log message ***
+@
+text
+@d7 1
+a7 1
+ *    LastEditDate was "Sun May 30 14:25:17 1993"
+d9 1
+a9 1
+ * $Id: BookmarkNode.h,v 1.1 1993/05/30 08:24:27 dale Exp $
+d12 3
+a19 7
+/* The instance variable bookmark holds the name of the bookmark for the page number held in the
+ * inherited instance variable start. Since the bookmark refers to the page for which it is 
+ * associated, querying for the end variable returns the same value as querying for the start
+ * variable -- the page number of this bookmark. Setting end has been overriden to have no effect.
+ * Also, querying for the length of this so called "node" results in 1 always being returned.
+ */
+
+a20 1
+#import "Node.h"
+d22 1
+a22 1
+@@interface BookmarkNode:Node
+d24 2
+a25 1
+    char bookmark[256];   // holds the name of the bookmark
+d38 2
+a39 2
+- setBookmark:(const char *)name;
+- setEnd:(int)end;
+d42 2
+a43 1
+- (const char *)bookmark;
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d7 1
+a7 1
+ *    LastEditDate was "Sat May 29 23:01:07 1993"
+d9 1
+a9 1
+ * $Id$
+d11 4
+a14 1
+ * $Log$
+d47 2
+@

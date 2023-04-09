@@ -1,0 +1,6 @@
+Class = GrooveSliderPalette;				/* (a subclass of IBPalette) */
+NibFile = GrooveSlider;					/* (a nib file name) */
+Icon = GrooveSlider;					/* (a tiff/eps file name) */
+ExportClasses = (GrooveSlider, GrooveSliderCell);	/* (a list of class names) */
+/* ExportImages = ();			(a list of icon names) */
+/* ExportSounds = ();			(a list of sound names) */

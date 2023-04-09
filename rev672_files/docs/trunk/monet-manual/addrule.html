@@ -1,0 +1,341 @@
+<!DOCTYPE HTML PUBLIC *-//W3C//DTD HTML 4.0 Transitional//EN*><HTML>
+<HEAD>
+<TITLE>MONET speech synthesis: adding a new rule to the database</TITLE>
+</HEAD>
+
+<BODY ALINK=Green VLINK=Purple LINK=Blue>
+
+<CENTER>
+<H1>
+How to add a new rule to the database and manage prototypes using MONET facilities</H1>
+</P>
+</CENTER>
+
+<A NAME="addrulintro">
+<P>
+It is necessary to add a new rule to the rule base when it is determined that the existing rule base fails to provide an acceptable rule or set of rules set for the parameter variations required for some combination of postures.  Adding new rules often involves adding new <I>Transition Prototypes</I> and <I>Equation Protytpes</I>, which are invoked when the rules are triggered by the input parsing mechanism.  The rule must be defined, and the <I>Equations</I> and <I>Transition Profiles</I> for all transitions and time points must be selected or created and named.
+</P>
+
+<P>
+For simpler situations, such as when it is required to produce a systematic change in timing of events or the trajectory of articulations in order to generate systematically varying stimuli for psychophysical experimentation, simply adding new timing symbols governed by new <I>Equations</I> or adding new <I>Transition Prototypes</I>, using the <I>Prototype Manager</I>, as appropriate, may be all that is required. The timing symbols can then be substituted for the regular symbols, in a systematic way, to create a succession of stimuli in which all factors are closely controlled.  Thus, for example, the release burst, aspiration, and voicing onset may be systematically varied as part of an experiment on the effect of changes in relative timing of release noise and voicing onset.  If, on the other hand, the trajectory of articulations were being investigated (as in studying the effect of ageing on articulation), then new <I>Transition Prototypes</I> would be required, and could be systematically substituted for the regular prototypes in successive stimulus synthesis by editing the rule to invoke each in turn.  As previously noted, this process should be somewhat automated to make it more convenient, but this has not yet been done.
+</P>
+
+<P>
+This section covers the basic requirements for performing the above tasks for the purposes stated, or for similar purposes.
+</P>
+
+<A NAME="addrul01">
+
+<A HREF ="./images/addrul/addrul01.jpg" TARGET="new2"><IMG SRC="./images/addrul/.thumbnails/addrul01.aa.jpg.png" ALIGN=left HSPACE=60 VSPACE=10>
+</A>
+<SPACER TYPE=vertical SIZE=10>
+
+<P>
+<A HREF="images/addrul/addrul01.jpg" TARGET="new2"><STRONG>Fig 1:</STRONG> <I>The Rule Builder window: adding a new rule specific to the Canadian "Eh!"</I></A><BR>
+<FONT SIZE=-1>(Original Rule 1 highlighted, with the four elements of the new rule entered in the appropriate "Expressions" fields.  Note the "Total Matches" windows provide a listing of the posture matching each element, and the total number of combinations is provided)
+</P>
+</FONT>
+
+<P>
+Figure 1 shows the <I>Rule Builder</I> window with Rule 1 of the original <I>diphones.monet</I> database highlighted.  For demonstration purposes, a new rule is in the process of being added to cover the correct Canadian pronunciation of "Eh!".  This we will suppose requires (for the first time in this database development) a <B>Tetraphone</B> -- which means a rule able to consume four postures.  The new rule thus has four elements.  These are shown where they have been entered in the four text fields in the <I>Expressions</I> area of the <I>Rule Builder</I> window.  Four sub-windows in this area show, for each element, which of the defined postures matches the specified element, for each of the four positions, and a further field indicates the total number of combinations.  The <B>Add Expression</B> button is in the process of being clicked to add the rule.
+</P>
+
+<P>Note that the top field in the same area provides feedback.  The user wrongly typed "silence*" in the fourth field (there is no such thing as a "marked silence" only "unmarked silence", so the wild card "*" did not match the elements in the database.
+</P>
+
+<P>
+
+
+<BR CLEAR=left>
+<SPACER TYPE=vertical SIZE=10>
+
+
+<A NAME="addrul02.jpg">
+
+<A HREF ="./images/addrul/addrul02.jpg" TARGET="new2"><IMG SRC="./images/addrul/.thumbnails/addrul02.aa.jpg.png" ALIGN=left HSPACE=60 VSPACE=10>
+</A>
+<SPACER TYPE=vertical SIZE=10>
+
+
+<P>
+<A HREF="images/addrul/addrul02.jpg" TARGET="new2"><STRONG>Fig 2:</STRONG> <I>The default insertion position for the new rule</I></A><BR>
+</P>
+
+<P>In Figure 2, the new rule has been added and the user has scrolled down to the end of the ordered list of rules.  It can be seen that the new rule has been inserted in the penultimate position on the list.  The last rule in the list is always the catch-all rule "<I>phone &#62;&#62; phone</I>" whose position cannot be changed.
+</P>
+
+<P>
+The rules are ordered from the more specific to the more general.  A rule that is intended to cover just one word could hardly be more specific, so it is necessary to move this new rule to the number 1 position.  In general, new rules are placed in such a way that they catch their intended targets before the matching process gets down to a more general and less suitable rule.  Ordering the rules is an important, but fairly obvious part of rule development.
+</P
+
+<P>
+
+
+
+<BR CLEAR=left>
+<SPACER TYPE=vertical SIZE=10>
+
+<A NAME="addrul03.jpg">
+
+<A HREF ="./images/addrul/addrul03.jpg" TARGET="new2"><IMG SRC="./images/addrul/.thumbnails/addrul03.aa.jpg.png" ALIGN=left HSPACE=60 VSPACE=10>
+</A>
+<SPACER TYPE=vertical SIZE=10>
+
+
+<P>
+<A HREF="images/addrul/addrul03.jpg" TARGET="new2"><STRONG>Fig 3:</STRONG> <I>The Rule Inspector showing the Rule Duration assigned by default</I></A><BR>
+</P>
+
+<P>Figure 3 shows the inspector panel has become a <I>Rule Inspector</I>.  The <I>Equations</I> selection has been selected from the pull-down menu, which shows the equations governing the basic framework for this rule.  These have been assigned default values.  Double clicking on the <I>Rule Duration</I> equation displays the category and equation name that govens <I>Rule Duration</I>.  This can easily be changed by choosing a different equation name, perhaps from a different category.  A new timing symbol could be defined, and the governing equation created.  A complete new category could be defined for a collection of new equations.  These matters are covered below.
+</P>
+
+<P>
+At this point, it is worth emphasising that whenever something new is defined, default values are assigned to its attributes so that the new entity can be used immediately.  The attributes may then be modified until the new entity it meets whatver requirements are necessary.  Also, as noted in the main body of the <I>MONET</I> manual, the actual <I>usage</I> of equations, transition prototypes and the like can be determined by examining the relevant inspector.  In some inspector views a list of the usage is obtained by the <I>Usage</I> pull-down selection, in others the names of the elements are in bold if they are used, and in normal font if they are not used.  Thus one would expect all equation and prototype symbols named "dud#" to be in normal font, <I>not</I> bold, since they have been renamed because they didn't work and (in the current <I>MONET</I>) could not be removed.
+</P>
+
+
+<BR CLEAR=left>
+<SPACER TYPE=vertical SIZE=10>
+
+<A NAME="addrul04.jpg">
+
+<A HREF ="./images/addrul/addrul04.jpg" TARGET="new2"><IMG SRC="./images/addrul/.thumbnails/addrul04.aa.jpg.png" ALIGN=left HSPACE=60 VSPACE=10>
+</A>
+<SPACER TYPE=vertical SIZE=10>
+
+
+<P>
+<A HREF="images/addrul/addrul04.jpg" TARGET="new2"><STRONG>Fig 4:</STRONG> <I>The Rule Inspector showing the default transition profile assigned for Glottal Volume</I></A><BR>
+</P>
+
+<P>In Figure 4, the inspector pull-down selection for <I>Paramater Prototypes</I> has been selected and the parameter <I>glotVol</I> has been highlighted.  The lower window shows the name of the default prototype assigned -- <I>Tetraphone</I> in the category <I>Defaults</I> -- for controlling the <I>Glottal Volume</I>.  Double clicking on the name of the parameter <I>glotVol</I> brings up the <I>Transition Builder</I> window and shows the form of the parameter control template referred to, as shown in <A HREF ="./images/addrul/addrul08a.jpg" TARGET="new2">Figure 8</A>.
+</P>
+
+<P>
+Note that the default control template (prototype) is very simple, and simply defines linear interpolation from each posture target to the next.  There is no distinction between the quasi-steady state (<I>qss</I>) regions and the transitional regions.  One reason the template is so simple is that is has not been used before, so it has never been made more realistic.  However, it would allow <I>MONET</I> to synthesise an utterance with in which this new rule applied without crashing.  The template could easily be edited to be more realistic, or a new template, specific to this rule (and any others where it proved appropriate), could easily be created.  The elements of such a process appear below, in association with Figures 8 through 11.
+</P>
+
+<BR CLEAR=left>
+<SPACER TYPE=vertical SIZE=10>
+
+<A NAME="addrul05.jpg">
+
+<A HREF ="./images/addrul/addrul05.jpg" TARGET="new2"><IMG SRC="./images/addrul/.thumbnails/addrul05.aa.jpg.png" ALIGN=left HSPACE=60 VSPACE=10>
+</A>
+<SPACER TYPE=vertical SIZE=10>
+
+
+<P>
+<A HREF="images/addrul/addrul05.jpg" TARGET="new2"><STRONG>Fig 5:</STRONG> <I>The Rule Inspector, showing the comment created for the new rule</I></A><BR>
+</P>
+
+<P>
+Figure 5 shows the inspector with <I>Comment</I> selected from the pull-down menu.  A suitable comment has been entered by typing it into the text field and hitting the <I>Set</I> button.
+</P>
+
+
+<BR CLEAR=left>
+<SPACER TYPE=vertical SIZE=10>
+
+<A NAME="addrul06.jpg">
+
+<A HREF="./images/addrul/addrul06.jpg" TARGET="new2"><IMG SRC ="./images/addrul/addrul06.jpg" SIZE HEIGHT=100 WIDTH=70 ALIGN=left HSPACE=60 VSPACE=10>
+</A>
+
+<SPACER TYPE=vertical SIZE=10>
+
+
+<P>
+<A HREF="./images/addrul/addrul06.jpg" TARGET="new2"><STRONG>Fig 6:</STRONG> <I>The Rule Inspector General Information, showing the current position of the new rule, and allowing the position to be changed</I></A><BR>
+</P>
+
+<P>Figure 6 shows the <I>Rule Inspector</I> with <I>General Information</I> selected from the pull-down menu.  The inspector tealls us that the selected rule consumes 4 tokens (each token refers to a posture or category), and that the current position is rule number 47.  The user has entered "1" in the text field associated with <I>Move To</I> and is just clicking the button to reposition the rule.
+
+
+<BR CLEAR=left>
+<SPACER TYPE=vertical SIZE=10>
+
+<A NAME="addrul07a.jpg">
+
+<A HREF ="./images/addrul/addrul07a.jpg" TARGET="new2"><IMG SRC="./images/addrul/.thumbnails/addrul07a.aa.jpg.png" ALIGN=left HSPACE=60 VSPACE=10>
+</A>
+<SPACER TYPE=vertical SIZE=10>
+
+
+<P>
+<A HREF="images/addrul/addrul07a.jpg" TARGET="new2"><STRONG>Fig 7:</STRONG> <I>The Rule Inspector, showing that the new rule has been repositioned, as directed</I></A><BR>
+</P>
+
+<P>
+By scrolling the <I>Rule Builder</I>Window, the user can verify that the new rule has been repositioned and is now rule number 1.  It will be the first rule applied when an input string is being parsed.  The inspector panel also shows the current rule position as rule number 1.
+
+
+<BR CLEAR=left>
+<SPACER TYPE=vertical SIZE=10>
+
+<A NAME="addrul08.jpg">
+
+<A HREF ="./images/addrul/addrul08a.jpg" TARGET="new2"><IMG SRC="./images/addrul/.thumbnails/addrul08a.aa.jpg.png" ALIGN=left HSPACE=60 VSPACE=10>
+</A>
+<SPACER TYPE=vertical SIZE=10>
+
+
+<P>
+<A HREF="images/addrul/addrul08a.jpg" TARGET="new2"><STRONG>Fig 8:</STRONG> <I>Double clicking on the assigned Glottal Volume transition symbol brings up the corresponding Transition Builder window</I></A><BR>
+</P>
+
+<P>
+With the <I>Rule Builder</I> window as key window, the inspector is a <I>Rule Inspector</I>.  Highlighting the new rule, and choosing <I>Parameter Prototypes</I> from the pull-down menu on the inspector allows the user to see what <I>Transition Profile</I> governs the movement of each parameter.  A list of parameters appears in the sub-window in the inspector panel.  As an example, double-clicking <I>glotVol</I> brings up the profile associated with the parameter governing glottal volume.  This is not quite the same as loudness or acoustic intensity because what actually radiates from the nose and lips depends on a variety of factors -- glottal volume is the enrgy input to the tube from the larynx.  However, it is an important component of the radiated energy.  The profile is <I>Tetraphone</I> in the category <I>Defaults</I>.
+</P>
+
+<P>As already noted, the glottal volume transition profile is over-simplified because it has never been used (we are constructing the first <I>Tetraphone</I> rule in the database.  The user can either modify this default (good because it is so unrepresentative; bad because, being simple, it provides a general basis for the creation of new <I>Tetraphone</I> profiles) or create a new profile.  The better choice is to leave the default as it is and create a new profile.  In any case, the variation in glottal volume will be very different to the variation in other parameters.
+</P>
+
+<P>
+
+<BR CLEAR=left>
+<SPACER TYPE=vertical SIZE=10>
+
+<A NAME="addrul09.jpg">
+
+<A HREF ="./images/addrul/addrul09.jpg" TARGET="new2"><IMG SRC="./images/addrul/.thumbnails/addrul09.aa.jpg.png" ALIGN=left HSPACE=60 VSPACE=10>
+</A>
+<SPACER TYPE=vertical SIZE=10>
+
+
+<P>
+<A HREF="images/addrul/addrul09.jpg" TARGET="new2"><STRONG>Fig 9:</STRONG> <I>Defining a new Transition Prototype category</I></A><BR>
+</P>
+
+<P>In Figure 9, the user has begun the process of defining a new category and symbol names for tetraphone parameter profiles.  The <I>Transition Prototype</I> radio button has been selected, the category name <I>Tetraphone</I> typed into the text field, and the <I>New Category</I> button clicked.
+</P>
+
+
+<BR CLEAR=left>
+<SPACER TYPE=vertical SIZE=10>
+
+<A NAME="addrul10.jpg">
+
+<A HREF ="./images/addrul/addrul10a.jpg" TARGET="new2"><IMG SRC="./images/addrul/.thumbnails/addrul10a.aa.jpg.png" ALIGN=left HSPACE=60 VSPACE=10>
+</A>
+<SPACER TYPE=vertical SIZE=10>
+
+
+<P>
+<A HREF="images/addrul/addrul10a.jpg" TARGET="new2"><STRONG>Fig 10:</STRONG> <I>Naming/creating a new Transition Prototype</I></A><BR>
+</P>
+
+<P>
+In figure 10, which shows a portion of the whole screen, the <I>Transition Builder</I>, <I>Prototype Manager</I> and <I>Prototype Transition Inspector</I> can all be clearly seen.  The <I>Rule Builder</I> window is also there, but is mostly obscured by the other items.  The inspector shows that the current transition template (profile) is of type <I>Tetraphone</I> and the <I>Prototype Manager</I> shows that a new category (<I>Tetraphone</I> was created, and a new symbol within that category -- <I>GlotVolForEh</I> -- has just been created by double-clicking on the new symbol in the <I>Prototype Manager</I>.  This brings up the new profile the user is creating to handle the glottal volume parameter for the new rule that is specific to the phone (posture) combination for "Eh!".  Initially the prototype will be a diphone template.  Selecting the <I>Tetraphone</I> radio button on the T<I>Transition Prototype Inspector</I> after selecting <I>General Information</I> changes the template to a simple tetraphone form (i.e. no shaping points).  
+</P>
+
+<BR CLEAR=left>
+<SPACER TYPE=vertical SIZE=10>
+
+<A NAME="addrul11.jpg">
+
+<A HREF ="./images/addrul/addrul11a.jpg" TARGET="new2"><IMG SRC="./images/addrul/.thumbnails/addrul11a.aa.jpg.png" ALIGN=left HSPACE=60 VSPACE=10>
+</A>
+<SPACER TYPE=vertical SIZE=10>
+
+
+<P>
+<A HREF="images/addrul/addrul11a.jpg" TARGET="new2"><STRONG>Fig 11:</STRONG> <I>Building a new Transition Prototype: point inserted & set to value "0" and time "Mark1MinusQssa2By2</I></A><BR>
+</P>
+
+<P>
+Figure 11 shows the results of starting to create a custom template for glottal volume under the new name.  The template may be of general use, or it may be restricted purely to the one highly specific rule for "Eh!", but the process of customising it from the general template is the same.  Each point is added by double clicking on the template percentage change graph; its value is assigned by typing it in to the field in the inspector -- in this case, its value has been set to "0"; and its timing is determined by selecting an existing time point that has an appropriate value -- in this case, <I>Mark1MinusQssa2By2</I>, an exactly descriptive name.  <I>Mark1</I> is the nominal time when the target for posture 2 is achieved, <I>Mark2</I> posture 3, and <I>Rule Duration</I> is the nominal time for the last posture.  Since "Eh!" is an utterance that starts abruptly, with a glottal stop, the voicing onset has been made quite sharp, and close to the nominal steady state time (half the quasi-steady-state time away.  This is a first cut.  If good data were available, this could be used to determine the time.  If the initial settings did not produce the correct result, the settings could easily be changed.  If the process reached a dead end, the process could be terminated, the profile labelled "dud#" and the process retried.  Better editing (the ability to remove points or complete profiles entirely) is a needed improvement, but the current system lacks this simple convenience.
+</P>
+
+<BR CLEAR=left>
+<SPACER TYPE=vertical SIZE=10>
+
+<A NAME="addrul14.jpg">
+
+<A HREF ="./images/addrul/addrul14.jpg" TARGET="new2"><IMG SRC="./images/addrul/.thumbnails/addrul14.aa.jpg.png" ALIGN=left HSPACE=60 VSPACE=10>
+</A>
+<SPACER TYPE=vertical SIZE=10>
+
+
+<P>
+<A HREF="images/addrul/addrul14.jpg" TARGET="new2"><STRONG>Fig 11a:</STRONG> <I>The Transition Builder showing several points have been selected and subjected to a slope ratio constraint</I></A><BR>
+</P>
+
+
+
+<P>
+As previously noted, the values assigned to the points in the transition graph (profile) can be determined by imposing a slope ratio on the graph segments, rather than assigning absolute percentage values to the points.
+</P>
+
+<P>
+The number of points needed to achieve the control required is determined, and the points are added as before.  A "box" is then drawn around the points using the cursor to define the first corner of the box by clicking, followed by dragging to the diagonally opposite corner of the box.  On releasing the mouse button, the points enclosed will all be selected.  The <I>Edit Menu</I> selection <I>Group Points for Slope Ratio</I> is then chosen.  A set of fields appear below the selected points.  Clicking on one of these fields causes it to change colour and a value may then be typed in, followed by the "Enter" key.  In the figure, the three part slope ratio has been defined as 1:5:12.  The point values are now set automatically to achieve the desired slope ratios and cannot be changed by entering a new value, except for the first or last point in a series.
+</P>
+
+<P>
+If the fields are too close together, the scheme still works, but some of the slope ratio numbers may be super-imposed, after entry, which is annoying and should be fixed.  The fields should also have separator lines to provide confidence that they have been set up as intended, and to provide a better target for access for initial entry and later editing.
+</I>
+
+
+<P>Additional points can be added to the profile.  Profiles for other parameters and special parameters can be created and edited using the same processes.
+</P>
+
+<P>
+
+
+
+<BR CLEAR=left>
+<SPACER TYPE=vertical SIZE=10>
+
+<A NAME="addrul12.jpg">
+
+<A HREF ="./images/addrul/addrul12.jpg" TARGET="new2"><IMG SRC="./images/addrul/.thumbnails/addrul12.aa.jpg.png" ALIGN=left HSPACE=60 VSPACE=10>
+</A>
+<SPACER TYPE=vertical SIZE=10>
+
+
+<P>
+<A HREF="images/addrul/addrul12.jpg" TARGET="new2"><STRONG>Fig 12:</STRONG> <I>Prototype Manager: existing equation "tetraNineTenth" selected from "Tetraphone Standard" category.  Inspector shows equation and allows it to be altered</I></A><BR>
+</P>
+
+<P>
+In Figure 12, the Prototype Manager shows the <I>Equation</I> categories with <TetraphoneStandard</I> selected and <I>tetraNineTenth</I> selected within that category.  The governing equatiopn shows in the field on the manager, and in the text field in the <I>Equation Inspector</I>.  The equation could be edited.
+</P>
+
+<P>The last category in the list is <I>Affricates</I>.
+
+<BR CLEAR=left>
+<SPACER TYPE=vertical SIZE=10>
+
+<A NAME="addrul11.jpg">
+
+<A HREF ="./images/addrul/addrul13.jpg" TARGET="new2"><IMG SRC="./images/addrul/.thumbnails/addrul13.aa.jpg.png" ALIGN=left HSPACE=60 VSPACE=10>
+</A>
+<SPACER TYPE=vertical SIZE=10>
+
+
+<P>
+<A HREF="images/addrul/addrul13.jpg" TARGET="new2"><STRONG>Fig 13:</STRONG> <I>Prototype Manager: a new category "GnuStandard" has been entered, a new Equation symbol "GnuOne" has been defined/created, and the equation governing the timing this represents has been entered in the Inspector</I></A><BR>
+</P>
+
+<P>In Figure 13, the user has added another category by typing the name "GnuStandard" into the text field of the <I>Equation Manager</I>, clicking the <I>New Category</I> button, typing the equation name "GnuOne into the text field and clicking the <I>New Equation</I> button.  The user then typed the governing equation into the inspector's text field and hit "Enter" (note that the "Set" button does not currently work).  This is all that is required to identify a new equation by a new name in a new category.  The equation can now be selected for use in appropriate places, and edited to modify the defined time.
+</P>
+
+
+<BR CLEAR=left>
+<SPACER TYPE=vertical SIZE=10>
+
+
+
+<HR>
+
+<P><H4>
+Please email any comments or questions about this paper to 
+<A HREF="mailto:david@firethorne.com">
+the author (David Hill)</A>
+</H4>
+</P>
+<P>Page last updated 02-04-10.</P>
+</BODY>
+</HTML>
+
+

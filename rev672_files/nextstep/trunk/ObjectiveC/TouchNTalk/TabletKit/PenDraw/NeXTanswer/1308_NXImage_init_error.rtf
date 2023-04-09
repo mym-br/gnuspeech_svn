@@ -1,0 +1,53 @@
+{\rtf0\ansi{\fonttbl\f2\fswiss Helvetica;}
+\paperw11760
+\paperh7800
+\margl120
+\margr120
+{\colortbl;\red0\green0\blue0;}
+\pard\tx520\tx1060\tx1600\tx2120\tx2660\tx3200\tx3720\tx4260\tx4800\tx5320\f2\b0\i0\ulnone\fs24\li400\fc1\cf1 Q: In my application I am reading in an NXImage. A nil is never returned, even if I read in a bogus file. Is this a bug? Here is my code:\
+\
+id myNXImage = [NXImage alloc];\
+if ([myNXImage initFromFile: "dummyName.tiff"] == nil)\
+\
+/* this is never getting called! */\
+fprintf(stderr,"dummyName.tiff doesn't exist!\\\\n");\
+\
+\
+A: This is not a bug. The 
+\b initFromFile:
+\b0  method is lazy and does not catch 
+\i all
+\i0  the errors that might happen when loading an image. Your application should be prepared to check for errors later on down the line either through delegation or by checking the 
+\b composite:
+\b0  or 
+\b lockFocus
+\b0  return values. If you wish, you can force the image to be rendered immediately:\
+\
+id myNXImage = [[NXImage alloc] initFromFile: filename];\
+if ([myNXImage lockFocus])\
+[image unlockFocus];\
+else\
+fprintf(stderr,"%s doesn't exist\\\\n", filename);\
+\
+Although this behavior might seem confusing it allows for more optimal performance: the image isn't rendered into the cache until it is needed. Rendering a large or complex file can be slow--particularly for a complex EPS file.\
+\
+
+\b Note:
+\b0  Another good approach for determining whether an image can be successfully rendered is the NXImage delegate method 
+\b imageDidNotDraw:inRect:
+\b0  . If you have assigned a delegate for the image and implemented this method, it gets called when compositing fails for whatever reason. See the documentation on NXImage for more information about this method. Also note that this method of delegation may be the only way to catch a drawing error for an image which is being "handed" to the AppKit--an icon on a button, for example.\
+\
+There is a known bug in Release 2 where 
+\b imageDidNotDraw:inRect:
+\b0  fails to be called when encountering an error from within the method 
+\b composite:toPoint:
+\b0  . This bug can be avoided by using the NXImage method 
+\b composite:fromRect:toPoint:
+\b0  . This bug has been fixed in Release 3.\
+\
+\
+QA730\
+\
+Valid for 2.0, 3.0\
+
+}

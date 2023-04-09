@@ -1,0 +1,15 @@
+#!/bin/sh
+#
+#	This script must be run as root after the TextToSpeech Kit
+#	has been installed.
+#
+dwrite TextToSpeech systemPath "/LocalLibrary/TextToSpeech/system"
+dwrite TextToSpeech pitchOffset -4
+
+/usr/bin/open /LocalApps/TextToSpeech/SpeechRegistrar.app
+
+if test `arch` = i386
+then
+	/usr/bin/open /LocalLibrary/Devices/TurtleBeachMS.config
+fi
+

@@ -1,0 +1,29 @@
+before-all::
+	mkdir -p $(GNUSTEP_OBJ_DIR)/Archiving
+	mkdir -p $(GNUSTEP_OBJ_DIR)/Compatibility-TypedStream
+	mkdir -p $(GNUSTEP_OBJ_DIR)/Extensions
+	mkdir -p $(GNUSTEP_OBJ_DIR)/MonetModel
+	mkdir -p $(GNUSTEP_OBJ_DIR)/Parsers/BooleanExpressionParser
+	mkdir -p $(GNUSTEP_OBJ_DIR)/Parsers/LetterToSound
+	mkdir -p $(GNUSTEP_OBJ_DIR)/Parsers/MathematicalExpressionParser
+	mkdir -p $(GNUSTEP_OBJ_DIR)/Parsers/NumberParser
+	mkdir -p $(GNUSTEP_OBJ_DIR)/Parsers/TextParser
+	mkdir -p $(GNUSTEP_OBJ_DIR)/TextProcessing
+	mkdir -p $(GNUSTEP_OBJ_DIR)/Tube
+	mkdir -p include
+	(cd include && $(LN_S) -f ../Archiving/*.h .)
+	(cd include && $(LN_S) -f ../Compatibility-TypedStream/*.h .)
+	(cd include && $(LN_S) -f ../Extensions/*.h .)
+	(cd include && $(LN_S) -f ../MonetModel/*.h .)
+	(cd include && $(LN_S) -f ../Parsers/*.h .)
+	(cd include && $(LN_S) -f ../Parsers/BooleanExpressionParser/*.h .)
+	(cd include && $(LN_S) -f ../Parsers/LetterToSound/*.h .)
+	(cd include && $(LN_S) -f ../Parsers/MathematicalExpressionParser/*.h .)
+	(cd include && $(LN_S) -f ../Parsers/NumberParser/*.h .)
+	(cd include && $(LN_S) -f ../Parsers/TextParser/*.h .)
+	(cd include && $(LN_S) -f ../TextProcessing/*.h .)
+	(cd include && $(LN_S) -f ../Tube/*.h .)
+	(cd include && $(LN_S) -f ../GnuSpeech.h .)
+
+after-clean::
+	rm -rf include

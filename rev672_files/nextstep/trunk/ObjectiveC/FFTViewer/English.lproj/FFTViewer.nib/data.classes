@@ -1,0 +1,61 @@
+FFTScaleView = {
+    ACTIONS = {
+    };
+    OUTLETS = {
+    };
+    SUPERCLASS = View;
+};
+FFTBrain = {
+    ACTIONS = {
+	windowWillClose:;
+	printFFT:;
+    };
+    OUTLETS = {
+	window;
+    };
+    SUPERCLASS = Object;
+};
+FirstResponder = {
+    ACTIONS = {
+	printFFT:;
+    };
+    SUPERCLASS = Object;
+};
+FFTScrollView = {
+    ACTIONS = {
+	fred:;
+	printPSCode:;
+    };
+    OUTLETS = {
+	scaleView;
+    };
+    SUPERCLASS = ScrollView;
+};
+FFT = {
+    ACTIONS = {
+    };
+    OUTLETS = {
+    };
+    SUPERCLASS = Object;
+};
+Brain = {
+    ACTIONS = {
+	loadFFTfile:;
+	newFFT:;
+    };
+    OUTLETS = {
+	newFFT;
+    };
+    SUPERCLASS = Object;
+};
+FFTView = {
+    ACTIONS = {
+	updateBitmap:;
+	theDrawing:;
+	recache:;
+    };
+    OUTLETS = {
+	lr;
+    };
+    SUPERCLASS = View;
+};
